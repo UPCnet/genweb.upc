@@ -31,6 +31,7 @@ setup(name='genweb.upc',
       install_requires=[
           'setuptools',
           'five.grok',
+          'genweb.stack',
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""

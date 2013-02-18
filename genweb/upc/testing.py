@@ -30,7 +30,7 @@ class GenwebUPC(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
-        applyProfile(portal, 'genweb.upc:default')
+        # applyProfile(portal, 'genweb.upc:default')
         applyProfile(portal, 'genweb.upc.tests:testing')
 
     def tearDownZope(self, app):

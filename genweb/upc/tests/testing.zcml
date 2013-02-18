@@ -5,10 +5,13 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="genweb.upc">
 
+  <include package="upc.genweb.banners" />
+  <include package="upc.genweb.logosfooter" />
+
   <genericsetup:registerProfile
       name="testing"
       title="genweb.upc tests"
-      directory="testing"
+      directory="profile"
       description="Steps to ease tests of genweb.upc"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />

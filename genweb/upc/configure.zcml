@@ -12,12 +12,12 @@
 
   <include file="subscribers.zcml" />
 
-  <genericsetup:registerProfile
+<!--   <genericsetup:registerProfile
       name="default"
       title="genweb.upc"
       directory="profiles/default"
       description="Installs the genweb.upc package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+      /> -->
 
 </configure>

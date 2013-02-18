@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>1000</version>
+  <dependencies>
+    <dependency>profile-Products.LinguaPlone:LinguaPlone</dependency>
+    <dependency>profile-upc.genweb.banners:default</dependency>
+    <dependency>profile-upc.genweb.logosfooter:default</dependency>
+</dependencies>
+</metadata>

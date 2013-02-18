@@ -28,16 +28,16 @@ class TestExample(unittest.TestCase):
         self.app = self.layer['app']
         self.portal = self.layer['portal']
         self.request = self.layer['request']
-        self.qi_tool = getToolByName(self.portal, 'portal_quickinstaller')
+        # self.qi_tool = getToolByName(self.portal, 'portal_quickinstaller')
 
-    def test_product_is_installed(self):
-        """ Validate that our products GS profile has been run and the product
-            installed
-        """
-        pid = 'genweb.upc'
-        installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
-        self.assertTrue(pid in installed,
-                        'package appears not to have been installed')
+    # def test_product_is_installed(self):
+    #     """ Validate that our products GS profile has been run and the product
+    #         installed
+    #     """
+    #     pid = 'genweb.upc'
+    #     installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
+    #     self.assertTrue(pid in installed,
+    #                     'package appears not to have been installed')
 
     def testSetupViewAvailable(self):
         portal = self.layer['portal']
@@ -80,3 +80,15 @@ class TestExample(unittest.TestCase):
         setupview.createContent()
         logout()
         self.assertTrue(IHomePage.providedBy(self.portal['benvingut']))
+
+    def testFolderConstrains(self):
+        from genweb.upc.events import CONSTRAINED_TYPES, IMMEDIATELY_ADDABLE_TYPES
+        from zope.event import notify
+        from Products.Archetypes.event import ObjectInitializedEvent
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        login(self.portal, TEST_USER_NAME)
+        self.portal.invokeFactory('Folder', 'userfolder', title=u"Soc una carpeta")
+        folder = self.portal['userfolder']
+        notify(ObjectInitializedEvent(folder))
+        self.assertEqual(sorted(folder.getLocallyAllowedTypes()), sorted(CONSTRAINED_TYPES))
+        self.assertEqual(sorted(folder.getImmediatelyAddableTypes()), sorted(IMMEDIATELY_ADDABLE_TYPES))
