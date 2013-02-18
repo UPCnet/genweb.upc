@@ -5,12 +5,10 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="genweb.upc">
 
-  <include file="configure.zcml" />
-
   <genericsetup:registerProfile
       name="testing"
       title="genweb.upc tests"
-      directory="profiles/testing"
+      directory="testing"
       description="Steps to ease tests of genweb.upc"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />

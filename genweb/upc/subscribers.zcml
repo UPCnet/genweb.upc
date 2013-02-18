@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="genweb.upc">
+
+    <!-- Constrained items for folders -->
+    <class class="plone.app.folder.folder.ATFolder">
+      <implements interface=".interfaces.IConstrainedFolder" />
+    </class>
+
+    <subscriber
+      for="genweb.upc.interfaces.IConstrainedFolder
+           Products.Archetypes.interfaces.IObjectInitializedEvent"
+      handler=".events.folderAdded"
+    />
+
+</configure>
