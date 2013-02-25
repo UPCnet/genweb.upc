@@ -15,7 +15,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="genweb.upc"
+      title="Genweb UPC"
       directory="profiles/default"
       description="Installs the genweb.upc package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
