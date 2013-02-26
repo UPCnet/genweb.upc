@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<portlets>
+  <portlet addview="simpleTask.simpleTaskPortlet" remove="true" />
+  <portlet addview="ploneboard.RecentConversations" remove="true" />
+</portlets>
