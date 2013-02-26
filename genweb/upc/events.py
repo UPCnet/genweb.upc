@@ -7,8 +7,7 @@ IMMEDIATELY_ADDABLE_TYPES = ("Document", "Event", "File", "Folder", "Image",
                              "Window", "packet")
 CONSTRAINED_TYPES = ('Document', 'Event', 'File', 'Folder', 'Image', 'Link',
                      'News Item', 'Collection', 'Collage', 'Survey',
-                     'PlonePopoll', 'Ploneboard', 'simpleTask', 'Meeting',
-                     'Window', 'FormFolder', 'packet')
+                     'PlonePopoll', 'Window', 'FormFolder', 'packet')
 
 
 def folderAdded(folder, event):
