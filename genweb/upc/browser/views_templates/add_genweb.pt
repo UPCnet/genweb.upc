@@ -149,7 +149,7 @@
           <dl id="extension_ids">
             <!-- <input type="hidden" checked="checked" value="genweb.stack:default" name="extension_ids:list"> -->
             <dt>
-              <input type="checkbox" id="genweb.upc:default" value="genweb.upc:default" name="extension_ids:list">
+              <input type="checkbox" checked="checked" id="genweb.upc:default" value="genweb.upc:default" name="extension_ids:list">
               <label for="genweb.upc:default">Genweb UPC</label>
             </dt>
             <dd>Instal·la un espai Genweb UPC genèric.</dd>
