@@ -129,26 +129,29 @@ class setup(grok.View):
 
         # welcome pages
 
-        welcome_string = """<h1>Us donem la benvinguda a Genweb UPC v3</h1>
-<div id="content-core">
-<p> </p>
-<p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" class="image-right" src="logogw.gif" /></a></p>
-<p>A partir d'aquest moment, ja podeu introduir continguts al vostre espai <a href="http://www.upc.edu/comunicacio/www/genweb-upc" target="_blank">Genweb</a>. A més, us oferim l'allotjament del vostre espai, <a href="http://www.upc.edu/comunicacio/www/dominis-upc" target="_blank">un domini upc.edu</a>, estadístiques, formació i suport tècnic.</p>
+        welcome_string = """<h1 class="documentFirstHeading">Benvingut a Genweb UPC v4</p>
+<p class="documentDescription">En aquesta versió hem millorat el disseny i l'experiència i l'hem fet més útil que mai.</p>
+
+<img src="........" class="pull-right" />
+<p>A partir d'ara, ja podeu introduir continguts al vostre espai Genweb. A més, us oferim l'allotjament del vostre espai, un <a .....>domini upc.edu</a>, estadístiques, formació i suport tècnic.</p>
+
 <h2>Abans d'utilitzar Genweb...</h2>
-<p>Consulteu el <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio/genweb3_manualUsuari.pdf" target="_blank">manual d'usuari</a> i els <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">videotutorials de formació</a>.<br /> Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç d'<a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">ajuda</a> que apareix a les opcions d'usuari.</p>
-<h2>Les novetats...</h2>
-<p>El Genweb està a la última, més potent i adaptat<br /><br /></p>
-<ul>
-<li>Una <strong>imatge actualitzada </strong>al nou programari</li>
-<li><strong>TinyMCE</strong> és el nou editor del Genweb</li>
-<li>Edició més flexible:<strong> crea les teves pròpies </strong><strong>plantilles</strong></li>
-<li><strong>Genweb UPC v3 </strong>està desenvolupat amb el gestor de continguts de programari lliure <a href="http://www.plone.org" target="_blank">Plone 4.0</a>, basat en el servidor d'aplicacions Zope.</li>
+<p>Visiteu la <a ......>Comunitat Genweb (->)</a> i els <a ......>Recursos per a editors</a> que posem al vostre abast.</p>
+<p>Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç d'ajuda que apareix a les opcions d'usuari.</p>
+
+<h2>Les novetats</h2>
+<ul class="list">
+<li>Mobilizat</li>
+<li>Redissenyat</li>
+<li>Molt més ràpid</li>
+<li>Més configurable que mai.</li>
+<li>Amb les darreres novetats de Plone 4, Html 5 i CSS3.</li>
 </ul>
-<h2>Participació...</h2>
-<p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, ens ho podeu explicar a la nostra <a href="mailto:servei.comunicacio.promocio@upc.edu">bústia</a>.</p>
-<p> </p>
-<p> </p>
-</div>"""
+<p>Aneu a veure les novetats de la versió al detall!</p>
+
+<h2>Participació</h2>
+<p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, expliqueu-nos-ho a la nostra <a ......>bústia</a>.</p>
+"""
         benvingut = self.crearObjecte(portal, 'benvingut', 'Document', 'Benvingut', '')
         bienvenido = self.crearObjecte(portal, 'bienvenido', 'Document', 'Bienvenido', '')
         welcome = self.crearObjecte(portal, 'welcome', 'Document', 'Welcome', '')
