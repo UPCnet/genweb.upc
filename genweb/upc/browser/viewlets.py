@@ -30,6 +30,7 @@ class notConfiguredForHomes(notConfigured):
     grok.viewletmanager(IAboveContent)
     grok.context(IHomePage)
     grok.template('notconfigured')
+    grok.require('cmf.ManagePortal')
     grok.layer(IGenwebLayer)
 
 
@@ -37,4 +38,5 @@ class notConfiguredForRoots(notConfigured):
     grok.viewletmanager(IAboveContent)
     grok.context(IPloneSiteRoot)
     grok.template('notconfigured')
+    grok.require('cmf.ManagePortal')
     grok.layer(IGenwebLayer)
