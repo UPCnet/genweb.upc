@@ -4,4 +4,15 @@
    i18n:domain="genweb"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Window</property>
+ <alias from="sharing" to="@@sharing"/>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" icon_expr="" link_target=""
+    url_expr="string:${object_url}/properties" visible="False" remove="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Sharing" action_id="local_roles" category="object"
+   condition_expr="" icon_expr="" link_target=""
+   url_expr="string:${object_url}/sharing" visible="False" remove="True">
+   <permission value="Manage properties"/>
+ </action>
 </object>
