@@ -11,7 +11,9 @@
   <grok:grok package=".browser" />
 
   <include package=".browser" />
-  <include file="subscribers.zcml" />
+
+  <!-- Commented constrained folders -->
+  <!-- <include file="subscribers.zcml" /> -->
 
   <genericsetup:registerProfile
       name="default"

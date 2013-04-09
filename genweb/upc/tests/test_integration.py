@@ -81,14 +81,14 @@ class TestExample(unittest.TestCase):
         logout()
         self.assertTrue(IHomePage.providedBy(self.portal['benvingut']))
 
-    def testFolderConstrains(self):
-        from genweb.upc.events import CONSTRAINED_TYPES, IMMEDIATELY_ADDABLE_TYPES
-        from zope.event import notify
-        from Products.Archetypes.event import ObjectInitializedEvent
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        login(self.portal, TEST_USER_NAME)
-        self.portal.invokeFactory('Folder', 'userfolder', title=u"Soc una carpeta")
-        folder = self.portal['userfolder']
-        notify(ObjectInitializedEvent(folder))
-        self.assertEqual(sorted(folder.getLocallyAllowedTypes()), sorted(CONSTRAINED_TYPES))
-        self.assertEqual(sorted(folder.getImmediatelyAddableTypes()), sorted(IMMEDIATELY_ADDABLE_TYPES))
+    # def testFolderConstrains(self):
+    #     from genweb.upc.events import CONSTRAINED_TYPES, IMMEDIATELY_ADDABLE_TYPES
+    #     from zope.event import notify
+    #     from Products.Archetypes.event import ObjectInitializedEvent
+    #     setRoles(self.portal, TEST_USER_ID, ['Manager'])
+    #     login(self.portal, TEST_USER_NAME)
+    #     self.portal.invokeFactory('Folder', 'userfolder', title=u"Soc una carpeta")
+    #     folder = self.portal['userfolder']
+    #     notify(ObjectInitializedEvent(folder))
+    #     self.assertEqual(sorted(folder.getLocallyAllowedTypes()), sorted(CONSTRAINED_TYPES))
+    #     self.assertEqual(sorted(folder.getImmediatelyAddableTypes()), sorted(IMMEDIATELY_ADDABLE_TYPES))
