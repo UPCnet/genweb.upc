@@ -85,7 +85,7 @@ class setup(grok.View):
         # Let's create folders and collections, linked by language, the first language is the canonical one
 
         news = self.crearObjecte(portal, 'news', 'Folder', 'News', 'Site News', constrains=(['News Item'], ['Image']))
-        noticias = self.crearObjecte(portal, 'noticias', 'Folder', 'Notícias', 'Notícias del sitio', constrains=(['News Item'], ['Image']))
+        noticias = self.crearObjecte(portal, 'noticias', 'Folder', 'Noticias', 'Noticias del sitio', constrains=(['News Item'], ['Image']))
         noticies = self.crearObjecte(portal, 'noticies', 'Folder', 'Notícies', 'Notícies del lloc', constrains=(['News Item'], ['Image']))
         self.setLanguageAndLink([(noticies, 'ca'), (noticias, 'es'), (news, 'en')])
 
