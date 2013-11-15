@@ -42,10 +42,10 @@ class FitxaGrau(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = u"Fitxa de grau"
-        self.description = u"Informació sobre un estudi d'un grau específic"
+        self.title = _(u"Fitxa de grau")
+        self.description = _(u"Informació sobre un estudi d'un grau específic")
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi)s&lang=%(lang)s&sense_titol'
-        self.fields = [_(u'codi')]
+        self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
@@ -58,10 +58,10 @@ class PlaEstudisGrau(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = u"Pla d'estudis de grau"
-        self.description = u"Informació sobre el pla d'estudis d'un grau específic"
+        self.title = _(u"Pla d'estudis de grau")
+        self.description = _(u"Informació sobre el pla d'estudis d'un grau específic")
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi)s&lang=%(lang)s&pla_estudis&sense_titol'
-        self.fields = [_(u'codi')]
+        self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
@@ -74,10 +74,10 @@ class FitxaMaster(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = u"Fitxa de màster"
-        self.description = u"Informació sobre un màster específic"
+        self.title = _(u"Fitxa de màster")
+        self.description = _(u"Informació sobre un màster específic")
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_master.php?codi=%(codi)s&lang=%(lang)s&sense_titol'
-        self.fields = [_(u'codi')]
+        self.fields = [_(u'codi_master')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
@@ -90,10 +90,10 @@ class GrupsRecercaDepartament(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = u"Grups de recerca"
-        self.description = u"Grups de recerca d'un departament específic"
+        self.title = _(u"Grups de recerca")
+        self.description = _(u"Grups de recerca d'un departament específic")
         self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatGrupsRecercav1.php?codiupc=%(codi)s&lang=%(lang)s'
-        self.fields = [_(u'codi')]
+        self.fields = [_(u'codi_departament')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
@@ -106,8 +106,8 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = u"Investigadors d'un grup de recerca"
-        self.description = u"Investigadors d'un grup de recerca d'un departament específic"
+        self.title = _(u"Investigadors d'un grup de recerca")
+        self.description = _(u"Investigadors d'un grup de recerca d'un departament específic")
         self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatInvestigadorsGRv1.php?acronim=%(acronim)s&lang=%(lang)s'
         self.fields = [_(u'acronim')]
         self.default = dict([(field, '') for field in self.fields])
