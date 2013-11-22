@@ -44,7 +44,7 @@ class FitxaGrau(BasePacket):
         self.context = context
         self.title = _(u"Fitxa de grau")
         self.description = _(u"Informació sobre un estudi d'un grau específic")
-        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi)s&lang=%(lang)s&sense_titol'
+        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
@@ -60,7 +60,7 @@ class PlaEstudisGrau(BasePacket):
         self.context = context
         self.title = _(u"Pla d'estudis de grau")
         self.description = _(u"Informació sobre el pla d'estudis d'un grau específic")
-        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi)s&lang=%(lang)s&pla_estudis&sense_titol'
+        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&pla_estudis&sense_titol'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
@@ -76,7 +76,7 @@ class FitxaMaster(BasePacket):
         self.context = context
         self.title = _(u"Fitxa de màster")
         self.description = _(u"Informació sobre un màster específic")
-        self.URL_schema = 'http://www.upc.edu/grau/fitxa_master.php?codi=%(codi)s&lang=%(lang)s&sense_titol'
+        self.URL_schema = 'http://www.upc.edu/grau/fitxa_master.php?codi=%(codi_master)s&lang=%(lang)s&sense_titol'
         self.fields = [_(u'codi_master')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
@@ -92,7 +92,7 @@ class GrupsRecercaDepartament(BasePacket):
         self.context = context
         self.title = _(u"Grups de recerca")
         self.description = _(u"Grups de recerca d'un departament específic")
-        self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatGrupsRecercav1.php?codiupc=%(codi)s&lang=%(lang)s'
+        self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatGrupsRecercav1.php?codiupc=%(codi_departament)s&lang=%(lang)s'
         self.fields = [_(u'codi_departament')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
