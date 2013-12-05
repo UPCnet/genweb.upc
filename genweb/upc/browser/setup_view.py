@@ -14,6 +14,7 @@ from Products.CMFPlone.utils import _createObjectByType
 from plone.app.controlpanel.mail import IMailSchema
 
 from genweb.core.interfaces import IHomePage
+from genweb.core.interfaces import IProtectedContent
 from genweb.core.browser.plantilles import get_plantilles
 
 grok.templatedir('views_templates')
@@ -188,6 +189,25 @@ class setup(grok.View):
         for plt in get_plantilles():
             plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
             plantilla.setText(plt['cos'], mimetype="text/html")
+
+        # Mark all protected content with the protected marker interface
+        alsoProvides(benvingut, IProtectedContent)
+        alsoProvides(bienvenido, IProtectedContent)
+        alsoProvides(welcome, IProtectedContent)
+        alsoProvides(noticies, IProtectedContent)
+        alsoProvides(noticias, IProtectedContent)
+        alsoProvides(news, IProtectedContent)
+        alsoProvides(esdeveniments, IProtectedContent)
+        alsoProvides(eventos, IProtectedContent)
+        alsoProvides(events, IProtectedContent)
+        alsoProvides(banners_ca, IProtectedContent)
+        alsoProvides(banners_en, IProtectedContent)
+        alsoProvides(banners_es, IProtectedContent)
+        alsoProvides(templates, IProtectedContent)
+        alsoProvides(plantilles, IProtectedContent)
+        alsoProvides(logosfooter_ca, IProtectedContent)
+        alsoProvides(logosfooter_es, IProtectedContent)
+        alsoProvides(logosfooter_en, IProtectedContent)
 
         return True
 
