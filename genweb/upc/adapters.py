@@ -71,12 +71,12 @@ class PlaEstudisGrau(BasePacket):
 class FitxaMaster(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
-
+    # http://www.upc.edu/master/fitxa_master.php?id_estudi=19&lang=ca
     def __init__(self, context):
         self.context = context
         self.title = _(u"Fitxa de màster")
         self.description = _(u"Informació sobre un màster específic")
-        self.URL_schema = 'http://www.upc.edu/grau/fitxa_master.php?codi=%(codi_master)s&lang=%(lang)s&sense_titol'
+        self.URL_schema = 'http://www.upc.edu/master/fitxa_master.php?id_estudi=%(codi_master)s&lang=%(lang)s&sense_titol'
         self.fields = [_(u'codi_master')]
         self.default = dict([(field, '') for field in self.fields])
         annotations = IAnnotations(context)
