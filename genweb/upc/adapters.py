@@ -58,7 +58,7 @@ class PlaEstudisGrau(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = _(u"Pla d'estudis de grau")
+        self.title = _(u"Pla d'estudi de grau")
         self.description = _(u"Informació sobre el pla d'estudis d'un grau específic")
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&pla_estudis&sense_titol'
         self.fields = [_(u'codi_grau')]
