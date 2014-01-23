@@ -41,6 +41,12 @@
     name="grups_recerca_people"
     />
 
+  <genericsetup:importStep
+    name="genweb.upc.setupstep"
+    title="genweb.upc special import handlers"
+    description=""
+    handler="genweb.upc.setuphandlers.setupVarious" />
+
   <genericsetup:registerProfile
       name="default"
       title="Genweb UPC"
