@@ -5,40 +5,16 @@ from zope.component import adapts
 from zope.annotation.interfaces import IAnnotations
 
 from genweb.packets.interfaces import Ipacket, IpacketDefinition
+from genweb.packets.base import BasePacket
 from genweb.packets import PACKETS_KEY
 from genweb.packets import packetsMessageFactory as _
-
-
-class BasePacket(object):
-    """ The default packet boilerplate """
-    def get_packet_fields(self):
-        annotations = IAnnotations(self.context)
-        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        return self._packet_fields
-
-    def set_packet_fields(self, value):
-        annotations = IAnnotations(self.context)
-        annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        annotations[PACKETS_KEY + '.fields'] = value
-
-    packet_fields = property(get_packet_fields, set_packet_fields)
-
-    def get_packet_type(self):
-        annotations = IAnnotations(self.context)
-        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
-        return self._type
-
-    def set_packet_type(self, value):
-        annotations = IAnnotations(self.context)
-        annotations.setdefault(PACKETS_KEY + '.type', '')
-        annotations[PACKETS_KEY + '.type'] = value
-
-    packet_type = property(get_packet_type, set_packet_type)
 
 
 class FitxaGrau(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
+
+    order = 1
 
     def __init__(self, context):
         self.context = context
@@ -50,11 +26,14 @@ class FitxaGrau(BasePacket):
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
         self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
+        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_grau'))
 
 
 class PlaEstudisGrau(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
+
+    order = 2
 
     def __init__(self, context):
         self.context = context
@@ -71,6 +50,9 @@ class PlaEstudisGrau(BasePacket):
 class FitxaMaster(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
+
+    order = 3
+
     # http://www.upc.edu/master/fitxa_master.php?id_estudi=19&lang=ca
     def __init__(self, context):
         self.context = context
@@ -88,6 +70,8 @@ class GrupsRecercaDepartament(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
 
+    order = 4
+
     def __init__(self, context):
         self.context = context
         self.title = _(u"Grups de recerca")
@@ -103,6 +87,8 @@ class GrupsRecercaDepartament(BasePacket):
 class InvestigadorsGrupRecercaDepartament(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
+
+    order = 5
 
     def __init__(self, context):
         self.context = context
