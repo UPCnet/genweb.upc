@@ -23,10 +23,7 @@ class FitxaGrau(BasePacket):
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
-        annotations = IAnnotations(context)
-        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
-        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_grau'))
+        self.mapui = dict(codi=u'codi_grau')
 
 
 class PlaEstudisGrau(BasePacket):
@@ -42,10 +39,7 @@ class PlaEstudisGrau(BasePacket):
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&pla_estudis&sense_titol'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
-        annotations = IAnnotations(context)
-        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
-        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_grau'))        
+        self.mapui = dict(codi=u'codi_grau')
 
 
 class FitxaMaster(BasePacket):
@@ -63,10 +57,7 @@ class FitxaMaster(BasePacket):
         self.URL_schema = 'http://www.upc.edu/master/fitxa_master.php?id_estudi=%(codi_master)s&lang=%(lang)s&sense_titol'
         self.fields = [_(u'codi_master')]
         self.default = dict([(field, '') for field in self.fields])
-        annotations = IAnnotations(context)
-        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
-        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_master'))
+        self.mapui = dict(codi=u'codi_master')
 
 
 class GrupsRecercaDepartament(BasePacket):
@@ -82,10 +73,7 @@ class GrupsRecercaDepartament(BasePacket):
         self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatGrupsRecercav1.php?codiupc=%(codi_departament)s&lang=%(lang)s'
         self.fields = [_(u'codi_departament')]
         self.default = dict([(field, '') for field in self.fields])
-        annotations = IAnnotations(context)
-        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
-        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_departament'))        
+        self.mapui = dict(codi=u'codi_departament')
 
 
 class InvestigadorsGrupRecercaDepartament(BasePacket):
@@ -101,7 +89,4 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
         self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatInvestigadorsGRv1.php?acronim=%(acronim)s&lang=%(lang)s'
         self.fields = [_(u'acronim')]
         self.default = dict([(field, '') for field in self.fields])
-        annotations = IAnnotations(context)
-        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
-        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
-        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'acronim'))        
+        self.mapui = dict(codi=u'acronim')
