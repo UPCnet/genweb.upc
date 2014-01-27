@@ -45,6 +45,7 @@ class PlaEstudisGrau(BasePacket):
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
         self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
+        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_grau'))        
 
 
 class FitxaMaster(BasePacket):
@@ -56,6 +57,7 @@ class FitxaMaster(BasePacket):
     # http://www.upc.edu/master/fitxa_master.php?id_estudi=19&lang=ca
     def __init__(self, context):
         self.context = context
+
         self.title = _(u"Fitxa de màster")
         self.description = _(u"Informació sobre un màster específic")
         self.URL_schema = 'http://www.upc.edu/master/fitxa_master.php?id_estudi=%(codi_master)s&lang=%(lang)s&sense_titol'
@@ -64,6 +66,7 @@ class FitxaMaster(BasePacket):
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
         self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
+        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_master'))
 
 
 class GrupsRecercaDepartament(BasePacket):
@@ -82,6 +85,7 @@ class GrupsRecercaDepartament(BasePacket):
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
         self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
+        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'codi_departament'))        
 
 
 class InvestigadorsGrupRecercaDepartament(BasePacket):
@@ -100,3 +104,4 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
         annotations = IAnnotations(context)
         self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
         self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
+        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', PersistentDict(codi=u'acronim'))        
