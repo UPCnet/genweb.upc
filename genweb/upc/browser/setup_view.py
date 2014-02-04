@@ -89,15 +89,18 @@ class setup(grok.View):
         noticias = self.crearObjecte(portal, 'noticias', 'Folder', 'Noticias', 'Noticias del sitio', constrains=(['News Item'], ['Image']))
         noticies = self.crearObjecte(portal, 'noticies', 'Folder', 'Notícies', 'Notícies del lloc', constrains=(['News Item'], ['Image']))
         self.setLanguageAndLink([(noticies, 'ca'), (noticias, 'es'), (news, 'en')])
+        news.setLayout('newscollection_view')
+        noticies.setLayout('newscollection_view')
+        noticias.setLayout('newscollection_view')
 
-        self.addCollection(news, 'aggregator', 'News', 'Site News', 'News Item')
-        self.addCollection(noticias, 'aggregator', 'Notícias', 'Notícias del sitio', 'News Item')
-        self.addCollection(noticies, 'aggregator', 'Notícies', 'Notícies del lloc', 'News Item')
-        self.setLanguageAndLink([(noticies.aggregator, 'ca'), (noticias.aggregator, 'es'), (news.aggregator, 'en')])
+        # self.addCollection(news, 'aggregator', 'News', 'Site News', 'News Item')
+        # self.addCollection(noticias, 'aggregator', 'Notícias', 'Notícias del sitio', 'News Item')
+        # self.addCollection(noticies, 'aggregator', 'Notícies', 'Notícies del lloc', 'News Item')
+        # self.setLanguageAndLink([(noticies.aggregator, 'ca'), (noticias.aggregator, 'es'), (news.aggregator, 'en')])
 
-        noticies.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        noticias.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        news.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
+        # noticies.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
+        # noticias.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
+        # news.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
 
         events = self.crearObjecte(portal, 'events', 'Folder', 'Events', 'Site Events', constrains=(['Event', 'Meeting'], ['Image']))
         eventos = self.crearObjecte(portal, 'eventos', 'Folder', 'Eventos', 'Eventos del sitio', constrains=(['Event', 'Meeting'], ['Image']))
@@ -311,7 +314,6 @@ class setup(grok.View):
         criteri_ordenacio.setReversed(True)
 
         # Posar la vista per defecte de la pàgina principal a la collection que acavem de crear
-
         if setDefault:
             context.setDefaultPage(id)
         return
