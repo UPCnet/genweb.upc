@@ -129,29 +129,14 @@ class setup(grok.View):
         self.setLanguageAndLink([(logosfooter_ca, 'ca'), (logosfooter_es, 'es'), (logosfooter_en, 'en')])
 
         # welcome pages
-
-        welcome_string = """<h1 class="documentFirstHeading">Benvingut a Genweb UPC v4</p>
-<p class="documentDescription">En aquesta versió hem millorat el disseny i l'experiència i l'hem fet més útil que mai.</p>
-
-<img src="........" class="pull-right" />
-<p>A partir d'ara, ja podeu introduir continguts al vostre espai Genweb. A més, us oferim l'allotjament del vostre espai, un <a .....>domini upc.edu</a>, estadístiques, formació i suport tècnic.</p>
+        welcome_string = """<h1 class="documentFirstHeading">Us donem la benvinguda a Genweb UPC v4, el genweb "mobilitzat"!</p>
+<p>Aquesta versió incorpora millores en el disseny i la flexibilitat, s’ha adaptat als dispositius mòbils i s’hi han inclòs moltes de les vostres demandes. Les voleu conèixer en detall?<br/><br/>I a partir d'ara, ja podreu introduir els continguts.</p>
 
 <h2>Abans d'utilitzar Genweb...</h2>
-<p>Visiteu la <a ......>Comunitat Genweb (->)</a> i els <a ......>Recursos per a editors</a> que posem al vostre abast.</p>
-<p>Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç d'ajuda que apareix a les opcions d'usuari.</p>
+<p>Aneu a Comunitat Genweb, conegueu les darreres novetats amb Genweb Tour, consulteu la Guia ràpida i els Exemples pràctics, i informeu-vos dels Recursos d’edició i de tota la documentació i ajuts que teniu a la vostra disposició.</p>
 
-<h2>Les novetats</h2>
-<ul class="list">
-<li>Mobilizat</li>
-<li>Redissenyat</li>
-<li>Molt més ràpid</li>
-<li>Més configurable que mai.</li>
-<li>Amb les darreres novetats de Plone 4, Html 5 i CSS3.</li>
-</ul>
-<p>Aneu a veure les novetats de la versió al detall!</p>
-
-<h2>Participació</h2>
-<p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, expliqueu-nos-ho a la nostra <a ......>bústia</a>.</p>
+<h2>I quan el tingueu llest...</h2>
+<p>Podreu disposar d’allotjament per al web, d’un domini upc.edu, d’estadístiques d’accés, de formació i de suport tècnic.</p>
 """
         benvingut = self.crearObjecte(portal, 'benvingut', 'Document', 'Benvingut', '')
         bienvenido = self.crearObjecte(portal, 'bienvenido', 'Document', 'Bienvenido', '')
