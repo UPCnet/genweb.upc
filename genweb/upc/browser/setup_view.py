@@ -172,7 +172,10 @@ class setup(grok.View):
         templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document'], ['']))
         plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
         pw = getToolByName(portal, "portal_workflow")
-        pw.doActionFor(templates, "restrict")
+        try:
+            pw.doActionFor(templates, "restrict")
+        except:
+            None
 
         for plt in get_plantilles():
             plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
