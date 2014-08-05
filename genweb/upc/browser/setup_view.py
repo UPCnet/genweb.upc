@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from five import grok
+from plone import api
 from cgi import parse_qs
 from Acquisition import aq_parent
 from zope.interface import alsoProvides
@@ -11,7 +12,12 @@ from Products.CMFPlone.utils import normalizeString
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.CMFPlone.utils import _createObjectByType
 
+from plone.app.contenttypes.behaviors.richtext import IRichText
+from plone.dexterity.utils import createContentInContainer
+
 from plone.app.controlpanel.mail import IMailSchema
+from plone.app.multilingual.browser.setup import SetupMultilingualSite
+from plone.multilingual.interfaces import ITranslationManager
 
 from genweb.core.interfaces import IHomePage
 from genweb.core.interfaces import IProtectedContent
@@ -29,16 +35,14 @@ class setup(grok.View):
     # index = ViewPageTemplateFile('setup_view.pt')
 
     def update(self):
-        base_url = "%s/@@setup-view" % str(
-                       getMultiAdapter((self.context, self.request),
-                       name='absolute_url')
-                   )
+        base_url = "%s/@@setup-view" % str(getMultiAdapter((self.context, self.request), name='absolute_url'))
         qs = self.request.get('QUERY_STRING', None)
         if qs is not None:
             query = parse_qs(qs)
             if 'create' in query:
                 for name in query['create']:
                     if name == 'all':
+                        self.setup_multilingual()
                         self.createContent()
                         self.request.response.redirect(base_url)
 
@@ -52,7 +56,7 @@ class setup(grok.View):
                    ('Plantilles', ['plantilles', ]),
                    ]
         result = []
-        portal = getToolByName(self, 'portal_url').getPortalObject()
+        portal = api.portal.get()
         for o in objects:
             tr = [o[0]]
             for td in o[1]:
@@ -60,79 +64,98 @@ class setup(grok.View):
             result.append(tr)
         return result
 
+    def setup_multilingual(self):
+        portal = api.portal.get()
+
+        setupTool = SetupMultilingualSite()
+        setupTool.setupSite(self.context, False)
+
+        # Move 'news' and 'events' folders to its place on EN tree
+        if getattr(portal, 'news', False):
+            api.content.move(portal['news'], portal['en'])
+        if getattr(portal, 'events', False):
+            api.content.move(portal['events'], portal['en'])
+
     def createContent(self):
         """ Method that creates all the default content """
+        portal = api.portal.get()
+        portal_ca = portal['ca']
+        portal_en = portal['en']
+        portal_es = portal['es']
 
         # Let's configure mail
-        portal = getToolByName(self, 'portal_url').getPortalObject()
         mail = IMailSchema(portal)
         mail.smtp_host = u'localhost'
         mail.email_from_name = "Administrador del Genweb"
         mail.email_from_address = "noreply@upc.edu"
 
-        if getattr(portal, 'front-page', False):
-            portal.manage_delObjects('front-page')
-        if getattr(portal, 'news', False):
-            if not self.getObjectStatus(portal.news):
-                portal.manage_delObjects('news')
-        if getattr(portal, 'events', False):
-            if not self.getObjectStatus(portal.events):
-                portal.manage_delObjects('events')
-        if getattr(portal, 'Members', False):
-            portal['Members'].setExcludeFromNav(True)
-            portal['Members'].reindexObject()
-            portal['Members'].setLanguage('en')
+#         if getattr(portal, 'front-page', False):
+#             portal.manage_delObjects('front-page')
+#         if getattr(portal, 'news', False):
+#             if not self.getObjectStatus(portal.news):
+#                 portal.manage_delObjects('news')
+#         if getattr(portal, 'events', False):
+#             if not self.getObjectStatus(portal.events):
+#                 portal.manage_delObjects('events')
+#         if getattr(portal, 'Members', False):
+#             portal['Members'].setExcludeFromNav(True)
+#             portal['Members'].reindexObject()
+#             portal['Members'].setLanguage('en')
 
         # Let's create folders and collections, linked by language, the first language is the canonical one
 
-        news = self.crearObjecte(portal, 'news', 'Folder', 'News', 'Site News', constrains=(['News Item'], ['Image']))
-        noticias = self.crearObjecte(portal, 'noticias', 'Folder', 'Noticias', 'Noticias del sitio', constrains=(['News Item'], ['Image']))
-        noticies = self.crearObjecte(portal, 'noticies', 'Folder', 'Notícies', 'Notícies del lloc', constrains=(['News Item'], ['Image']))
-        self.setLanguageAndLink([(noticies, 'ca'), (noticias, 'es'), (news, 'en')])
-        news.setLayout('newscollection_view')
-        noticies.setLayout('newscollection_view')
-        noticias.setLayout('newscollection_view')
+        # Setup portal news folder
+        news = portal_en['news']
+        noticias = self.create_content(portal_es, 'Folder', 'noticias', title='Notícias', description=u'Notícias del sitio')
+        noticies = self.create_content(portal_ca, 'Folder', 'noticies', title='Notícies', description=u'Notícies del lloc')
+        self.link_translations([(news, 'en'), (noticias, 'es'), (noticies, 'ca')])
 
-        # self.addCollection(news, 'aggregator', 'News', 'Site News', 'News Item')
-        # self.addCollection(noticias, 'aggregator', 'Notícias', 'Notícias del sitio', 'News Item')
-        # self.addCollection(noticies, 'aggregator', 'Notícies', 'Notícies del lloc', 'News Item')
-        # self.setLanguageAndLink([(noticies.aggregator, 'ca'), (noticias.aggregator, 'es'), (news.aggregator, 'en')])
+        col_news = news['aggregator']
+        col_noticias = self.create_content(noticias, 'Collection', 'aggregator', title='aggregator', description=u'Notícias del sitio')
+        col_noticias.title = 'Notícias'
+        self.clone_collection_settings(col_news, col_noticias)
 
-        # noticies.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        # noticias.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        # news.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
+        col_noticies = self.create_content(noticies, 'Collection', 'aggregator', title='aggregator', description=u'Notícies del lloc')
+        col_noticies.title = 'Notícies'
+        self.clone_collection_settings(col_news, col_noticies)
+        self.link_translations([(col_news, 'en'), (col_noticias, 'es'), (col_noticies, 'ca')])
 
-        events = self.crearObjecte(portal, 'events', 'Folder', 'Events', 'Site Events', constrains=(['Event', 'Meeting'], ['Image']))
-        eventos = self.crearObjecte(portal, 'eventos', 'Folder', 'Eventos', 'Eventos del sitio', constrains=(['Event', 'Meeting'], ['Image']))
-        esdeveniments = self.crearObjecte(portal, 'esdeveniments', 'Folder', 'Esdeveniments', 'Esdeveniments del lloc', constrains=(['Event', 'Meeting'], ['Image']))
-        self.setLanguageAndLink([(esdeveniments, 'ca'), (eventos, 'es'), (events, 'en')])
+        # Setup portal events folder
+        events = portal_en['events']
+        eventos = self.create_content(portal_es, 'Folder', 'eventos', title='Eventos', description=u'Eventos del sitio')
+        esdeveniments = self.create_content(portal_ca, 'Folder', 'esdeveniments', title='Esdeveniments', description=u'Esdeveniments del lloc')
+        self.link_translations([(events, 'en'), (eventos, 'es'), (esdeveniments, 'ca')])
 
-        self.addCollection(events, 'aggregator', 'Events', 'Site Events', ('Event', 'Meeting'), date_filter=True)
-        self.addCollection(eventos, 'aggregator', 'Eventos', 'Eventos del sitio', ('Event', 'Meeting'), date_filter=True)
-        self.addCollection(esdeveniments, 'aggregator', 'Esdeveniments', 'Esdeveniments del lloc', ('Event', 'Meeting'), date_filter=True)
-        self.setLanguageAndLink([(esdeveniments.aggregator, 'ca'), (eventos.aggregator, 'es'), (events.aggregator, 'en')])
+        col_events = events['aggregator']
+        col_eventos = self.create_content(eventos, 'Collection', 'aggregator', title='aggregator', description=u'Eventos del sitio')
+        col_eventos.title = 'Eventos'
+        self.clone_collection_settings(col_events, col_eventos)
 
-        esdeveniments.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        eventos.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        events.aggregator.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
+        col_esdeveniments = self.create_content(esdeveniments, 'Collection', 'aggregator', title='aggregator', description=u'Esdeveniments del lloc')
+        col_esdeveniments.title = 'Esdeveniments'
+        self.clone_collection_settings(col_news, col_esdeveniments)
+        self.link_translations([(col_events, 'en'), (col_eventos, 'es'), (col_esdeveniments, 'ca')])
 
-        self.addCollection(events.aggregator, 'previous', 'Past Events', 'Events which have already happened. ', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
-        self.addCollection(eventos.aggregator, 'anteriores', 'Eventos pasados', 'Eventos del sitio que ya han sucedido', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
-        self.addCollection(esdeveniments.aggregator, 'anteriors', 'Esdeveniments passats', 'Esdeveniments del lloc que ja han passat', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
-        self.setLanguageAndLink([(esdeveniments.aggregator.anteriors, 'ca'), (eventos.aggregator.anteriores, 'es'), (events.aggregator.previous, 'en')])
+#         self.addCollection(events.aggregator, 'previous', 'Past Events', 'Events which have already happened. ', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
+#         self.addCollection(eventos.aggregator, 'anteriores', 'Eventos pasados', 'Eventos del sitio que ya han sucedido', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
+#         self.addCollection(esdeveniments.aggregator, 'anteriors', 'Esdeveniments passats', 'Esdeveniments del lloc que ja han passat', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
+#         self.setLanguageAndLink([(esdeveniments.aggregator.anteriors, 'ca'), (eventos.aggregator.anteriores, 'es'), (events.aggregator.previous, 'en')])
 
-        banners_en = self.crearObjecte(portal, 'banners-en', 'BannerContainer', 'Banners', 'English Banners')
-        banners_es = self.crearObjecte(portal, 'banners-es', 'BannerContainer', 'Banners', 'Banners en Español')
-        banners_ca = self.crearObjecte(portal, 'banners-ca', 'BannerContainer', 'Banners', 'Banners en Català')
-        self.setLanguageAndLink([(banners_ca, 'ca'), (banners_es, 'es'), (banners_en, 'en')])
+        banners_en = self.create_content(portal_en, 'BannerContainer', 'banners-en', title='banners-en', description=u'English Banners')
+        banners_en.title = 'Banners'
+        banners_es = self.create_content(portal_es, 'BannerContainer', 'banners-es', title='banners-es', description=u'Banners en Español')
+        banners_es.title = 'Banners'
+        banners_ca = self.create_content(portal_ca, 'BannerContainer', 'banners-ca', title='banners-ca', description=u'Banners en Català')
+        banners_ca.title = 'Banners'
+        self.link_translations([(banners_ca, 'ca'), (banners_es, 'es'), (banners_en, 'en')])
 
-        logosfooter_en = self.crearObjecte(portal, 'logosfooter-en', 'Logos_Container', 'Footer Logos', 'English footer logos')
-        logosfooter_es = self.crearObjecte(portal, 'logosfooter-es', 'Logos_Container', 'Logos pie', 'Logos en español del pie de página')
-        logosfooter_ca = self.crearObjecte(portal, 'logosfooter-ca', 'Logos_Container', 'Logos peu', 'Logos en català del peu de pàgina')
-        self.setLanguageAndLink([(logosfooter_ca, 'ca'), (logosfooter_es, 'es'), (logosfooter_en, 'en')])
+#         logosfooter_en = self.crearObjecte(portal, 'logosfooter-en', 'Logos_Container', 'Footer Logos', 'English footer logos')
+#         logosfooter_es = self.crearObjecte(portal, 'logosfooter-es', 'Logos_Container', 'Logos pie', 'Logos en español del pie de página')
+#         logosfooter_ca = self.crearObjecte(portal, 'logosfooter-ca', 'Logos_Container', 'Logos peu', 'Logos en català del peu de pàgina')
+#         self.setLanguageAndLink([(logosfooter_ca, 'ca'), (logosfooter_es, 'es'), (logosfooter_en, 'en')])
 
         # welcome pages
-        welcome_string = """<h1 class="documentFirstHeading">Us donem la benvinguda a Genweb UPC v4, el genweb "mobilitzat"!</p>
+        welcome_string = u"""<h1 class="documentFirstHeading">Us donem la benvinguda a Genweb UPC v4, el genweb "mobilitzat"!</p>
 <p>Aquesta versió incorpora millores en el disseny i la flexibilitat, s’ha adaptat als dispositius mòbils i s’hi han inclòs moltes de les vostres demandes. Les voleu conèixer en detall?<br/><br/>I a partir d'ara, ja podreu introduir els continguts.</p>
 
 <h2>Abans d'utilitzar Genweb...</h2>
@@ -141,19 +164,16 @@ class setup(grok.View):
 <h2>I quan el tingueu llest...</h2>
 <p>Podreu disposar d’allotjament per al web, d’un domini upc.edu, d’estadístiques d’accés, de formació i de suport tècnic.</p>
 """
-        benvingut = self.crearObjecte(portal, 'benvingut', 'Document', 'Benvingut', '')
-        bienvenido = self.crearObjecte(portal, 'bienvenido', 'Document', 'Bienvenido', '')
-        welcome = self.crearObjecte(portal, 'welcome', 'Document', 'Welcome', '')
 
-        benvingut.setText(welcome_string, mimetype='text/html')
-        bienvenido.setText(welcome_string, mimetype='text/html')
-        welcome.setText(welcome_string, mimetype='text/html')
+        welcome = self.create_content(portal_en, 'Document', 'welcome', title='Welcome')
+        bienvenido = self.create_content(portal_es, 'Document', 'bienvenido', title='Bienvenido')
+        benvingut = self.create_content(portal_ca, 'Document', 'benvingut', title='Benvingut')
 
-        benvingut.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        bienvenido.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
-        welcome.manage_permission(permissions.DeleteObjects, roles=["Manager"], acquire=False)
+        welcome.text = IRichText['text'].fromUnicode(welcome_string)
+        bienvenido.text = IRichText['text'].fromUnicode(welcome_string)
+        benvingut.text = IRichText['text'].fromUnicode(welcome_string)
 
-        self.setLanguageAndLink([(benvingut, 'ca'), (bienvenido, 'es'), (welcome, 'en')])
+        self.link_translations([(benvingut, 'ca'), (bienvenido, 'es'), (welcome, 'en')])
 
         # Mark all homes with IHomePage marker interface
         alsoProvides(benvingut, IHomePage)
@@ -165,21 +185,23 @@ class setup(grok.View):
         bienvenido.reindexObject()
         welcome.reindexObject()
 
-        # Set the default page to the homepage view
-        portal.setDefaultPage('homepage')
+        # Set the default pages to the homepage view
+        portal_en.setLayout('homepage')
+        portal_es.setLayout('homepage')
+        portal_ca.setLayout('homepage')
 
-        # Templates TinyMCE
-        templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document'], ['']))
-        plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
-        pw = getToolByName(portal, "portal_workflow")
-        try:
-            pw.doActionFor(templates, "restrict")
-        except:
-            None
+#         # Templates TinyMCE
+#         templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document'], ['']))
+#         plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
+#         pw = getToolByName(portal, "portal_workflow")
+#         try:
+#             pw.doActionFor(templates, "restrict")
+#         except:
+#             None
 
-        for plt in get_plantilles():
-            plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
-            plantilla.setText(plt['cos'], mimetype="text/html")
+#         for plt in get_plantilles():
+#             plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
+#             plantilla.setText(plt['cos'], mimetype="text/html")
 
         # Mark all protected content with the protected marker interface
         alsoProvides(benvingut, IProtectedContent)
@@ -194,20 +216,46 @@ class setup(grok.View):
         alsoProvides(banners_ca, IProtectedContent)
         alsoProvides(banners_en, IProtectedContent)
         alsoProvides(banners_es, IProtectedContent)
-        alsoProvides(templates, IProtectedContent)
-        alsoProvides(plantilles, IProtectedContent)
-        alsoProvides(logosfooter_ca, IProtectedContent)
-        alsoProvides(logosfooter_es, IProtectedContent)
-        alsoProvides(logosfooter_en, IProtectedContent)
+        # alsoProvides(templates, IProtectedContent)
+        # alsoProvides(plantilles, IProtectedContent)
+        # alsoProvides(logosfooter_ca, IProtectedContent)
+        # alsoProvides(logosfooter_es, IProtectedContent)
+        # alsoProvides(logosfooter_en, IProtectedContent)
 
         return True
 
-    def setLanguageAndLink(self, items):
-        canonical, canonical_lang = items[0]
-        for item, language in items:
-            item.setLanguage(language)
-            if item != canonical and canonical_lang not in item.getTranslations().keys():
-                item.addTranslationReference(canonical)
+    def create_content(self, container, portal_type, id, **kwargs):
+        if not getattr(container, id, False):
+            obj = createContentInContainer(container, portal_type, checkConstraints=False, **kwargs)
+
+        return getattr(container, id)
+
+    def link_translations(self, items):
+        """
+            Links the translations with the declared items with the form:
+            [(obj1, lang1), (obj2, lang2), ...] assuming that the first element
+            is the 'canonical' (in PAM there is no such thing).
+        """
+        # Grab the first item object and get its canonical handler
+        canonical = ITranslationManager(items[0][0])
+
+        for obj, language in items:
+            if not canonical.has_translation(language):
+                canonical.register_translation(language, obj)
+
+    def clone_collection_settings(self, origin, target):
+        if getattr(origin, 'query', False):
+            target.query = origin.query
+        if getattr(origin, 'sort_on', False):
+            target.sort_on = origin.sort_on
+        if getattr(origin, 'sort_reversed', False):
+            target.sort_reversed = origin.sort_reversed
+        if getattr(origin, 'limit', False):
+            target.limit = origin.limit
+        if getattr(origin, 'item_count', False):
+            target.item_count = origin.item_count
+        if getattr(origin, 'customViewFields', False):
+            target.customViewFields = origin.customViewFields
 
     def getObjectStatus(self, context):
         pw = getToolByName(context, "portal_workflow")
@@ -225,7 +273,7 @@ class setup(grok.View):
             except:
                 pass
 
-    def crearObjecte(self, context, id, type_name, title, description, exclude=True, constrains=None):
+    def create_object(self, context, id, type_name, title, description, exclude=True, constrains=None):
         pt = getToolByName(context, 'portal_types')
         if not getattr(context, id, False) and type_name in pt.listTypeTitles().keys():
             #creem l'objecte i el publiquem
@@ -247,61 +295,3 @@ class setup(grok.View):
 
         created.reindexObject()
         return created
-
-    def addCollection(self, context, id, title, description, type_filter, state_filter=None, day=0, dateRange=u'+', operation=u'more', setDefault=True, path='father', date_filter=False):
-
-        topic = self.crearObjecte(context, id, 'Topic', title, description, False)
-
-        # Activem el limit i el posem a 10 notícies
-        topic.setLimitNumber(True)
-        topic.setItemCount(10)
-
-        #Ara afegim els criteris, si no hi son
-        criteris = [('Type', 'ATPortalTypeCriterion'),
-            ('path', 'ATPathCriterion'),
-            ('modified', 'ATSortCriterion')]
-        if date_filter:
-            criteris.append(('start', 'ATFriendlyDateCriteria'))
-        if state_filter:
-            criteris.append(('review_state', 'ATSimpleStringCriterion'))
-
-        for crit in criteris:
-            if not 'crit__%s_%s' % (crit[0], crit[1]) in topic.keys():
-                topic.addCriterion(crit[0], crit[1])
-
-        # Criteri tipus
-        criteri_tipus = topic['crit__Type_ATPortalTypeCriterion']
-        criteri_tipus.setValue((type_filter))
-
-        #TOREVIEW
-        #criteri_tipus.setOperator('and')
-
-        # criteri estat
-        if state_filter:
-            criteri_estat = topic['crit__review_state_ATSimpleStringCriterion']
-            criteri_estat.setValue((state_filter))
-
-        # criteri ruta = carpeta pare
-
-        criteri_ruta = topic['crit__path_ATPathCriterion']
-        ruta = path == 'father' and context or aq_parent(context)
-        criteri_ruta.setValue([ruta])
-        criteri_ruta.setRecurse(True)
-
-        # criteri data
-
-        if date_filter:
-            criteri_estat = topic['crit__start_ATFriendlyDateCriteria']
-            criteri_estat.setValue(day)
-            criteri_estat.setDateRange(dateRange)
-            criteri_estat.setOperation(operation)
-
-        # Criteri d'ordenació
-
-        criteri_ordenacio = topic['crit__modified_ATSortCriterion']
-        criteri_ordenacio.setReversed(True)
-
-        # Posar la vista per defecte de la pàgina principal a la collection que acavem de crear
-        if setDefault:
-            context.setDefaultPage(id)
-        return
