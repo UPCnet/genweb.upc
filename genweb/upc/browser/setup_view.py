@@ -2,15 +2,13 @@
 from five import grok
 from plone import api
 from cgi import parse_qs
-from Acquisition import aq_parent
 from zope.interface import alsoProvides
 from zope.component import getMultiAdapter
 
-from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import normalizeString
 from Products.CMFPlone.interfaces import IPloneSiteRoot
-from Products.CMFPlone.utils import _createObjectByType
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 
 from plone.app.contenttypes.behaviors.richtext import IRichText
 from plone.dexterity.utils import createContentInContainer
@@ -47,20 +45,23 @@ class setup(grok.View):
                         self.request.response.redirect(base_url)
 
     def contentStatus(self):
-        objects = [('Notícies', ['noticies', 'noticias', 'news']),
-                   ('Esdeveniments', ['esdeveniments', 'eventos', 'events']),
-                   ('Banners', ['banners-ca', 'banners-es', 'banners-en']),
-                   ('LogosFooter', ['logosfooter-ca', 'logosfooter-es', 'logosfooter-en']),
-                   ('Homepage', ['benvingut', 'bienvenido', 'welcome']),
-                   ('Templates', ['templates', ]),
-                   ('Plantilles', ['plantilles', ]),
+        objects = [('Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
+                   ('Esdeveniments', [('esdeveniments', 'ca'), ('eventos', 'es'), ('events', 'en')]),
+                   ('Banners', [('banners-ca', 'ca'), ('banners-es', 'es'), ('banners-en', 'en')]),
+                   ('LogosFooter', [('logosfooter-ca', 'ca'), ('logosfooter-es', 'es'), ('logosfooter-en', 'en')]),
+                   ('Homepage', [('benvingut', 'ca'), ('bienvenido', 'es'), ('welcome', 'en')]),
+                   ('Templates', [('templates', 'root')]),
+                   ('Plantilles', [('plantilles', 'root')]),
                    ]
         result = []
         portal = api.portal.get()
         for o in objects:
             tr = [o[0]]
-            for td in o[1]:
-                tr.append(getattr(portal, td, False) and 'Creat' or 'No existeix')
+            for td, lang in o[1]:
+                if lang == 'root':
+                    tr.append(getattr(portal, td, False) and 'Creat' or 'No existeix')
+                else:
+                    tr.append(getattr(portal[lang], td, False) and 'Creat' or 'No existeix')
             result.append(tr)
         return result
 
@@ -89,18 +90,9 @@ class setup(grok.View):
         mail.email_from_name = "Administrador del Genweb"
         mail.email_from_address = "noreply@upc.edu"
 
-#         if getattr(portal, 'front-page', False):
-#             portal.manage_delObjects('front-page')
-#         if getattr(portal, 'news', False):
-#             if not self.getObjectStatus(portal.news):
-#                 portal.manage_delObjects('news')
-#         if getattr(portal, 'events', False):
-#             if not self.getObjectStatus(portal.events):
-#                 portal.manage_delObjects('events')
-#         if getattr(portal, 'Members', False):
-#             portal['Members'].setExcludeFromNav(True)
-#             portal['Members'].reindexObject()
-#             portal['Members'].setLanguage('en')
+        # Get rid of the original page
+        if getattr(portal_en, 'front-page', False):
+            api.content.delete(obj=portal_en['front-page'])
 
         # Let's create folders and collections, linked by language, the first language is the canonical one
 
@@ -120,6 +112,10 @@ class setup(grok.View):
         self.clone_collection_settings(col_news, col_noticies)
         self.link_translations([(col_news, 'en'), (col_noticias, 'es'), (col_noticies, 'ca')])
 
+        self.constrain_content_types(news, ('News Item', 'Folder', 'Image'))
+        self.constrain_content_types(noticias, ('News Item', 'Folder', 'Image'))
+        self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image'))
+
         # Setup portal events folder
         events = portal_en['events']
         eventos = self.create_content(portal_es, 'Folder', 'eventos', title='Eventos', description=u'Eventos del sitio')
@@ -136,6 +132,10 @@ class setup(grok.View):
         self.clone_collection_settings(col_news, col_esdeveniments)
         self.link_translations([(col_events, 'en'), (col_eventos, 'es'), (col_esdeveniments, 'ca')])
 
+        self.constrain_content_types(events, ('Event', 'Folder', 'Image'))
+        self.constrain_content_types(eventos, ('Event', 'Folder', 'Image'))
+        self.constrain_content_types(esdeveniments, ('Event', 'Folder', 'Image'))
+
 #         self.addCollection(events.aggregator, 'previous', 'Past Events', 'Events which have already happened. ', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
 #         self.addCollection(eventos.aggregator, 'anteriores', 'Eventos pasados', 'Eventos del sitio que ya han sucedido', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
 #         self.addCollection(esdeveniments.aggregator, 'anteriors', 'Esdeveniments passats', 'Esdeveniments del lloc que ja han passat', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
@@ -148,6 +148,14 @@ class setup(grok.View):
         banners_ca = self.create_content(portal_ca, 'BannerContainer', 'banners-ca', title='banners-ca', description=u'Banners en Català')
         banners_ca.title = 'Banners'
         self.link_translations([(banners_ca, 'ca'), (banners_es, 'es'), (banners_en, 'en')])
+
+        banners_en.exclude_from_nav = True
+        banners_es.exclude_from_nav = True
+        banners_ca.exclude_from_nav = True
+
+        banners_en.reindexObject()
+        banners_es.reindexObject()
+        banners_ca.reindexObject()
 
 #         logosfooter_en = self.crearObjecte(portal, 'logosfooter-en', 'Logos_Container', 'Footer Logos', 'English footer logos')
 #         logosfooter_es = self.crearObjecte(portal, 'logosfooter-es', 'Logos_Container', 'Logos pie', 'Logos en español del pie de página')
@@ -180,6 +188,10 @@ class setup(grok.View):
         alsoProvides(bienvenido, IHomePage)
         alsoProvides(welcome, IHomePage)
 
+        benvingut.exclude_from_nav = True
+        bienvenido.exclude_from_nav = True
+        welcome.exclude_from_nav = True
+
         # Reindex them to update object_provides index
         benvingut.reindexObject()
         bienvenido.reindexObject()
@@ -190,18 +202,19 @@ class setup(grok.View):
         portal_es.setLayout('homepage')
         portal_ca.setLayout('homepage')
 
-#         # Templates TinyMCE
-#         templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document'], ['']))
-#         plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
-#         pw = getToolByName(portal, "portal_workflow")
-#         try:
-#             pw.doActionFor(templates, "restrict")
-#         except:
-#             None
+        # Templates TinyMCE
+        templates = self.create_content(portal, 'Folder', 'templates', title='Templates', description='Plantilles per defecte administrades per l\'SC.')
+        # templates = self.create_content(portal, 'Folder', 'templates', title='Templates', 'Plantilles per defecte administrades per l\'SC.', constrains=(['Document'], ['']))
+        plantilles = self.create_content(portal, 'Folder', 'plantilles', title='Plantilles', description='En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.')
+        # plantilles = self.create_content(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
+        try:
+            api.content.transition(obj=templates, transition='restrict')
+        except:
+            pass
 
-#         for plt in get_plantilles():
-#             plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
-#             plantilla.setText(plt['cos'], mimetype="text/html")
+        for plt in get_plantilles():
+            plantilla = self.create_content(templates, 'Document', normalizeString(plt['titol']), title=plt['titol'], description=plt['resum'])
+            plantilla.text = IRichText['text'].fromUnicode(plt['cos'])
 
         # Mark all protected content with the protected marker interface
         alsoProvides(benvingut, IProtectedContent)
@@ -216,8 +229,8 @@ class setup(grok.View):
         alsoProvides(banners_ca, IProtectedContent)
         alsoProvides(banners_en, IProtectedContent)
         alsoProvides(banners_es, IProtectedContent)
-        # alsoProvides(templates, IProtectedContent)
-        # alsoProvides(plantilles, IProtectedContent)
+        alsoProvides(templates, IProtectedContent)
+        alsoProvides(plantilles, IProtectedContent)
         # alsoProvides(logosfooter_ca, IProtectedContent)
         # alsoProvides(logosfooter_es, IProtectedContent)
         # alsoProvides(logosfooter_en, IProtectedContent)
@@ -227,7 +240,7 @@ class setup(grok.View):
     def create_content(self, container, portal_type, id, **kwargs):
         if not getattr(container, id, False):
             obj = createContentInContainer(container, portal_type, checkConstraints=False, **kwargs)
-
+            self.publish_content(obj)
         return getattr(container, id)
 
     def link_translations(self, items):
@@ -242,6 +255,13 @@ class setup(grok.View):
         for obj, language in items:
             if not canonical.has_translation(language):
                 canonical.register_translation(language, obj)
+
+    def constrain_content_types(self, container, content_types):
+        # Set on them the allowable content types
+        behavior = ISelectableConstrainTypes(container)
+        behavior.setConstrainTypesMode(1)
+        behavior.setLocallyAllowedTypes(content_types)
+        behavior.setImmediatelyAddableTypes(content_types)
 
     def clone_collection_settings(self, origin, target):
         if getattr(origin, 'query', False):
@@ -263,7 +283,10 @@ class setup(grok.View):
         object_status = pw.getStatusOf(object_workflow, context)
         return object_status
 
-    def doWorkflowAction(self, context):
+    def publish_content(self, context):
+        """ Make the content visible either in both possible genweb.simple and
+            genweb.review workflows.
+        """
         pw = getToolByName(context, "portal_workflow")
         object_workflow = pw.getWorkflowsFor(context)[0].id
         object_status = pw.getStatusOf(object_workflow, context)
@@ -272,26 +295,3 @@ class setup(grok.View):
                 pw.doActionFor(context, {'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
             except:
                 pass
-
-    def create_object(self, context, id, type_name, title, description, exclude=True, constrains=None):
-        pt = getToolByName(context, 'portal_types')
-        if not getattr(context, id, False) and type_name in pt.listTypeTitles().keys():
-            #creem l'objecte i el publiquem
-            _createObjectByType(type_name, context, id)
-        #populem l'objecte
-        created = context[id]
-        self.doWorkflowAction(created)
-        created.setTitle(title)
-        created.setDescription(description)
-        created._at_creation_flag = False
-        created.setExcludeFromNav(exclude)
-        if constrains:
-            created.setConstrainTypesMode(1)
-            if len(constrains) > 1:
-                created.setLocallyAllowedTypes(tuple(constrains[0] + constrains[1]))
-            else:
-                created.setLocallyAllowedTypes(tuple(constrains[0]))
-            created.setImmediatelyAddableTypes(tuple(constrains[0]))
-
-        created.reindexObject()
-        return created
