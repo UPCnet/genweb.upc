@@ -15,7 +15,8 @@ from plone.dexterity.utils import createContentInContainer
 
 from plone.app.controlpanel.mail import IMailSchema
 from plone.app.multilingual.browser.setup import SetupMultilingualSite
-from plone.multilingual.interfaces import ITranslationManager
+from plone.app.multilingual.interfaces import ITranslationManager
+from plone.app.multilingual.browser.utils import multilingualMoveObject
 
 from genweb.core.interfaces import IHomePage
 from genweb.core.interfaces import IProtectedContent
@@ -61,7 +62,10 @@ class setup(grok.View):
                 if lang == 'root':
                     tr.append(getattr(portal, td, False) and 'Creat' or 'No existeix')
                 else:
-                    tr.append(getattr(portal[lang], td, False) and 'Creat' or 'No existeix')
+                    if getattr(portal, lang, False):
+                        tr.append(getattr(portal[lang], td, False) and 'Creat' or 'No existeix')
+                    else:
+                        tr.append('No existeix')
             result.append(tr)
         return result
 
@@ -73,9 +77,9 @@ class setup(grok.View):
 
         # Move 'news' and 'events' folders to its place on EN tree
         if getattr(portal, 'news', False):
-            api.content.move(portal['news'], portal['en'])
+            multilingualMoveObject(portal['news'], 'en')
         if getattr(portal, 'events', False):
-            api.content.move(portal['events'], portal['en'])
+            multilingualMoveObject(portal['events'], 'en')
 
     def createContent(self):
         """ Method that creates all the default content """
@@ -92,7 +96,7 @@ class setup(grok.View):
 
         # Get rid of the original page
         if getattr(portal_en, 'front-page', False):
-            api.content.delete(obj=portal_en['front-page'])
+            api.content.delete(obj=portal['front-page'])
 
         # Let's create folders and collections, linked by language, the first language is the canonical one
 

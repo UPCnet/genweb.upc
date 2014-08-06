@@ -25,7 +25,7 @@ class GenwebUPC(PloneSandboxLayer):
                        context=configurationContext)
 
         # Install archetypes-based products
-        z2.installProduct(app, 'upc.genweb.banners')
+        # z2.installProduct(app, 'upc.genweb.banners')
         z2.installProduct(app, 'upc.genweb.logosfooter')
 
     def setUpPloneSite(self, portal):
