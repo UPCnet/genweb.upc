@@ -161,10 +161,21 @@ class setup(grok.View):
         banners_es.reindexObject()
         banners_ca.reindexObject()
 
-#         logosfooter_en = self.crearObjecte(portal, 'logosfooter-en', 'Logos_Container', 'Footer Logos', 'English footer logos')
-#         logosfooter_es = self.crearObjecte(portal, 'logosfooter-es', 'Logos_Container', 'Logos pie', 'Logos en español del pie de página')
-#         logosfooter_ca = self.crearObjecte(portal, 'logosfooter-ca', 'Logos_Container', 'Logos peu', 'Logos en català del peu de pàgina')
-#         self.setLanguageAndLink([(logosfooter_ca, 'ca'), (logosfooter_es, 'es'), (logosfooter_en, 'en')])
+        logosfooter_en = self.create_content(portal_en, 'Logos_Container', 'logosfooter-en', title='logosfooter-en', description=u'English footer logos')
+        logosfooter_en.title = 'Footer Logos'
+        logosfooter_es = self.create_content(portal_es, 'Logos_Container', 'logosfooter-es', title='logosfooter-es', description=u'Logos en español del pie de página')
+        logosfooter_es.title = 'Logos pie'
+        logosfooter_ca = self.create_content(portal_ca, 'Logos_Container', 'logosfooter-ca', title='logosfooter-ca', description=u'Logos en català del peu de pàgina')
+        logosfooter_ca.title = 'Logos peu'
+        self.link_translations([(logosfooter_ca, 'ca'), (logosfooter_es, 'es'), (logosfooter_en, 'en')])
+
+        logosfooter_en.exclude_from_nav = True
+        logosfooter_es.exclude_from_nav = True
+        logosfooter_ca.exclude_from_nav = True
+
+        logosfooter_en.reindexObject()
+        logosfooter_es.reindexObject()
+        logosfooter_ca.reindexObject()
 
         # welcome pages
         welcome_string = u"""<h1 class="documentFirstHeading">Us donem la benvinguda a Genweb UPC v4, el genweb "mobilitzat"!</p>
@@ -235,9 +246,9 @@ class setup(grok.View):
         alsoProvides(banners_es, IProtectedContent)
         alsoProvides(templates, IProtectedContent)
         alsoProvides(plantilles, IProtectedContent)
-        # alsoProvides(logosfooter_ca, IProtectedContent)
-        # alsoProvides(logosfooter_es, IProtectedContent)
-        # alsoProvides(logosfooter_en, IProtectedContent)
+        alsoProvides(logosfooter_ca, IProtectedContent)
+        alsoProvides(logosfooter_es, IProtectedContent)
+        alsoProvides(logosfooter_en, IProtectedContent)
 
         return True
 
