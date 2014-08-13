@@ -12,6 +12,9 @@
 
   <include package=".browser" />
 
+  <include package="genweb.packets" />
+  <include package="plone.app.multilingual" />
+
   <!-- Commented constrained folders -->
   <!-- <include file="subscribers.zcml" /> -->
 

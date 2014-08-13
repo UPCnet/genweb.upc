@@ -8,10 +8,13 @@ from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 
+from plone.app.multilingual.testing import SESSIONS_FIXTURE
+from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
+
 
 class GenwebUPC(PloneSandboxLayer):
 
-    defaultBases = (PLONE_FIXTURE,)
+    defaultBases = (SESSIONS_FIXTURE, PLONE_APP_CONTENTTYPES_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
@@ -20,24 +23,25 @@ class GenwebUPC(PloneSandboxLayer):
                        genweb.upc,
                        context=configurationContext)
 
-        xmlconfig.file('testing.zcml',
-                       genweb.upc.tests,
-                       context=configurationContext)
+        # xmlconfig.file('testing.zcml',
+        #                genweb.upc.tests,
+        #                context=configurationContext)
 
         # Install archetypes-based products
-        # z2.installProduct(app, 'upc.genweb.banners')
-        z2.installProduct(app, 'upc.genweb.logosfooter')
+        # z2.installProduct(app, 'Products.DateRecurringIndex')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         # applyProfile(portal, 'genweb.upc:default')
-        applyProfile(portal, 'genweb.upc.tests:testing')
+        # Needed for PAC not complain about not having one... T_T
+        # portal.portal_workflow.setDefaultChain("simple_publication_workflow")
 
-    def tearDownZope(self, app):
+        applyProfile(portal, 'genweb.upc:default')
+
+    # def tearDownZope(self, app):
         # Uninstall archetypes-based products
-        z2.uninstallProduct(app, 'upc.genweb.banners')
-        z2.uninstallProduct(app, 'upc.genweb.logosfooter')
-
+        # z2.uninstallProduct(app, 'upc.genweb.banners')
+        # z2.uninstallProduct(app, 'upc.genweb.logosfooter')
 
 GENWEB_UPC_FIXTURE = GenwebUPC()
 GENWEB_UPC_INTEGRATION_TESTING = IntegrationTesting(

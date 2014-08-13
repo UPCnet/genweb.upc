@@ -45,6 +45,7 @@ class TestExample(unittest.TestCase):
 
     def testSetupViewNotAvailableForAnonymous(self):
         portal = self.layer['portal']
+        logout()
         self.assertRaises(Unauthorized, portal.restrictedTraverse, '@@setup-view')
 
     def testSetupView(self):
@@ -52,11 +53,14 @@ class TestExample(unittest.TestCase):
         request = self.layer['request']
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
+
         setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.setup_multilingual()
         setupview.createContent()
-        self.assertEqual(portal['news'].Title(), u"News")
-        self.assertEqual(portal['banners-es'].Title(), u"Banners")
-        self.assertEqual(portal['logosfooter-ca'].Title(), u"Logos peu")
+
+        self.assertEqual(portal['en']['news'].Title(), u"News")
+        self.assertEqual(portal['es']['banners-es'].Title(), u"Banners")
+        self.assertEqual(portal['ca']['logosfooter-ca'].Title(), u"Logos peu")
 
     def testTemplatesFolderPermissions(self):
         portal = self.layer['portal']
@@ -64,11 +68,15 @@ class TestExample(unittest.TestCase):
         # Login as manager
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
+
         setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.setup_multilingual()
         setupview.createContent()
+
         logout()
         acl_users = getToolByName(portal, 'acl_users')
         acl_users.userFolderAddUser('user1', 'secret', ['Member', 'Contributor', 'Editor', 'Reader', 'Reviewer'], [])
+
         # setRoles(portal, 'user1', ['Contributor', 'Editor', 'Reader', 'Reviewer'])
         login(portal, 'user1')
         self.assertRaises(Unauthorized, portal.manage_delObjects, 'templates')
@@ -77,9 +85,10 @@ class TestExample(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         setupview = getMultiAdapter((self.portal, self.request), name='setup-view')
+        setupview.setup_multilingual()
         setupview.createContent()
         logout()
-        self.assertTrue(IHomePage.providedBy(self.portal['benvingut']))
+        self.assertTrue(IHomePage.providedBy(self.portal['ca']['benvingut']))
 
     # def testFolderConstrains(self):
     #     from genweb.upc.events import CONSTRAINED_TYPES, IMMEDIATELY_ADDABLE_TYPES

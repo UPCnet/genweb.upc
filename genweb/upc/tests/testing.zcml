@@ -6,7 +6,8 @@
     i18n_domain="genweb.upc">
 
   <include package="plone.app.multilingual" />
-  <include package="upc.genweb.logosfooter" />
+  <include package="genweb.logosfooter" />
+  <include package="genweb.packets" />
 
   <genericsetup:registerProfile
       name="testing"
