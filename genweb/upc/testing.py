@@ -27,21 +27,9 @@ class GenwebUPC(PloneSandboxLayer):
         #                genweb.upc.tests,
         #                context=configurationContext)
 
-        # Install archetypes-based products
-        # z2.installProduct(app, 'Products.DateRecurringIndex')
-
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
-        # applyProfile(portal, 'genweb.upc:default')
-        # Needed for PAC not complain about not having one... T_T
-        # portal.portal_workflow.setDefaultChain("simple_publication_workflow")
-
         applyProfile(portal, 'genweb.upc:default')
-
-    # def tearDownZope(self, app):
-        # Uninstall archetypes-based products
-        # z2.uninstallProduct(app, 'upc.genweb.banners')
-        # z2.uninstallProduct(app, 'upc.genweb.logosfooter')
 
 GENWEB_UPC_FIXTURE = GenwebUPC()
 GENWEB_UPC_INTEGRATION_TESTING = IntegrationTesting(
