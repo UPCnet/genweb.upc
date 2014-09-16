@@ -1,11 +1,14 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
+1.0b2 (2014-09-16)
 ------------------
 
-- Nothing changed yet.
-
+* Cleanup test [Victor Fernandez de Alba]
+* Fix Travis 2 [Victor Fernandez de Alba]
+* Fix Travis 1 [Victor Fernandez de Alba]
+* Make tests run again. [Victor Fernandez de Alba]
+* Setup view finish [Victor Fernandez de Alba]
 
 1.0b1 (2014-08-07)
 ------------------
