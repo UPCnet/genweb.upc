@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <portlets>
-  <portlet addview="simpleTask.simpleTaskPortlet" remove="true" />
-  <portlet addview="ploneboard.RecentConversations" remove="true" />
   <portlet addview="portlets.News" remove="true" />
   <portlet addview="portlets.Events" remove="true" />
   <portlet addview="portlets.Search" remove="true" />
+  <portlet addview="portlets.Review" remove="true" />
 </portlets>
