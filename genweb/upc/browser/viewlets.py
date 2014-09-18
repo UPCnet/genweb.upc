@@ -18,7 +18,7 @@ class notConfigured(grok.Viewlet):
            TODO: Fer que comprovi mes objectes, per ara nomes comprova la pagina principal en catala
         """
         context = aq_inner(self.context)
-        return getattr(context, 'benvingut', False)
+        return getattr(context['ca'], 'benvingut', False)
 
     def getSetupLink(self):
         """Funcio que dona l'enllas al formulari de creacio dels elements per defecte
