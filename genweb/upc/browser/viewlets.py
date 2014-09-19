@@ -18,6 +18,8 @@ class notConfigured(grok.Viewlet):
            TODO: Fer que comprovi mes objectes, per ara nomes comprova la pagina principal en catala
         """
         context = aq_inner(self.context)
+        if not getattr(context, 'ca', False):
+            return False
         return getattr(context['ca'], 'benvingut', False)
 
     def getSetupLink(self):

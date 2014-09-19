@@ -2,8 +2,10 @@
 from five import grok
 from plone import api
 from cgi import parse_qs
+from zope.event import notify
 from zope.interface import alsoProvides
 from zope.component import getMultiAdapter
+from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import normalizeString
@@ -16,11 +18,12 @@ from plone.dexterity.utils import createContentInContainer
 from plone.app.controlpanel.mail import IMailSchema
 from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
-from plone.app.multilingual.browser.utils import multilingualMoveObject
 
 from genweb.core.interfaces import IHomePage
 from genweb.core.interfaces import IProtectedContent
 from genweb.core.browser.plantilles import get_plantilles
+
+import transaction
 
 grok.templatedir('views_templates')
 
@@ -70,16 +73,8 @@ class setup(grok.View):
         return result
 
     def setup_multilingual(self):
-        portal = api.portal.get()
-
         setupTool = SetupMultilingualSite()
         setupTool.setupSite(self.context, False)
-
-        # Move 'news' and 'events' folders to its place on EN tree
-        if getattr(portal, 'news', False):
-            multilingualMoveObject(portal['news'], 'en')
-        if getattr(portal, 'events', False):
-            multilingualMoveObject(portal['events'], 'en')
 
     def createContent(self):
         """ Method that creates all the default content """
@@ -98,22 +93,40 @@ class setup(grok.View):
         if getattr(portal_en, 'front-page', False):
             api.content.delete(obj=portal['front-page'])
 
+        # Hide 'Members' folder
+        if getattr(portal, 'Members', False):
+            api.content.delete(obj=portal['Members'])
+
+        # Rename the original 'news' and 'events' folders for using it at the setup
+        if getattr(portal, 'news', False):
+            api.content.rename(obj=portal['news'], new_id='news_setup')
+        if getattr(portal, 'events', False):
+            api.content.rename(obj=portal['events'], new_id='events_setup')
+
         # Let's create folders and collections, linked by language, the first language is the canonical one
 
         # Setup portal news folder
-        news = portal_en['news']
+        news = self.create_content(portal_en, 'Folder', 'news', title='News', description=u'Site news')
         noticias = self.create_content(portal_es, 'Folder', 'noticias', title='Notícias', description=u'Notícias del sitio')
         noticies = self.create_content(portal_ca, 'Folder', 'noticies', title='Notícies', description=u'Notícies del lloc')
         self.link_translations([(news, 'en'), (noticias, 'es'), (noticies, 'ca')])
 
-        col_news = news['aggregator']
+        # Guard in case you re-run the setup
+        original_news = getattr(portal, 'news_setup', False) if getattr(portal, 'news_setup', False) else news
+
+        # Create the aggregator
+        original_col_news = original_news['aggregator']
+        col_news = self.create_content(news, 'Collection', 'aggregator', title='aggregator', description=u'Site news')
+        col_news.title = 'News'
+
         col_noticias = self.create_content(noticias, 'Collection', 'aggregator', title='aggregator', description=u'Notícias del sitio')
         col_noticias.title = 'Notícias'
-        self.clone_collection_settings(col_news, col_noticias)
+        self.clone_collection_settings(original_col_news, col_noticias)
 
         col_noticies = self.create_content(noticies, 'Collection', 'aggregator', title='aggregator', description=u'Notícies del lloc')
         col_noticies.title = 'Notícies'
-        self.clone_collection_settings(col_news, col_noticies)
+        self.clone_collection_settings(original_col_news, col_noticies)
+
         self.link_translations([(col_news, 'en'), (col_noticias, 'es'), (col_noticies, 'ca')])
 
         self.constrain_content_types(news, ('News Item', 'Folder', 'Image'))
@@ -121,24 +134,38 @@ class setup(grok.View):
         self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image'))
 
         # Setup portal events folder
-        events = portal_en['events']
+        events = self.create_content(portal_en, 'Folder', 'events', title='Events', description=u'Site events')
         eventos = self.create_content(portal_es, 'Folder', 'eventos', title='Eventos', description=u'Eventos del sitio')
         esdeveniments = self.create_content(portal_ca, 'Folder', 'esdeveniments', title='Esdeveniments', description=u'Esdeveniments del lloc')
         self.link_translations([(events, 'en'), (eventos, 'es'), (esdeveniments, 'ca')])
 
-        col_events = events['aggregator']
+        # Guard in case you re-run the setup
+        original_events = getattr(portal, 'events_setup', False) if getattr(portal, 'events_setup', False) else events
+
+        # Create the aggregator
+        original_col_events = original_events['aggregator']
+        col_events = self.create_content(events, 'Collection', 'aggregator', title='aggregator', description=u'Site events')
+        col_events.title = 'Events'
+
         col_eventos = self.create_content(eventos, 'Collection', 'aggregator', title='aggregator', description=u'Eventos del sitio')
         col_eventos.title = 'Eventos'
-        self.clone_collection_settings(col_events, col_eventos)
+        self.clone_collection_settings(original_col_events, col_eventos)
 
         col_esdeveniments = self.create_content(esdeveniments, 'Collection', 'aggregator', title='aggregator', description=u'Esdeveniments del lloc')
         col_esdeveniments.title = 'Esdeveniments'
-        self.clone_collection_settings(col_news, col_esdeveniments)
+        self.clone_collection_settings(original_col_events, col_esdeveniments)
+
         self.link_translations([(col_events, 'en'), (col_eventos, 'es'), (col_esdeveniments, 'ca')])
 
         self.constrain_content_types(events, ('Event', 'Folder', 'Image'))
         self.constrain_content_types(eventos, ('Event', 'Folder', 'Image'))
         self.constrain_content_types(esdeveniments, ('Event', 'Folder', 'Image'))
+
+        # Delete original 'news' and 'events' folders
+        if getattr(portal, 'news_setup', False):
+            api.content.delete(obj=portal['news_setup'])
+        if getattr(portal, 'events_setup', False):
+            api.content.delete(obj=portal['events_setup'])
 
 #         self.addCollection(events.aggregator, 'previous', 'Past Events', 'Events which have already happened. ', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
 #         self.addCollection(eventos.aggregator, 'anteriores', 'Eventos pasados', 'Eventos del sitio que ya han sucedido', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
@@ -222,6 +249,12 @@ class setup(grok.View):
         # templates = self.create_content(portal, 'Folder', 'templates', title='Templates', 'Plantilles per defecte administrades per l\'SC.', constrains=(['Document'], ['']))
         plantilles = self.create_content(portal, 'Folder', 'plantilles', title='Plantilles', description='En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.')
         # plantilles = self.create_content(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
+
+        templates.exclude_from_nav = True
+        plantilles.exclude_from_nav = True
+
+        templates.reindexObject()
+
         try:
             api.content.transition(obj=templates, transition='restrict')
         except:
@@ -230,6 +263,11 @@ class setup(grok.View):
         for plt in get_plantilles():
             plantilla = self.create_content(templates, 'Document', normalizeString(plt['titol']), title=plt['titol'], description=plt['resum'])
             plantilla.text = IRichText['text'].fromUnicode(plt['cos'])
+            plantilla.reindexObject()
+
+        api.content.transition(obj=plantilles, transition='retracttointranet')
+        api.content.transition(obj=plantilles, transition='publish')
+        plantilles.reindexObject()
 
         # Mark all protected content with the protected marker interface
         alsoProvides(benvingut, IProtectedContent)
@@ -249,6 +287,8 @@ class setup(grok.View):
         alsoProvides(logosfooter_ca, IProtectedContent)
         alsoProvides(logosfooter_es, IProtectedContent)
         alsoProvides(logosfooter_en, IProtectedContent)
+
+        transaction.commit()
 
         return True
 
@@ -306,7 +346,8 @@ class setup(grok.View):
         object_workflow = pw.getWorkflowsFor(context)[0].id
         object_status = pw.getStatusOf(object_workflow, context)
         if object_status:
-            try:
-                pw.doActionFor(context, {'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
-            except:
-                pass
+            api.content.transition(obj=context, transition={'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
+        #     try:
+        #         pw.doActionFor(context, {'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
+        #     except:
+        #         pass
