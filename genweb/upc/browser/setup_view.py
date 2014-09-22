@@ -29,6 +29,10 @@ import transaction
 
 grok.templatedir('views_templates')
 
+NEWS_QUERY = [{'i': u'portal_type', 'o': u'plone.app.querystring.operation.selection.is', 'v': [u'News Item']}, {'i': u'review_state', 'o': u'plone.app.querystring.operation.selection.is', 'v': [u'published']}]
+QUERY_SORT_ON = u'effective'
+EVENT_QUERY = [{'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.is', 'v': ['Event']}, {'i': 'start', 'o': 'plone.app.querystring.operation.date.afterToday', 'v': ''}, {'i': 'review_state', 'o': 'plone.app.querystring.operation.selection.is', 'v': ['published']}]
+
 
 class setup(grok.View):
     grok.name('setup-view')
@@ -101,9 +105,14 @@ class setup(grok.View):
 
         # Rename the original 'news' and 'events' folders for using it at the setup
         if getattr(portal, 'news', False):
-            api.content.rename(obj=portal['news'], new_id='news_setup')
+            api.content.delete(obj=portal['news'])
+            # api.content.rename(obj=portal['news'], new_id='news_setup')
         if getattr(portal, 'events', False):
-            api.content.rename(obj=portal['events'], new_id='events_setup')
+            api.content.delete(obj=portal['events'])
+            # api.content.rename(obj=portal['events'], new_id='events_setup')
+
+        pc = api.portal.get_tool('portal_catalog')
+        pc.clearFindAndRebuild()
 
         # Let's create folders and collections, linked by language, the first language is the canonical one
 
@@ -113,21 +122,21 @@ class setup(grok.View):
         noticies = self.create_content(portal_ca, 'Folder', 'noticies', title='Notícies', description=u'Notícies del lloc')
         self.link_translations([(news, 'en'), (noticias, 'es'), (noticies, 'ca')])
 
-        # Guard in case you re-run the setup
-        original_news = getattr(portal, 'news_setup', False) if getattr(portal, 'news_setup', False) else news
-
         # Create the aggregator
-        original_col_news = original_news['aggregator']
         col_news = self.create_content(news, 'Collection', 'aggregator', title='aggregator', description=u'Site news')
         col_news.title = 'News'
+        col_news.query = NEWS_QUERY
+        col_news.sort_on = QUERY_SORT_ON
 
         col_noticias = self.create_content(noticias, 'Collection', 'aggregator', title='aggregator', description=u'Notícias del sitio')
         col_noticias.title = 'Notícias'
-        self.clone_collection_settings(original_col_news, col_noticias)
+        col_noticias.query = NEWS_QUERY
+        col_noticias.sort_on = QUERY_SORT_ON
 
         col_noticies = self.create_content(noticies, 'Collection', 'aggregator', title='aggregator', description=u'Notícies del lloc')
         col_noticies.title = 'Notícies'
-        self.clone_collection_settings(original_col_news, col_noticies)
+        col_noticies.query = NEWS_QUERY
+        col_noticies.sort_on = QUERY_SORT_ON
 
         self.link_translations([(col_news, 'en'), (col_noticias, 'es'), (col_noticies, 'ca')])
 
@@ -141,33 +150,28 @@ class setup(grok.View):
         esdeveniments = self.create_content(portal_ca, 'Folder', 'esdeveniments', title='Esdeveniments', description=u'Esdeveniments del lloc')
         self.link_translations([(events, 'en'), (eventos, 'es'), (esdeveniments, 'ca')])
 
-        # Guard in case you re-run the setup
-        original_events = getattr(portal, 'events_setup', False) if getattr(portal, 'events_setup', False) else events
-
         # Create the aggregator
-        original_col_events = original_events['aggregator']
+        # original_col_events = original_events['aggregator']
         col_events = self.create_content(events, 'Collection', 'aggregator', title='aggregator', description=u'Site events')
         col_events.title = 'Events'
+        col_news.query = EVENT_QUERY
+        col_news.sort_on = QUERY_SORT_ON
 
         col_eventos = self.create_content(eventos, 'Collection', 'aggregator', title='aggregator', description=u'Eventos del sitio')
         col_eventos.title = 'Eventos'
-        self.clone_collection_settings(original_col_events, col_eventos)
+        col_eventos.query = EVENT_QUERY
+        col_eventos.sort_on = QUERY_SORT_ON
 
         col_esdeveniments = self.create_content(esdeveniments, 'Collection', 'aggregator', title='aggregator', description=u'Esdeveniments del lloc')
         col_esdeveniments.title = 'Esdeveniments'
-        self.clone_collection_settings(original_col_events, col_esdeveniments)
+        col_esdeveniments.query = EVENT_QUERY
+        col_esdeveniments.sort_on = QUERY_SORT_ON
 
         self.link_translations([(col_events, 'en'), (col_eventos, 'es'), (col_esdeveniments, 'ca')])
 
         self.constrain_content_types(events, ('Event', 'Folder', 'Image'))
         self.constrain_content_types(eventos, ('Event', 'Folder', 'Image'))
         self.constrain_content_types(esdeveniments, ('Event', 'Folder', 'Image'))
-
-        # Delete original 'news' and 'events' folders
-        if getattr(portal, 'news_setup', False):
-            api.content.delete(obj=portal['news_setup'])
-        if getattr(portal, 'events_setup', False):
-            api.content.delete(obj=portal['events_setup'])
 
 #         self.addCollection(events.aggregator, 'previous', 'Past Events', 'Events which have already happened. ', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
 #         self.addCollection(eventos.aggregator, 'anteriores', 'Eventos pasados', 'Eventos del sitio que ya han sucedido', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
@@ -298,7 +302,7 @@ class setup(grok.View):
         alsoProvides(eventos, IEventFolder)
         alsoProvides(events, IEventFolder)
 
-        transaction.commit()
+        # transaction.commit()
 
         return True
 
