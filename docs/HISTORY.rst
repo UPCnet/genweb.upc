@@ -1,11 +1,15 @@
 Changelog
 =========
 
-1.0b3 (unreleased)
+1.0b3 (2014-09-22)
 ------------------
 
-- Nothing changed yet.
-
+* Refinement and improvement of the setup view, correcting the tests [Victor Fernandez de Alba]
+* Fix objects needed viewlet and enhance initial setup [Victor Fernandez de Alba]
+* Fix viewlet and setup for exclude from nav initial contents [Victor Fernandez de Alba]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Victor Fernandez de Alba]
+* Unregister more portlets [Victor Fernandez de Alba]
+* Añadir directorio idioma [Corina Riba]
 
 1.0b2 (2014-09-16)
 ------------------
