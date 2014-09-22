@@ -20,6 +20,8 @@ from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
 
 from genweb.core.interfaces import IHomePage
+from genweb.core.interfaces import INewsFolder
+from genweb.core.interfaces import IEventFolder
 from genweb.core.interfaces import IProtectedContent
 from genweb.core.browser.plantilles import get_plantilles
 
@@ -287,6 +289,14 @@ class setup(grok.View):
         alsoProvides(logosfooter_ca, IProtectedContent)
         alsoProvides(logosfooter_es, IProtectedContent)
         alsoProvides(logosfooter_en, IProtectedContent)
+
+        # Mark also the special folders
+        alsoProvides(noticies, INewsFolder)
+        alsoProvides(noticias, INewsFolder)
+        alsoProvides(news, INewsFolder)
+        alsoProvides(esdeveniments, IEventFolder)
+        alsoProvides(eventos, IEventFolder)
+        alsoProvides(events, IEventFolder)
 
         transaction.commit()
 

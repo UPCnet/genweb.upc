@@ -1,4 +1,5 @@
 from five import grok
+from plone import api
 from Acquisition import aq_inner
 
 from Products.CMFPlone.interfaces import IPloneSiteRoot
@@ -17,10 +18,10 @@ class notConfigured(grok.Viewlet):
         """Funcio que mira si existeixen els objectes que son necessaris pel bon funcionament del espai
            TODO: Fer que comprovi mes objectes, per ara nomes comprova la pagina principal en catala
         """
-        context = aq_inner(self.context)
-        if not getattr(context, 'ca', False):
+        portal = api.portal.get()
+        if not getattr(portal, 'ca', False):
             return False
-        return getattr(context['ca'], 'benvingut', False)
+        return getattr(portal['ca'], 'benvingut', False)
 
     def getSetupLink(self):
         """Funcio que dona l'enllas al formulari de creacio dels elements per defecte
