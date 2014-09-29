@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b4 (unreleased)
+1.0b4 (2014-09-29)
 ------------------
 
-- Nothing changed yet.
-
+* Fix copy&paste error and additional reindex [Victor Fernandez de Alba]
 
 1.0b3 (2014-09-22)
 ------------------
