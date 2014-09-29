@@ -128,15 +128,21 @@ class setup(grok.View):
         col_news.query = NEWS_QUERY
         col_news.sort_on = QUERY_SORT_ON
 
+        col_news.reindexObject()
+
         col_noticias = self.create_content(noticias, 'Collection', 'aggregator', title='aggregator', description=u'Notícias del sitio')
         col_noticias.title = 'Notícias'
         col_noticias.query = NEWS_QUERY
         col_noticias.sort_on = QUERY_SORT_ON
 
+        col_noticias.reindexObject()
+
         col_noticies = self.create_content(noticies, 'Collection', 'aggregator', title='aggregator', description=u'Notícies del lloc')
         col_noticies.title = 'Notícies'
         col_noticies.query = NEWS_QUERY
         col_noticies.sort_on = QUERY_SORT_ON
+
+        col_noticies.reindexObject()
 
         self.link_translations([(col_news, 'en'), (col_noticias, 'es'), (col_noticies, 'ca')])
 
@@ -154,18 +160,24 @@ class setup(grok.View):
         # original_col_events = original_events['aggregator']
         col_events = self.create_content(events, 'Collection', 'aggregator', title='aggregator', description=u'Site events')
         col_events.title = 'Events'
-        col_news.query = EVENT_QUERY
-        col_news.sort_on = QUERY_SORT_ON
+        col_events.query = EVENT_QUERY
+        col_events.sort_on = QUERY_SORT_ON
+
+        col_events.reindexObject()
 
         col_eventos = self.create_content(eventos, 'Collection', 'aggregator', title='aggregator', description=u'Eventos del sitio')
         col_eventos.title = 'Eventos'
         col_eventos.query = EVENT_QUERY
         col_eventos.sort_on = QUERY_SORT_ON
 
+        col_eventos.reindexObject()
+
         col_esdeveniments = self.create_content(esdeveniments, 'Collection', 'aggregator', title='aggregator', description=u'Esdeveniments del lloc')
         col_esdeveniments.title = 'Esdeveniments'
         col_esdeveniments.query = EVENT_QUERY
         col_esdeveniments.sort_on = QUERY_SORT_ON
+
+        col_esdeveniments.reindexObject()
 
         self.link_translations([(col_events, 'en'), (col_eventos, 'es'), (col_esdeveniments, 'ca')])
 
