@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b5 (unreleased)
+1.0b5 (2014-10-08)
 ------------------
 
-- Nothing changed yet.
-
+* Update install order (first stack, then genweb). Added referenceable behavior to the main default content [Victor Fernandez de Alba]
 
 1.0b4 (2014-09-29)
 ------------------
