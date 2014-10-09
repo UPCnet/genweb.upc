@@ -1,11 +1,13 @@
 Changelog
 =========
 
-1.0b6 (unreleased)
+1.0b6 (2014-10-09)
 ------------------
 
-- Nothing changed yet.
-
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Victor Fernandez de Alba]
+* Fix news custom view [Victor Fernandez de Alba]
+* Afegir nou empaquetat [hanirok]
+* Fix portal in case genweb.upc get reinstalled by some reason in quickinstaller. [Victor Fernandez de Alba]
 
 1.0b5 (2014-10-08)
 ------------------
