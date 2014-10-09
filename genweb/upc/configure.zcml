@@ -35,6 +35,11 @@
     />
 
   <adapter
+    factory=".adapters.PlaEstudisMaster"
+    name="pla_estudis_master"
+    />
+
+  <adapter
     factory=".adapters.GrupsRecercaDepartament"
     name="grups_recerca"
     />
