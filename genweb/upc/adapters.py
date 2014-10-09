@@ -60,11 +60,29 @@ class FitxaMaster(BasePacket):
         self.mapui = dict(codi=u'codi_master')
 
 
-class GrupsRecercaDepartament(BasePacket):
+class PlaEstudisMaster(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
 
     order = 4
+
+    # http://www.upc.edu/master/fitxa_master.php?id_estudi=19&lang=ca
+    def __init__(self, context):
+        self.context = context
+
+        self.title = _(u"Pla d'estudis de màster")
+        self.description = _(u"Informació sobre un pla d'estudis de màster específic")
+        self.URL_schema = 'http://www.upc.edu/master/fitxa_master.php?id_estudi=%(codi_pla_master)s&lang=%(lang)s&pla_estudis'
+        self.fields = [_(u'codi_pla_master')]
+        self.default = dict([(field, '') for field in self.fields])
+        self.mapui = dict(codi=u'codi_pla_master')
+
+
+class GrupsRecercaDepartament(BasePacket):
+    implements(IpacketDefinition)
+    adapts(Ipacket)
+
+    order = 5
 
     def __init__(self, context):
         self.context = context
@@ -80,7 +98,7 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
 
-    order = 5
+    order = 6
 
     def __init__(self, context):
         self.context = context
