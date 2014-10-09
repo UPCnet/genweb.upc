@@ -122,6 +122,11 @@ class setup(grok.View):
         noticies = self.create_content(portal_ca, 'Folder', 'noticies', title='Notícies', description=u'Notícies del lloc')
         self.link_translations([(news, 'en'), (noticias, 'es'), (noticies, 'ca')])
 
+        # Set layout for news folders
+        news.setLayout('newscollection_view')
+        noticias.setLayout('newscollection_view')
+        noticies.setLayout('newscollection_view')
+
         # Create the aggregator
         col_news = self.create_content(news, 'Collection', 'aggregator', title='aggregator', description=u'Site news')
         col_news.title = 'News'
