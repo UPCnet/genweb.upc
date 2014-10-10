@@ -11,5 +11,6 @@
  <object meta_type="Dexterity FTI" name="News Item" />
 
  <object name="Window" meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Plone Site" meta_type="Factory-based Type Information with dynamic views"/>
 
 </object>

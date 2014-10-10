@@ -292,6 +292,13 @@ class setup(grok.View):
         api.content.transition(obj=plantilles, transition='publish')
         plantilles.reindexObject()
 
+        # Create the shared folder for files and images
+        shared = self.create_content(portal, 'Folder', 'shared', title='shared', description='En aquesta carpeta podeu posar els fitxers i imatges que siguin compartits per tots o alguns idiomes.')
+        shared.title = 'Fitxers compartits'
+        self.constrain_content_types(shared, ('File', 'Folder', 'Image'))
+        shared.exclude_from_nav = True
+        shared.reindexObject()
+
         # Mark all protected content with the protected marker interface
         alsoProvides(benvingut, IProtectedContent)
         alsoProvides(bienvenido, IProtectedContent)
