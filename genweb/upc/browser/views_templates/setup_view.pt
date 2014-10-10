@@ -14,7 +14,7 @@
  <metal:main-macro define-macro="main">
 
 <div>
-<h1 class="documentFirstHeading"><img height="16" width="16" src="site_icon.gif"/>Configuració inicial de GenWeb</h1>
+<h1 class="documentFirstHeading"><img src="++resource++cpgenweb.png" style="margin-right: 10px;" />Configuració inicial de GenWeb</h1>
 <p class="documentDescription">Vista per executar la creació de contingut per defecte del GenWeb.</p>
 <div> </div>
 <div class="visualClear"></div>
