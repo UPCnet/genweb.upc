@@ -2,6 +2,7 @@
 <metadata>
   <version>0001</version>
     <dependencies>
+      <dependency>profile-genweb.upc:uninstall</dependency>
       <dependency>profile-genweb.stack:default</dependency>
       <dependency>profile-genweb.core:default</dependency>
       <dependency>profile-plone.app.multilingual:default</dependency>

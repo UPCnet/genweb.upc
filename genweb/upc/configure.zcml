@@ -63,4 +63,12 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+    <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall profile for Genweb UPC"
+      directory="profiles/uninstall"
+      description="Uninstall base setup for ulearn."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 </configure>
