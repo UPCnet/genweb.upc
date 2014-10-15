@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.0b7 (unreleased)
+1.0b7 (2014-10-15)
 ------------------
 
-- Nothing changed yet.
-
+* Fix icon [Victor Fernandez de Alba]
+* Fix uninstall [Victor Fernandez de Alba]
+* Add shared folder to setup_view and restrict the creation of content in the root [Victor Fernandez de Alba]
 
 1.0b6 (2014-10-09)
 ------------------
