@@ -8,7 +8,7 @@
         name="addGenweb"
         class="Products.CMFPlone.browser.admin.AddPloneSite"
         permission="zope2.ViewManagementScreens"
-        template="views_templates/add_genweb.pt"
+        template="templates/add_genweb.pt"
         />
 
     <browser:page
@@ -16,7 +16,7 @@
         name="addGenweb"
         class="Products.CMFPlone.browser.admin.AddPloneSite"
         permission="zope2.ViewManagementScreens"
-        template="views_templates/add_genweb.pt"
+        template="templates/add_genweb.pt"
         />
 
 </configure>
