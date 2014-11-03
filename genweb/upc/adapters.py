@@ -72,7 +72,7 @@ class PlaEstudisMaster(BasePacket):
 
         self.title = _(u"Pla d'estudis de màster")
         self.description = _(u"Informació sobre un pla d'estudis de màster específic")
-        self.URL_schema = 'http://www.upc.edu/master/fitxa_master.php?id_estudi=%(codi_pla_master)s&lang=%(lang)s&pla_estudis'
+        self.URL_schema = 'http://www.upc.edu/master/fitxa_master.php?id_estudi=%(codi_pla_master)s&lang=%(lang)s&pla_estudis&sense_titol'
         self.fields = [_(u'codi_pla_master')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'codi_pla_master')
