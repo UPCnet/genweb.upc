@@ -10,6 +10,7 @@
   <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
   <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
+  <element value="genweb.core.behaviors.openlinkin.IOpenLinkInNewWindow" />
  </property>
 
 </object>
