@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b11 (unreleased)
+1.0b11 (2014-11-10)
 -------------------
 
-- Nothing changed yet.
-
+* Not overwrite the welcome pages if rerun setup-view [Victor Fernandez de Alba]
 
 1.0b10 (2014-11-10)
 -------------------
