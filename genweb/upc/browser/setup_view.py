@@ -248,6 +248,10 @@ class setup(grok.View):
             benvingut = self.create_content(portal_ca, 'Document', 'benvingut', title='Benvingut')
             benvingut.text = IRichText['text'].fromUnicode(welcome_string)
 
+        welcome = portal_en['welcome']
+        bienvenido = portal_es['bienvenido']
+        benvingut = portal_ca['benvingut']
+
         self.link_translations([(benvingut, 'ca'), (bienvenido, 'es'), (welcome, 'en')])
 
         # Mark all homes with IHomePage marker interface
