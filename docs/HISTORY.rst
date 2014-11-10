@@ -1,11 +1,11 @@
 Changelog
 =========
 
-1.0b9 (unreleased)
+1.0b9 (2014-11-10)
 ------------------
 
-- Nothing changed yet.
-
+* Update link [Victor Fernandez de Alba]
+* Add parameter to Pla Estudis Master [hanirok]
 
 1.0b8 (2014-10-16)
 ------------------
