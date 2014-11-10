@@ -238,13 +238,15 @@ class setup(grok.View):
 <p>Podreu disposar d’allotjament per al web, d’un domini upc.edu, d’estadístiques d’accés, de formació i de suport tècnic.</p>
 """
 
-        welcome = self.create_content(portal_en, 'Document', 'welcome', title='Welcome')
-        bienvenido = self.create_content(portal_es, 'Document', 'bienvenido', title='Bienvenido')
-        benvingut = self.create_content(portal_ca, 'Document', 'benvingut', title='Benvingut')
-
-        welcome.text = IRichText['text'].fromUnicode(welcome_string)
-        bienvenido.text = IRichText['text'].fromUnicode(welcome_string)
-        benvingut.text = IRichText['text'].fromUnicode(welcome_string)
+        if not getattr(portal_en, 'welcome', False):
+            welcome = self.create_content(portal_en, 'Document', 'welcome', title='Welcome')
+            welcome.text = IRichText['text'].fromUnicode(welcome_string)
+        if not getattr(portal_es, 'bienvenido', False):
+            bienvenido = self.create_content(portal_es, 'Document', 'bienvenido', title='Bienvenido')
+            bienvenido.text = IRichText['text'].fromUnicode(welcome_string)
+        if not getattr(portal_ca, 'benvingut', False):
+            benvingut = self.create_content(portal_ca, 'Document', 'benvingut', title='Benvingut')
+            benvingut.text = IRichText['text'].fromUnicode(welcome_string)
 
         self.link_translations([(benvingut, 'ca'), (bienvenido, 'es'), (welcome, 'en')])
 
