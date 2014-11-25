@@ -28,6 +28,9 @@ class GenwebUPC(PloneSandboxLayer):
         #                context=configurationContext)
 
     def setUpPloneSite(self, portal):
+        # Needed for PAC not complain about not having one... T_T
+        portal.portal_workflow.setDefaultChain("simple_publication_workflow")
+
         # Install into Plone site using portal_setup
         applyProfile(portal, 'genweb.upc:default')
 
