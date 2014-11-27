@@ -136,7 +136,7 @@ class setup(grok.View):
         col_news.reindexObject()
 
         col_noticias = self.create_content(noticias, 'Collection', 'aggregator', title='aggregator', description=u'Notícias del sitio')
-        col_noticias.title = 'Notícias'
+        col_noticias.title = 'Noticias'
         col_noticias.query = NEWS_QUERY
         col_noticias.sort_on = QUERY_SORT_ON
 
