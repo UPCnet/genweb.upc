@@ -1,11 +1,13 @@
 Changelog
 =========
 
-1.0b12 (unreleased)
+1.0b12 (2014-12-03)
 -------------------
 
-- Nothing changed yet.
-
+* Corregir literal [hanirok]
+* Fix test [Victor Fernandez de Alba]
+* Transfer JS reorder to here. [Victor Fernandez de Alba]
+* Fix tests [Victor Fernandez de Alba]
 
 1.0b11 (2014-11-10)
 -------------------
