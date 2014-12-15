@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b13 (unreleased)
+1.0b13 (2014-12-15)
 -------------------
 
-- Nothing changed yet.
-
+* Update search items [Victor Fernandez de Alba]
 
 1.0b12 (2014-12-03)
 -------------------
