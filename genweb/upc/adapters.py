@@ -105,6 +105,6 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
         self.title = _(u"Investigadors d'un grup de recerca")
         self.description = _(u"Investigadors d'un grup de recerca d'un departament específic")
         self.URL_schema = 'http://www.upc.edu/ws/drac/LlistatInvestigadorsGRv1.php?acronim=%(acronim)s&lang=%(lang)s'
-        self.fields = [_(u'acronim')]
+        self.fields = [_(u'acrònim')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'acronim')
