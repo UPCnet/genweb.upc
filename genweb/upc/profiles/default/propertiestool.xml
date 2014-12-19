@@ -2,6 +2,8 @@
 <object name="portal_properties" meta_type="Plone Properties Tool">
 
  <object name="collage_properties" meta_type="Plone Property Sheet">
+  <property name="ref_browser_types" type="boolean">True</property> 
+  <property name="use_whitelist" type="boolean">True</property>
   <property name="alias_whitelist" type="lines">
    <element value="Document"/>
    <element value="Event"/>
@@ -11,7 +13,15 @@
    <element value="Link"/>
    <element value="News Item"/>
    <element value="Topic"/>
-   <element value="packet"/>
+  </property>
+  <property name="types_whitelist" type="lines">
+   <element value="Document" /> 
+   <element value="Event" /> 
+   <element value="File" /> 
+   <element value="Folder" /> 
+   <element value="Image" /> 
+   <element value="Link" /> 
+   <element value="News Item" /> 
   </property>
  </object>
 
