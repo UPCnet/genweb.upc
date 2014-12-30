@@ -5,6 +5,8 @@ from cgi import parse_qs
 from zope.event import notify
 from zope.interface import alsoProvides
 from zope.component import getMultiAdapter
+from zope.component import queryUtility
+
 from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.CMFCore.utils import getToolByName
@@ -14,7 +16,8 @@ from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 
 from plone.app.contenttypes.behaviors.richtext import IRichText
 from plone.dexterity.utils import createContentInContainer
-
+from plone.portlets.interfaces import IPortletManager
+from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.app.controlpanel.mail import IMailSchema
 from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
@@ -127,6 +130,10 @@ class setup(grok.View):
         noticias.setLayout('newscollection_view')
         noticies.setLayout('newscollection_view')
 
+        news.exclude_from_nav = True
+        noticias.exclude_from_nav = True
+        noticies.exclude_from_nav = True
+
         # Create the aggregator
         col_news = self.create_content(news, 'Collection', 'aggregator', title='aggregator', description=u'Site news')
         col_news.title = 'News'
@@ -160,6 +167,10 @@ class setup(grok.View):
         eventos = self.create_content(portal_es, 'Folder', 'eventos', title='Eventos', description=u'Eventos del sitio')
         esdeveniments = self.create_content(portal_ca, 'Folder', 'esdeveniments', title='Esdeveniments', description=u'Esdeveniments del lloc')
         self.link_translations([(events, 'en'), (eventos, 'es'), (esdeveniments, 'ca')])
+
+        events.exclude_from_nav = True
+        eventos.exclude_from_nav = True
+        esdeveniments.exclude_from_nav = True
 
         # Create the aggregator
         # original_col_events = original_events['aggregator']
@@ -273,11 +284,28 @@ class setup(grok.View):
         portal_es.setLayout('homepage')
         portal_ca.setLayout('homepage')
 
+        # Create default custom contact form info objects
+        if not getattr(portal_en, 'customizedcontact', False):
+            customizedcontact = self.create_content(portal_en, 'Document', 'customizedcontact', title='customizedcontact', publish=False)
+            customizedcontact.title = u'Custom contact'
+        if not getattr(portal_es, 'contactopersonalizado', False):
+            contactopersonalizado = self.create_content(portal_es, 'Document', 'contactopersonalizado', title='contactopersonalizado', publish=False)
+            contactopersonalizado.title = u'Contacto personalizado'
+        if not getattr(portal_ca, 'contactepersonalitzat', False):
+            contactepersonalitzat = self.create_content(portal_ca, 'Document', 'contactepersonalitzat', title='contactepersonalitzat', publish=False)
+            contactepersonalitzat.title = u'Contacte personalitzat'
+
+        customizedcontact = portal_en['customizedcontact']
+        contactopersonalizado = portal_es['contactopersonalizado']
+        contactepersonalitzat = portal_ca['contactepersonalitzat']
+
+        customizedcontact.exclude_from_nav = True
+        contactopersonalizado.exclude_from_nav = True
+        contactepersonalitzat.exclude_from_nav = True
+
         # Templates TinyMCE
         templates = self.create_content(portal, 'Folder', 'templates', title='Templates', description='Plantilles per defecte administrades per l\'SC.')
-        # templates = self.create_content(portal, 'Folder', 'templates', title='Templates', 'Plantilles per defecte administrades per l\'SC.', constrains=(['Document'], ['']))
         plantilles = self.create_content(portal, 'Folder', 'plantilles', title='Plantilles', description='En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.')
-        # plantilles = self.create_content(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains=(['Document'], ['']))
 
         templates.exclude_from_nav = True
         plantilles.exclude_from_nav = True
@@ -323,6 +351,9 @@ class setup(grok.View):
         alsoProvides(logosfooter_ca, IProtectedContent)
         alsoProvides(logosfooter_es, IProtectedContent)
         alsoProvides(logosfooter_en, IProtectedContent)
+        alsoProvides(customizedcontact, IProtectedContent)
+        alsoProvides(contactopersonalizado, IProtectedContent)
+        alsoProvides(contactepersonalitzat, IProtectedContent)
 
         # Mark also the special folders
         alsoProvides(noticies, INewsFolder)
@@ -333,13 +364,30 @@ class setup(grok.View):
         alsoProvides(events, IEventFolder)
 
         # transaction.commit()
+        pc.clearFindAndRebuild()
+
+        # Put navigation portlets in place
+        target_manager_en = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en)
+        target_manager_en_assignments = getMultiAdapter((portal_en, target_manager_en), IPortletAssignmentMapping)
+        target_manager_es = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es)
+        target_manager_es_assignments = getMultiAdapter((portal_es, target_manager_es), IPortletAssignmentMapping)
+        target_manager_ca = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_ca)
+        target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
+        from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
+        if 'navigation' not in target_manager_en_assignments:
+            target_manager_en_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_en.id))
+        if 'navigation' not in target_manager_es_assignments:
+            target_manager_es_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_es.id))
+        if 'navigation' not in target_manager_ca_assignments:
+            target_manager_ca_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_ca.id))
 
         return True
 
-    def create_content(self, container, portal_type, id, **kwargs):
+    def create_content(self, container, portal_type, id, publish=True, **kwargs):
         if not getattr(container, id, False):
             obj = createContentInContainer(container, portal_type, checkConstraints=False, **kwargs)
-            self.publish_content(obj)
+            if publish:
+                self.publish_content(obj)
         return getattr(container, id)
 
     def link_translations(self, items):
