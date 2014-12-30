@@ -1,11 +1,11 @@
 Changelog
 =========
 
-1.0b14 (unreleased)
+1.0b14 (2014-12-30)
 -------------------
 
-- Nothing changed yet.
-
+* Add custom contact default pages [Victor Fernandez de Alba]
+* Default collage options [hanirok]
 
 1.0b13 (2014-12-15)
 -------------------
