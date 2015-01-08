@@ -1,11 +1,11 @@
 Changelog
 =========
 
-1.0b15 (unreleased)
+1.0b15 (2015-01-08)
 -------------------
 
-- Nothing changed yet.
-
+* Add to the setup the default portlets for mavigation [Victor Fernandez de Alba]
+* Fixing Travis [Victor Fernandez de Alba]
 
 1.0b14 (2014-12-30)
 -------------------
