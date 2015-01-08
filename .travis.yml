@@ -10,7 +10,6 @@ install:
   - touch customizeme.cfg
   - echo "[ldapconfig]" > customizeme.cfg
   - echo "bindpasswd = secret" >> customizeme.cfg
-  - rm -rf buildout-cache
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c travis.cfg
   - bin/buildout -Nc travis.cfg
