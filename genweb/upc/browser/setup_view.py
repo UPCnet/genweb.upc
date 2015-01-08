@@ -375,11 +375,11 @@ class setup(grok.View):
         target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
         from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
         if 'navigation' not in target_manager_en_assignments:
-            target_manager_en_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_en.id))
+            target_manager_en_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_en.id), topLevel=0)
         if 'navigation' not in target_manager_es_assignments:
-            target_manager_es_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_es.id))
+            target_manager_es_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_es.id), topLevel=0)
         if 'navigation' not in target_manager_ca_assignments:
-            target_manager_ca_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_ca.id))
+            target_manager_ca_assignments['navigation'] = navigationAssignment(root=u'/{}'.format(portal_ca.id), topLevel=0)
 
         return True
 
