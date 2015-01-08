@@ -1,15 +1,16 @@
 language: python
 python: "2.7"
-sudo: false
-cache:
-  directories:
-  - eggs
+# sudo: false
+# cache:
+#   directories:
+#   - eggs
 install:
 #  - touch /home/travis/virtualenv/python2.7/lib/python2.7/sitecustomize.py
 #  - echo "import sys; sys.setdefaultencoding('utf-8')" > /home/travis/virtualenv/python2.7/lib/python2.7/sitecustomize.py
   - touch customizeme.cfg
   - echo "[ldapconfig]" > customizeme.cfg
   - echo "bindpasswd = secret" >> customizeme.cfg
+  - rm -rf buildout-cache
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c travis.cfg --setuptools-version=7.0 --version=2.2.5
   - bin/buildout -Nc travis.cfg
