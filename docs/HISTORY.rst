@@ -1,11 +1,15 @@
 Changelog
 =========
 
-1.0b16 (unreleased)
--------------------
+1.0 (2015-01-08)
+----------------
 
-- Nothing changed yet.
-
+* Fixing Travis [Victor Fernandez de Alba]
+* Fix Travis [Victor Fernandez de Alba]
+* Fix Travis [Victor Fernandez de Alba]
+* Fix Travis [Victor Fernandez de Alba]
+* Fix Travis [Victor Fernandez de Alba]
+* Fix Travis [Victor Fernandez de Alba]
 
 1.0b15 (2015-01-08)
 -------------------
