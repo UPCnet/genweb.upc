@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2015-01-13)
 ----------------
 
-- Nothing changed yet.
-
+* Fix portlet navigation root [Victor Fernandez de Alba]
 
 1.0 (2015-01-08)
 ----------------
