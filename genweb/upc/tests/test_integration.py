@@ -28,16 +28,19 @@ class TestExample(unittest.TestCase):
         self.app = self.layer['app']
         self.portal = self.layer['portal']
         self.request = self.layer['request']
-        # self.qi_tool = getToolByName(self.portal, 'portal_quickinstaller')
 
-    # def test_product_is_installed(self):
-    #     """ Validate that our products GS profile has been run and the product
-    #         installed
-    #     """
-    #     pid = 'genweb.upc'
-    #     installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
-    #     self.assertTrue(pid in installed,
-    #                     'package appears not to have been installed')
+    def setup_gw(self):
+        portal = self.layer['portal']
+        request = self.layer['request']
+        # Login as manager
+        setRoles(portal, TEST_USER_ID, ['Manager'])
+        login(portal, TEST_USER_NAME)
+
+        setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.setup_multilingual()
+        setupview.createContent()
+
+        logout()
 
     def testSetupViewAvailable(self):
         portal = self.layer['portal']
@@ -101,3 +104,21 @@ class TestExample(unittest.TestCase):
     #     notify(ObjectInitializedEvent(folder))
     #     self.assertEqual(sorted(folder.getLocallyAllowedTypes()), sorted(CONSTRAINED_TYPES))
     #     self.assertEqual(sorted(folder.getImmediatelyAddableTypes()), sorted(IMMEDIATELY_ADDABLE_TYPES))
+
+    def test_rlf_migration(self):
+        self.setup_gw()
+        login(self.portal, TEST_USER_NAME)
+        migration_view = getMultiAdapter((self.portal, self.request), name='migrate_rlf')
+        migration_view.render()
+        logout()
+
+        self.assertFalse(self.portal.get('ca_old', False))
+        self.assertFalse(self.portal.get('en_old', False))
+        self.assertFalse(self.portal.get('es_old', False))
+
+        self.assertTrue(self.portal.get('ca', False))
+        self.assertTrue(self.portal.get('en', False))
+        self.assertTrue(self.portal.get('es', False))
+
+        self.assertTrue(self.portal['ca'].get('benvingut', False))
+        self.assertTrue(self.portal['ca'].get('shared', False))

@@ -326,12 +326,24 @@ class setup(grok.View):
         api.content.transition(obj=plantilles, transition='publish')
         plantilles.reindexObject()
 
-        # Create the shared folder for files and images
-        shared = self.create_content(portal, 'Folder', 'shared', title='shared', description='En aquesta carpeta podeu posar els fitxers i imatges que siguin compartits per tots o alguns idiomes.')
-        shared.title = 'Fitxers compartits'
+        # Create the shared folders for files and images
+        compartits = self.create_content(portal_ca, 'LIF', 'shared', title='shared', description='En aquesta carpeta podeu posar els fitxers i imatges que siguin compartits per tots o alguns idiomes.')
+        compartits.title = 'Fitxers compartits'
+        shared = self.create_content(portal_en, 'LIF', 'shared', title='shared', description='En aquesta carpeta podeu posar els fitxers i imatges que siguin compartits per tots o alguns idiomes.')
+        shared.title = 'Shared files'
+        compartidos = self.create_content(portal_es, 'LIF', 'shared', title='shared', description='En aquesta carpeta podeu posar els fitxers i imatges que siguin compartits per tots o alguns idiomes.')
+        compartidos.title = 'Ficheros compartidos'
+        self.constrain_content_types(compartits, ('File', 'Folder', 'Image'))
         self.constrain_content_types(shared, ('File', 'Folder', 'Image'))
+        self.constrain_content_types(compartidos, ('File', 'Folder', 'Image'))
+
+        compartits.exclude_from_nav = True
         shared.exclude_from_nav = True
+        compartidos.exclude_from_nav = True
+
+        compartits.reindexObject()
         shared.reindexObject()
+        compartidos.reindexObject()
 
         # Mark all protected content with the protected marker interface
         alsoProvides(benvingut, IProtectedContent)
@@ -354,6 +366,9 @@ class setup(grok.View):
         alsoProvides(customizedcontact, IProtectedContent)
         alsoProvides(contactopersonalizado, IProtectedContent)
         alsoProvides(contactepersonalitzat, IProtectedContent)
+        alsoProvides(shared, IProtectedContent)
+        alsoProvides(compartidos, IProtectedContent)
+        alsoProvides(compartits, IProtectedContent)
 
         # Mark also the special folders
         alsoProvides(noticies, INewsFolder)
@@ -375,11 +390,17 @@ class setup(grok.View):
         target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
         from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
         if 'navigation' not in target_manager_en_assignments:
-            target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=0)
+            target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=1)
         if 'navigation' not in target_manager_es_assignments:
-            target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=0)
+            target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=1)
         if 'navigation' not in target_manager_ca_assignments:
-            target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=0)
+            target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=1)
+
+        # Delete default Navigation portlet on root
+        target_manager_root = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal)
+        target_manager_root_assignments = getMultiAdapter((portal, target_manager_root), IPortletAssignmentMapping)
+        if 'navigation' in target_manager_root_assignments:
+            del target_manager_root_assignments['navigation']
 
         return True
 
