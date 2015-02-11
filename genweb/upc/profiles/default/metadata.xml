@@ -6,5 +6,6 @@
       <dependency>profile-genweb.stack:default</dependency>
       <dependency>profile-genweb.core:default</dependency>
       <dependency>profile-plone.app.multilingual:default</dependency>
+      <dependency>profile-quintagroup.seoptimizer:default</dependency>
     </dependencies>
 </metadata>
