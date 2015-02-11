@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.3 (unreleased)
+1.3 (2015-02-11)
 ----------------
 
-- Nothing changed yet.
-
+* Make SEO available by default [Victor Fernandez de Alba]
 
 1.2 (2015-02-06)
 ----------------
