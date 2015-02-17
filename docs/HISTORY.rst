@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.4 (unreleased)
+1.4 (2015-02-17)
 ----------------
 
-- Nothing changed yet.
-
+* New welcome page [hanirok]
 
 1.3 (2015-02-11)
 ----------------
