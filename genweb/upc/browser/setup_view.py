@@ -239,14 +239,31 @@ class setup(grok.View):
         logosfooter_ca.reindexObject()
 
         # welcome pages
-        welcome_string = u"""<h1 class="documentFirstHeading">Us donem la benvinguda a Genweb UPC v4, el genweb "mobilitzat"!</p>
-<p>Aquesta versió incorpora millores en el disseny i la flexibilitat, s’ha adaptat als dispositius mòbils i s’hi han inclòs moltes de les vostres demandes. Les voleu conèixer en detall?<br/><br/>I a partir d'ara, ja podreu introduir els continguts.</p>
+        welcome_string = u"""<div>
+<div class="destacatBandejat">
+<p class="xxl" style="text-align: center; ">Contingut de la pàgina "Benvingut"</p>
+</div>
+<br />
+</div>
+<div>Actualitzeu aquí el contingut que voleu visualitzar a la pàgina principal del vostre web.</div>
+<div>
+<ul class="list list-highlighted">
+<li><a class="external-link" href="http://genweb.upc.edu/documentacio" target="_blank" title="">Documentació Genweb v4</a></li>
+</ul>
+<br />
+</div>
+<div>
+<div class="destacatBandejat">
+<p class="xxl" style="text-align: center; ">Contenido de la página "Bienvenido"</p>
+</div>
 
-<h2>Abans d'utilitzar Genweb...</h2>
-<p>Aneu a Comunitat Genweb, conegueu les darreres novetats amb Genweb Tour, consulteu la Guia ràpida i els Exemples pràctics, i informeu-vos dels Recursos d’edició i de tota la documentació i ajuts que teniu a la vostra disposició.</p>
-
-<h2>I quan el tingueu llest...</h2>
-<p>Podreu disposar d’allotjament per al web, d’un domini upc.edu, d’estadístiques d’accés, de formació i de suport tècnic.</p>
+<div>Actualizad aquí el contenido que queréis visualizar en la página principal de vuestra web.</div>
+<br /><br /><br />
+<div class="destacatBandejat">
+<p class="xxl" style="text-align: center; ">"Welcome" page content</p>
+</div>
+<div>Update here the content you want in your website home page.</div>
+</div>
 """
 
         if not getattr(portal_en, 'welcome', False):
