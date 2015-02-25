@@ -27,6 +27,7 @@ from genweb.core.interfaces import INewsFolder
 from genweb.core.interfaces import IEventFolder
 from genweb.core.interfaces import IProtectedContent
 from genweb.core.browser.plantilles import get_plantilles
+from genweb.core import utils
 
 import transaction
 
@@ -56,6 +57,7 @@ class setup(grok.View):
                         self.setup_multilingual()
                         self.createContent()
                         self.request.response.redirect(base_url)
+            self.setGenwebProperties()
 
     def contentStatus(self):
         objects = [('Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
@@ -239,42 +241,57 @@ class setup(grok.View):
         logosfooter_ca.reindexObject()
 
         # welcome pages
-        welcome_string = u"""<div>
-<div class="destacatBandejat">
-<p class="xxl" style="text-align: center; ">Contingut de la pàgina "Benvingut"</p>
-</div>
-<br />
-</div>
-<div>Actualitzeu aquí el contingut que voleu visualitzar a la pàgina principal del vostre web.</div>
-<div>
-<ul class="list list-highlighted">
-<li><a class="external-link" href="http://genweb.upc.edu/documentacio" target="_blank" title="">Documentació Genweb v4</a></li>
-</ul>
-<br />
-</div>
-<div>
-<div class="destacatBandejat">
-<p class="xxl" style="text-align: center; ">Contenido de la página "Bienvenido"</p>
-</div>
+        welcome_string_ca = u"""<div class="box">
+            <div>
+            <div class="destacatBandejat">
+            <p class="xxl" style="text-align: center; ">Contingut de la pàgina "Benvingut"</p>
+            </div>
+            <p> </p>
+            </div>
+            <div>Personalitzeu aquest contingut a la pàgina "Benvingut" que trobareu a l'arrel del vostre web.</div>
+            <div>
+            <ul class="list list-highlighted">
+            <li><a class="external-link" href="http://genweb.upc.edu/ca/documentacio" target="_blank" title="">Documentació Genweb v4</a></li>
+            </ul>
+            </div>
+            <p> </p>
+            <p> </p>
+            </div>
+            """
 
-<div>Actualizad aquí el contenido que queréis visualizar en la página principal de vuestra web.</div>
-<br /><br /><br />
-<div class="destacatBandejat">
-<p class="xxl" style="text-align: center; ">"Welcome" page content</p>
-</div>
-<div>Update here the content you want in your website home page.</div>
-</div>
-"""
+        welcome_string_es = u"""<div class="box">
+            <div>
+            <div class="destacatBandejat">
+            <p class="xxl" style="text-align: center; "><span>Contenido de la página "Bienvenido"</span></p>
+            </div>
+            <p> </p>
+            </div>
+            <div>Personalizad este contenido en la página "Bienvenido" que encontraréis en la raíz del árbol de navegación en castellano.</div>
+            <p> </p>
+            <p> </p>
+            </div> """
+
+        welcome_string_en = u"""<div class="box">
+            <div>
+            <div class="destacatBandejat">
+            <p class="xxl" style="text-align: center; "><span>"Welcome" page content</span></p>
+            </div>
+            <p> </p>
+            <p>Update on page "Welcome" the content you want in your website home page.</p>
+            </div>
+            <p> </p>
+            <p> </p>
+            </div> """
 
         if not getattr(portal_en, 'welcome', False):
             welcome = self.create_content(portal_en, 'Document', 'welcome', title='Welcome')
-            welcome.text = IRichText['text'].fromUnicode(welcome_string)
+            welcome.text = IRichText['text'].fromUnicode(welcome_string_en)
         if not getattr(portal_es, 'bienvenido', False):
             bienvenido = self.create_content(portal_es, 'Document', 'bienvenido', title='Bienvenido')
-            bienvenido.text = IRichText['text'].fromUnicode(welcome_string)
+            bienvenido.text = IRichText['text'].fromUnicode(welcome_string_es)
         if not getattr(portal_ca, 'benvingut', False):
             benvingut = self.create_content(portal_ca, 'Document', 'benvingut', title='Benvingut')
-            benvingut.text = IRichText['text'].fromUnicode(welcome_string)
+            benvingut.text = IRichText['text'].fromUnicode(welcome_string_ca)
 
         welcome = portal_en['welcome']
         bienvenido = portal_es['bienvenido']
@@ -301,24 +318,35 @@ class setup(grok.View):
         portal_es.setLayout('homepage')
         portal_ca.setLayout('homepage')
 
+        contact_string_ca = u"""Editeu a la pàgina "Contacte personalitzat", que trobareu a l’arrel de català, les vostres dades personalitzades de contacte. """
+        contact_string_es = u"""Editad en la página "Contacto personalizado", que encontraréis en la raíz de español, vuestros datos personalizados de contacto. """
+        contact_string_en = u"""Customize your contact details on page "custom contact" . """
+
         # Create default custom contact form info objects
         if not getattr(portal_en, 'customizedcontact', False):
             customizedcontact = self.create_content(portal_en, 'Document', 'customizedcontact', title='customizedcontact', publish=False)
             customizedcontact.title = u'Custom contact'
+            customizedcontact.text = IRichText['text'].fromUnicode(contact_string_en)
         if not getattr(portal_es, 'contactopersonalizado', False):
             contactopersonalizado = self.create_content(portal_es, 'Document', 'contactopersonalizado', title='contactopersonalizado', publish=False)
             contactopersonalizado.title = u'Contacto personalizado'
+            contactopersonalizado.text = IRichText['text'].fromUnicode(contact_string_es)
         if not getattr(portal_ca, 'contactepersonalitzat', False):
             contactepersonalitzat = self.create_content(portal_ca, 'Document', 'contactepersonalitzat', title='contactepersonalitzat', publish=False)
             contactepersonalitzat.title = u'Contacte personalitzat'
+            contactepersonalitzat.text = IRichText['text'].fromUnicode(contact_string_ca)
 
         customizedcontact = portal_en['customizedcontact']
         contactopersonalizado = portal_es['contactopersonalizado']
         contactepersonalitzat = portal_ca['contactepersonalitzat']
 
+        self.link_translations([(contactepersonalitzat, 'ca'), (contactopersonalizado, 'es'), (customizedcontact, 'en')])
+
         customizedcontact.exclude_from_nav = True
         contactopersonalizado.exclude_from_nav = True
         contactepersonalitzat.exclude_from_nav = True
+
+
 
         # Templates TinyMCE
         templates = self.create_content(portal, 'Folder', 'templates', title='Templates', description='Plantilles per defecte administrades per l\'SC.')
@@ -407,11 +435,11 @@ class setup(grok.View):
         target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
         from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
         if 'navigation' not in target_manager_en_assignments:
-            target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=1)
+            target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=1,bottomLevel=2)
         if 'navigation' not in target_manager_es_assignments:
-            target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=1)
+            target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=1,bottomLevel=2)
         if 'navigation' not in target_manager_ca_assignments:
-            target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=1)
+            target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=1,bottomLevel=2)
 
         # Delete default Navigation portlet on root
         target_manager_root = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal)
@@ -481,3 +509,14 @@ class setup(grok.View):
         #         pw.doActionFor(context, {'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
         #     except:
         #         pass
+
+    def setGenwebProperties(self):
+        """ Set default configuration in genweb properties """        
+        gwoptions = utils.genweb_config()
+        gwoptions.languages_link_to_root = True
+
+        portal = getToolByName(self, 'portal_url').getPortalObject()
+        site_props = portal.portal_properties.site_properties
+        site_props.exposeDCMetaTags = True
+        site_props.enable_sitemap = True
+
