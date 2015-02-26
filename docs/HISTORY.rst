@@ -1,11 +1,11 @@
 Changelog
 =========
 
-1.5 (unreleased)
+1.5 (2015-02-26)
 ----------------
 
-- Nothing changed yet.
-
+* Error al intentar visualitzars els investigadors dun grup [Paco Gregori]
+* Configuració per defecte a la creació dintàncies [Paco Gregori]
 
 1.4 (2015-02-17)
 ----------------
