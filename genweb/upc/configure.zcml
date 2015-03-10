@@ -50,6 +50,11 @@
     name="grups_recerca_people"
     />
 
+  <adapter
+    factory=".adapters.IndexPestanyes"
+    name="index_pestanyes"
+    />    
+
   <genericsetup:importStep
     name="genweb.upc.setupstep"
     title="genweb.upc special import handlers"

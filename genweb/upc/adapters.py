@@ -10,6 +10,8 @@ from genweb.packets import PACKETS_KEY
 from genweb.packets import packetsMessageFactory as _
 
 
+
+
 class FitxaGrau(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
@@ -21,10 +23,10 @@ class FitxaGrau(BasePacket):
         self.title = _(u"Fitxa de grau")
         self.description = _(u"Informació sobre un estudi d'un grau específic")
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
+        #self.URL_schema = 'http://147.83.128.10/content/index.php/grau/llistat/index/ca?nova=true'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'codi_grau')
-
 
 class PlaEstudisGrau(BasePacket):
     implements(IpacketDefinition)
@@ -108,3 +110,23 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
         self.fields = [_(u'acronim')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'acronim')
+
+
+class IndexPestanyes(BasePacket):
+    implements(IpacketDefinition)
+    adapts(Ipacket)
+
+    order = 7
+
+    def __init__(self, context):
+        self.context = context
+        self.title = _(u"Graus curs 2015-2016")
+        self.description = _(u"Graus curs 2015-2016")
+        #self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
+
+        self.URL_schema = 'http://147.83.128.10/content/index.php/grau/llistat/index/%(lang)s?nova=true&genweb=true'
+           
+        self.fields = [_(u'codi_grau')]
+        self.default = dict([(field, '') for field in self.fields])
+        self.mapui = dict(codi=u'codi_grau')
+
