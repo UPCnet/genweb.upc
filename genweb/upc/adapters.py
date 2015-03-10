@@ -22,8 +22,8 @@ class FitxaGrau(BasePacket):
         self.context = context
         self.title = _(u"Fitxa de grau")
         self.description = _(u"Informació sobre un estudi d'un grau específic")
-        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
-        #self.URL_schema = 'http://147.83.128.10/content/index.php/grau/llistat/index/ca?nova=true'
+        #self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
+        self.URL_schema = 'http://147.83.128.10/content/index.php/grau/fitxa/html?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'codi_grau')
@@ -120,13 +120,14 @@ class IndexPestanyes(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = _(u"Graus curs 2015-2016")
-        self.description = _(u"Graus curs 2015-2016")
-        #self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
+        self.title = _(u"Llista estudis")
+        self.description = _(u"Llista estudis: es pot escollir 'grau' o 'master'")
 
-        self.URL_schema = 'http://147.83.128.10/content/index.php/grau/llistat/index/%(lang)s?nova=true&genweb=true'
-           
-        self.fields = [_(u'codi_grau')]
+        server = 'http://147.83.128.10/content/index.php/'
+        self.URL_schema = server + '%(tipus_llistat)s/llistat/index/%(lang)s?genweb=true'
+        self.URL_schema_estudi = server + '%(tipus_llistat)s/fitxa/html?genweb=true'
+        
+        self.fields = [_(u'tipus_llistat')]
         self.default = dict([(field, '') for field in self.fields])
-        self.mapui = dict(codi=u'codi_grau')
+        self.mapui = dict(codi=u'tipus_llistat')
 
