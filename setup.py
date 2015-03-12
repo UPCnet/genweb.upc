@@ -33,7 +33,7 @@ setup(name='genweb.upc',
           'five.grok',
           'genweb.core',
           'genweb.stack',
-          'plone.app.multilingual'
+          'plone.app.multilingual[archetypes]',
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
