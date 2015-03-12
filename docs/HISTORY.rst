@@ -1,11 +1,11 @@
 Changelog
 =========
 
-1.7 (unreleased)
+1.7 (2015-03-12)
 ----------------
 
-- Nothing changed yet.
-
+* Put on the fridge the migration test as it is no longer needed [Victor Fernandez de Alba]
+* Updated for not directly depend on PAM, fixed tests [Victor Fernandez de Alba]
 
 1.6 (2015-03-12)
 ----------------
