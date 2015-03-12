@@ -105,20 +105,21 @@ class TestExample(unittest.TestCase):
     #     self.assertEqual(sorted(folder.getLocallyAllowedTypes()), sorted(CONSTRAINED_TYPES))
     #     self.assertEqual(sorted(folder.getImmediatelyAddableTypes()), sorted(IMMEDIATELY_ADDABLE_TYPES))
 
-    def test_rlf_migration(self):
-        self.setup_gw()
-        login(self.portal, TEST_USER_NAME)
-        migration_view = getMultiAdapter((self.portal, self.request), name='migrate_rlf')
-        migration_view.render()
-        logout()
+    # On the fridge, as the migration worked and is no longer needed
+    # def test_rlf_migration(self):
+    #     self.setup_gw()
+    #     login(self.portal, TEST_USER_NAME)
+    #     migration_view = getMultiAdapter((self.portal, self.request), name='migrate_rlf')
+    #     migration_view.render()
+    #     logout()
 
-        self.assertFalse(self.portal.get('ca_old', False))
-        self.assertFalse(self.portal.get('en_old', False))
-        self.assertFalse(self.portal.get('es_old', False))
+    #     self.assertFalse(self.portal.get('ca_old', False))
+    #     self.assertFalse(self.portal.get('en_old', False))
+    #     self.assertFalse(self.portal.get('es_old', False))
 
-        self.assertTrue(self.portal.get('ca', False))
-        self.assertTrue(self.portal.get('en', False))
-        self.assertTrue(self.portal.get('es', False))
+    #     self.assertTrue(self.portal.get('ca', False))
+    #     self.assertTrue(self.portal.get('en', False))
+    #     self.assertTrue(self.portal.get('es', False))
 
-        self.assertTrue(self.portal['ca'].get('benvingut', False))
-        self.assertTrue(self.portal['ca'].get('shared', False))
+    #     self.assertTrue(self.portal['ca'].get('benvingut', False))
+    #     self.assertTrue(self.portal['ca'].get('shared', False))

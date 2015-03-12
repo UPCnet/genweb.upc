@@ -9,12 +9,13 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 
 from plone.app.multilingual.testing import SESSIONS_FIXTURE
-from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
+
+from genweb.core.testing import GENWEBUPC_FIXTURE
 
 
 class GenwebUPC(PloneSandboxLayer):
 
-    defaultBases = (SESSIONS_FIXTURE, PLONE_APP_CONTENTTYPES_FIXTURE,)
+    defaultBases = (SESSIONS_FIXTURE, GENWEBUPC_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML

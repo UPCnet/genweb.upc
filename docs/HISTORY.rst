@@ -1,11 +1,22 @@
 Changelog
 =========
 
-1.6 (unreleased)
+1.8 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+1.7 (2015-03-12)
+----------------
+
+* Put on the fridge the migration test as it is no longer needed [Victor Fernandez de Alba]
+* Updated for not directly depend on PAM, fixed tests [Victor Fernandez de Alba]
+
+1.6 (2015-03-12)
+----------------
+
+* Transferred p.a.m. from g.core [Victor Fernandez de Alba]
 
 1.5 (2015-02-26)
 ----------------
