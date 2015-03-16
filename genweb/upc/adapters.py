@@ -131,3 +131,19 @@ class IndexPestanyes(BasePacket):
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'tipus_llistat')
 
+
+class ContingutGenweb(BasePacket):
+    implements(IpacketDefinition)
+    adapts(Ipacket)
+
+    order = 8
+
+    def __init__(self, context):
+        self.context = context
+        self.title = _(u"Contingut extern genweb")
+        self.description = _(u"url del contingut ")
+        self.URL_schema = '%(url_contingut)s'
+        self.fields = [_(u'url_contingut')]
+        self.default = dict([(field, '') for field in self.fields])
+        self.mapui = dict(codi=u'url_contingut')
+
