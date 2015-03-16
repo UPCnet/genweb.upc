@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="genweb">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+<tal:def tal:define="tabs view/getTabs;
+                     tab_classes python:['#primera','#segona','#tercera','#quarta','#cinquena']">
+
+<ul class="nav nav-tabs" id="myTab">
+    <tal:pestanyes tal:repeat="item tabs">
+    <tal:def tal:define="index repeat/item/index">
+        <tal:co condition="python:index == 0">
+            <li class="active">
+                <a tal:attributes="href python:tab_classes[index]" data-toggle="tab"><tal:rep replace="item/id">Primera</tal:rep></a>
+            </li>
+        </tal:co>
+        <tal:con condition="python:index != 0">
+            <li>
+                <a tal:attributes="href python:tab_classes[index]" data-toggle="tab"><tal:rep replace="item/id">Primera</tal:rep></a>
+            </li>
+        </tal:con>
+        </tal:def>
+    </tal:pestanyes>
+</ul>
+
+
+<div class="tab-content">
+    <tal:pestanyes tal:repeat="contenido tabs">
+        <tal:def tal:define="ordre repeat/contenido/index">
+            <tal:co condition="python:ordre == 0">
+                <div class="tab-pane active" tal:attributes="id python:tab_classes[ordre][1:]" tal:content="structure contenido/body_tab">Contingut de la primera pestanya...</div>
+            </tal:co>
+            <tal:con condition="python:ordre != 0">
+                <div class="tab-pane" tal:attributes="id python:tab_classes[ordre][1:]"  tal:content="structure contenido/body_tab">Contingut de la segona pestanya...</div>
+            </tal:con>
+        </tal:def>
+    </tal:pestanyes>
+</div>
+
+
+</tal:def>
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>
