@@ -125,7 +125,7 @@ class IndexPestanyes(BasePacket):
 
         server = 'http://147.83.128.10/content/index.php/'
         self.URL_schema = server + '%(tipus_llistat)s/llistat/index/%(lang)s?genweb=true'
-        self.URL_schema_estudi = server + '%(tipus_llistat)s/fitxa/html?genweb=true'
+        self.URL_schema_estudi = server + '%(tipus_llistat)s/fitxa/html/?lang=%(lang)s&genweb=true'
         
         self.fields = [_(u'tipus_llistat')]
         self.default = dict([(field, '') for field in self.fields])
