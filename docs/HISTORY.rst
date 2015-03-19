@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.8 (unreleased)
+1.8 (2015-03-19)
 ----------------
 
-- Nothing changed yet.
-
+* Change Servei TIC tag [hanirok]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Add ServeisTIC view [hanirok]
 
 1.7 (2015-03-12)
 ----------------
