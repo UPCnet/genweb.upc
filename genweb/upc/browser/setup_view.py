@@ -2,12 +2,9 @@
 from five import grok
 from plone import api
 from cgi import parse_qs
-from zope.event import notify
 from zope.interface import alsoProvides
 from zope.component import getMultiAdapter
 from zope.component import queryUtility
-
-from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import normalizeString
@@ -22,6 +19,8 @@ from plone.app.controlpanel.mail import IMailSchema
 from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
 
+from plone.namedfile.file import NamedBlobImage
+
 from genweb.core.interfaces import IHomePage
 from genweb.core.interfaces import INewsFolder
 from genweb.core.interfaces import IEventFolder
@@ -29,7 +28,10 @@ from genweb.core.interfaces import IProtectedContent
 from genweb.core.browser.plantilles import get_plantilles
 from genweb.core import utils
 
-import transaction
+from plone.app.event.base import localized_now
+from datetime import timedelta
+import requests
+
 
 grok.templatedir('views_templates')
 
@@ -51,13 +53,22 @@ class setup(grok.View):
         qs = self.request.get('QUERY_STRING', None)
         if qs is not None:
             query = parse_qs(qs)
-            if 'create' in query:
-                for name in query['create']:
+            tipus = ''
+            if 'createn2' in query:
+                tipus = 'n2'
+                for name in query['createn2']:
                     if name == 'all':
                         self.setup_multilingual()
-                        self.createContent()
+                        self.createContent(tipus)
                         self.request.response.redirect(base_url)
-            self.setGenwebProperties()
+            if 'createn3' in query:
+                tipus = 'n3'
+                for name in query['createn3']:
+                    if name == 'all':
+                        self.setup_multilingual()
+                        self.createContent(tipus)
+                        self.request.response.redirect(base_url)
+            self.setGenwebProperties(tipus)
 
     def contentStatus(self):
         objects = [('Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
@@ -68,8 +79,10 @@ class setup(grok.View):
                    ('Templates', [('templates', 'root')]),
                    ('Plantilles', [('plantilles', 'root')]),
                    ]
+
         result = []
         portal = api.portal.get()
+
         for o in objects:
             tr = [o[0]]
             for td, lang in o[1]:
@@ -87,7 +100,7 @@ class setup(grok.View):
         setupTool = SetupMultilingualSite()
         setupTool.setupSite(self.context, False)
 
-    def createContent(self):
+    def createContent(self, tipus):
         """ Method that creates all the default content """
         portal = api.portal.get()
         portal_ca = portal['ca']
@@ -164,6 +177,43 @@ class setup(grok.View):
         self.constrain_content_types(noticias, ('News Item', 'Folder', 'Image'))
         self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image'))
 
+        # Create news sample
+        newsimg_sample = requests.get(portal.portal_url() + '/++genweb++static/example-images/news_sample.jpg').content
+        newsbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
+        noticia_mostra_ca = self.create_content(noticies,
+                                                'News Item',
+                                                'noticia-de-mostra',
+                                                title='Notícia de mostra',
+                                                image=NamedBlobImage(data=newsimg_sample,
+                                                                     filename=u'news_sample.jpg',
+                                                                     contentType=u'image/jpeg'),
+                                                description='Exemple de notícia amb imatge', )
+        noticia_mostra_ca.text = IRichText['text'].fromUnicode(newsbody_sample)
+        noticia_mostra_es = self.create_content(noticias,
+                                                'News Item',
+                                                'noticia-de-muestra',
+                                                title='Noticia de muestra',
+                                                image=NamedBlobImage(data=newsimg_sample,
+                                                                     filename=u'news_sample.jpg',
+                                                                     contentType=u'image/jpeg'),
+                                                description='Exemple de notícia amb imatge', )
+        noticia_mostra_es.text = IRichText['text'].fromUnicode(newsbody_sample)
+        noticia_mostra_en = self.create_content(news,
+                                                'News Item',
+                                                'news-sample',
+                                                title='News sample',
+                                                image=NamedBlobImage(data=newsimg_sample,
+                                                                     filename=u'news_sample.jpg',
+                                                                     contentType=u'image/jpeg'),
+                                                description='Exemple de notícia amb imatge', )
+        noticia_mostra_en.text = IRichText['text'].fromUnicode(newsbody_sample)
+
+        noticia_mostra_ca.reindexObject()
+        noticia_mostra_es.reindexObject()
+        noticia_mostra_en.reindexObject()
+
+        self.link_translations([(noticia_mostra_ca, 'ca'), (noticia_mostra_es, 'es'), (noticia_mostra_en, 'en')])
+
         # Setup portal events folder
         events = self.create_content(portal_en, 'Folder', 'events', title='Events', description=u'Site events')
         eventos = self.create_content(portal_es, 'Folder', 'eventos', title='Eventos', description=u'Eventos del sitio')
@@ -203,11 +253,50 @@ class setup(grok.View):
         self.constrain_content_types(eventos, ('Event', 'Folder', 'Image'))
         self.constrain_content_types(esdeveniments, ('Event', 'Folder', 'Image'))
 
-#         self.addCollection(events.aggregator, 'previous', 'Past Events', 'Events which have already happened. ', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
-#         self.addCollection(eventos.aggregator, 'anteriores', 'Eventos pasados', 'Eventos del sitio que ya han sucedido', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
-#         self.addCollection(esdeveniments.aggregator, 'anteriors', 'Esdeveniments passats', 'Esdeveniments del lloc que ja han passat', 'Event', dateRange=u'-', operation=u'less', setDefault=False, path='grandfather', date_filter=True)
-#         self.setLanguageAndLink([(esdeveniments.aggregator.anteriors, 'ca'), (eventos.aggregator.anteriores, 'es'), (events.aggregator.previous, 'en')])
+        # Create event samples
+        eventbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
+        event_sample_ca = self.create_content(esdeveniments, 'Event', 'esdeveniment-de-mostra', title='Esdeveniment de mostra')
+        event_sample_es = self.create_content(eventos, 'Event', 'evento-de-muestra', title='Evento de muestra')
+        event_sample_en = self.create_content(events, 'Event', 'event-sample', title='Event sample')
 
+        now = localized_now().replace(minute=0, second=0, microsecond=0)
+        tomorrow = now + timedelta(days=1)
+        # past = now - timedelta(days=10)
+        # future = now + timedelta(days=10)
+        far = now + timedelta(days=300)
+        # duration = timedelta(hours=1)
+
+        event_sample_ca.text = IRichText['text'].fromUnicode(eventbody_sample)
+        event_sample_ca.location = "Lloc de l'esdeveniment"
+        event_sample_ca.start = now
+        event_sample_ca.end = far
+        event_sample_ca.timezone = 'Europe/Madrid'
+        event_sample_ca.contact_email = 'adreca@noreply.com'
+        event_sample_ca.contact_name = 'Responsable esdeveniment'
+
+        event_sample_es.text = IRichText['text'].fromUnicode(eventbody_sample)
+        event_sample_es.location = "Lugar del evento"
+        event_sample_es.start = now
+        event_sample_es.end = far
+        event_sample_es.timezone = 'Europe/Madrid'
+        event_sample_es.contact_email = 'adreca@noreply.com'
+        event_sample_es.contact_name = 'Responsable evento'
+
+        event_sample_en.text = IRichText['text'].fromUnicode(eventbody_sample)
+        event_sample_en.location = "Event place"
+        event_sample_en.start = now
+        event_sample_en.end = far
+        event_sample_en.timezone = 'Europe/Madrid'
+        event_sample_en.contact_email = 'adreca@noreply.com'
+        event_sample_en.contact_name = 'Event manager'
+
+        self.link_translations([(event_sample_ca, 'ca'), (event_sample_es, 'es'), (event_sample_en, 'en')])
+
+        event_sample_ca.reindexObject()
+        event_sample_es.reindexObject()
+        event_sample_en.reindexObject()
+
+        # Create banners folders
         banners_en = self.create_content(portal_en, 'BannerContainer', 'banners-en', title='banners-en', description=u'English Banners')
         banners_en.title = 'Banners'
         banners_es = self.create_content(portal_es, 'BannerContainer', 'banners-es', title='banners-es', description=u'Banners en Español')
@@ -224,6 +313,19 @@ class setup(grok.View):
         banners_es.reindexObject()
         banners_ca.reindexObject()
 
+        # Create banners samples
+        data_ca = requests.get(portal.portal_url() + '/++genweb++static/example-images/bgw_sample_ca.jpg').content
+        data_es = requests.get(portal.portal_url() + '/++genweb++static/example-images/bgw_sample_es.jpg').content
+        data_en = requests.get(portal.portal_url() + '/++genweb++static/example-images/bgw_sample_en.jpg').content
+        banner_mostra_ca = self.create_content(banners_ca, 'Banner', 'baner-de-mostra', title='Bàner de mostra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_ca, filename=u'bgw_sample_ca.jpg', contentType=u'image/jpeg'))
+        banner_mostra_es = self.create_content(banners_es, 'Banner', 'baner-de-muestra', title='Báner de muestra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_es, filename=u'bgw_sample_es.jpg', contentType=u'image/jpeg'))
+        banner_mostra_en = self.create_content(banners_en, 'Banner', 'banner-sample', title='Banner sample', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_en, filename=u'bgw_sample_en.jpg', contentType=u'image/jpeg'))
+
+        banner_mostra_ca.reindexObject()
+        banner_mostra_es.reindexObject()
+        banner_mostra_en.reindexObject()
+
+        # Create logosfooter folders
         logosfooter_en = self.create_content(portal_en, 'Logos_Container', 'logosfooter-en', title='logosfooter-en', description=u'English footer logos')
         logosfooter_en.title = 'Footer Logos'
         logosfooter_es = self.create_content(portal_es, 'Logos_Container', 'logosfooter-es', title='logosfooter-es', description=u'Logos en español del pie de página')
@@ -346,8 +448,6 @@ class setup(grok.View):
         contactopersonalizado.exclude_from_nav = True
         contactepersonalitzat.exclude_from_nav = True
 
-
-
         # Templates TinyMCE
         templates = self.create_content(portal, 'Folder', 'templates', title='Templates', description='Plantilles per defecte administrades per l\'SC.')
         plantilles = self.create_content(portal, 'Folder', 'plantilles', title='Plantilles', description='En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.')
@@ -427,26 +527,57 @@ class setup(grok.View):
         pc.clearFindAndRebuild()
 
         # Put navigation portlets in place
-        target_manager_en = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en)
-        target_manager_en_assignments = getMultiAdapter((portal_en, target_manager_en), IPortletAssignmentMapping)
-        target_manager_es = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es)
-        target_manager_es_assignments = getMultiAdapter((portal_es, target_manager_es), IPortletAssignmentMapping)
-        target_manager_ca = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_ca)
-        target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
-        from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
-        if 'navigation' not in target_manager_en_assignments:
-            target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=1,bottomLevel=2)
-        if 'navigation' not in target_manager_es_assignments:
-            target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=1,bottomLevel=2)
-        if 'navigation' not in target_manager_ca_assignments:
-            target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=1,bottomLevel=2)
+        if tipus == 'n3':
+            target_manager_en = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en)
+            target_manager_en_assignments = getMultiAdapter((portal_en, target_manager_en), IPortletAssignmentMapping)
+            target_manager_es = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es)
+            target_manager_es_assignments = getMultiAdapter((portal_es, target_manager_es), IPortletAssignmentMapping)
+            target_manager_ca = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_ca)
+            target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
+            from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
+            if 'navigation' not in target_manager_en_assignments:
+                target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=1, bottomLevel=2)
+            if 'navigation' not in target_manager_es_assignments:
+                target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=1, bottomLevel=2)
+            if 'navigation' not in target_manager_ca_assignments:
+                target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=1, bottomLevel=2)
+
+        if tipus == 'n2':
+            # Navigation portlets in language root folders
+            target_manager_en = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en)
+            target_manager_en_assignments = getMultiAdapter((portal_en, target_manager_en), IPortletAssignmentMapping)
+            target_manager_es = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es)
+            target_manager_es_assignments = getMultiAdapter((portal_es, target_manager_es), IPortletAssignmentMapping)
+            target_manager_ca = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_ca)
+            target_manager_ca_assignments = getMultiAdapter((portal_ca, target_manager_ca), IPortletAssignmentMapping)
+            from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
+            if 'navigation' not in target_manager_en_assignments:
+                target_manager_en_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
+            if 'navigation' not in target_manager_es_assignments:
+                target_manager_es_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
+            if 'navigation' not in target_manager_ca_assignments:
+                target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
+
+            # Navigation portlets in welcome view
+            target_manager_welcome = queryUtility(IPortletManager, name='genweb.portlets.HomePortletManager1', context=portal_en['welcome'])
+            target_manager_welcome_assignments = getMultiAdapter((portal_en['welcome'], target_manager_welcome), IPortletAssignmentMapping)
+            target_manager_bienvenido = queryUtility(IPortletManager, name='genweb.portlets.HomePortletManager1', context=portal_es['bienvenido'])
+            target_manager_bienvenido_assignments = getMultiAdapter((portal_es['bienvenido'], target_manager_bienvenido), IPortletAssignmentMapping)
+            target_manager_benvingut = queryUtility(IPortletManager, name='genweb.portlets.HomePortletManager1', context=portal_ca['benvingut'])
+            target_manager_benvingut_assignments = getMultiAdapter((portal_ca['benvingut'], target_manager_benvingut), IPortletAssignmentMapping)
+            from plone.app.portlets.portlets.navigation import Assignment as navigationAssignment
+            if 'navigation' not in target_manager_welcome_assignments:
+                target_manager_welcome_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
+            if 'navigation' not in target_manager_bienvenido_assignments:
+                target_manager_bienvenido_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
+            if 'navigation' not in target_manager_benvingut_assignments:
+                target_manager_benvingut_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
 
         # Delete default Navigation portlet on root
         target_manager_root = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal)
         target_manager_root_assignments = getMultiAdapter((portal, target_manager_root), IPortletAssignmentMapping)
         if 'navigation' in target_manager_root_assignments:
             del target_manager_root_assignments['navigation']
-
         return True
 
     def create_content(self, container, portal_type, id, publish=True, **kwargs):
@@ -510,13 +641,15 @@ class setup(grok.View):
         #     except:
         #         pass
 
-    def setGenwebProperties(self):
-        """ Set default configuration in genweb properties """        
+    def setGenwebProperties(self, tipus):
+        """ Set default configuration in genweb properties """
         gwoptions = utils.genweb_config()
         gwoptions.languages_link_to_root = True
+
+        if tipus == 'n2':
+            gwoptions.treu_menu_horitzontal = True
 
         portal = getToolByName(self, 'portal_url').getPortalObject()
         site_props = portal.portal_properties.site_properties
         site_props.exposeDCMetaTags = True
         site_props.enable_sitemap = True
-
