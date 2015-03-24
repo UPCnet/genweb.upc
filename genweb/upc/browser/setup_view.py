@@ -260,7 +260,7 @@ class setup(grok.View):
         event_sample_en = self.create_content(events, 'Event', 'event-sample', title='Event sample')
 
         now = localized_now().replace(minute=0, second=0, microsecond=0)
-        tomorrow = now + timedelta(days=1)
+        # tomorrow = now + timedelta(days=1)
         # past = now - timedelta(days=10)
         # future = now + timedelta(days=10)
         far = now + timedelta(days=300)
