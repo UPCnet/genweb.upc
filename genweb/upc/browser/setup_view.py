@@ -30,8 +30,7 @@ from genweb.core import utils
 
 from plone.app.event.base import localized_now
 from datetime import timedelta
-import requests
-
+import pkg_resources
 
 grok.templatedir('views_templates')
 
@@ -53,22 +52,22 @@ class setup(grok.View):
         qs = self.request.get('QUERY_STRING', None)
         if qs is not None:
             query = parse_qs(qs)
-            tipus = ''
+            gwtype = ''
             if 'createn2' in query:
-                tipus = 'n2'
+                gwtype = 'n2'
                 for name in query['createn2']:
                     if name == 'all':
                         self.setup_multilingual()
-                        self.createContent(tipus)
+                        self.createContent(gwtype)
                         self.request.response.redirect(base_url)
             if 'createn3' in query:
-                tipus = 'n3'
+                gwtype = 'n3'
                 for name in query['createn3']:
                     if name == 'all':
                         self.setup_multilingual()
-                        self.createContent(tipus)
+                        self.createContent(gwtype)
                         self.request.response.redirect(base_url)
-            self.setGenwebProperties(tipus)
+            self.setGenwebProperties(gwtype)
 
     def contentStatus(self):
         objects = [('Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
@@ -100,12 +99,13 @@ class setup(grok.View):
         setupTool = SetupMultilingualSite()
         setupTool.setupSite(self.context, False)
 
-    def createContent(self, tipus):
+    def createContent(self, gwtype):
         """ Method that creates all the default content """
         portal = api.portal.get()
         portal_ca = portal['ca']
         portal_en = portal['en']
         portal_es = portal['es']
+        egglocation = pkg_resources.get_distribution('genweb.upc').location
 
         # Let's configure mail
         mail = IMailSchema(portal)
@@ -178,7 +178,7 @@ class setup(grok.View):
         self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image'))
 
         # Create news sample
-        newsimg_sample = requests.get(portal.portal_url() + '/++genweb++static/example-images/news_sample.jpg').content
+        newsimg_sample = open('{}/genweb/upc/browser/sample_images/news_sample.jpg'.format(egglocation)).read()
         newsbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
         noticia_mostra_ca = self.create_content(noticies,
                                                 'News Item',
@@ -314,9 +314,9 @@ class setup(grok.View):
         banners_ca.reindexObject()
 
         # Create banners samples
-        data_ca = requests.get(portal.portal_url() + '/++genweb++static/example-images/bgw_sample_ca.jpg').content
-        data_es = requests.get(portal.portal_url() + '/++genweb++static/example-images/bgw_sample_es.jpg').content
-        data_en = requests.get(portal.portal_url() + '/++genweb++static/example-images/bgw_sample_en.jpg').content
+        data_ca = open('{}/genweb/upc/browser/sample_images/bgw_sample_ca.jpg'.format(egglocation)).read()
+        data_es = open('{}/genweb/upc/browser/sample_images/bgw_sample_es.jpg'.format(egglocation)).read()
+        data_en = open('{}/genweb/upc/browser/sample_images/bgw_sample_en.jpg'.format(egglocation)).read()
         banner_mostra_ca = self.create_content(banners_ca, 'Banner', 'baner-de-mostra', title='Bàner de mostra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_ca, filename=u'bgw_sample_ca.jpg', contentType=u'image/jpeg'))
         banner_mostra_es = self.create_content(banners_es, 'Banner', 'baner-de-muestra', title='Báner de muestra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_es, filename=u'bgw_sample_es.jpg', contentType=u'image/jpeg'))
         banner_mostra_en = self.create_content(banners_en, 'Banner', 'banner-sample', title='Banner sample', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_en, filename=u'bgw_sample_en.jpg', contentType=u'image/jpeg'))
@@ -527,7 +527,7 @@ class setup(grok.View):
         pc.clearFindAndRebuild()
 
         # Put navigation portlets in place
-        if tipus == 'n3':
+        if gwtype == 'n3':
             target_manager_en = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en)
             target_manager_en_assignments = getMultiAdapter((portal_en, target_manager_en), IPortletAssignmentMapping)
             target_manager_es = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es)
@@ -542,7 +542,7 @@ class setup(grok.View):
             if 'navigation' not in target_manager_ca_assignments:
                 target_manager_ca_assignments['navigation'] = navigationAssignment(topLevel=1, bottomLevel=2)
 
-        if tipus == 'n2':
+        if gwtype == 'n2':
             # Navigation portlets in language root folders
             target_manager_en = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en)
             target_manager_en_assignments = getMultiAdapter((portal_en, target_manager_en), IPortletAssignmentMapping)
@@ -641,12 +641,12 @@ class setup(grok.View):
         #     except:
         #         pass
 
-    def setGenwebProperties(self, tipus):
+    def setGenwebProperties(self, gwtype):
         """ Set default configuration in genweb properties """
         gwoptions = utils.genweb_config()
         gwoptions.languages_link_to_root = True
 
-        if tipus == 'n2':
+        if gwtype == 'n2':
             gwoptions.treu_menu_horitzontal = True
 
         portal = getToolByName(self, 'portal_url').getPortalObject()

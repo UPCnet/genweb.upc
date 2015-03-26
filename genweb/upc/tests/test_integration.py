@@ -38,7 +38,7 @@ class TestExample(unittest.TestCase):
 
         setupview = getMultiAdapter((portal, request), name='setup-view')
         setupview.setup_multilingual()
-        setupview.createContent()
+        setupview.createContent('n3')
 
         logout()
 
@@ -59,7 +59,7 @@ class TestExample(unittest.TestCase):
 
         setupview = getMultiAdapter((portal, request), name='setup-view')
         setupview.setup_multilingual()
-        setupview.createContent()
+        setupview.createContent('n3')
 
         self.assertEqual(portal['en']['news'].Title(), u"News")
         self.assertEqual(portal['es']['banners-es'].Title(), u"Banners")
@@ -74,7 +74,7 @@ class TestExample(unittest.TestCase):
 
         setupview = getMultiAdapter((portal, request), name='setup-view')
         setupview.setup_multilingual()
-        setupview.createContent()
+        setupview.createContent('n3')
 
         logout()
         acl_users = getToolByName(portal, 'acl_users')
@@ -89,7 +89,7 @@ class TestExample(unittest.TestCase):
         login(self.portal, TEST_USER_NAME)
         setupview = getMultiAdapter((self.portal, self.request), name='setup-view')
         setupview.setup_multilingual()
-        setupview.createContent()
+        setupview.createContent('n3')
         logout()
         self.assertTrue(IHomePage.providedBy(self.portal['ca']['benvingut']))
 
