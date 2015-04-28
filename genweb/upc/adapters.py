@@ -143,7 +143,8 @@ class ContingutGenweb(BasePacket):
         self.title = _(u"Contingut extern genweb")
         self.description = _(u"url del contingut ")
         self.URL_schema = '%(url_contingut)s'
-        self.fields = [_(u'url_contingut')]
+        #dos parametres, url_contingut i element
+        self.fields = [_(u'url_contingut'), _(u'element')]
         self.default = dict([(field, '') for field in self.fields])
-        self.mapui = dict(codi=u'url_contingut')
+        self.mapui = dict(codi=u'url_contingut', element=u'element')
 
