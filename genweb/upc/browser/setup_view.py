@@ -129,6 +129,14 @@ class setup(grok.View):
             api.content.delete(obj=portal['events'])
             # api.content.rename(obj=portal['events'], new_id='events_setup')
 
+        # Remove LFI Media folder
+        if getattr(portal_ca, 'media', False):
+            api.content.delete(obj=portal_ca['media'])
+        if getattr(portal_es, 'media', False):
+            api.content.delete(obj=portal_es['media'])
+        if getattr(portal_en, 'media', False):
+            api.content.delete(obj=portal_en['media'])
+
         pc = api.portal.get_tool('portal_catalog')
         pc.clearFindAndRebuild()
 
