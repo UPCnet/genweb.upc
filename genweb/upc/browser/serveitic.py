@@ -24,7 +24,7 @@ class ServeisTicFolderView(grok.View):
         tabs = pc.searchResults(portal_type="Document",
                                 review_state="published",
                                 sort_on="getObjPositionInParent",
-                                Subject=('fitxa'),
+                                Subject=('serveitic'),
                                 sort_limit=5)
         data = [dict(id=a.pretty_title_or_id,
                      body_tab=a.getObject().text.raw) for a in tabs]

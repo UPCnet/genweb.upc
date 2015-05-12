@@ -1,11 +1,26 @@
 Changelog
 =========
 
-1.8 (unreleased)
-----------------
+1.10 (unreleased)
+-----------------
 
 - Nothing changed yet.
 
+
+1.9 (2015-04-13)
+----------------
+
+* Fix tests [Victor Fernandez de Alba]
+* Add N2 and N3 selector and samples setup_view [hanirok]
+* Delete EventSummary behavior [hanirok]
+* Erase dependency on genweb addons [Victor Fernandez de Alba]
+
+1.8 (2015-03-19)
+----------------
+
+* Change Servei TIC tag [hanirok]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Add ServeisTIC view [hanirok]
 
 1.7 (2015-03-12)
 ----------------
