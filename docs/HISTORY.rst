@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.10 (unreleased)
+1.10 (2015-05-21)
 -----------------
 
-- Nothing changed yet.
-
+* Remove LFI Media Folder [Paco Gregori]
 
 1.9 (2015-04-13)
 ----------------
