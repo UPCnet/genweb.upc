@@ -140,8 +140,8 @@ class ContingutGenweb(BasePacket):
 
     def __init__(self, context):
         self.context = context
-        self.title = _(u"Contingut extern genweb")
-        self.description = _(u"url del contingut ")
+        self.title = _(u"Contingut existent")
+        self.description = _(u"Contingut d'una pàgina externa")
         self.URL_schema = '%(url_contingut)s'
         #dos parametres, url_contingut i element
         self.fields = [_(u'url_contingut'), _(u'element')]
