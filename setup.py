@@ -34,6 +34,7 @@ setup(name='genweb.upc',
           'genweb.core',
           'genweb.stack',
           'plone.app.multilingual[archetypes]',
+          'genweb.chineselanguagebar',
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
