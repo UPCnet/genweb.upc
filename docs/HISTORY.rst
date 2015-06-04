@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.11 (unreleased)
+1.11 (2015-06-04)
 -----------------
 
-- Nothing changed yet.
-
+* Add new Chinese package [hanirok]
 
 1.10 (2015-05-21)
 -----------------
