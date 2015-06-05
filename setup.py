@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.10.dev0'
+version = '1.12.dev0'
 
 README = open("README.rst").read()
 HISTORY = open(os.path.join("docs", "HISTORY.rst")).read()
@@ -34,6 +34,7 @@ setup(name='genweb.upc',
           'genweb.core',
           'genweb.stack',
           'plone.app.multilingual[archetypes]',
+          'genweb.chineselanguagebar',
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""

@@ -1,11 +1,21 @@
 Changelog
 =========
 
-1.10 (unreleased)
+1.12 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+1.11 (2015-06-04)
+-----------------
+
+* Add new Chinese package [hanirok]
+
+1.10 (2015-05-21)
+-----------------
+
+* Remove LFI Media Folder [Paco Gregori]
 
 1.9 (2015-04-13)
 ----------------
