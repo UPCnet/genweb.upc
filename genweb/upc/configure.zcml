@@ -50,10 +50,7 @@
     name="grups_recerca_people"
     />
 
-  <adapter
-    factory=".adapters.IndexPestanyes"
-    name="index_pestanyes"
-    />
+
 
   <adapter
     factory=".adapters.ContingutGenweb"

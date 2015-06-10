@@ -112,24 +112,6 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
         self.mapui = dict(codi=u'acronim')
 
 
-class IndexPestanyes(BasePacket):
-    implements(IpacketDefinition)
-    adapts(Ipacket)
-
-    order = 7
-
-    def __init__(self, context):
-        self.context = context
-        self.title = _(u"Llista estudis")
-        self.description = _(u"Llista estudis: es pot escollir 'grau' o 'master'")
-
-        server = 'http://147.83.128.10/content/index.php/'
-        self.URL_schema = server + '%(tipus_llistat)s/llistat/index/%(lang)s?genweb=true'
-        self.URL_schema_estudi = server + '%(tipus_llistat)s/fitxa/html/?lang=%(lang)s&genweb=true'
-        
-        self.fields = [_(u'tipus_llistat')]
-        self.default = dict([(field, '') for field in self.fields])
-        self.mapui = dict(codi=u'tipus_llistat')
 
 
 class ContingutGenweb(BasePacket):
