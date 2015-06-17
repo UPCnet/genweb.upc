@@ -11,6 +11,7 @@
   <grok:grok package=".browser" />
 
   <include package=".browser" />
+  <include package=".portlets" />
 
   <include package="genweb.packets" />
   <include package="plone.app.multilingual" />

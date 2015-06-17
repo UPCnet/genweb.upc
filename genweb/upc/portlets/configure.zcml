@@ -7,72 +7,7 @@
 
     <include package="plone.app.portlets" />
 
-    <plone:portletRenderer
-        portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
-        class=".portlets.gwNavigation"
-        layer="genweb.theme.browser.interfaces.IGenwebTheme"
-        />
-
-    <plone:portletRenderer
-        portlet="plone.app.portlets.portlets.rss.IRSSPortlet"
-        class=".portlets.gwRSS"
-        layer="genweb.theme.browser.interfaces.IGenwebTheme"
-        />
-
-    <plone:portletRenderer
-        portlet="plone.portlet.collection.collection.ICollectionPortlet"
-        class=".portlets.gwCollection"
-        layer="genweb.theme.browser.interfaces.IGenwebTheme"
-        />
-
-    <plone:portletRenderer
-        portlet="plone.app.portlets.portlets.recent.IRecentPortlet"
-        class=".portlets.gwRecent"
-        layer="genweb.theme.browser.interfaces.IGenwebTheme"
-        />
-
-    <plone:portlet
-     name="genweb.portlets.homepage"
-     interface=".homepage.IHomepagePortlet"
-     assignment=".homepage.Assignment"
-     renderer=".homepage.Renderer"
-     addview=".homepage.AddForm"
-     />
-
-    <plone:portlet
-     name="genweb.portlets.esdeveniments"
-     interface=".esdeveniments.IEsdevenimentsPortlet"
-     assignment=".esdeveniments.Assignment"
-     renderer=".esdeveniments.Renderer"
-     addview=".esdeveniments.AddForm"
-     editview=".esdeveniments.EditForm"
-     />
-
-     <plone:portlet
-     name="genweb.portlets.news"
-     interface=".news.INewsPortlet"
-     assignment=".news.Assignment"
-     renderer=".news.Renderer"
-     addview=".news.AddForm"
-     editview=".news.EditForm"
-     />
-
-     <plone:portlet
-     name="genweb.portlets.fullnews"
-     interface=".fullnews.IFullNewsPortlet"
-     assignment=".fullnews.Assignment"
-     renderer=".fullnews.Renderer"
-     addview=".fullnews.AddForm"
-     editview=".fullnews.EditForm"
-     />
-
-     <plone:portlet
-     name="genweb.portlets.upcnews"
-     interface=".upcnews.IUPCNewsPortlet"
-     assignment=".upcnews.Assignment"
-     renderer=".upcnews.Renderer"
-     addview=".upcnews.AddForm"
-     />
+  
 
      <plone:portlet
      name="genweb.portlets.content"

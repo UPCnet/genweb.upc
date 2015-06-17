@@ -31,7 +31,7 @@ class IContentPortlet(IPortletDataProvider):
 
     show_title = schema.Bool(
         title=_(u"Mostra el títol?"),
-        description=_(u"Boolean que indica si s'ha de mostrar el títol del portlet"),
+        description=_(u"Marqueu aquesta casella si voleu que es mostri el títol del portlet"),
         required=True,
         default=True,
     )
