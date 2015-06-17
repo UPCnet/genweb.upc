@@ -44,13 +44,13 @@ class IContentPortlet(IPortletDataProvider):
     )
 
     url = schema.TextLine(
-        title=_(u"url de la pàgina a mostrar"),
+        title=_(u"URL de la pàgina a mostrar"),
         description=_(u"help_static_content_url_ca"),
         required=True
     )
 
     element = schema.TextLine(
-        title=_(u"element de la pàgina a mostrar, per defecte #content"),
+        title=_(u"Element de la pàgina a mostrar, per defecte #content"),
         description=_(u"help_static_content_element_ca"),
         required=True,
         default=_(u"#content")
