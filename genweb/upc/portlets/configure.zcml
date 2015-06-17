@@ -10,12 +10,12 @@
   
 
      <plone:portlet
-     name="genweb.portlets.content"
-     interface=".content.IContentPortlet"
-     assignment=".content.Assignment"
-     renderer=".content.Renderer"
-     addview=".content.AddForm"
-     editview=".content.EditForm"
+     name="genweb.portlets.existing_content"
+     interface=".existing_content.IContentPortlet"
+     assignment=".existing_content.Assignment"
+     renderer=".existing_content.Renderer"
+     addview=".existing_content.AddForm"
+     editview=".existing_content.EditForm"
      />
 
 </configure>

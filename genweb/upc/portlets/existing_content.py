@@ -76,7 +76,7 @@ class Assignment (base.Assignment):
 
 
 class Renderer(base.Renderer):
-    render = ViewPageTemplateFile('templates/content.pt')
+    render = ViewPageTemplateFile('templates/existing_content.pt')
 
     def getHTML(self):
         #import pdb; pdb.set_trace()
