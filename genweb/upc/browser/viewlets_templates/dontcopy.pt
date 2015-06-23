@@ -1,0 +1,10 @@
+<div class="alert alert-warning">
+  <button data-dismiss="alert" class="close" type="button">×</button>
+  <strong i18n:translate="">
+            Warning
+  </strong>
+  <tal:msg i18n:translate="dontcopy_homepage">
+        This is necessary for proper operation of the site.
+        Make a copy of it may cause unwanted performances.
+  </tal:msg>
+</div>

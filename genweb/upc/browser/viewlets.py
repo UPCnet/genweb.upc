@@ -74,6 +74,14 @@ class gwSendEvent(viewletBase):
         return checkPermission("plone.app.controlpanel.Overview", self.portal())
 
 
+class gwDontCopy(viewletBase):
+    grok.context(IHomePage)
+    grok.template('dontcopy')
+    grok.viewletmanager(IAboveContentTitle)
+    grok.require('cmf.AddPortalContent')
+    grok.layer(IGenwebTheme)
+
+
 class gwImportantNews(viewletBase):
     grok.name('genweb.important')
     grok.context(INewsItem)
