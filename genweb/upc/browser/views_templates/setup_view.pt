@@ -53,10 +53,13 @@
                 <input type="hidden" name="createn2" value="all">
                 <input id="setup_view_submit" class="context" type="submit" value="Crear GW n2" name="setup_view_submit"/>
             </form>
-
             <form method="get" action="@@setup-view">
                 <input type="hidden" name="createn3" value="all">
                 <input id="setup_view_submit" class="context" type="submit" value="Crear GW n3" name="setup_view_submit"/>
+            </form>
+            <form method="get" action="@@setup-view">
+                <input type="hidden" name="createexamples" value="all">
+                <input id="setup_view_submit" class="context" type="submit" value="Crear contingut de mostra" name="setup_view_submit"/>
             </form>
         </fieldset>
     </metal:main-macro>
