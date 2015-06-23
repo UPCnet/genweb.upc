@@ -79,17 +79,23 @@ class Renderer(base.Renderer):
     render = ViewPageTemplateFile('templates/existing_content.pt')
 
     def getHTML(self):
-        #import pdb; pdb.set_trace()
-
-        raw_html = requests.get(self.data.url)
-        clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
-        doc = pq(clean_html)
-        match = re.search(r'This page does not exist', clean_html)
-        content = ''
-        if match:
-            content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
-        else:
-            content = doc(self.data.element).outerHtml()
+        """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
+            Avisa si hi ha problemes en la URL o si no troba Element.
+        """
+        try:
+            raw_html = requests.get(self.data.url)
+            clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
+            doc = pq(clean_html)
+            match = re.search(r'This page does not exist', clean_html)
+            content = ''
+            if match:
+                content = _(u"ERROR: Unknown identifier. This page does not exist." + self.data.url)
+            else:
+                content = doc(self.data.element).outerHtml()
+                if not content:
+                    content = _(u"ERROR. This element does not exist.") + " " + self.data.element
+        except requests.exceptions.RequestException:
+            content = _(u"ERROR. This URL does not exist.") + " " + self.data.url
         return content
 
     def getTitle(self):
