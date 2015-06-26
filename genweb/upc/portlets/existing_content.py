@@ -108,7 +108,7 @@ class Renderer(base.Renderer):
         if self.data.hide_footer:
             return ''
         else:
-            return 'portlet'
+            return 'existing_content_portlet'
 
 
 class AddForm(base.AddForm):
