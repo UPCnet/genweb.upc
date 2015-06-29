@@ -1,0 +1,6 @@
+<layers>
+  <layer
+      name="GenwebUPC"
+      interface="genweb.upc.browser.interfaces.IGenwebUPC"
+  />
+</layers>
