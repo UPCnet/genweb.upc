@@ -35,4 +35,4 @@ nosetests.xml
 .pydevproject
 
 node_modules
-sass-cache
+.sass-cache
