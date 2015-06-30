@@ -17,6 +17,7 @@ from genweb.core.interfaces import IHomePage
 from genweb.core.utils import portal_url
 from genweb.theme.browser.viewlets import viewletBase
 from genweb.theme.browser.interfaces import IGenwebTheme
+from genweb.upc.browser.interfaces import IGenwebUPC
 
 
 class notConfigured(grok.Viewlet):
@@ -58,7 +59,7 @@ class gwSendEvent(viewletBase):
     grok.context(IEvent)
     grok.template('send_event')
     grok.viewletmanager(IAboveContentTitle)
-    grok.layer(IGenwebTheme)
+    grok.layer(IGenwebUPC)
 
     def isEventSent(self):
         """
@@ -74,12 +75,20 @@ class gwSendEvent(viewletBase):
         return checkPermission("plone.app.controlpanel.Overview", self.portal())
 
 
+class gwDontCopy(viewletBase):
+    grok.context(IHomePage)
+    grok.template('dontcopy')
+    grok.viewletmanager(IAboveContentTitle)
+    grok.require('cmf.AddPortalContent')
+    grok.layer(IGenwebTheme)
+
+
 class gwImportantNews(viewletBase):
     grok.name('genweb.important')
     grok.context(INewsItem)
     grok.template('important')
     grok.viewletmanager(IAboveContentTitle)
-    grok.layer(IGenwebTheme)
+    grok.layer(IGenwebUPC)
 
     def permisos_important(self):
         # TODO: Comprovar que l'usuari tingui permisos per a marcar com a important
@@ -96,3 +105,19 @@ class gwImportantNews(viewletBase):
         context = aq_inner(self.context)
         is_important = IImportant(context).is_important
         return is_important
+
+
+class socialtoolsViewlet(viewletBase):
+    grok.name('genweb.socialtools')
+    grok.template('socialtools')
+    grok.viewletmanager(IAboveContentTitle)
+    grok.layer(IGenwebUPC)
+
+    def getData(self):
+        Title = aq_inner(self.context).Title()
+        contextURL = self.context.absolute_url()
+
+        return dict(Title=Title, URL=contextURL)
+
+    def is_social_tools_enabled(self):
+        return not self.genweb_config().treu_icones_xarxes_socials

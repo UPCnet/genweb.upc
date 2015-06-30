@@ -60,6 +60,7 @@ class setup(grok.View):
                         self.setup_multilingual()
                         self.createContent(gwtype)
                         self.request.response.redirect(base_url)
+                self.setGenwebProperties(gwtype)
             if 'createn3' in query:
                 gwtype = 'n3'
                 for name in query['createn3']:
@@ -67,10 +68,15 @@ class setup(grok.View):
                         self.setup_multilingual()
                         self.createContent(gwtype)
                         self.request.response.redirect(base_url)
-            self.setGenwebProperties(gwtype)
+                self.setGenwebProperties(gwtype)
+            if 'createexamples' in query:
+                gwtype = 'examples'
+                for name in query['createexamples']:
+                    if name == 'all':
+                        self.createExampleContent()
 
     def contentStatus(self):
-        objects = [('Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
+        objects = [(u'Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
                    ('Esdeveniments', [('esdeveniments', 'ca'), ('eventos', 'es'), ('events', 'en')]),
                    ('Banners', [('banners-ca', 'ca'), ('banners-es', 'es'), ('banners-en', 'en')]),
                    ('LogosFooter', [('logosfooter-ca', 'ca'), ('logosfooter-es', 'es'), ('logosfooter-en', 'en')]),
@@ -105,7 +111,6 @@ class setup(grok.View):
         portal_ca = portal['ca']
         portal_en = portal['en']
         portal_es = portal['es']
-        egglocation = pkg_resources.get_distribution('genweb.upc').location
 
         # Let's configure mail
         mail = IMailSchema(portal)
@@ -185,43 +190,6 @@ class setup(grok.View):
         self.constrain_content_types(noticias, ('News Item', 'Folder', 'Image'))
         self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image'))
 
-        # Create news sample
-        newsimg_sample = open('{}/genweb/upc/browser/sample_images/news_sample.jpg'.format(egglocation)).read()
-        newsbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
-        noticia_mostra_ca = self.create_content(noticies,
-                                                'News Item',
-                                                'noticia-de-mostra',
-                                                title='Notícia de mostra',
-                                                image=NamedBlobImage(data=newsimg_sample,
-                                                                     filename=u'news_sample.jpg',
-                                                                     contentType=u'image/jpeg'),
-                                                description='Exemple de notícia amb imatge', )
-        noticia_mostra_ca.text = IRichText['text'].fromUnicode(newsbody_sample)
-        noticia_mostra_es = self.create_content(noticias,
-                                                'News Item',
-                                                'noticia-de-muestra',
-                                                title='Noticia de muestra',
-                                                image=NamedBlobImage(data=newsimg_sample,
-                                                                     filename=u'news_sample.jpg',
-                                                                     contentType=u'image/jpeg'),
-                                                description='Exemple de notícia amb imatge', )
-        noticia_mostra_es.text = IRichText['text'].fromUnicode(newsbody_sample)
-        noticia_mostra_en = self.create_content(news,
-                                                'News Item',
-                                                'news-sample',
-                                                title='News sample',
-                                                image=NamedBlobImage(data=newsimg_sample,
-                                                                     filename=u'news_sample.jpg',
-                                                                     contentType=u'image/jpeg'),
-                                                description='Exemple de notícia amb imatge', )
-        noticia_mostra_en.text = IRichText['text'].fromUnicode(newsbody_sample)
-
-        noticia_mostra_ca.reindexObject()
-        noticia_mostra_es.reindexObject()
-        noticia_mostra_en.reindexObject()
-
-        self.link_translations([(noticia_mostra_ca, 'ca'), (noticia_mostra_es, 'es'), (noticia_mostra_en, 'en')])
-
         # Setup portal events folder
         events = self.create_content(portal_en, 'Folder', 'events', title='Events', description=u'Site events')
         eventos = self.create_content(portal_es, 'Folder', 'eventos', title='Eventos', description=u'Eventos del sitio')
@@ -261,49 +229,6 @@ class setup(grok.View):
         self.constrain_content_types(eventos, ('Event', 'Folder', 'Image'))
         self.constrain_content_types(esdeveniments, ('Event', 'Folder', 'Image'))
 
-        # Create event samples
-        eventbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
-        event_sample_ca = self.create_content(esdeveniments, 'Event', 'esdeveniment-de-mostra', title='Esdeveniment de mostra')
-        event_sample_es = self.create_content(eventos, 'Event', 'evento-de-muestra', title='Evento de muestra')
-        event_sample_en = self.create_content(events, 'Event', 'event-sample', title='Event sample')
-
-        now = localized_now().replace(minute=0, second=0, microsecond=0)
-        # tomorrow = now + timedelta(days=1)
-        # past = now - timedelta(days=10)
-        # future = now + timedelta(days=10)
-        far = now + timedelta(days=300)
-        # duration = timedelta(hours=1)
-
-        event_sample_ca.text = IRichText['text'].fromUnicode(eventbody_sample)
-        event_sample_ca.location = "Lloc de l'esdeveniment"
-        event_sample_ca.start = now
-        event_sample_ca.end = far
-        event_sample_ca.timezone = 'Europe/Madrid'
-        event_sample_ca.contact_email = 'adreca@noreply.com'
-        event_sample_ca.contact_name = 'Responsable esdeveniment'
-
-        event_sample_es.text = IRichText['text'].fromUnicode(eventbody_sample)
-        event_sample_es.location = "Lugar del evento"
-        event_sample_es.start = now
-        event_sample_es.end = far
-        event_sample_es.timezone = 'Europe/Madrid'
-        event_sample_es.contact_email = 'adreca@noreply.com'
-        event_sample_es.contact_name = 'Responsable evento'
-
-        event_sample_en.text = IRichText['text'].fromUnicode(eventbody_sample)
-        event_sample_en.location = "Event place"
-        event_sample_en.start = now
-        event_sample_en.end = far
-        event_sample_en.timezone = 'Europe/Madrid'
-        event_sample_en.contact_email = 'adreca@noreply.com'
-        event_sample_en.contact_name = 'Event manager'
-
-        self.link_translations([(event_sample_ca, 'ca'), (event_sample_es, 'es'), (event_sample_en, 'en')])
-
-        event_sample_ca.reindexObject()
-        event_sample_es.reindexObject()
-        event_sample_en.reindexObject()
-
         # Create banners folders
         banners_en = self.create_content(portal_en, 'BannerContainer', 'banners-en', title='banners-en', description=u'English Banners')
         banners_en.title = 'Banners'
@@ -320,18 +245,6 @@ class setup(grok.View):
         banners_en.reindexObject()
         banners_es.reindexObject()
         banners_ca.reindexObject()
-
-        # Create banners samples
-        data_ca = open('{}/genweb/upc/browser/sample_images/bgw_sample_ca.jpg'.format(egglocation)).read()
-        data_es = open('{}/genweb/upc/browser/sample_images/bgw_sample_es.jpg'.format(egglocation)).read()
-        data_en = open('{}/genweb/upc/browser/sample_images/bgw_sample_en.jpg'.format(egglocation)).read()
-        banner_mostra_ca = self.create_content(banners_ca, 'Banner', 'baner-de-mostra', title='Bàner de mostra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_ca, filename=u'bgw_sample_ca.jpg', contentType=u'image/jpeg'))
-        banner_mostra_es = self.create_content(banners_es, 'Banner', 'baner-de-muestra', title='Báner de muestra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_es, filename=u'bgw_sample_es.jpg', contentType=u'image/jpeg'))
-        banner_mostra_en = self.create_content(banners_en, 'Banner', 'banner-sample', title='Banner sample', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_en, filename=u'bgw_sample_en.jpg', contentType=u'image/jpeg'))
-
-        banner_mostra_ca.reindexObject()
-        banner_mostra_es.reindexObject()
-        banner_mostra_en.reindexObject()
 
         # Create logosfooter folders
         logosfooter_en = self.create_content(portal_en, 'Logos_Container', 'logosfooter-en', title='logosfooter-en', description=u'English footer logos')
@@ -587,6 +500,111 @@ class setup(grok.View):
         if 'navigation' in target_manager_root_assignments:
             del target_manager_root_assignments['navigation']
         return True
+
+    def createExampleContent(self):
+        egglocation = pkg_resources.get_distribution('genweb.upc').location
+        portal = api.portal.get()
+
+        # Create banners samples
+        banners_ca = portal['ca']['banners-ca']
+        banners_es = portal['es']['banners-es']
+        banners_en = portal['en']['banners-en']
+        data_ca = open('{}/genweb/upc/browser/sample_images/bgw_sample_ca.jpg'.format(egglocation)).read()
+        data_es = open('{}/genweb/upc/browser/sample_images/bgw_sample_es.jpg'.format(egglocation)).read()
+        data_en = open('{}/genweb/upc/browser/sample_images/bgw_sample_en.jpg'.format(egglocation)).read()
+        banner_mostra_ca = self.create_content(banners_ca, 'Banner', 'baner-de-mostra', title='Bàner de mostra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_ca, filename=u'bgw_sample_ca.jpg', contentType=u'image/jpeg'))
+        banner_mostra_es = self.create_content(banners_es, 'Banner', 'baner-de-muestra', title='Báner de muestra', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_es, filename=u'bgw_sample_es.jpg', contentType=u'image/jpeg'))
+        banner_mostra_en = self.create_content(banners_en, 'Banner', 'banner-sample', title='Banner sample', remoteUrl='https://www.upc.edu/comunicacio/eines/recursos/banners_UPC', open_link_in_new_window=True, image=NamedBlobImage(data=data_en, filename=u'bgw_sample_en.jpg', contentType=u'image/jpeg'))
+
+        banner_mostra_ca.reindexObject()
+        banner_mostra_es.reindexObject()
+        banner_mostra_en.reindexObject()
+
+        # Create event samples
+        esdeveniments = portal['ca']['esdeveniments']
+        eventos = portal['es']['eventos']
+        events = portal['en']['events']
+        eventbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
+        event_sample_ca = self.create_content(esdeveniments, 'Event', 'esdeveniment-de-mostra', title='Esdeveniment de mostra')
+        event_sample_es = self.create_content(eventos, 'Event', 'evento-de-muestra', title='Evento de muestra')
+        event_sample_en = self.create_content(events, 'Event', 'event-sample', title='Event sample')
+
+        now = localized_now().replace(minute=0, second=0, microsecond=0)
+        # tomorrow = now + timedelta(days=1)
+        # past = now - timedelta(days=10)
+        # future = now + timedelta(days=10)
+        far = now + timedelta(days=300)
+        # duration = timedelta(hours=1)
+
+        event_sample_ca.text = IRichText['text'].fromUnicode(eventbody_sample)
+        event_sample_ca.location = "Lloc de l'esdeveniment"
+        event_sample_ca.start = now
+        event_sample_ca.end = far
+        event_sample_ca.timezone = 'Europe/Madrid'
+        event_sample_ca.contact_email = 'adreca@noreply.com'
+        event_sample_ca.contact_name = 'Responsable esdeveniment'
+
+        event_sample_es.text = IRichText['text'].fromUnicode(eventbody_sample)
+        event_sample_es.location = "Lugar del evento"
+        event_sample_es.start = now
+        event_sample_es.end = far
+        event_sample_es.timezone = 'Europe/Madrid'
+        event_sample_es.contact_email = 'adreca@noreply.com'
+        event_sample_es.contact_name = 'Responsable evento'
+
+        event_sample_en.text = IRichText['text'].fromUnicode(eventbody_sample)
+        event_sample_en.location = "Event place"
+        event_sample_en.start = now
+        event_sample_en.end = far
+        event_sample_en.timezone = 'Europe/Madrid'
+        event_sample_en.contact_email = 'adreca@noreply.com'
+        event_sample_en.contact_name = 'Event manager'
+
+        self.link_translations([(event_sample_ca, 'ca'), (event_sample_es, 'es'), (event_sample_en, 'en')])
+
+        event_sample_ca.reindexObject()
+        event_sample_es.reindexObject()
+        event_sample_en.reindexObject()
+
+        # Create news sample
+        noticies = portal['ca']['noticies']
+        noticias = portal['es']['noticias']
+        news = portal['en']['news']
+        newsimg_sample = open('{}/genweb/upc/browser/sample_images/news_sample.jpg'.format(egglocation)).read()
+        newsbody_sample = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.'
+        noticia_mostra_ca = self.create_content(noticies,
+                                                'News Item',
+                                                'noticia-de-mostra',
+                                                title='Notícia de mostra',
+                                                image=NamedBlobImage(data=newsimg_sample,
+                                                                     filename=u'news_sample.jpg',
+                                                                     contentType=u'image/jpeg'),
+                                                description='Exemple de notícia amb imatge', )
+        noticia_mostra_ca.text = IRichText['text'].fromUnicode(newsbody_sample)
+        noticia_mostra_es = self.create_content(noticias,
+                                                'News Item',
+                                                'noticia-de-muestra',
+                                                title='Noticia de muestra',
+                                                image=NamedBlobImage(data=newsimg_sample,
+                                                                     filename=u'news_sample.jpg',
+                                                                     contentType=u'image/jpeg'),
+                                                description='Exemple de notícia amb imatge', )
+        noticia_mostra_es.text = IRichText['text'].fromUnicode(newsbody_sample)
+        noticia_mostra_en = self.create_content(news,
+                                                'News Item',
+                                                'news-sample',
+                                                title='News sample',
+                                                image=NamedBlobImage(data=newsimg_sample,
+                                                                     filename=u'news_sample.jpg',
+                                                                     contentType=u'image/jpeg'),
+                                                description='Exemple de notícia amb imatge', )
+        noticia_mostra_en.text = IRichText['text'].fromUnicode(newsbody_sample)
+
+        noticia_mostra_ca.reindexObject()
+        noticia_mostra_es.reindexObject()
+        noticia_mostra_en.reindexObject()
+
+        self.link_translations([(noticia_mostra_ca, 'ca'), (noticia_mostra_es, 'es'), (noticia_mostra_en, 'en')])
 
     def create_content(self, container, portal_type, id, publish=True, **kwargs):
         if not getattr(container, id, False):
