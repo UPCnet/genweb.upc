@@ -17,6 +17,7 @@ from genweb.core.interfaces import IHomePage
 from genweb.core.utils import portal_url
 from genweb.theme.browser.viewlets import viewletBase
 from genweb.theme.browser.interfaces import IGenwebTheme
+from genweb.upc.browser.interfaces import IGenwebUPC
 
 
 class notConfigured(grok.Viewlet):
@@ -58,7 +59,7 @@ class gwSendEvent(viewletBase):
     grok.context(IEvent)
     grok.template('send_event')
     grok.viewletmanager(IAboveContentTitle)
-    grok.layer(IGenwebTheme)
+    grok.layer(IGenwebUPC)
 
     def isEventSent(self):
         """
@@ -87,7 +88,7 @@ class gwImportantNews(viewletBase):
     grok.context(INewsItem)
     grok.template('important')
     grok.viewletmanager(IAboveContentTitle)
-    grok.layer(IGenwebTheme)
+    grok.layer(IGenwebUPC)
 
     def permisos_important(self):
         # TODO: Comprovar que l'usuari tingui permisos per a marcar com a important

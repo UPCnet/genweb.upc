@@ -9,7 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.statusmessages.interfaces import IStatusMessage
 
-from genweb.theme.browser.interfaces import IGenwebTheme
+from genweb.upc.browser.interfaces import IGenwebUPC
 
 grok.templatedir("views_templates")
 
@@ -33,7 +33,7 @@ class gwSendEventView(grok.View):
     grok.context(IEvent)
     grok.name('send-event')
     grok.require('cmf.AddPortalContent')
-    grok.layer(IGenwebTheme)
+    grok.layer(IGenwebUPC)
 
     def render(self):
         context = aq_inner(self.context)
