@@ -105,3 +105,19 @@ class gwImportantNews(viewletBase):
         context = aq_inner(self.context)
         is_important = IImportant(context).is_important
         return is_important
+
+
+class socialtoolsViewlet(viewletBase):
+    grok.name('genweb.socialtools')
+    grok.template('socialtools')
+    grok.viewletmanager(IAboveContentTitle)
+    grok.layer(IGenwebUPC)
+
+    def getData(self):
+        Title = aq_inner(self.context).Title()
+        contextURL = self.context.absolute_url()
+
+        return dict(Title=Title, URL=contextURL)
+
+    def is_social_tools_enabled(self):
+        return not self.genweb_config().treu_icones_xarxes_socials
