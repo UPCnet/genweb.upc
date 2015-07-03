@@ -1,4 +1,4 @@
-@import url('genwebupc-ie-blessed1.css?z=1435573069951');
+@import url('genwebupc-ie-blessed1.css?z=1435922935718');
 
 @media only screen and (min-width: 768px) and (max-width: 979px) and (orientation: portrait) {
   .row {
@@ -5144,6 +5144,10 @@ select {
 
 #_shared_folder {
   display: none; }
+
+.past_events_button {
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 /* TINY */
 /* Save message */
