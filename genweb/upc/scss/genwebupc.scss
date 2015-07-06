@@ -96,7 +96,10 @@ z-index: 1020 !important;
     margin-bottom: 10px;
 }
 
-
+// portlet-content
+.portlet-content {
+    padding: 3% 3% 1% 3%;;
+}
 
 // vista notícies
             
@@ -126,8 +129,80 @@ li#portal-languageselector {
 }
 
 
+// augmentar espai entre li dins el text
+
+#content-core li {
+    margin-bottom:5px;
+}
+
+// event_listing
+
+.event_listing {
+    margin-top: 22px;
+    header { // format menu esquerra
+        border: 1px solid #CCCCCC !important;
+        @include border-radius(4px);
+        @include box-shadow(0 1px 4px rgba(0,0,0,.1));
+        float: left;
+        margin-bottom: 22px;
+        margin-right: 2%;
+        min-width: 140px;
+        padding: 10px 15px 10px 5px;
+        width: 9%;
+        .selected {
+            font-weight: bold;
+        }
+    }
+    
+    section {
+        float: left;
+        width: 80%;
+    }
+
+    .cal_date { 
+        display: none; // amaguem data en format incorrecte i repetida
+    }
+
+    .documentByLine {
+        padding-bottom: 10px;
+    }
+
+}
+
+
 // ocultar botó pujada fitxers en banners i logos peu
 .portaltype-bannercontainer #upload-files,
 .portaltype-logos_container #upload-files{
+    display: none;
+} 
+
+// portlet existing_content
+.existing_content_portlet {
+  @include box-shadow(0 1px 4px rgba(0,0,0,.1));
+  @include border-radius(6px);
+  margin-bottom:20px;
+  border: 1px solid $tableBorder;
+  & h2.portlet-title {
+    margin:0;
+    font-size:107%;
+    color:$gray;
+    border-bottom: 5px solid $genwebPrimary;
+    padding:10px 15px;
+    line-height:18px;
+    position:relative;
+    & i {
+      @include opacity(75);
+      *position:absolute;
+      *top:10px;
+      *right:15px;
+    }
+  }
+  & ul:last-child {
+    border-bottom:0 !important;
+  }
+}
+
+// oculta botó xarses socials dins els portlets
+.portlet-content .share_popover {
     display: none;
 }
