@@ -8,5 +8,6 @@
   <element value="folder_summary_view"/>
   <element value="folder_tabular_view"/>
   <element value="folder_full_view"/>
+  <element value="folder_index_view"/>
  </property>
 </object>
