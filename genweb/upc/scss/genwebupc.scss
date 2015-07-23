@@ -201,3 +201,9 @@ li#portal-languageselector {
 .portlet-content .share_popover {
     display: none;
 }
+
+// oculta canvi vista en notícies i esdeveniments
+.section-noticies      #plone-contentmenu-display,
+.section-esdeveniments #plone-contentmenu-display {
+     display: none;
+}
