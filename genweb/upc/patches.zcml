@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="genweb">
+
+    <include package="collective.monkeypatcher" />
+
+    <monkey:patch
+        description="Patch recaptcha view with UPC settings"
+        class="plone.formwidget.recaptcha.view.RecaptchaView"
+        original="image_tag"
+        replacement=".patches.custom_recaptcha.image_tag"
+        />
+
+</configure>

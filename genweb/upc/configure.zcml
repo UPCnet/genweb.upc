@@ -12,6 +12,8 @@
 
   <grok:grok package=".browser" />
 
+  <include file="patches.zcml" />
+
   <include package=".browser" />
   <include package=".portlets" />
 
