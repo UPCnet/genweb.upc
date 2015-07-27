@@ -1,6 +1,6 @@
-<div class="alert alert-warning">
+<div i18n:domain="genweb" class="alert alert-warning">
   <button data-dismiss="alert" class="close" type="button">×</button>
-  <strong i18n:translate="">
+  <strong i18n:translate="Warning">
             Warning
   </strong>
   <tal:msg i18n:translate="dontcopy_homepage">
