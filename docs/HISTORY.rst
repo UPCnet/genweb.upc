@@ -1,11 +1,40 @@
 Changelog
 =========
 
-1.12 (unreleased)
------------------
+2.0 (2015-07-28)
+----------------
 
-- Nothing changed yet.
-
+* Translate warning message [hanirok]
+* Transferred recaptcha override to a patch in genweb.upc [Victor Fernandez de Alba]
+* hide view change in news and events folders [oscar]
+* append folder_index_view to folder types [oscar]
+* New view for events on new instances [Victor Fernandez de Alba]
+* css: beautytab [oscar]
+* correcció css, margin li [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* estils event_listing.pt [oscar]
+* New agenda improvements [Victor Fernandez de Alba]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* Add calculated meta author tag [Victor Fernandez de Alba]
+* Transfer socialtools viewlet [Victor Fernandez de Alba]
+* Transfer socialtools viewlet [Victor Fernandez de Alba]
+* Make some viewlets only available for Genweb UPC [Victor Fernandez de Alba]
+* Transferred gwSendEventView [Victor Fernandez de Alba]
+* Add proper documentation [Victor Fernandez de Alba]
+* Unbound prefix [Victor Fernandez de Alba]
+* Transfer all CSS related from upc theme [Victor Fernandez de Alba]
+* corregir url local [oscar]
+* afegir classe existing_portlet_content [oscar]
+* Add warning don't copy homepages [hanirok]
+* New example button [hanirok]
+* control errors portlet existing_content [oscar]
+* ortografia [oscar]
+* canvi nom portlet contingut a contingut existent [oscar]
+* canvi nom portlet contingut a contingut existent [oscar]
+* portlet contingut existent funcionant [oscar]
+* afegir portlet content, estat inicial copiat desde genweb.theme [oscar]
+* eliminar contingut index estudis [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
 
 1.11 (2015-06-04)
 -----------------
