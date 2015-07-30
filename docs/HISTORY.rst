@@ -1,11 +1,13 @@
 Changelog
 =========
 
-2.1 (unreleased)
+2.1 (2015-07-30)
 ----------------
 
-- Nothing changed yet.
-
+* Fix icons.gif missing [Victor Fernandez de Alba]
+* Make sure that all UPC Tiny get the right CSS [Victor Fernandez de Alba]
+* apply dynamic color on existing content portlet header [oscar]
+* Enable own dynamic.scss [Victor Fernandez de Alba]
 
 2.0 (2015-07-28)
 ----------------
