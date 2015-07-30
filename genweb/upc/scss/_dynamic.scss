@@ -62,7 +62,7 @@ h1, h2, h3 {color:$genwebTitles; }
 //WELL-BOXES
 .sheet { border-right:20px solid lighten($genwebPrimary,35%); }
 
-
-
+// portlet existing_content
+.existing_content_portlet h2.portlet-title { border-bottom: 5px solid $genwebPrimary; } 
 
 // ...
