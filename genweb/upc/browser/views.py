@@ -2,14 +2,23 @@
 from five import grok
 from plone import api
 from Acquisition import aq_inner
+from zope.interface import Interface
+from scss import Scss
+
 from DateTime.DateTime import DateTime
 from zope.annotation.interfaces import IAnnotations
 from plone.app.contenttypes.interfaces import IEvent
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.statusmessages.interfaces import IStatusMessage
+from plone.memoize import ram
 
 from genweb.upc.browser.interfaces import IGenwebUPC
+from genweb.core.utils import genweb_config
+from genweb.theme.browser.views import _render_cachekey
+
+import pkg_resources
+import scss
 
 grok.templatedir("views_templates")
 
@@ -79,3 +88,54 @@ class gwSendEventView(grok.View):
         confirm = _(u"Gràcies per la vostra col·laboració. Les dades de l\'activitat s\'han enviat correctament i seran publicades com més aviat millor.")
         IStatusMessage(self.request).addStatusMessage(confirm, type='info')
         self.request.response.redirect(self.context.absolute_url())
+
+
+class dynamicCSS(grok.View):
+    grok.name('dynamic.css')
+    grok.context(Interface)
+    grok.layer(IGenwebUPC)
+
+    def update(self):
+        self.especific1 = genweb_config().especific1
+        self.especific2 = genweb_config().especific2
+
+    def render(self):
+        self.request.response.setHeader('Content-Type', 'text/css')
+        self.request.response.addHeader('Cache-Control', 'must-revalidate, max-age=0, no-cache, no-store')
+        if self.especific1 and self.especific2:
+            return self.compile_scss(especific1=self.especific1, especific2=self.especific2)
+        else:
+            default = '@import "{}/genwebcustom.css";'.format(api.portal.get().absolute_url())
+            return default
+
+    @ram.cache(_render_cachekey)
+    def compile_scss(self, **kwargs):
+        genwebupcegg = pkg_resources.get_distribution('genweb.upc')
+
+        scssfile = open('{}/genweb/upc/scss/_dynamic.scss'.format(genwebupcegg.location))
+
+        settings = dict(especific1=self.especific1,
+                        especific2=self.especific2,
+                        portal_url=api.portal.get().absolute_url())
+
+        variables_scss = """
+
+        $genwebPrimary: {especific1};
+        $genwebTitles: {especific2};
+
+        @import "{portal_url}/genwebcustom.css";
+
+        """.format(**settings)
+
+        scss.config.LOAD_PATHS = [
+            '{}/genweb/upc/bootstrap/scss/compass_twitter_bootstrap'.format(genwebupcegg.location)
+        ]
+
+        css = Scss(scss_opts={
+                   'compress': False,
+                   'debug_info': False,
+                   })
+
+        dynamic_scss = ''.join([variables_scss, scssfile.read()])
+
+        return css.compile(dynamic_scss)
