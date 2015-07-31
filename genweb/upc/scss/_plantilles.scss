@@ -86,7 +86,7 @@ $beautytabcolor: #b2b2b2;
 .beautytab { 
 	width: 100%; 
 
-	ul { 
+	ul#myTab { 
 		display: flex;
       	display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6
   		display: -ms-flexbox;      // TWEENER - IE 10
@@ -94,9 +94,8 @@ $beautytabcolor: #b2b2b2;
 		flex-direction: row;
 		margin: 0;
 		padding: 0;
-	}
 
-	li.formTab {
+		li.formTab {
 		flex-grow: 1;
 		list-style: none;
 		text-align: center; 
@@ -140,7 +139,7 @@ $beautytabcolor: #b2b2b2;
 		&:hover {
 			text-decoration: none;
 		}
-
+		border-bottom:0px !important;
 	}
 
 	li:first-child  {
@@ -152,6 +151,7 @@ $beautytabcolor: #b2b2b2;
 		border-right-width:1px !important;
 		@include border-top-right-radius(0.5em);
 		}
+	}	
 }
 
 .beautytab-content {
@@ -162,6 +162,7 @@ $beautytabcolor: #b2b2b2;
 	@include border-bottom-right-radius(0.5em);
 	@include border-bottom-left-radius(0.5em);
 	} 
+
 
 // per a mòbils canviem pestanyes per botons
 @media only screen and (max-width: 360px) {
