@@ -47,7 +47,9 @@ ul {margin-left: 18px;}
     padding:0 0 0 28px !important;
   }
 }
-.list li, .list-index li, .list-striped li, .list-hover li, .list-bordered li, .list-notebook li, .list-condensed li, .list-links li, .list-highlighted li, .list-portlet li {
+.list li, .list-index li, .list-striped li, .list-hover li, .list-bordered li, .list-notebook li, 
+.list-condensed li, .list-links li, .list-highlighted li, .list-portlet li,
+#document-toc ol.TOC1Digit li {
   padding:8px 0 8px 28px;
   margin-left:-20px;
   list-style:none;
@@ -147,3 +149,15 @@ ul {margin-left: 18px;}
 
 
 
+// index continguts d'una pàgina
+
+#document-toc {
+  ol.TOC1Digit {
+    list-style-type: none;
+    margin: 5px 5px 5px 15px !important;
+  }
+  .portletHeader {
+    display:none;
+  }
+  margin-bottom: 50px;
+}
