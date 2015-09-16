@@ -224,8 +224,8 @@ html * .dropdown-menu a:hover .img_blank {
 
 
 //content types
-#listing-table, .template-folder_tabular_view .listing, .contenttreeWidget > .navTree, .icons-on {
-	a, span {
+#listing-table, .template-folder_tabular_view .listing, .contenttreeWidget > .navTree, .collage-content-menu {
+	a, span  {
 		&[class^="contenttype-"], &[class*=" contenttype-"] {
 			padding-left: 8px;
 			position: relative;
