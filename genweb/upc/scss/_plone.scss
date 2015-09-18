@@ -328,113 +328,6 @@ iframe {
 	.dk_options {min-width:128px !important; width:128px !important;}
 }
 
-// calenendar-system.css
-/* The main calendar widget.  DIV containing a table. */
-
-.calendar {
-	display: none; margin:0 auto; position:fixed !important; width:100% !important; height:100% !important; margin-top: 50%;
-	table {
-		background: #f2f2f2; border-radius:5px; width:222px; box-shadow: 0 0 100px black; top:50%; margin-top:-100px !important; margin: 0 auto;
-		.wn { border-right: 1px solid #b2b2b2; background: #f7f7f7;}
-	}
-	.button { text-align: center; background: #f2f2f2;}
-	.nav { background: #f2f2f2 url(menuarrow.gif) no-repeat 100% 100%;}
-	thead {
-		.title { font-weight: bold; text-align: center;}
-		.name { border-bottom: 1px solid #b2b2b2; border-top: 1px solid #b2b2b2; text-align: center; background: #f7f7f7;}
-		.weekend { color: #c00;}
-		.hilite { background: #cef;}
-		.active { box-shadow: inset 0 0 3px #08c;}
-	}
-	tbody {
-		background: #fff;
-		.day {width: 2em; text-align: center; padding: 2px 0px;}
-		.day.othermonth {font-size: 80%; color: #aaa;}
-		.day.othermonth.oweekend { color: #faa;}
-		.rowhilite td { background: #cef;}
-		td.hilite { background: #08c; color: white;}
-		td.active { box-shadow: inset 0 0 3px #08c;}
-		td.selected { font-weight: bold; background: #08c; color: white;}
-		td.weekend { color: #c00;}
-		td.today { font-weight: bold; color: white; border-radius: 3px;}
-		td.disabled { color: gray; }
-		.emptycell { }
-		.emptyrow { display: none; }
-	}
-	tfoot {
-		.ttip { background: #f7f7f7; border-top: 1px solid #b2b2b2; text-align: center;}
-		.hilite { background-color: #cef !important;}
-		.active { background-color: #08c !important;}
-	}
-	.combo {
-	  position: absolute;
-	  display: none;
-	  width: 4em;
-	  top: 0px;
-	  left: 0px;
-	  cursor: default;
-	  border: 1px solid;
-	  border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
-	  background: Menu;
-	  color: MenuText;
-	  font-size: 90%;
-	  padding: 1px;
-	  z-index: 100;
-		.label,
-		.label-IEfix {
-		  text-align: center;
-		  display: block;
-		  padding: 1px;
-		}
-		.label-IEfix {
-		  width: 4em;
-		}
-		.active {
-		  padding: 0px;
-		  border: 1px solid #000;
-		}
-		.hilite {
-		  background: Highlight;
-		  color: HighlightText;
-		}
-	}
-
-	td.time {
-	  border-top: 1px solid ButtonShadow;
-	  padding: 1px 0px;
-	  text-align: center;
-	  background-color: ButtonFace;
-		.hour,
-		.minute,
-		.ampm {
-		  padding: 0px 3px 0px 4px;
-		  border: 1px solid #889;
-		  font-weight: bold;
-		  background-color: Menu;
-		}
-
-		.ampm {
-		  text-align: center;
-		}
-
-		.colon {
-		  padding: 0px 2px 0px 3px;
-		  font-weight: bold;
-		}
-
-		span.hilite {
-		  border-color: #000;
-		  background-color: Highlight;
-		  color: HighlightText;
-		}
-
-		span.active {
-		  border-color: #f00;
-		  background-color: #000;
-		  color: #080;
-		}
-	}
-}
 
 //manage-home-portlets
 .template-manage-homeportlets .portletHeader strong {display: inline-block;padding: 2px 0 0 4px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 34%;}
@@ -527,11 +420,9 @@ margin-bottom: 1em;
 
 .collage-existing-items {
 	.breadcrumbs {
-		background: url("logoIcon.gif") no-repeat left center;
 		padding-top: 4px;
 		padding-bottom: 4px;
 		margin-bottom: 8px;
-		padding-left: 20px;
 		border-bottom: 1px solid White;
 	}
 	label {
@@ -632,21 +523,6 @@ span.collage-navigation {
 	&.collage-navigation a {
 		text-decoration: none;
 	}
-}
-
-.display-collagerow_default_view 		{ background-image: url(icon-collagerow_default_view.gif) !important; 		}
-.display-collagerow_largeleft_view  { background-image: url(icon-collagerow_largeleft_view.gif) !important; 	}
-.display-collagerow_largeright_view {	background-image: url(icon-collagerow_largeright_view.gif) !important;	}
-.display-collagecolumn_default_view { background-image: url(icon-collagecolumn_default_view.gif) !important; 	}
-
-.icons-on .collage-content-menu .contenttype-file {
-	background: no-repeat transparent 0px -433px url(contenttypes-sprite.png);
-	padding-left: 20px !important;
-}
-
-.icons-on .collage-content-menu .contenttype-image {
-	background: no-repeat transparent 0px -865px url(contenttypes-sprite.png);
-	padding-left: 20px !important;
 }
 
 .collage-quickedit { float: right; }

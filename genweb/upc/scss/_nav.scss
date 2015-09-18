@@ -224,11 +224,10 @@ html * .dropdown-menu a:hover .img_blank {
 
 
 //content types
-#listing-table, .template-folder_tabular_view .listing, .contenttreeWidget > .navTree {
-	a {
+#listing-table, .template-folder_tabular_view .listing, .contenttreeWidget > .navTree, .collage-content-menu {
+	a, span  {
 		&[class^="contenttype-"], &[class*=" contenttype-"] {
 			padding-left: 8px;
-			font-weight: bold;
 			position: relative;
 		}
 		&[class^="contenttype-"]:before,
@@ -270,6 +269,7 @@ html * .dropdown-menu a:hover .img_blank {
 
 		&:hover:before { @include opacity(100);}
 	}
+
 }
 
 
