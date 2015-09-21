@@ -19,6 +19,7 @@ from genweb.theme.browser.views import _render_cachekey
 
 import pkg_resources
 import scss
+import sys
 
 grok.templatedir("views_templates")
 
@@ -47,7 +48,7 @@ class gwSendEventView(grok.View):
     def render(self):
         context = aq_inner(self.context)
         annotations = IAnnotations(context)
-        event_title = context.Title()
+        event_title = context.Title().decode(sys.getdefaultencoding())
         event_day = DateTime().day()
         event_month = DateTime().month()
         event_year = DateTime().year()
