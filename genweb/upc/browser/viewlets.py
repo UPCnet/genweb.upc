@@ -1,11 +1,17 @@
+# -*- coding: utf-8 -*-
+from cgi import escape
 from five import grok
 from plone import api
 from Acquisition import aq_inner
 from zope.annotation.interfaces import IAnnotations
+from zope.interface import Interface
 from zope.security import checkPermission
+from zope.component import getMultiAdapter
 
 from Products.CMFPlone.interfaces import IPloneSiteRoot
-
+from Products.CMFPlone.utils import safe_unicode
+from plone.app.layout.viewlets.interfaces import IHtmlHead
+from plone.app.layout.viewlets.common import TitleViewlet
 from plone.app.layout.viewlets.interfaces import IAboveContent
 from plone.app.layout.viewlets.interfaces import IAboveContentTitle
 from plone.app.contenttypes.interfaces import IEvent
@@ -18,6 +24,8 @@ from genweb.core.utils import portal_url
 from genweb.theme.browser.viewlets import viewletBase
 from genweb.theme.browser.interfaces import IGenwebTheme
 from genweb.upc.browser.interfaces import IGenwebUPC
+
+import re
 
 
 class notConfigured(grok.Viewlet):
@@ -121,3 +129,44 @@ class socialtoolsViewlet(viewletBase):
 
     def is_social_tools_enabled(self):
         return not self.genweb_config().treu_icones_xarxes_socials
+
+
+class gwTitleViewlet(TitleViewlet, viewletBase):
+    grok.context(Interface)
+    grok.name('plone.htmlhead.title')
+    grok.viewletmanager(IHtmlHead)
+    grok.layer(IGenwebUPC)
+
+    def update(self):
+        portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+        context_state = getMultiAdapter((self.context, self.request), name=u'plone_context_state')
+        page_title = escape(safe_unicode(context_state.object_title()))
+        portal_title = escape(safe_unicode(portal_state.navigation_root_title()))
+
+        # Mixed with SEO Properties
+        # try:
+        #     self.seo_context = getMultiAdapter((self.context, self.request), name=u'seo_context')
+
+        #     self.override_title = self.seo_context['has_seo_title']
+        #     self.has_comments = self.seo_context['has_html_comment']
+        #     self.has_noframes = self.seo_context['has_noframes']
+        # except:
+        #     self.override_title = False
+        #     self.has_comments = False
+        #     self.has_noframes = False
+
+        # if self.override_title:
+        #     genweb_title = u'%s' % escape(safe_unicode(self.seo_context['seo_title']))
+        # else:
+        genweb_title = getattr(self.genweb_config(), 'html_title_%s' % self.pref_lang(), 'Genweb UPC')
+
+        if not genweb_title:
+            genweb_title = 'Genweb UPC'
+        genweb_title = escape(safe_unicode(re.sub(r'(<.*?>)', r'', genweb_title)))
+
+        marca_UPC = escape(safe_unicode(u"UPC. Universitat Politècnica de Catalunya"))
+
+        if page_title == portal_title:
+            self.site_title = u"%s &mdash; %s" % (genweb_title, marca_UPC)
+        else:
+            self.site_title = u"%s &mdash; %s &mdash; %s" % (page_title, genweb_title, marca_UPC)
