@@ -10,29 +10,31 @@ from plone.app.testing import FunctionalTesting
 
 from plone.app.multilingual.testing import SESSIONS_FIXTURE
 
-from genweb.core.testing import GENWEBUPC_FIXTURE
+from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
 
 
 class GenwebUPC(PloneSandboxLayer):
 
-    defaultBases = (SESSIONS_FIXTURE, GENWEBUPC_FIXTURE,)
+    defaultBases = (PLONE_APP_CONTENTTYPES_FIXTURE, SESSIONS_FIXTURE, )
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
+        import genweb.core
+        xmlconfig.file('configure.zcml',
+                       genweb.core,
+                       context=configurationContext)
+
         import genweb.upc
         xmlconfig.file('configure.zcml',
                        genweb.upc,
                        context=configurationContext)
-
-        # xmlconfig.file('testing.zcml',
-        #                genweb.upc.tests,
-        #                context=configurationContext)
 
     def setUpPloneSite(self, portal):
         # Needed for PAC not complain about not having one... T_T
         portal.portal_workflow.setDefaultChain("simple_publication_workflow")
 
         # Install into Plone site using portal_setup
+        applyProfile(portal, 'genweb.core:default')
         applyProfile(portal, 'genweb.upc:default')
 
 GENWEB_UPC_FIXTURE = GenwebUPC()
