@@ -9,6 +9,9 @@
   <portlet addview="genweb.portlets.existing_content"
              title="Contingut existent"
              i18n:attributes="title" />    
+
+<assignment remove="True" name="navigation" category="context" key="/" manager="plone.leftcolumn" type="portlets.Navigation">
+</assignment>
              
 </portlets>
 
