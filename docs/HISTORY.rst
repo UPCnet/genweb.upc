@@ -1,11 +1,30 @@
 Changelog
 =========
 
-2.2 (unreleased)
+2.2 (2015-10-01)
 ----------------
 
-- Nothing changed yet.
-
+* Fix calendar portlet [Victor Fernandez de Alba]
+* Bullet proof testing boilerplate [Victor Fernandez de Alba]
+* Change Title viewlet from genweb.theme to here [Victor Fernandez de Alba]
+* afegir height a taules i mostrar cursor correctament [Alberto Duran]
+* Encoding mesage events [hanirok]
+* Cambio formato fechas [hanirok]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Bug send event to UPC [hanirok]
+* fix icons in collage browse button [oscar]
+* remove unused styles [oscar]
+* fix icons in collage browse button [oscar]
+* delete unused file _plone.scss.oscargener [oscar]
+* force blank viewlet alternate-languages.pt [oscar]
+* restyling of document-toc [oscar]
+* hide portal_languageselector when there's only 1 published language overriding pamlanguageselector.pt [oscar]
+* correction of header border-bottom in N2 genweb [oscar]
+* hide url on print version [oscar]
+* append del and ins styles to _texts.scss [oscar]
+* news view style correction: padding and margin [oscar]
+* append class icon-folder-folder_index_view to _sprites.scss [oscar]
+* correction on edition mode for template 'pestanyes caixa' [oscar]
 
 2.1 (2015-07-30)
 ----------------
