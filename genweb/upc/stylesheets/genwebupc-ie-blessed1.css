@@ -2126,7 +2126,8 @@ legend + .control-group {
 .icon-folder-folder_full_view {
   background-position: -265px -24px; }
 
-.icon-plone-contentmenu-display-folder_index_view {
+.icon-plone-contentmenu-display-folder_index_view,
+.icon-folder-folder_index_view {
   background-position: -240px -192px; }
 
 .icon-genweb {

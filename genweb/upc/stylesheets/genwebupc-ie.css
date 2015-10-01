@@ -1,4 +1,4 @@
-@import url('genwebupc-ie-blessed1.css?z=1438253844039');
+@import url('genwebupc-ie-blessed1.css?z=1443691509611');
 
 @media only screen and (min-width: 768px) and (max-width: 979px) and (orientation: portrait) {
   .row {
@@ -832,9 +832,7 @@
 
 #portal-header .container {
   border-top: 5px solid #007bc0;
-  margin-top: -5px;
-  border-bottom: 1px solid #796e64;
-  margin-bottom: -1px; }
+  margin-top: -5px; }
 
 #portal-header h1.pull-left {
   margin-bottom: 0; }
@@ -902,17 +900,19 @@
   -ms-border-radius: 5px 5px 0 0;
   -o-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.15);
   background-repeat: no-repeat;
   width: 100%;
   height: 0px;
   padding-top: 6.63%; }
 
 .l2-image, .l3-image {
-  margin-bottom: -1px;
-  overflow: visible; }
+  overflow: invisible; }
+
+.l3-image {
+  margin-bottom: -1px; }
 
 /* NO-IMG */
 .no-image .header-image {
@@ -1337,11 +1337,10 @@ html * .dropdown-menu a:hover .img_blank {
   right: 10px !important;
   left: auto !important; }
 
-#listing-table a[class^="contenttype-"], #listing-table a[class*=" contenttype-"], .template-folder_tabular_view .listing a[class^="contenttype-"], .template-folder_tabular_view .listing a[class*=" contenttype-"], .contenttreeWidget > .navTree a[class^="contenttype-"], .contenttreeWidget > .navTree a[class*=" contenttype-"] {
+#listing-table a[class^="contenttype-"], #listing-table a[class*=" contenttype-"], #listing-table span[class^="contenttype-"], #listing-table span[class*=" contenttype-"], .template-folder_tabular_view .listing a[class^="contenttype-"], .template-folder_tabular_view .listing a[class*=" contenttype-"], .template-folder_tabular_view .listing span[class^="contenttype-"], .template-folder_tabular_view .listing span[class*=" contenttype-"], .contenttreeWidget > .navTree a[class^="contenttype-"], .contenttreeWidget > .navTree a[class*=" contenttype-"], .contenttreeWidget > .navTree span[class^="contenttype-"], .contenttreeWidget > .navTree span[class*=" contenttype-"], .collage-content-menu a[class^="contenttype-"], .collage-content-menu a[class*=" contenttype-"], .collage-content-menu span[class^="contenttype-"], .collage-content-menu span[class*=" contenttype-"] {
   padding-left: 8px;
-  font-weight: bold;
   position: relative; }
-#listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, .template-folder_tabular_view .listing a[class^="contenttype-"]:before, .template-folder_tabular_view .listing a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before {
+#listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, #listing-table span[class^="contenttype-"]:before, #listing-table span[class*=" contenttype-"]:before, .template-folder_tabular_view .listing a[class^="contenttype-"]:before, .template-folder_tabular_view .listing a[class*=" contenttype-"]:before, .template-folder_tabular_view .listing span[class^="contenttype-"]:before, .template-folder_tabular_view .listing span[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree span[class^="contenttype-"]:before, .contenttreeWidget > .navTree span[class*=" contenttype-"]:before, .collage-content-menu a[class^="contenttype-"]:before, .collage-content-menu a[class*=" contenttype-"]:before, .collage-content-menu span[class^="contenttype-"]:before, .collage-content-menu span[class*=" contenttype-"]:before {
   background-image: url('++genweb++static/images/gh.png?1426249015');
   background-repeat: no-repeat;
   content: " ";
@@ -1353,43 +1352,43 @@ html * .dropdown-menu a:hover .img_blank {
   opacity: 75;
   position: relative;
   float: left; }
-#listing-table a.contenttype-folder:before, .template-folder_tabular_view .listing a.contenttype-folder:before, .contenttreeWidget > .navTree a.contenttype-folder:before {
+#listing-table a.contenttype-folder:before, #listing-table span.contenttype-folder:before, .template-folder_tabular_view .listing a.contenttype-folder:before, .template-folder_tabular_view .listing span.contenttype-folder:before, .contenttreeWidget > .navTree a.contenttype-folder:before, .contenttreeWidget > .navTree span.contenttype-folder:before, .collage-content-menu a.contenttype-folder:before, .collage-content-menu span.contenttype-folder:before {
   background-position: -384px 	-120px; }
-#listing-table a.contenttype-page:before, #listing-table a.contenttype-document:before, .template-folder_tabular_view .listing a.contenttype-page:before, .template-folder_tabular_view .listing a.contenttype-document:before, .contenttreeWidget > .navTree a.contenttype-page:before, .contenttreeWidget > .navTree a.contenttype-document:before {
+#listing-table a.contenttype-page:before, #listing-table a.contenttype-document:before, #listing-table span.contenttype-page:before, #listing-table span.contenttype-document:before, .template-folder_tabular_view .listing a.contenttype-page:before, .template-folder_tabular_view .listing a.contenttype-document:before, .template-folder_tabular_view .listing span.contenttype-page:before, .template-folder_tabular_view .listing span.contenttype-document:before, .contenttreeWidget > .navTree a.contenttype-page:before, .contenttreeWidget > .navTree a.contenttype-document:before, .contenttreeWidget > .navTree span.contenttype-page:before, .contenttreeWidget > .navTree span.contenttype-document:before, .collage-content-menu a.contenttype-page:before, .collage-content-menu a.contenttype-document:before, .collage-content-menu span.contenttype-page:before, .collage-content-menu span.contenttype-document:before {
   background-position: -24px 	-24px; }
-#listing-table a.contenttype-link:before, .template-folder_tabular_view .listing a.contenttype-link:before, .contenttreeWidget > .navTree a.contenttype-link:before {
+#listing-table a.contenttype-link:before, #listing-table span.contenttype-link:before, .template-folder_tabular_view .listing a.contenttype-link:before, .template-folder_tabular_view .listing span.contenttype-link:before, .contenttreeWidget > .navTree a.contenttype-link:before, .contenttreeWidget > .navTree span.contenttype-link:before, .collage-content-menu a.contenttype-link:before, .collage-content-menu span.contenttype-link:before {
   background-position: -72px 	-168px; }
-#listing-table a.contenttype-windowztool:before, #listing-table a.contenttype-window:before, #listing-table a.contenttype-window:before, .template-folder_tabular_view .listing a.contenttype-windowztool:before, .template-folder_tabular_view .listing a.contenttype-window:before, .template-folder_tabular_view .listing a.contenttype-window:before, .contenttreeWidget > .navTree a.contenttype-windowztool:before, .contenttreeWidget > .navTree a.contenttype-window:before, .contenttreeWidget > .navTree a.contenttype-window:before {
+#listing-table a.contenttype-windowztool:before, #listing-table a.contenttype-window:before, #listing-table a.contenttype-window:before, #listing-table span.contenttype-windowztool:before, #listing-table span.contenttype-window:before, #listing-table span.contenttype-window:before, .template-folder_tabular_view .listing a.contenttype-windowztool:before, .template-folder_tabular_view .listing a.contenttype-window:before, .template-folder_tabular_view .listing a.contenttype-window:before, .template-folder_tabular_view .listing span.contenttype-windowztool:before, .template-folder_tabular_view .listing span.contenttype-window:before, .template-folder_tabular_view .listing span.contenttype-window:before, .contenttreeWidget > .navTree a.contenttype-windowztool:before, .contenttreeWidget > .navTree a.contenttype-window:before, .contenttreeWidget > .navTree a.contenttype-window:before, .contenttreeWidget > .navTree span.contenttype-windowztool:before, .contenttreeWidget > .navTree span.contenttype-window:before, .contenttreeWidget > .navTree span.contenttype-window:before, .collage-content-menu a.contenttype-windowztool:before, .collage-content-menu a.contenttype-window:before, .collage-content-menu a.contenttype-window:before, .collage-content-menu span.contenttype-windowztool:before, .collage-content-menu span.contenttype-window:before, .collage-content-menu span.contenttype-window:before {
   background-position: -97px 	-168px; }
-#listing-table a.contenttype-bannercontainer:before, #listing-table a.contenttype-banner:before, .template-folder_tabular_view .listing a.contenttype-bannercontainer:before, .template-folder_tabular_view .listing a.contenttype-banner:before, .contenttreeWidget > .navTree a.contenttype-bannercontainer:before, .contenttreeWidget > .navTree a.contenttype-banner:before {
+#listing-table a.contenttype-bannercontainer:before, #listing-table a.contenttype-banner:before, #listing-table span.contenttype-bannercontainer:before, #listing-table span.contenttype-banner:before, .template-folder_tabular_view .listing a.contenttype-bannercontainer:before, .template-folder_tabular_view .listing a.contenttype-banner:before, .template-folder_tabular_view .listing span.contenttype-bannercontainer:before, .template-folder_tabular_view .listing span.contenttype-banner:before, .contenttreeWidget > .navTree a.contenttype-bannercontainer:before, .contenttreeWidget > .navTree a.contenttype-banner:before, .contenttreeWidget > .navTree span.contenttype-bannercontainer:before, .contenttreeWidget > .navTree span.contenttype-banner:before, .collage-content-menu a.contenttype-bannercontainer:before, .collage-content-menu a.contenttype-banner:before, .collage-content-menu span.contenttype-bannercontainer:before, .collage-content-menu span.contenttype-banner:before {
   background-position: -313px	-25px; }
-#listing-table a.contenttype-logos_container:before, #listing-table a.contenttype-logos_footer:before, .template-folder_tabular_view .listing a.contenttype-logos_container:before, .template-folder_tabular_view .listing a.contenttype-logos_footer:before, .contenttreeWidget > .navTree a.contenttype-logos_container:before, .contenttreeWidget > .navTree a.contenttype-logos_footer:before {
+#listing-table a.contenttype-logos_container:before, #listing-table a.contenttype-logos_footer:before, #listing-table span.contenttype-logos_container:before, #listing-table span.contenttype-logos_footer:before, .template-folder_tabular_view .listing a.contenttype-logos_container:before, .template-folder_tabular_view .listing a.contenttype-logos_footer:before, .template-folder_tabular_view .listing span.contenttype-logos_container:before, .template-folder_tabular_view .listing span.contenttype-logos_footer:before, .contenttreeWidget > .navTree a.contenttype-logos_container:before, .contenttreeWidget > .navTree a.contenttype-logos_footer:before, .contenttreeWidget > .navTree span.contenttype-logos_container:before, .contenttreeWidget > .navTree span.contenttype-logos_footer:before, .collage-content-menu a.contenttype-logos_container:before, .collage-content-menu a.contenttype-logos_footer:before, .collage-content-menu span.contenttype-logos_container:before, .collage-content-menu span.contenttype-logos_footer:before {
   background-position: -143px 	-168px; }
-#listing-table a.contenttype-topic:before, .template-folder_tabular_view .listing a.contenttype-topic:before, .contenttreeWidget > .navTree a.contenttype-topic:before {
+#listing-table a.contenttype-topic:before, #listing-table span.contenttype-topic:before, .template-folder_tabular_view .listing a.contenttype-topic:before, .template-folder_tabular_view .listing span.contenttype-topic:before, .contenttreeWidget > .navTree a.contenttype-topic:before, .contenttreeWidget > .navTree span.contenttype-topic:before, .collage-content-menu a.contenttype-topic:before, .collage-content-menu span.contenttype-topic:before {
   background-position: -72px 	-192px; }
-#listing-table a.contenttype-file:before, .template-folder_tabular_view .listing a.contenttype-file:before, .contenttreeWidget > .navTree a.contenttype-file:before {
+#listing-table a.contenttype-file:before, #listing-table span.contenttype-file:before, .template-folder_tabular_view .listing a.contenttype-file:before, .template-folder_tabular_view .listing span.contenttype-file:before, .contenttreeWidget > .navTree a.contenttype-file:before, .contenttreeWidget > .navTree span.contenttype-file:before, .collage-content-menu a.contenttype-file:before, .collage-content-menu span.contenttype-file:before {
   background-position: -167px	-168px; }
-#listing-table a.contenttype-image:before, .template-folder_tabular_view .listing a.contenttype-image:before, .contenttreeWidget > .navTree a.contenttype-image:before {
+#listing-table a.contenttype-image:before, #listing-table span.contenttype-image:before, .template-folder_tabular_view .listing a.contenttype-image:before, .template-folder_tabular_view .listing span.contenttype-image:before, .contenttreeWidget > .navTree a.contenttype-image:before, .contenttreeWidget > .navTree span.contenttype-image:before, .collage-content-menu a.contenttype-image:before, .collage-content-menu span.contenttype-image:before {
   background-position: -457px	-49px; }
-#listing-table a.contenttype-collective-polls-poll:before, .template-folder_tabular_view .listing a.contenttype-collective-polls-poll:before, .contenttreeWidget > .navTree a.contenttype-collective-polls-poll:before {
+#listing-table a.contenttype-collective-polls-poll:before, #listing-table span.contenttype-collective-polls-poll:before, .template-folder_tabular_view .listing a.contenttype-collective-polls-poll:before, .template-folder_tabular_view .listing span.contenttype-collective-polls-poll:before, .contenttreeWidget > .navTree a.contenttype-collective-polls-poll:before, .contenttreeWidget > .navTree span.contenttype-collective-polls-poll:before, .collage-content-menu a.contenttype-collective-polls-poll:before, .collage-content-menu span.contenttype-collective-polls-poll:before {
   background-position: -47px		-193px; }
-#listing-table a.contenttype-event:before, .template-folder_tabular_view .listing a.contenttype-event:before, .contenttreeWidget > .navTree a.contenttype-event:before {
+#listing-table a.contenttype-event:before, #listing-table span.contenttype-event:before, .template-folder_tabular_view .listing a.contenttype-event:before, .template-folder_tabular_view .listing span.contenttype-event:before, .contenttreeWidget > .navTree a.contenttype-event:before, .contenttreeWidget > .navTree span.contenttype-event:before, .collage-content-menu a.contenttype-event:before, .collage-content-menu span.contenttype-event:before {
   background-position: -191px 	-120px; }
-#listing-table a.contenttype-news-item:before, .template-folder_tabular_view .listing a.contenttype-news-item:before, .contenttreeWidget > .navTree a.contenttype-news-item:before {
+#listing-table a.contenttype-news-item:before, #listing-table span.contenttype-news-item:before, .template-folder_tabular_view .listing a.contenttype-news-item:before, .template-folder_tabular_view .listing span.contenttype-news-item:before, .contenttreeWidget > .navTree a.contenttype-news-item:before, .contenttreeWidget > .navTree span.contenttype-news-item:before, .collage-content-menu a.contenttype-news-item:before, .collage-content-menu span.contenttype-news-item:before {
   background-position: -24px 	-168px; }
-#listing-table a.contenttype-packet:before, .template-folder_tabular_view .listing a.contenttype-packet:before, .contenttreeWidget > .navTree a.contenttype-packet:before {
+#listing-table a.contenttype-packet:before, #listing-table span.contenttype-packet:before, .template-folder_tabular_view .listing a.contenttype-packet:before, .template-folder_tabular_view .listing span.contenttype-packet:before, .contenttreeWidget > .navTree a.contenttype-packet:before, .contenttreeWidget > .navTree span.contenttype-packet:before, .collage-content-menu a.contenttype-packet:before, .collage-content-menu span.contenttype-packet:before {
   background-position: -47px 	-168px; }
-#listing-table a.contenttype-collage:before, .template-folder_tabular_view .listing a.contenttype-collage:before, .contenttreeWidget > .navTree a.contenttype-collage:before {
+#listing-table a.contenttype-collage:before, #listing-table span.contenttype-collage:before, .template-folder_tabular_view .listing a.contenttype-collage:before, .template-folder_tabular_view .listing span.contenttype-collage:before, .contenttreeWidget > .navTree a.contenttype-collage:before, .contenttreeWidget > .navTree span.contenttype-collage:before, .collage-content-menu a.contenttype-collage:before, .collage-content-menu span.contenttype-collage:before {
   background-position: -216px 	-168px; }
-#listing-table a.contenttype-collection:before, .template-folder_tabular_view .listing a.contenttype-collection:before, .contenttreeWidget > .navTree a.contenttype-collection:before {
+#listing-table a.contenttype-collection:before, #listing-table span.contenttype-collection:before, .template-folder_tabular_view .listing a.contenttype-collection:before, .template-folder_tabular_view .listing span.contenttype-collection:before, .contenttreeWidget > .navTree a.contenttype-collection:before, .contenttreeWidget > .navTree span.contenttype-collection:before, .collage-content-menu a.contenttype-collection:before, .collage-content-menu span.contenttype-collection:before {
   background-position: -240px 	-168px; }
-#listing-table a.contenttype-survey:before, .template-folder_tabular_view .listing a.contenttype-survey:before, .contenttreeWidget > .navTree a.contenttype-survey:before {
+#listing-table a.contenttype-survey:before, #listing-table span.contenttype-survey:before, .template-folder_tabular_view .listing a.contenttype-survey:before, .template-folder_tabular_view .listing span.contenttype-survey:before, .contenttreeWidget > .navTree a.contenttype-survey:before, .contenttreeWidget > .navTree span.contenttype-survey:before, .collage-content-menu a.contenttype-survey:before, .collage-content-menu span.contenttype-survey:before {
   background-position: -265px 	-23px; }
-#listing-table a.contenttype-formfolder:before, .template-folder_tabular_view .listing a.contenttype-formfolder:before, .contenttreeWidget > .navTree a.contenttype-formfolder:before {
+#listing-table a.contenttype-formfolder:before, #listing-table span.contenttype-formfolder:before, .template-folder_tabular_view .listing a.contenttype-formfolder:before, .template-folder_tabular_view .listing span.contenttype-formfolder:before, .contenttreeWidget > .navTree a.contenttype-formfolder:before, .contenttreeWidget > .navTree span.contenttype-formfolder:before, .collage-content-menu a.contenttype-formfolder:before, .collage-content-menu span.contenttype-formfolder:before {
   background-position: -144px    -72px; }
-#listing-table a.contenttype-lrf:before, .template-folder_tabular_view .listing a.contenttype-lrf:before, .contenttreeWidget > .navTree a.contenttype-lrf:before {
+#listing-table a.contenttype-lrf:before, #listing-table span.contenttype-lrf:before, .template-folder_tabular_view .listing a.contenttype-lrf:before, .template-folder_tabular_view .listing span.contenttype-lrf:before, .contenttreeWidget > .navTree a.contenttype-lrf:before, .contenttreeWidget > .navTree span.contenttype-lrf:before, .collage-content-menu a.contenttype-lrf:before, .collage-content-menu span.contenttype-lrf:before {
   background-position: -216px    -191px; }
-#listing-table a:hover:before, .template-folder_tabular_view .listing a:hover:before, .contenttreeWidget > .navTree a:hover:before {
+#listing-table a:hover:before, #listing-table span:hover:before, .template-folder_tabular_view .listing a:hover:before, .template-folder_tabular_view .listing span:hover:before, .contenttreeWidget > .navTree a:hover:before, .contenttreeWidget > .navTree span:hover:before, .collage-content-menu a:hover:before, .collage-content-menu span:hover:before {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10000);
   opacity: 100; }
 
@@ -1642,7 +1641,7 @@ a.primary, .primary a, a .primary {
 
 .beautytab {
   width: 100%; }
-  .beautytab ul {
+  .beautytab ul#myTab {
     display: flex;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1650,77 +1649,78 @@ a.primary, .primary a, a .primary {
     flex-direction: row;
     margin: 0;
     padding: 0; }
-  .beautytab li.formTab {
-    flex-grow: 1;
-    list-style: none;
-    text-align: center;
-    border-style: solid;
-    border-color: #b2b2b2;
-    -moz-border-top-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    padding: 0;
-    background-color: #f0f0f0;
-    background-image: -moz-linear-gradient(top, white, #d8d8d8);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#d8d8d8));
-    background-image: -webkit-linear-gradient(top, white, #d8d8d8);
-    background-image: -o-linear-gradient(top, white, #d8d8d8);
-    background-image: linear-gradient(to bottom, #ffffff, #d8d8d8);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#d6d6d6', GradientType=0);
-    border-width: 1px 1px 1px 0;
-    text-decoration: none;
-    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); }
-    .beautytab li.formTab:hover {
-      background-color: #e2e2e2;
-      background-image: -moz-linear-gradient(top, white, #b2b2b2);
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#b2b2b2));
-      background-image: -webkit-linear-gradient(top, white, #b2b2b2);
-      background-image: -o-linear-gradient(top, white, #b2b2b2);
-      background-image: linear-gradient(to bottom, #ffffff, #b2b2b2);
+    .beautytab ul#myTab li.formTab {
+      flex-grow: 1;
+      list-style: none;
+      text-align: center;
+      border-style: solid;
+      border-color: #b2b2b2;
+      -moz-border-top-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-bottom-colors: none;
+      -moz-border-left-colors: none;
+      padding: 0;
+      background-color: #f0f0f0;
+      background-image: -moz-linear-gradient(top, white, #d8d8d8);
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#d8d8d8));
+      background-image: -webkit-linear-gradient(top, white, #d8d8d8);
+      background-image: -o-linear-gradient(top, white, #d8d8d8);
+      background-image: linear-gradient(to bottom, #ffffff, #d8d8d8);
       background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#afafaf', GradientType=0); }
-    .beautytab li.formTab.active, .beautytab li.formTab.selected {
-      background-color: #e2e2e2;
-      background-image: -moz-linear-gradient(top, white, #b2b2b2);
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#b2b2b2));
-      background-image: -webkit-linear-gradient(top, white, #b2b2b2);
-      background-image: -o-linear-gradient(top, white, #b2b2b2);
-      background-image: linear-gradient(to bottom, #ffffff, #b2b2b2);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#afafaf', GradientType=0); }
-      .beautytab li.formTab.active:after, .beautytab li.formTab.selected:after {
-        content: "";
-        float: right;
-        position: relative;
-        top: 7px;
-        right: 43%;
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-        border-width: 7px 8px 0;
-        border-color: #b2b2b2 transparent transparent transparent; }
-  .beautytab a {
-    display: block;
-    padding: 6px 4px 0px 4px;
-    color: #4c4c4c;
-    text-shadow: 0 0 0.5em white; }
-    .beautytab a:hover {
-      text-decoration: none; }
-  .beautytab li:first-child {
-    border-left-width: 1px;
-    -moz-border-radius-topleft: 0.5em;
-    -webkit-border-top-left-radius: 0.5em;
-    border-top-left-radius: 0.5em; }
-  .beautytab li:last-child {
-    border-right-style: solid;
-    border-right-width: 1px !important;
-    -moz-border-radius-topright: 0.5em;
-    -webkit-border-top-right-radius: 0.5em;
-    border-top-right-radius: 0.5em; }
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#d6d6d6', GradientType=0);
+      border-width: 1px 1px 1px 0;
+      text-decoration: none;
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); }
+      .beautytab ul#myTab li.formTab:hover {
+        background-color: #e2e2e2;
+        background-image: -moz-linear-gradient(top, white, #b2b2b2);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#b2b2b2));
+        background-image: -webkit-linear-gradient(top, white, #b2b2b2);
+        background-image: -o-linear-gradient(top, white, #b2b2b2);
+        background-image: linear-gradient(to bottom, #ffffff, #b2b2b2);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#afafaf', GradientType=0); }
+      .beautytab ul#myTab li.formTab.active, .beautytab ul#myTab li.formTab.selected {
+        background-color: #e2e2e2;
+        background-image: -moz-linear-gradient(top, white, #b2b2b2);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#b2b2b2));
+        background-image: -webkit-linear-gradient(top, white, #b2b2b2);
+        background-image: -o-linear-gradient(top, white, #b2b2b2);
+        background-image: linear-gradient(to bottom, #ffffff, #b2b2b2);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#afafaf', GradientType=0); }
+        .beautytab ul#myTab li.formTab.active:after, .beautytab ul#myTab li.formTab.selected:after {
+          content: "";
+          float: right;
+          position: relative;
+          top: 7px;
+          right: 43%;
+          width: 0px;
+          height: 0px;
+          border-style: solid;
+          border-width: 7px 8px 0;
+          border-color: #b2b2b2 transparent transparent transparent; }
+    .beautytab ul#myTab a {
+      display: block;
+      padding: 6px 4px 0px 4px;
+      color: #4c4c4c;
+      text-shadow: 0 0 0.5em white;
+      border-bottom: 0px !important; }
+      .beautytab ul#myTab a:hover {
+        text-decoration: none; }
+    .beautytab ul#myTab li:first-child {
+      border-left-width: 1px;
+      -moz-border-radius-topleft: 0.5em;
+      -webkit-border-top-left-radius: 0.5em;
+      border-top-left-radius: 0.5em; }
+    .beautytab ul#myTab li:last-child {
+      border-right-style: solid;
+      border-right-width: 1px !important;
+      -moz-border-radius-topright: 0.5em;
+      -webkit-border-top-right-radius: 0.5em;
+      border-top-right-radius: 0.5em; }
 
 .beautytab-content {
   border-style: solid;
@@ -2058,12 +2058,18 @@ ul {
   .list-condensed li, .portaltype-packet .estudis .llistatEnllacos li {
     padding: 0 0 0 28px !important; }
 
-.list li, .llistat li, .list-index li, .llistatIndex li, .list-striped li, .list-hover li, .list-bordered li, .list-notebook li, .list-condensed li, .portaltype-packet .estudis .llistatEnllacos li, .list-links li, .portaltype-packet .estudis .llistatEnllacos li, .list-highlighted li, .list-portlet li {
+.list li, .llistat li, .list-index li, .llistatIndex li, .list-striped li, .list-hover li, .list-bordered li, .list-notebook li,
+.list-condensed li,
+.portaltype-packet .estudis .llistatEnllacos li, .list-links li, .portaltype-packet .estudis .llistatEnllacos li, .list-highlighted li, .list-portlet li,
+#document-toc ol.TOC1Digit li {
   padding: 8px 0 8px 28px;
   margin-left: -20px;
   list-style: none;
   position: relative; }
-  .list li:before, .llistat li:before, .list-index li:before, .llistatIndex li:before, .list-striped li:before, .list-hover li:before, .list-bordered li:before, .list-notebook li:before, .list-condensed li:before, .portaltype-packet .estudis .llistatEnllacos li:before, .list-links li:before, .portaltype-packet .estudis .llistatEnllacos li:before, .list-highlighted li:before, .list-portlet li:before {
+  .list li:before, .llistat li:before, .list-index li:before, .llistatIndex li:before, .list-striped li:before, .list-hover li:before, .list-bordered li:before, .list-notebook li:before,
+  .list-condensed li:before,
+  .portaltype-packet .estudis .llistatEnllacos li:before, .list-links li:before, .portaltype-packet .estudis .llistatEnllacos li:before, .list-highlighted li:before, .list-portlet li:before,
+  #document-toc ol.TOC1Digit li:before {
     content: ".";
     position: absolute;
     font-size: 52px;
@@ -2132,6 +2138,14 @@ ul {
 
 .list-links:before, .portaltype-packet .estudis .llistatEnllacos:before, .list-highlighted:before {
   content: none; }
+
+#document-toc {
+  margin-bottom: 50px; }
+  #document-toc ol.TOC1Digit {
+    list-style-type: none;
+    margin: 5px 5px 5px 15px !important; }
+  #document-toc .portletHeader {
+    display: none; }
 
 table {
   max-width: 100%;
@@ -2913,6 +2927,14 @@ ol.linenums li {
 .prettyprint-inverse .pln {
   color: #ddd; }
 
+ins, .ins {
+  color: #538300;
+  text-decoration: underline; }
+
+del, .del {
+  color: #c00;
+  text-decoration: line-through; }
+
 input[type="file"] {
   position: absolute;
   cursor: pointer;
@@ -3042,6 +3064,12 @@ input[type="file"] {
     .list-portlet li .smaller {
       color: #666666;
       white-space: nowrap; }
+
+.template-newscollection_view .list-portlet {
+  padding-left: 0;
+  padding-right: 0; }
+  .template-newscollection_view .list-portlet li {
+    margin-right: 0; }
 
 .portlet-footer {
   background: #f2f2f2;
@@ -3248,6 +3276,11 @@ h2.title-inverse {
     text-shadow: 0 -1px #06a; }
     .portletCalendar .ploneCalendar td.cal_has_events a {
       color: #fff; }
+    .portletCalendar .ploneCalendar td.cal_has_events .popover-content, .portletCalendar .ploneCalendar td.cal_has_events .expandable-content .inner-content, .expandable-content .portletCalendar .ploneCalendar td.cal_has_events .inner-content {
+      text-align: center; }
+      .portletCalendar .ploneCalendar td.cal_has_events .popover-content a, .portletCalendar .ploneCalendar td.cal_has_events .expandable-content .inner-content a, .expandable-content .portletCalendar .ploneCalendar td.cal_has_events .inner-content a {
+        color: #333333;
+        text-shadow: none; }
   .portletCalendar .ploneCalendar td.today {
     font-weight: bold;
     color: #000; }
@@ -3498,137 +3531,6 @@ iframe {
   min-width: 128px !important;
   width: 128px !important; }
 
-/* The main calendar widget.  DIV containing a table. */
-.calendar {
-  display: none;
-  margin: 0 auto;
-  position: fixed !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin-top: 50%; }
-  .calendar table {
-    background: #f2f2f2;
-    border-radius: 5px;
-    width: 222px;
-    box-shadow: 0 0 100px black;
-    top: 50%;
-    margin-top: -100px !important;
-    margin: 0 auto; }
-    .calendar table .wn {
-      border-right: 1px solid #b2b2b2;
-      background: #f7f7f7; }
-  .calendar .button {
-    text-align: center;
-    background: #f2f2f2; }
-  .calendar .nav, .calendar .contentViews, .calendar .configlets, .calendar .formTabs {
-    background: #f2f2f2 url(menuarrow.gif) no-repeat 100% 100%; }
-  .calendar thead .title {
-    font-weight: bold;
-    text-align: center; }
-  .calendar thead .name {
-    border-bottom: 1px solid #b2b2b2;
-    border-top: 1px solid #b2b2b2;
-    text-align: center;
-    background: #f7f7f7; }
-  .calendar thead .weekend {
-    color: #c00; }
-  .calendar thead .hilite {
-    background: #cef; }
-  .calendar thead .active, .calendar thead .selected, .calendar thead .contentViews .selected:hover, .contentViews .calendar thead .selected:hover {
-    box-shadow: inset 0 0 3px #08c; }
-  .calendar tbody {
-    background: #fff; }
-    .calendar tbody .day {
-      width: 2em;
-      text-align: center;
-      padding: 2px 0px; }
-    .calendar tbody .day.othermonth {
-      font-size: 80%;
-      color: #aaa; }
-    .calendar tbody .day.othermonth.oweekend {
-      color: #faa; }
-    .calendar tbody .rowhilite td {
-      background: #cef; }
-    .calendar tbody td.hilite {
-      background: #08c;
-      color: white; }
-    .calendar tbody td.active, .calendar tbody td.selected, .calendar tbody .contentViews td.selected:hover, .contentViews .calendar tbody td.selected:hover {
-      box-shadow: inset 0 0 3px #08c; }
-    .calendar tbody td.selected {
-      font-weight: bold;
-      background: #08c;
-      color: white; }
-    .calendar tbody td.weekend {
-      color: #c00; }
-    .calendar tbody td.today {
-      font-weight: bold;
-      color: white;
-      border-radius: 3px; }
-    .calendar tbody td.disabled {
-      color: gray; }
-    .calendar tbody .emptyrow {
-      display: none; }
-  .calendar tfoot .ttip {
-    background: #f7f7f7;
-    border-top: 1px solid #b2b2b2;
-    text-align: center; }
-  .calendar tfoot .hilite {
-    background-color: #cef !important; }
-  .calendar tfoot .active, .calendar tfoot .selected, .calendar tfoot .contentViews .selected:hover, .contentViews .calendar tfoot .selected:hover {
-    background-color: #08c !important; }
-  .calendar .combo {
-    position: absolute;
-    display: none;
-    width: 4em;
-    top: 0px;
-    left: 0px;
-    cursor: default;
-    border: 1px solid;
-    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
-    background: Menu;
-    color: MenuText;
-    font-size: 90%;
-    padding: 1px;
-    z-index: 100; }
-    .calendar .combo .label, .calendar .combo #listing-table tr td:nth-child(6) .state-restricted-to-managers, #listing-table tr td:nth-child(6) .calendar .combo .state-restricted-to-managers, .calendar .combo #listing-table tr td:nth-child(6) .state-visible, #listing-table tr td:nth-child(6) .calendar .combo .state-visible, .calendar .combo #listing-table tr td:nth-child(6) .state-intranet, #listing-table tr td:nth-child(6) .calendar .combo .state-intranet, .calendar .combo #listing-table tr td:nth-child(6) #workflow-transition-publishtointranet, #listing-table tr td:nth-child(6) .calendar .combo #workflow-transition-publishtointranet, .calendar .combo #listing-table tr td:nth-child(6) #workflow-transition-publicaalaintranet, #listing-table tr td:nth-child(6) .calendar .combo #workflow-transition-publicaalaintranet, .calendar .combo #listing-table tr td:nth-child(6) #workflow-transition-retracttointranet, #listing-table tr td:nth-child(6) .calendar .combo #workflow-transition-retracttointranet, .calendar .combo #listing-table tr td:nth-child(6) #workflow-transition-retiraalaintranet, #listing-table tr td:nth-child(6) .calendar .combo #workflow-transition-retiraalaintranet, .calendar .combo #listing-table tr td:nth-child(6) .state-private, #listing-table tr td:nth-child(6) .calendar .combo .state-private, .calendar .combo #listing-table tr td:nth-child(6) #workflow-transition-hide, #listing-table tr td:nth-child(6) .calendar .combo #workflow-transition-hide,
-    .calendar .combo .label-IEfix {
-      text-align: center;
-      display: block;
-      padding: 1px; }
-    .calendar .combo .label-IEfix {
-      width: 4em; }
-    .calendar .combo .active, .calendar .combo .selected {
-      padding: 0px;
-      border: 1px solid #000; }
-    .calendar .combo .hilite {
-      background: Highlight;
-      color: HighlightText; }
-  .calendar td.time {
-    border-top: 1px solid ButtonShadow;
-    padding: 1px 0px;
-    text-align: center;
-    background-color: ButtonFace; }
-    .calendar td.time .hour,
-    .calendar td.time .minute,
-    .calendar td.time .ampm {
-      padding: 0px 3px 0px 4px;
-      border: 1px solid #889;
-      font-weight: bold;
-      background-color: Menu; }
-    .calendar td.time .ampm {
-      text-align: center; }
-    .calendar td.time .colon {
-      padding: 0px 2px 0px 3px;
-      font-weight: bold; }
-    .calendar td.time span.hilite {
-      border-color: #000;
-      background-color: Highlight;
-      color: HighlightText; }
-    .calendar td.time span.active, .calendar td.time span.selected {
-      border-color: #f00;
-      background-color: #000;
-      color: #080; }
-
 .template-manage-homeportlets .portletHeader strong {
   display: inline-block;
   padding: 2px 0 0 4px;
@@ -3731,11 +3633,9 @@ img[src$="spinner.gif"] {
   background: transparent !important; }
 
 .collage-existing-items .breadcrumbs {
-  background: url("logoIcon.gif") no-repeat left center;
   padding-top: 4px;
   padding-bottom: 4px;
   margin-bottom: 8px;
-  padding-left: 20px;
   border-bottom: 1px solid White; }
 .collage-existing-items label {
   display: none; }
@@ -3831,26 +3731,6 @@ span.collage-navigation {
   margin-left: 4px; }
   span.collage-navigation.collage-navigation a {
     text-decoration: none; }
-
-.display-collagerow_default_view {
-  background-image: url(icon-collagerow_default_view.gif) !important; }
-
-.display-collagerow_largeleft_view {
-  background-image: url(icon-collagerow_largeleft_view.gif) !important; }
-
-.display-collagerow_largeright_view {
-  background-image: url(icon-collagerow_largeright_view.gif) !important; }
-
-.display-collagecolumn_default_view {
-  background-image: url(icon-collagecolumn_default_view.gif) !important; }
-
-.icons-on .collage-content-menu .contenttype-file {
-  background: no-repeat transparent 0px -433px url(contenttypes-sprite.png);
-  padding-left: 20px !important; }
-
-.icons-on .collage-content-menu .contenttype-image {
-  background: no-repeat transparent 0px -865px url(contenttypes-sprite.png);
-  padding-left: 20px !important; }
 
 .collage-quickedit {
   float: right; }
@@ -4127,10 +4007,13 @@ input[name='poll.submit'] {
   float: right;
   margin: 0 0 0 10px; }
 
+body.mceContentBody table tbody tr br[data-mce-bogus="1"] {
+  display: block; }
+
 body.mceContentBody br[data-mce-bogus="1"] {
   display: none; }
 body.mceContentBody #myTab li.active a, body.mceContentBody #myTab li.selected a {
-  border-bottom: 1px solid #fff !important; }
+  border-bottom: 1px solid transparent !important; }
 
 iframe#templatesrc {
   width: 100% !important; }
@@ -5599,12 +5482,6 @@ select {
 .ploneSkin .mceMenuItemDisabled .mceText {
   color: #444; }
 
-.ploneSkin .mceMenuItemSelected .mceIcon {
-  background: url(img/menu_check.gif); }
-
-.ploneSkin .mceNoIcons .mceMenuItemSelected a {
-  background: url(img/menu_arrow.gif) no-repeat -6px center; }
-
 .ploneSkin .mceMenu span.mceMenuLine {
   display: none; }
 
@@ -5972,10 +5849,6 @@ tr.mceLast > td {
   a {
     color: #08c;
     text-decoration: underline; }
-
-  #content a:link:after, #content a:visited:after {
-    content: " (" attr(href) ") ";
-    font-size: 90%; }
 
   .nav-collapse-eines, #portal-personaltools-wrapper, #portal-globalnav, #portal-breadcrumbs,
   #portal-column-one, .alert, .portalMessage, #edit-bar, #viewlet-below-content-title, #viewlet-below-content,
