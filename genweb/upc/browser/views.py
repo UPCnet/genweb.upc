@@ -48,7 +48,7 @@ class gwSendEventView(grok.View):
     def render(self):
         context = aq_inner(self.context)
         annotations = IAnnotations(context)
-        event_title = context.Title().decode(sys.getdefaultencoding())
+        event_title = context.Title().decode('utf-8')
         event_day = DateTime().day()
         event_month = DateTime().month()
         event_year = DateTime().year()
