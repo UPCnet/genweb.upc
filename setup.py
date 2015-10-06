@@ -36,7 +36,7 @@ setup(name='genweb.upc',
           'plone.app.multilingual[archetypes]',
           'genweb.chineselanguagebar',
       ],
-      extras_require={'test': ['plone.app.testing']},
+      extras_require={'test': ['plone.app.robotframework', 'plone.app.testing[robot] >= 4.2.4']},
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
