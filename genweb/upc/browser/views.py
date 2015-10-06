@@ -11,6 +11,7 @@ from plone.app.contenttypes.interfaces import IEvent
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.statusmessages.interfaces import IStatusMessage
+from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.memoize import ram
 
 from genweb.upc.browser.interfaces import IGenwebUPC
@@ -139,3 +140,11 @@ class dynamicCSS(grok.View):
         dynamic_scss = ''.join([variables_scss, scssfile.read()])
 
         return css.compile(dynamic_scss)
+
+
+class ContactFeedback(grok.View):
+    grok.name('contact_feedback')
+    grok.context(INavigationRoot)
+    grok.template("contact_feedback")
+    grok.require('zope2.View')
+    grok.layer(IGenwebUPC)
