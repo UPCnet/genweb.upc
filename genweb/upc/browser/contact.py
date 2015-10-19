@@ -224,6 +224,7 @@ class ContactForm(form.SchemaForm):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
         items = []
+
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
                 if lang == item['language']:
