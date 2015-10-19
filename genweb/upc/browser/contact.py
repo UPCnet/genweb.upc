@@ -52,10 +52,12 @@ class getEmailsContactNames(object):
     def __call__(self, context):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
+        lang = utils.pref_lang()
         items = []
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
-                items.append(SimpleVocabulary.createTerm(item['name'], item['name'], item['name']))
+                if lang == item['language']:
+                    items.append(SimpleVocabulary.createTerm(item['name'], item['name'], item['name']))
         return SimpleVocabulary(items)
 
 grok.global_utility(getEmailsContactNames, name=u"availableContacts")
@@ -76,7 +78,7 @@ def validate_email(value):
 class IContactForm(form.Schema):
     """Define the fields of our form
     """
-    to_address = Choice(title=_('to_address',
+    recipient = Choice(title=_('to_address',
                      default=u"Recipient"),
                      vocabulary=u"availableContacts")
 
@@ -120,7 +122,7 @@ class ContactForm(form.SchemaForm):
         super(ContactForm, self).updateWidgets()
         # Override the interface forced 'hidden' to 'input' for add form only
         if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
-            self.widgets['to_address'].mode = 'hidden'
+            self.widgets['recipient'].mode = 'hidden'
 
     @button.buttonAndHandler(_(u"Send"))
     def action_send(self, action):
@@ -148,14 +150,17 @@ class ContactForm(form.SchemaForm):
         portal = api.portal.get()
         email_charset = portal.getProperty('email_charset')
 
-        multi_contact_emails = self.getEmailsContact()
-
-        if multi_contact_emails['contact_emails_show']:
-            to_address = ''
+        if api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
+            contact_data = self.getDataContact()
+            if contact_data != []:
+                to_name = data['recipient']
+                for item in contact_data:
+                    if to_name in item['name']:
+                        to_address = item['email']
+                        to_name = to_name.encode('utf-8')
         else:
             to_address = portal.getProperty('email_from_address')
-
-        from_name = portal.getProperty('email_from_name')
+            to_name = portal.getProperty('email_from_name').encode('utf-8')
 
         source = "%s <%s>" % (escape(safe_unicode(data['nombre'])), escape(safe_unicode(data['from_address'])))
         subject = "[Formulari Contacte] %s" % (escape(safe_unicode(data['asunto'])))
@@ -163,8 +168,7 @@ class ContactForm(form.SchemaForm):
                                           from_address=data['from_address'],
                                           genweb=portal.absolute_url(),
                                           message=data['mensaje'],
-                                          from_name=from_name)
-
+                                          from_name=data['nombre'])
         mailhost.secureSend(escape(safe_unicode(message)), to_address, source,
                             subject=subject, subtype='plain',
                             charset=email_charset, debug=False,
@@ -215,23 +219,22 @@ class ContactForm(form.SchemaForm):
         else:
             return page
 
-    def getEmailsContact(self):
+    def getDataContact(self):
         lang = pref_lang()
-
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
         items = []
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
-                if lang in item['language']:
+                if lang == item['language']:
                     items.append(item)
+        return items
 
-        if len(items) > 0 and settings.contacte_multi_email:
-            contact_emails_show = True
+    def isContactAddress(self):
+        portal = api.portal.get()
+        if self.getDataContact():
+            return True
+        elif portal.getProperty('email_from_address'):
+            return True
         else:
-            contact_emails_show = False
-
-        dades = {'contact_emails_table': items,
-                 'contact_emails_show': contact_emails_show,
-                 }
-        return dades
+            return False
