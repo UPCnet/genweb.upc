@@ -37,6 +37,7 @@ class TestExample(unittest.TestCase):
         login(portal, TEST_USER_NAME)
 
         setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.apply_default_language_settings()
         setupview.setup_multilingual()
         setupview.createContent('n3')
 
@@ -58,6 +59,7 @@ class TestExample(unittest.TestCase):
         login(portal, TEST_USER_NAME)
 
         setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.apply_default_language_settings()
         setupview.setup_multilingual()
         setupview.createContent('n3')
 
@@ -73,6 +75,7 @@ class TestExample(unittest.TestCase):
         login(portal, TEST_USER_NAME)
 
         setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.apply_default_language_settings()
         setupview.setup_multilingual()
         setupview.createContent('n3')
 
@@ -88,6 +91,7 @@ class TestExample(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         setupview = getMultiAdapter((self.portal, self.request), name='setup-view')
+        setupview.apply_default_language_settings()
         setupview.setup_multilingual()
         setupview.createContent('n3')
         logout()

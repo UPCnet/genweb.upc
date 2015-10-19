@@ -53,6 +53,9 @@ class setup(grok.View):
         if qs is not None:
             query = parse_qs(qs)
             gwtype = ''
+            if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
+                self.apply_default_language_settings()
+                api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
             if 'createn2' in query:
                 gwtype = 'n2'
                 for name in query['createn2']:
@@ -100,6 +103,11 @@ class setup(grok.View):
                         tr.append('No existeix')
             result.append(tr)
         return result
+
+    def apply_default_language_settings(self):
+        pl = api.portal.get_tool('portal_languages')
+        pl.setDefaultLanguage('ca')
+        pl.supported_langs = ['ca', 'es', 'en']
 
     def setup_multilingual(self):
         setupTool = SetupMultilingualSite()
