@@ -52,10 +52,12 @@ class getEmailsContactNames(object):
     def __call__(self, context):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
+        lang = utils.pref_lang()
         items = []
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
-                items.append(SimpleVocabulary.createTerm(item['name'], item['name'], item['name']))
+                if lang == item['language']:
+                    items.append(SimpleVocabulary.createTerm(item['name'], item['name'], item['name']))
         return SimpleVocabulary(items)
 
 grok.global_utility(getEmailsContactNames, name=u"availableContacts")
