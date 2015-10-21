@@ -29,13 +29,12 @@ from genweb.controlpanel.interface import IGenwebControlPanelSettings
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory
 
-
 grok.templatedir("views_templates")
 
 
 MESSAGE_TEMPLATE = u"""\
 Heu rebut aquest correu perquè en/na %(name)s (%(from_address)s) ha enviat \
-comentaris sobre l'espai Genweb que administreu a \
+comentaris desde de l'espai Genweb \
 
 %(genweb)s
 
@@ -53,7 +52,7 @@ class getEmailsContactNames(object):
     def __call__(self, context):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
-        lang = utils.pref_lang()
+        lang = pref_lang()
         items = []
 
         if settings.contact_emails_table is not None:
@@ -63,8 +62,7 @@ class getEmailsContactNames(object):
                     items.append(SimpleVocabulary.createTerm(
                         item['name'],
                         token,
-                        item['name'],
-                        ))
+                        item['name'],))
         return SimpleVocabulary(items)
 
 grok.global_utility(getEmailsContactNames, name="availableContacts")
@@ -165,11 +163,10 @@ class ContactForm(form.SchemaForm):
                     if to_name in item['name']:
                         to_address = item['email']
                         to_name = to_name.encode('utf-8')
+                        continue
         else:
             to_address = portal.getProperty('email_from_address')
             to_name = portal.getProperty('email_from_name').encode('utf-8')
-
-        source = "%s <%s>" % (escape(safe_unicode(data['nombre'])), escape(safe_unicode(data['from_address'])))
 
         lang = utils.pref_lang()
         if lang == 'ca':
@@ -184,14 +181,13 @@ class ContactForm(form.SchemaForm):
                                           genweb=portal.absolute_url(),
                                           message=data['mensaje'],
                                           from_name=data['nombre'])
-        mailhost.secureSend(escape(safe_unicode(message)),
-                            to_address,
-                            source,
-                            subject=subject,
-                            subtype='plain',
-                            charset=email_charset,
-                            debug=False,
-                            )
+
+        mailhost.send(escape(safe_unicode(message)),
+                      mto=to_address,
+                      mfrom=portal.getProperty('email_from_address'),
+                      subject=subject,
+                      charset=email_charset,
+                      msg_type='text/plain')
 
         confirm = _(u"Mail sent.")
         IStatusMessage(self.request).addStatusMessage(confirm, type='info')
