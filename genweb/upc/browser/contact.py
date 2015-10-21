@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import unicodedata
 import re
 from five import grok
 from plone import api
@@ -54,13 +55,19 @@ class getEmailsContactNames(object):
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
         lang = utils.pref_lang()
         items = []
+
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
                 if lang == item['language']:
-                    items.append(SimpleVocabulary.createTerm(item['name'], item['name'], item['name']))
+                    token = unicodedata.normalize('NFKD', item['name']).encode('ascii', 'ignore').lower()
+                    items.append(SimpleVocabulary.createTerm(
+                        item['name'],
+                        token,
+                        item['name'],
+                        ))
         return SimpleVocabulary(items)
 
-grok.global_utility(getEmailsContactNames, name=u"availableContacts")
+grok.global_utility(getEmailsContactNames, name="availableContacts")
 
 
 class NotAnEmailAddress(ValidationError):
@@ -79,8 +86,8 @@ class IContactForm(form.Schema):
     """Define the fields of our form
     """
     recipient = Choice(title=_('to_address',
-                     default=u"Recipient"),
-                     vocabulary=u"availableContacts")
+                       default=u"Recipient"),
+                       vocabulary="availableContacts")
 
     nombre = TextLine(title=_('genweb_sender_fullname', default=u"Name"),
                       required=True)
@@ -163,15 +170,27 @@ class ContactForm(form.SchemaForm):
             to_name = portal.getProperty('email_from_name').encode('utf-8')
 
         source = "%s <%s>" % (escape(safe_unicode(data['nombre'])), escape(safe_unicode(data['from_address'])))
-        subject = "[Formulari Contacte] %s" % (escape(safe_unicode(data['asunto'])))
+
+        lang = utils.pref_lang()
+        if lang == 'ca':
+            subject = "[Formulari Contacte] %s" % (escape(safe_unicode(data['asunto'])))
+        if lang == 'es':
+            subject = "[Formulario de Contacto] %s" % (escape(safe_unicode(data['asunto'])))
+        if lang == 'en':
+            subject = "[Contact Form] %s" % (escape(safe_unicode(data['asunto'])))
+
         message = MESSAGE_TEMPLATE % dict(name=data['nombre'],
                                           from_address=data['from_address'],
                                           genweb=portal.absolute_url(),
                                           message=data['mensaje'],
                                           from_name=data['nombre'])
-        mailhost.secureSend(escape(safe_unicode(message)), to_address, source,
-                            subject=subject, subtype='plain',
-                            charset=email_charset, debug=False,
+        mailhost.secureSend(escape(safe_unicode(message)),
+                            to_address,
+                            source,
+                            subject=subject,
+                            subtype='plain',
+                            charset=email_charset,
+                            debug=False,
                             )
 
         confirm = _(u"Mail sent.")
@@ -193,14 +212,12 @@ class ContactForm(form.SchemaForm):
         return "//maps.upc.edu/?iu=%s&lang=%s" % (codi, lang)
 
     def getContactPersonalized(self):
-        isCustomized = utils.genweb_config().contacte_BBDD_or_page
-        return isCustomized
+        return utils.genweb_config().contacte_BBDD_or_page
 
     def getContactPage(self):
         """
         Funcio que retorna la pagina de contacte personalitzada
         """
-        page = ""
         context = aq_inner(self.context)
         lang = self.context.Language()
         if lang == 'ca':
@@ -209,18 +226,18 @@ class ContactForm(form.SchemaForm):
             customized_page = getattr(context, 'contactopersonalizado', False)
         elif lang == 'en':
             customized_page = getattr(context, 'customizedcontact', False)
+
         try:
             state = api.content.get_state(customized_page)
+            if state == 'published':
+                return context.contactepersonalitzat.text.raw
+            else:
+                return ''
         except:
-            state = ''
-        if state == 'published':
-            contact_body = context.contactepersonalitzat.text.raw
-            page = contact_body
-        else:
-            return page
+            return ''
 
     def getDataContact(self):
-        lang = pref_lang()
+        lang = utils.pref_lang()
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
         items = []
@@ -233,9 +250,7 @@ class ContactForm(form.SchemaForm):
 
     def isContactAddress(self):
         portal = api.portal.get()
-        if self.getDataContact():
-            return True
-        elif portal.getProperty('email_from_address'):
+        if self.getDataContact() or portal.getProperty('email_from_address'):
             return True
         else:
             return False
