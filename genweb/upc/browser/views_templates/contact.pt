@@ -25,7 +25,7 @@
 
                         <!-- FORMULARI DE CONTACTE -->
                         <div tal:condition="contact_address" class="span7 box box-gradient"
-                            tal:attributes="class python:isCustomized or dades and 'span7 box box-gradient' or 'box box-gradient'">
+                             tal:attributes="class python:(isCustomized or dades) and 'span7 box box-gradient' or 'box box-gradient'">
                             <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
                         </div>
                         <!-- FI FORMULARI DE CONTACTE -->
@@ -137,7 +137,7 @@
 
                                 <!-- DADES CONTACTE PERSONALITZADES -->
                                 <tal:co tal:condition="isCustomized">
-                                    <div class="span5">
+                                    <div>
                                         <div tal:replace="structure view/getContactPage">Cos de la pagina de contacte</div>
                                     </div>
                                 </tal:co>
