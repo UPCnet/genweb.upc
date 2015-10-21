@@ -126,7 +126,7 @@ class ContactForm(form.SchemaForm):
     def updateWidgets(self):
         super(ContactForm, self).updateWidgets()
         # Override the interface forced 'hidden' to 'input' for add form only
-        if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
+        if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email') or 'availableContacts':
             self.widgets['recipient'].mode = 'hidden'
 
     @button.buttonAndHandler(_(u"Send"))
@@ -154,6 +154,8 @@ class ContactForm(form.SchemaForm):
         mailhost = getToolByName(context, 'MailHost')
         portal = api.portal.get()
         email_charset = portal.getProperty('email_charset')
+        to_address = portal.getProperty('email_from_address')
+        to_name = portal.getProperty('email_from_name').encode('utf-8')
 
         if api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
             contact_data = self.getDataContact()
@@ -164,9 +166,6 @@ class ContactForm(form.SchemaForm):
                         to_address = item['email']
                         to_name = to_name.encode('utf-8')
                         continue
-        else:
-            to_address = portal.getProperty('email_from_address')
-            to_name = portal.getProperty('email_from_name').encode('utf-8')
 
         lang = utils.pref_lang()
         if lang == 'ca':
