@@ -10,6 +10,7 @@ from zope.component import getMultiAdapter
 
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.CMFPlone.utils import safe_unicode
+from Products.CMFCore import permissions
 from plone.app.layout.viewlets.interfaces import IHtmlHead
 from plone.app.layout.viewlets.common import TitleViewlet
 from plone.app.layout.viewlets.interfaces import IAboveContent
@@ -67,6 +68,7 @@ class gwSendEvent(viewletBase):
     grok.context(IEvent)
     grok.template('send_event')
     grok.viewletmanager(IAboveContentTitle)
+    grok.require('cmf.ModifyPortalContent')
     grok.layer(IGenwebUPC)
 
     def isEventSent(self):
@@ -78,9 +80,6 @@ class gwSendEvent(viewletBase):
             return True
         else:
             return False
-
-    def canManageSite(self):
-        return checkPermission("plone.app.controlpanel.Overview", self.portal())
 
 
 class gwDontCopy(viewletBase):
@@ -96,6 +95,7 @@ class gwImportantNews(viewletBase):
     grok.context(INewsItem)
     grok.template('important')
     grok.viewletmanager(IAboveContentTitle)
+    grok.require('cmf.ModifyPortalContent')
     grok.layer(IGenwebUPC)
 
     def permisos_important(self):
@@ -105,9 +105,6 @@ class gwImportantNews(viewletBase):
     def permisos_notimportant(self):
         # TODO: Comprovar que l'usuari tingui permisos per a marcar com a notimportant
         return IImportant(self.context).is_important and checkPermission("plone.app.controlpanel.Overview", self.portal())
-
-    def canManageSite(self):
-        return checkPermission("plone.app.controlpanel.Overview", self.portal())
 
     def isNewImportant(self):
         context = aq_inner(self.context)
