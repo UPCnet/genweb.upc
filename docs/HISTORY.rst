@@ -1,11 +1,16 @@
 Changelog
 =========
 
-2.4 (unreleased)
+2.5 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+2.4 (2015-10-21)
+----------------
+
+* correct span5 [hanirok]
 
 2.3 (2015-10-21)
 ----------------
