@@ -126,7 +126,7 @@ class ContactForm(form.SchemaForm):
     def updateWidgets(self):
         super(ContactForm, self).updateWidgets()
         # Override the interface forced 'hidden' to 'input' for add form only
-        if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email') or 'availableContacts':
+        if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email') or not self.getDataContact():
             self.widgets['recipient'].mode = 'hidden'
 
     @button.buttonAndHandler(_(u"Send"))
