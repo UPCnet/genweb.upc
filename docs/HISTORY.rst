@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.5 (unreleased)
+2.5 (2015-10-22)
 ----------------
 
-- Nothing changed yet.
-
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Error ocultar desplegable multiemail [hanirok]
 
 2.4 (2015-10-21)
 ----------------
