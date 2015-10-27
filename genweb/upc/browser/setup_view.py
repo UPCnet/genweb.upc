@@ -53,10 +53,10 @@ class setup(grok.View):
         if qs is not None:
             query = parse_qs(qs)
             gwtype = ''
-            if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
-                self.apply_default_language_settings()
-                api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
             if 'createn2' in query:
+                if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
+                    self.apply_default_language_settings()
+                    api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
                 gwtype = 'n2'
                 for name in query['createn2']:
                     if name == 'all':
@@ -65,6 +65,9 @@ class setup(grok.View):
                         self.request.response.redirect(base_url)
                 self.setGenwebProperties(gwtype)
             if 'createn3' in query:
+                if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
+                    self.apply_default_language_settings()
+                    api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
                 gwtype = 'n3'
                 for name in query['createn3']:
                     if name == 'all':
@@ -73,6 +76,9 @@ class setup(grok.View):
                         self.request.response.redirect(base_url)
                 self.setGenwebProperties(gwtype)
             if 'createexamples' in query:
+                if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
+                    self.apply_default_language_settings()
+                    api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
                 gwtype = 'examples'
                 for name in query['createexamples']:
                     if name == 'all':
