@@ -17,6 +17,9 @@ from pyquery import PyQuery as pq
 
 import re
 import requests
+import urlparse
+from plone import api
+
 
 class IContentPortlet(IPortletDataProvider):
     """A portlet which can render an existing content
@@ -60,10 +63,9 @@ class IContentPortlet(IPortletDataProvider):
 class Assignment (base.Assignment):
     implements(IContentPortlet)
 
-    def __init__(self , url='http://genweb.upc.edu/ca/demana-un-genweb', ptitle='', element='#content', show_title=True, hide_footer=False): 
+    def __init__(self, url='http://genweb.upc.edu/ca/demana-un-genweb', ptitle='', element='#content', show_title=True, hide_footer=False):
         # s'invoca quan cliquem a Desa
-        #import pdb; pdb.set_trace()
-        self.count = 5
+        # import pdb; pdb.set_trace()
         self.url = url
         self.ptitle = ptitle
         self.element = element
@@ -83,18 +85,22 @@ class Renderer(base.Renderer):
             Avisa si hi ha problemes en la URL o si no troba Element.
         """
         try:
-            raw_html = requests.get(self.data.url)
+            url = self.absolute_url(self.data.url)
+            raw_html = requests.get(url)
             clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
             doc = pq(clean_html)
             match = re.search(r'This page does not exist', clean_html)
             content = ''
             if match:
+                # page not found in site
                 content = _(u"ERROR: Unknown identifier. This page does not exist." + self.data.url)
             else:
                 content = doc(self.data.element).outerHtml()
                 if not content:
+                    # element not found in page
                     content = _(u"ERROR. This element does not exist.") + " " + self.data.element
         except requests.exceptions.RequestException:
+            # maybe malformed url?
             content = _(u"ERROR. This URL does not exist.") + " " + self.data.url
         return content
 
@@ -106,16 +112,28 @@ class Renderer(base.Renderer):
 
     def getClass(self):
         if self.data.hide_footer:
-            return ''
+            return 'existing_content_portlet_no_border'
         else:
             return 'existing_content_portlet'
 
+    def absolute_url(self, url):
+        """
+        Convert relative url to absolute
+        """
+        if not ("://" in url):
+            root = api.portal.get().absolute_url()
+            base = root + '/' + api.portal.get_navigation_root(self.context).id + '/'
+            return urlparse.urljoin(base, url)
+        else:
+            # Already absolute
+            return url
+
 
 class AddForm(base.AddForm):
-    #import pdb; pdb.set_trace()
     form_fields = form.Fields(IContentPortlet)
     label = _(u"Afegeix portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica")
+
     def create(self, data):
         # s'invoca despres de __init__ en clicar Desa
         assignment = Assignment(**data)

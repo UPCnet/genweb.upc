@@ -197,6 +197,12 @@ li#portal-languageselector {
   }
 }
 
+.existing_content_portlet_no_border {
+    >.portlet-content {
+        padding: 0;
+    }
+}
+
 // oculta botó xarses socials dins els portlets
 .portlet-content .share_popover {
     display: none;

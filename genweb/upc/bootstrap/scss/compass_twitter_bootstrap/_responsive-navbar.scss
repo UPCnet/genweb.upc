@@ -99,7 +99,7 @@
     top: auto;
     left: auto;
     float: none;
-    display: block;
+    //display: block;
     max-width: none;
     margin: 0 15px;
     padding: 0;
@@ -246,7 +246,7 @@
     top: auto;
     left: auto;
     float: none;
-    display: block;
+    //display: block;
     max-width: none;
     margin: 0 15px;
     padding: 0;
@@ -255,6 +255,11 @@
     @include border-radius(0);
     @include box-shadow(none);
   }
+
+  .nav-collapse.nav-collapse-edit .dropdown-menu {
+    display: block;
+  }
+
   .nav-collapse .dropdown-menu:before,
   .nav-collapse .dropdown-menu:after {
     display: none;
