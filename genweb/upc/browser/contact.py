@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import unicodedata
 import re
 from five import grok
 from plone import api
@@ -28,13 +29,14 @@ from genweb.controlpanel.interface import IGenwebControlPanelSettings
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory
 
-
 grok.templatedir("views_templates")
 
 
 MESSAGE_TEMPLATE = u"""\
+Reply-To: %(from_address)s
+
 Heu rebut aquest correu perquè en/na %(name)s (%(from_address)s) ha enviat \
-comentaris sobre l'espai Genweb que administreu a \
+comentaris desde de l'espai Genweb \
 
 %(genweb)s
 
@@ -52,13 +54,20 @@ class getEmailsContactNames(object):
     def __call__(self, context):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
+        lang = pref_lang()
         items = []
+
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
-                items.append(SimpleVocabulary.createTerm(item['name'], item['name'], item['name']))
+                if lang == item['language']:
+                    token = unicodedata.normalize('NFKD', item['name']).encode('ascii', 'ignore').lower()
+                    items.append(SimpleVocabulary.createTerm(
+                        item['name'],
+                        token,
+                        item['name'],))
         return SimpleVocabulary(items)
 
-grok.global_utility(getEmailsContactNames, name=u"availableContacts")
+grok.global_utility(getEmailsContactNames, name="availableContacts")
 
 
 class NotAnEmailAddress(ValidationError):
@@ -76,9 +85,9 @@ def validate_email(value):
 class IContactForm(form.Schema):
     """Define the fields of our form
     """
-    to_address = Choice(title=_('to_address',
-                     default=u"Recipient"),
-                     vocabulary=u"availableContacts")
+    recipient = Choice(title=_('to_address',
+                       default=u"Recipient"),
+                       vocabulary="availableContacts")
 
     nombre = TextLine(title=_('genweb_sender_fullname', default=u"Name"),
                       required=True)
@@ -119,8 +128,8 @@ class ContactForm(form.SchemaForm):
     def updateWidgets(self):
         super(ContactForm, self).updateWidgets()
         # Override the interface forced 'hidden' to 'input' for add form only
-        if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
-            self.widgets['to_address'].mode = 'hidden'
+        if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email') or not self.getDataContact():
+            self.widgets['recipient'].mode = 'hidden'
 
     @button.buttonAndHandler(_(u"Send"))
     def action_send(self, action):
@@ -147,28 +156,39 @@ class ContactForm(form.SchemaForm):
         mailhost = getToolByName(context, 'MailHost')
         portal = api.portal.get()
         email_charset = portal.getProperty('email_charset')
+        to_address = portal.getProperty('email_from_address')
+        to_name = portal.getProperty('email_from_name').encode('utf-8')
 
-        multi_contact_emails = self.getEmailsContact()
+        if api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
+            contact_data = self.getDataContact()
+            if contact_data != []:
+                to_name = data['recipient']
+                for item in contact_data:
+                    if to_name in item['name']:
+                        to_address = item['email']
+                        to_name = to_name.encode('utf-8')
+                        continue
 
-        if multi_contact_emails['contact_emails_show']:
-            to_address = ''
-        else:
-            to_address = portal.getProperty('email_from_address')
+        lang = utils.pref_lang()
+        if lang == 'ca':
+            subject = "[Formulari Contacte] %s" % (escape(safe_unicode(data['asunto'])))
+        if lang == 'es':
+            subject = "[Formulario de Contacto] %s" % (escape(safe_unicode(data['asunto'])))
+        if lang == 'en':
+            subject = "[Contact Form] %s" % (escape(safe_unicode(data['asunto'])))
 
-        from_name = portal.getProperty('email_from_name')
-
-        source = "%s <%s>" % (escape(safe_unicode(data['nombre'])), escape(safe_unicode(data['from_address'])))
-        subject = "[Formulari Contacte] %s" % (escape(safe_unicode(data['asunto'])))
         message = MESSAGE_TEMPLATE % dict(name=data['nombre'],
                                           from_address=data['from_address'],
                                           genweb=portal.absolute_url(),
                                           message=data['mensaje'],
-                                          from_name=from_name)
+                                          from_name=data['nombre'])
 
-        mailhost.secureSend(escape(safe_unicode(message)), to_address, source,
-                            subject=subject, subtype='plain',
-                            charset=email_charset, debug=False,
-                            )
+        mailhost.send(escape(safe_unicode(message)),
+                      mto=to_address,
+                      mfrom=portal.getProperty('email_from_address'),
+                      subject=subject,
+                      charset=email_charset,
+                      msg_type='text/plain')
 
         confirm = _(u"Mail sent.")
         IStatusMessage(self.request).addStatusMessage(confirm, type='info')
@@ -189,14 +209,12 @@ class ContactForm(form.SchemaForm):
         return "//maps.upc.edu/?iu=%s&lang=%s" % (codi, lang)
 
     def getContactPersonalized(self):
-        isCustomized = utils.genweb_config().contacte_BBDD_or_page
-        return isCustomized
+        return utils.genweb_config().contacte_BBDD_or_page
 
     def getContactPage(self):
         """
         Funcio que retorna la pagina de contacte personalitzada
         """
-        page = ""
         context = aq_inner(self.context)
         lang = self.context.Language()
         if lang == 'ca':
@@ -205,33 +223,31 @@ class ContactForm(form.SchemaForm):
             customized_page = getattr(context, 'contactopersonalizado', False)
         elif lang == 'en':
             customized_page = getattr(context, 'customizedcontact', False)
+
         try:
             state = api.content.get_state(customized_page)
+            if state == 'published':
+                return context.contactepersonalitzat.text.raw
+            else:
+                return ''
         except:
-            state = ''
-        if state == 'published':
-            contact_body = context.contactepersonalitzat.text.raw
-            page = contact_body
-        else:
-            return page
+            return ''
 
-    def getEmailsContact(self):
-        lang = pref_lang()
-
+    def getDataContact(self):
+        lang = utils.pref_lang()
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IGenwebControlPanelSettings, check=False)
         items = []
+
         if settings.contact_emails_table is not None:
             for item in settings.contact_emails_table:
-                if lang in item['language']:
+                if lang == item['language']:
                     items.append(item)
+        return items
 
-        if len(items) > 0 and settings.contacte_multi_email:
-            contact_emails_show = True
+    def isContactAddress(self):
+        portal = api.portal.get()
+        if self.getDataContact() or portal.getProperty('email_from_address'):
+            return True
         else:
-            contact_emails_show = False
-
-        dades = {'contact_emails_table': items,
-                 'contact_emails_show': contact_emails_show,
-                 }
-        return dades
+            return False

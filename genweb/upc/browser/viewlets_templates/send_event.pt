@@ -1,4 +1,4 @@
-<tal:block condition="viewlet/canManageSite">
+<tal:block>
     <div i18n:domain="genweb">
         <div class="alert alert-info" role="alert"
            tal:condition="viewlet/isEventSent">

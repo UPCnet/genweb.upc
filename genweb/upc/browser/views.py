@@ -59,7 +59,7 @@ class gwSendEventView(grok.View):
         urltool = getToolByName(context, 'portal_url')
         portal = urltool.getPortalObject()
         email_charset = portal.getProperty('email_charset')
-        to_address = 'info@upc.edu'
+        to_address = 'agenda.web@upc.edu'
         from_name = portal.getProperty('email_from_name')
         from_address = portal.getProperty('email_from_address')
         titulo_web = portal.getProperty('title')
@@ -104,7 +104,8 @@ class dynamicCSS(grok.View):
         self.request.response.setHeader('Content-Type', 'text/css')
         self.request.response.addHeader('Cache-Control', 'must-revalidate, max-age=0, no-cache, no-store')
         if self.especific1 and self.especific2:
-            return self.compile_scss(especific1=self.especific1, especific2=self.especific2)
+            return '@import "{}/genwebcustom.css";\n'.format(api.portal.get().absolute_url()) + \
+                   self.compile_scss(especific1=self.especific1, especific2=self.especific2)
         else:
             default = '@import "{}/genwebcustom.css";'.format(api.portal.get().absolute_url())
             return default
@@ -116,15 +117,12 @@ class dynamicCSS(grok.View):
         scssfile = open('{}/genweb/upc/scss/_dynamic.scss'.format(genwebupcegg.location))
 
         settings = dict(especific1=self.especific1,
-                        especific2=self.especific2,
-                        portal_url=api.portal.get().absolute_url())
+                        especific2=self.especific2)
 
         variables_scss = """
 
         $genwebPrimary: {especific1};
         $genwebTitles: {especific2};
-
-        @import "{portal_url}/genwebcustom.css";
 
         """.format(**settings)
 

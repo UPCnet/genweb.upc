@@ -1,11 +1,40 @@
 Changelog
 =========
 
-2.3 (unreleased)
+2.6 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+2.5 (2015-10-22)
+----------------
+
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Error ocultar desplegable multiemail [hanirok]
+
+2.4 (2015-10-21)
+----------------
+
+* correct span5 [hanirok]
+
+2.3 (2015-10-21)
+----------------
+
+* Contact From always admin [hanirok]
+* Contact From always admin [hanirok]
+* Contact: valid caracters in SimpleVocabulary items [Roberto Diaz]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Victor Fernandez de Alba]
+* New registry setting for apply default languages [Victor Fernandez de Alba]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Contact multi address [hanirok]
+* Contact multi address [hanirok]
+* canvi adreça desti esdeveniments [Alberto Duran]
+* Fix dynamic.css [Victor Fernandez de Alba]
+* Last bulletproofing [Victor Fernandez de Alba]
+* Transfer and add conditional field for contact recipient [Victor Fernandez de Alba]
+* codificació enviar esdeveniments agenda [Alberto Duran]
+* solved duplicate navigation portlet when reinstall [Paco Gregori]
 
 2.2 (2015-10-01)
 ----------------

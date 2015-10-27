@@ -19,11 +19,6 @@ class GenwebUPC(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
-        import genweb.core
-        xmlconfig.file('configure.zcml',
-                       genweb.core,
-                       context=configurationContext)
-
         import genweb.upc
         xmlconfig.file('configure.zcml',
                        genweb.upc,
@@ -34,7 +29,6 @@ class GenwebUPC(PloneSandboxLayer):
         portal.portal_workflow.setDefaultChain("simple_publication_workflow")
 
         # Install into Plone site using portal_setup
-        applyProfile(portal, 'genweb.core:default')
         applyProfile(portal, 'genweb.upc:default')
 
 GENWEB_UPC_FIXTURE = GenwebUPC()

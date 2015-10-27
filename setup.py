@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.3.dev0'
+version = '2.6.dev0'
 
 README = open("README.rst").read()
 HISTORY = open(os.path.join("docs", "HISTORY.rst")).read()
@@ -36,7 +36,7 @@ setup(name='genweb.upc',
           'plone.app.multilingual[archetypes]',
           'genweb.chineselanguagebar',
       ],
-      extras_require={'test': ['plone.app.testing']},
+      extras_require={'test': ['plone.app.robotframework', 'plone.app.testing[robot] >= 4.2.4']},
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
