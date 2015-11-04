@@ -141,14 +141,7 @@ html[lang="es"] .box-example:after {content:"ejemplo";}
   border-right:20px solid lighten($genwebPrimary,35%);
   padding:8px 12px;
   position:relative;
-  &:before {
-    content: "*";
-    content: image-url("sheet.png");
-    font-size:300%;
-    position:absolute;
-    right:-19px;
-    top:-7px;
-  }
+
   &:after {
     margin: 0 0 -14px !important;
     position:absolute;
