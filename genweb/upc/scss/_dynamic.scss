@@ -57,7 +57,9 @@ div.label, label *.label { color: $genwebTitles;}
 
 //TABLES
 .table tr:first-child td {border-top:5px solid lighten($genwebPrimary, 10%);}
-
+.table tbody tr th:first-child {
+    border-right: 5px solid lighten($genwebPrimary, 10%);;
+}
 //TEXTS
 h1, h2, h3 {color:$genwebTitles; }
 

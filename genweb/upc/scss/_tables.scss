@@ -379,3 +379,5 @@ També ha de ser aplicable directament al td i a altres elements com les llistes
 
 + extensió de taules: pijama, separadors, colors de fons, etc;
 */
+
+.table-no-heading-border tr:first-child td {border-top:1px solid #B2B2B2 !important;}
