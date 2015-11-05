@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.7 (unreleased)
+2.7 (2015-11-05)
 ----------------
 
-- Nothing changed yet.
-
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* recover bullets on list portlet [oscar]
 
 2.6 (2015-11-05)
 ----------------
