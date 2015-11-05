@@ -45,13 +45,18 @@
   }
 }
 
-// correcció margin i padding per a vista noticies
+// correcció per a vista noticies
 .template-newscollection_view .list-portlet {
   padding-left: 0;
   padding-right: 0;
   & li {
     margin-right: 0;
   }
+}
+
+// treure bullets per a noticies i esdeveniments
+.template-event_listing, template-newscollection_view {
+  list-style: none;
 }
 
 .portlet-footer {
