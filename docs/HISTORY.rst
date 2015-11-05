@@ -1,11 +1,33 @@
 Changelog
 =========
 
-2.6 (unreleased)
+2.7 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+2.6 (2015-11-05)
+----------------
+
+* remove bullets from list on portlet [oscar]
+* remove bullets from list on portlet [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* remove duplicate icon in standard view [oscar]
+* remove image on .sheet:before [oscar]
+* styling of tables: add new class .table-no-heading-border and add vertical heavy border [oscar]
+* remove bullet from portlet-list [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [hanirok]
+* Set events portlet [hanirok]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* appen author to folder_extended.pt [oscar]
+* remove author and modification date from folder_listing.pt [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Victor Fernandez de Alba]
+* Refactor of the setup language and view for create portlet newsevents [Victor Fernandez de Alba]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* fix existing_content portlet style when no border is selected [oscar]
+* Add replyto to contact message [hanirok]
+* Check permissions to Important News and Send Event [hanirok]
 
 2.5 (2015-10-22)
 ----------------
