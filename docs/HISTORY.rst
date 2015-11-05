@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.8 (unreleased)
+2.8 (2015-11-05)
 ----------------
 
-- Nothing changed yet.
-
+* Fix leaked view for IDisableCSRF [Victor Fernandez de Alba]
 
 2.7 (2015-11-05)
 ----------------
