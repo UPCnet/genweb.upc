@@ -54,17 +54,7 @@
   }
 }
 
-// treure bullets per a noticies i esdeveniments
-.template-event_listing, 
-.template-event_view,
-.template-newscollection_view {
-  .list-portlet {
-    list-style: none;
-    li {
-      padding-left: 0 !important;
-    }
-  }
-}
+
 
 .portlet-footer {
   background: $grayLighter;
