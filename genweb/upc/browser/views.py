@@ -20,7 +20,6 @@ from genweb.theme.browser.views import _render_cachekey
 
 import pkg_resources
 import scss
-import sys
 
 grok.templatedir("views_templates")
 
@@ -166,4 +165,4 @@ class SetNewsEventsListingPortlet(grok.View):
             target = queryUtility(IPortletManager, name='plone.leftcolumn', context=self.context)
             assignments = getMultiAdapter((self.context, target), IPortletAssignmentMapping)
             from genweb.theme.portlets.news_events_listing import Assignment as news_events_listing_Assignment
-            assignments['navigation'] = news_events_listing_Assignment(['tag1'], u'Events')
+            assignments['navigation'] = news_events_listing_Assignment([''], u'Events')
