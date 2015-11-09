@@ -1,11 +1,22 @@
 Changelog
 =========
 
-2.7 (unreleased)
+2.9 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+2.8 (2015-11-05)
+----------------
+
+* Fix leaked view for IDisableCSRF [Victor Fernandez de Alba]
+
+2.7 (2015-11-05)
+----------------
+
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* recover bullets on list portlet [oscar]
 
 2.6 (2015-11-05)
 ----------------

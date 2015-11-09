@@ -146,23 +146,23 @@ class ContactFeedback(grok.View):
     grok.require('zope2.View')
     grok.layer(IGenwebUPC)
 
-from zope.component import queryUtility
-from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from zope.component import getMultiAdapter
-from plone.protect.interfaces import IDisableCSRFProtection
-from zope.interface import alsoProvides
+# from zope.component import queryUtility
+# from plone.portlets.interfaces import IPortletManager
+# from plone.portlets.interfaces import IPortletAssignmentMapping
+# from zope.component import getMultiAdapter
+# from plone.protect.interfaces import IDisableCSRFProtection
+# from zope.interface import alsoProvides
 
 
-class SetNewsEventsListingPortlet(grok.View):
-    grok.name('set_newsevents_portlet')
-    grok.context(Interface)
-    grok.require('zope2.View')
-    grok.layer(IGenwebUPC)
+# class SetNewsEventsListingPortlet(grok.View):
+#     grok.name('set_newsevents_portlet')
+#     grok.context(Interface)
+#     grok.require('zope2.View')
+#     grok.layer(IGenwebUPC)
 
-    def render(self):
-            alsoProvides(self.request, IDisableCSRFProtection)
-            target = queryUtility(IPortletManager, name='plone.leftcolumn', context=self.context)
-            assignments = getMultiAdapter((self.context, target), IPortletAssignmentMapping)
-            from genweb.theme.portlets.news_events_listing import Assignment as news_events_listing_Assignment
-            assignments['navigation'] = news_events_listing_Assignment([''], u'Events')
+#     def render(self):
+#             alsoProvides(self.request, IDisableCSRFProtection)
+#             target = queryUtility(IPortletManager, name='plone.leftcolumn', context=self.context)
+#             assignments = getMultiAdapter((self.context, target), IPortletAssignmentMapping)
+#             from genweb.theme.portlets.news_events_listing import Assignment as news_events_listing_Assignment
+#             assignments['navigation'] = news_events_listing_Assignment([''], u'Events')
