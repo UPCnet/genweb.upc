@@ -45,6 +45,28 @@
   }
 }
 
+// treure bullets portlet esdeveniments i noticies
+.template-event_listing,
+.template-newscollection_view {
+  ul.list-portlet {
+    list-style-type: none;
+    li
+     {
+        padding-left: 0px !important;
+        &:before {
+        content: '' !important;
+        }
+      }
+  }
+}
+
+
+// fletxes portlet esdeveniments
+
+.event-arrow {
+  font-size: 16px;
+}
+
 // correcció per a vista noticies
 .template-newscollection_view .list-portlet {
   padding-left: 0;
