@@ -35,7 +35,6 @@
   #eines {
     margin: 0 0 9px !important;
     text-align:right;
-    input {width:85%;}
     button {width:14%; line-height:20px;min-width:60px;}
     .input-append {margin-left:0 !important; border: 0 !important;}
     & a {
@@ -209,11 +208,6 @@
 
   // float left per a cerca
   #s2id_cercaCapca { float:left; }
-
-  #gwsearch input.tt-hint {   // corregeix posicio text typeahead
-    position: relative !important;
-    top: 39px !important;
-  }
 
   // arreglar amplada i posició contacte
   #formfield-form-widgets-nombre, #formfield-form-widgets-from_address {
