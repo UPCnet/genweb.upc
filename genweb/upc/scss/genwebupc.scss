@@ -209,7 +209,9 @@ li#portal-languageselector {
 }
 
 // oculta canvi vista en notícies i esdeveniments
-.section-noticies      #plone-contentmenu-display,
-.section-esdeveniments #plone-contentmenu-display {
-     display: none;
+.section-noticies, .section-noticias, .section-news,
+.section-esdeveniments, .section-eventos, .section-events {
+     #plone-contentmenu-display {
+        display: none;
+    }
 }
