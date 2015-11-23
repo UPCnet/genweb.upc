@@ -87,18 +87,22 @@ class Renderer(base.Renderer):
         try:
             url = self.absolute_url(self.data.url)
             raw_html = requests.get(url)
-            clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
-            doc = pq(clean_html)
-            match = re.search(r'This page does not exist', clean_html)
-            content = ''
-            if match:
-                # page not found in site
-                content = _(u"ERROR: Unknown identifier. This page does not exist." + self.data.url)
+            charset = re.findall('charset=(.*)"', raw_html.content)
+            if len(charset) > 0:
+                clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                doc = pq(clean_html)
+                match = re.search(r'This page does not exist', clean_html)
+                content = ''
+                if match:
+                    # page not found in site
+                    content = _(u"ERROR: Unknown identifier. This page does not exist." + self.data.url)
+                else:
+                    content = doc(self.data.element).outerHtml()
+                    if not content:
+                        # element not found in page
+                        content = _(u"ERROR. This element does not exist.") + " " + self.data.element
             else:
-                content = doc(self.data.element).outerHtml()
-                if not content:
-                    # element not found in page
-                    content = _(u"ERROR. This element does not exist.") + " " + self.data.element
+                content = _(u"ERROR. Charset undefined") + " " + self.data.url    
         except requests.exceptions.RequestException:
             # maybe malformed url?
             content = _(u"ERROR. This URL does not exist.") + " " + self.data.url
