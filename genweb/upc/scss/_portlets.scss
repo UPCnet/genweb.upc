@@ -67,17 +67,6 @@
   font-size: 16px;
 }
 
-// correcció per a vista noticies
-.template-newscollection_view .list-portlet {
-  padding-left: 0;
-  padding-right: 0;
-  & li {
-    margin-right: 0;
-  }
-}
-
-
-
 .portlet-footer {
   background: $grayLighter;
   display:block;
