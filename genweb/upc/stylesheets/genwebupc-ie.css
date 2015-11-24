@@ -1,4 +1,4 @@
-@import url('genwebupc-ie-blessed1.css?z=1443691509611');
+@import url('genwebupc-ie-blessed1.css?z=1448377845535');
 
 @media only screen and (min-width: 768px) and (max-width: 979px) and (orientation: portrait) {
   .row {
@@ -460,7 +460,6 @@
     top: auto;
     left: auto;
     float: none;
-    display: block;
     max-width: none;
     margin: 0 15px;
     padding: 0;
@@ -647,7 +646,6 @@
     top: auto;
     left: auto;
     float: none;
-    display: block;
     max-width: none;
     margin: 0 15px;
     padding: 0;
@@ -659,6 +657,9 @@
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none; }
+
+  .nav-collapse.nav-collapse-edit .dropdown-menu {
+    display: block; }
 
   .nav-collapse .dropdown-menu:before,
   .nav-collapse .dropdown-menu:after {
@@ -696,7 +697,7 @@
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   * .reView {
     display: none !important; } }
-/*!
+/*
  * Genweb UPC v4.0
  *
  * Copyright 2012-2013 UPC
@@ -740,7 +741,7 @@
   background-color: #BD362F; }
 
 .userScreen, .userTablet, .userMobile, .userGenweb {
-  background: url('++genweb++static/images/sprite_usuari.png?1426249015') transparent no-repeat center top;
+  background: url('++genweb++static/images/sprite_usuari.png?1410864406') transparent no-repeat center top;
   height: 1.5em;
   width: 1.5em; }
 
@@ -810,7 +811,7 @@
 
 /*ajusta imatges icos en menús per a hovers */
 .dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1426249015') !important; }
+  background-image: url('++genweb++static/images/gh-w.png?1410864406') !important; }
 
 #portal-header {
   border-bottom: 1px solid #d7d5d2;
@@ -1035,7 +1036,7 @@
   #canvia-vista p {
     margin: 0 !important; }
   #canvia-vista a {
-    background: url('++genweb++static/images/vistabg.png?1426249015') #666666;
+    background: url('++genweb++static/images/vistabg.png?1410864406') #666666;
     text-align: center;
     -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
@@ -1159,7 +1160,7 @@
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     right: 7px;
     top: 8px;
-    background-image: url('++genweb++static/images/gh-w.png?1426249015');
+    background-image: url('++genweb++static/images/gh-w.png?1410864406');
     background-position: -455px -71px;
     background-repeat: no-repeat;
     width: 17px;
@@ -1247,7 +1248,7 @@
           font-size: 44px;
           line-height: 0 !important; }
       .subnavbar .nav-list .active ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .active ul a[class*=" contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class*=" contenttype-"] span:after {
-        background-image: url('++genweb++static/images/gh.png?1426249015');
+        background-image: url('++genweb++static/images/gh.png?1410864406');
         background-repeat: no-repeat;
         content: " ";
         display: block;
@@ -1303,7 +1304,7 @@
   background-color: black; }
 
 html * .dropdown-menu a:hover .img_blank {
-  content: url('++genweb++static/images/blank_blanc.png?1426249015');
+  content: url('++genweb++static/images/blank_blanc.png?1410864406');
   width: 10px;
   height: 10px; }
 
@@ -1341,7 +1342,7 @@ html * .dropdown-menu a:hover .img_blank {
   padding-left: 8px;
   position: relative; }
 #listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, #listing-table span[class^="contenttype-"]:before, #listing-table span[class*=" contenttype-"]:before, .template-folder_tabular_view .listing a[class^="contenttype-"]:before, .template-folder_tabular_view .listing a[class*=" contenttype-"]:before, .template-folder_tabular_view .listing span[class^="contenttype-"]:before, .template-folder_tabular_view .listing span[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree span[class^="contenttype-"]:before, .contenttreeWidget > .navTree span[class*=" contenttype-"]:before, .collage-content-menu a[class^="contenttype-"]:before, .collage-content-menu a[class*=" contenttype-"]:before, .collage-content-menu span[class^="contenttype-"]:before, .collage-content-menu span[class*=" contenttype-"]:before {
-  background-image: url('++genweb++static/images/gh.png?1426249015');
+  background-image: url('++genweb++static/images/gh.png?1410864406');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -1401,7 +1402,7 @@ dt[class*="contenttype"] + dd {
   margin-left: 20px; }
 
 dt[class*="contenttype"]:before {
-  background-image: url('++genweb++static/images/gh.png?1426249015');
+  background-image: url('++genweb++static/images/gh.png?1410864406');
   background-repeat: no-repeat;
   display: block;
   width: 15px;
@@ -1999,13 +2000,6 @@ html[lang="es"] .box-example:after {
   border-right: 20px solid #74cdff;
   padding: 8px 12px;
   position: relative; }
-  .sheet:before, div.fitxa:before {
-    content: "*";
-    content: url('++genweb++static/images/sheet.png?1426249015');
-    font-size: 300%;
-    position: absolute;
-    right: -19px;
-    top: -7px; }
   .sheet:after, div.fitxa:after {
     margin: 0 0 -14px !important;
     position: absolute;
@@ -2124,7 +2118,7 @@ ul {
     margin-top: -15px; }
 
 .list-links li:before, .portaltype-packet .estudis .llistatEnllacos li:before {
-  content: url('++genweb++static/images/arrow.png?1426249015');
+  content: url('++genweb++static/images/arrow.png?1410864406');
   margin-left: -15px;
   margin-top: -13px; }
 
@@ -2132,7 +2126,7 @@ ul {
   margin-left: -29px; }
 
 .list-highlighted li:before {
-  content: url('++genweb++static/images/arrow_hl.png?1426249015');
+  content: url('++genweb++static/images/arrow_hl.png?1410864406');
   margin-left: -22px;
   margin-top: -11px; }
 
@@ -2665,6 +2659,9 @@ També ha de ser aplicable directament al td i a altres elements com les llistes
 
 + extensió de taules: pijama, separadors, colors de fons, etc;
 */
+.table-no-heading-border tr:first-child td {
+  border-top: 1px solid #B2B2B2 !important; }
+
 h1, h2, h3 {
   color: #557c95;
   margin-top: 27px; }
@@ -2793,7 +2790,7 @@ hr.liniaDalt, hr.tileHeadline {
   display: block;
   width: 14px;
   height: 14px;
-  background: url('++genweb++static/images/gh.png?1426249015'); }
+  background: url('++genweb++static/images/gh.png?1410864406'); }
 
 .mayus {
   text-transform: uppercase; }
@@ -2823,7 +2820,7 @@ a {
   box-shadow: 0 1px 3px #666666; }
 
 .pdf:after, .ppt:after, .xls:after, .doc:after, .down:after, .https:after, .vid:after, .img:after, .txt:after {
-  background: url('++genweb++static/images/gh-c.png?1426249015') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1410864406') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -2976,7 +2973,7 @@ input[type="file"] {
   font-style: normal;
   font-weight: bold; }
   .customfile-feedback-populated:before {
-    background: url('++genweb++static/images/gh-c.png?1426249015') no-repeat;
+    background: url('++genweb++static/images/gh-c.png?1410864406') no-repeat;
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -3065,11 +3062,18 @@ input[type="file"] {
       color: #666666;
       white-space: nowrap; }
 
-.template-newscollection_view .list-portlet {
-  padding-left: 0;
-  padding-right: 0; }
-  .template-newscollection_view .list-portlet li {
-    margin-right: 0; }
+.template-event_listing ul.list-portlet,
+.template-newscollection_view ul.list-portlet {
+  list-style-type: none; }
+  .template-event_listing ul.list-portlet li,
+  .template-newscollection_view ul.list-portlet li {
+    padding-left: 0px !important; }
+    .template-event_listing ul.list-portlet li:before,
+    .template-newscollection_view ul.list-portlet li:before {
+      content: '' !important; }
+
+.event-arrow {
+  font-size: 16px; }
 
 .portlet-footer {
   background: #f2f2f2;
@@ -3251,7 +3255,7 @@ h2.title-inverse {
   color: white;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3); }
   h2.title-inverse i {
-    background-image: url('++genweb++static/images/gh-w.png?1426249015'); }
+    background-image: url('++genweb++static/images/gh-w.png?1410864406'); }
 
 .portletCalendar .ploneCalendar {
   text-align: center;
@@ -3468,7 +3472,7 @@ iframe {
       width: 14px;
       height: 14px;
       display: inline-block;
-      background: url('++genweb++static/images/gh.png?1426249015') -239px -143px no-repeat;
+      background: url('++genweb++static/images/gh.png?1410864406') -239px -143px no-repeat;
       margin-left: 5px; }
 #portal-sitemap ul {
   -webkit-column-count: 3;
@@ -4401,7 +4405,7 @@ html {
   #portal-header h1.pull-left {
     height: 46px;
     width: 207px;
-    background: url('++genweb++static/images/logoUPC@2x.png?1426249015') no-repeat;
+    background: url('++genweb++static/images/logoUPC@2x.png?1410864406') no-repeat;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -4415,23 +4419,23 @@ html {
     background-size: 100%; }
 
   .list-highlighted li {
-    content: url('++genweb++static/images/arrow_hl@2x.png?1426249015'); }
+    content: url('++genweb++static/images/arrow_hl@2x.png?1410864406'); }
 
   .img_blank[src*="blank_"] {
     width: 10px;
     height: 10px; }
 
   .img_blank[src*="blank_blau"] {
-    content: url('++genweb++static/images/blank_blau@2x.png?1426249015'); }
+    content: url('++genweb++static/images/blank_blau@2x.png?1410864406'); }
 
   .img_blank[src*="blank_gris"] {
-    content: url('++genweb++static/images/blank_gris@2x.png?1426249015'); }
+    content: url('++genweb++static/images/blank_gris@2x.png?1410864406'); }
 
   .img_blank[src*="blank_blanc"] {
-    content: url('++genweb++static/images/blank_blanc@2x.png?1426249015'); }
+    content: url('++genweb++static/images/blank_blanc@2x.png?1410864406'); }
 
   .userScreen, .userTablet, .userMobile, .userGenweb {
-    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1426249015');
+    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1410864406');
     -webkit-background-size: 20px 400px;
     -moz-background-size: 20px 400px;
     -o-background-size: 20px 400px;
@@ -4664,7 +4668,7 @@ div[id^="ascrail"] {
   font-size: 17px;
   line-height: 17px; }
 
-.nav-tabs > .active > a, .contentViews > .active > a, .configlets > .active > a, .nav-tabs > .selected > a, .configlets > .selected > a, .contentViews > .selected > a, .contentViews .nav-tabs > .selected:hover > a, .contentViews > .selected:hover > a, .contentViews .configlets > .selected:hover > a, .nav-tabs > .active > a:hover, .contentViews > .active > a:hover, .configlets > .active > a:hover, .nav-tabs > .selected > a:hover, .configlets > .selected > a:hover, .contentViews > .selected > a:hover {
+.nav-tabs > .active > a, .contentViews > .active > a, .configlets > .active > a, .nav-tabs > .selected > a, .configlets > .selected > a, .nav-tabs > .active > a:hover, .contentViews > .active > a:hover, .configlets > .active > a:hover, .nav-tabs > .selected > a:hover, .configlets > .selected > a:hover {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
@@ -4809,7 +4813,7 @@ html.lt-ie8 .list-portlet li  {
   font-weight: bold;
   margin-bottom: 1em; }
   .link-parent:before {
-    background: url('++genweb++static/images/gh-w.png?1426249015') no-repeat -290px -95px;
+    background: url('++genweb++static/images/gh-w.png?1410864406') no-repeat -290px -95px;
     content: " ";
     display: inline-block;
     height: 14px;
@@ -6050,9 +6054,12 @@ li#portal-languageselector {
   .existing_content_portlet ul:last-child {
     border-bottom: 0 !important; }
 
+.existing_content_portlet_no_border > .portlet-content {
+  padding: 0; }
+
 .portlet-content .share_popover {
   display: none; }
 
-.section-noticies #plone-contentmenu-display,
-.section-esdeveniments #plone-contentmenu-display {
+.section-noticies #plone-contentmenu-display, .section-noticias #plone-contentmenu-display, .section-news #plone-contentmenu-display,
+.section-esdeveniments #plone-contentmenu-display, .section-eventos #plone-contentmenu-display, .section-events #plone-contentmenu-display {
   display: none; }
