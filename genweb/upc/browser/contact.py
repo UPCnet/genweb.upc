@@ -165,9 +165,17 @@ class ContactForm(form.SchemaForm):
                 to_name = data['recipient']
                 for item in contact_data:
                     if to_name in item['name']:
-                        to_address = item['email']
-                        to_name = to_name.encode('utf-8')
-                        continue
+                        if item['email']:
+                            to_address = item['email']
+                            to_name = to_name.encode('utf-8')
+                            continue
+                        else:
+                            to_address = 'scp.admin@upc.edu'
+                            to_name = 'Genweb amb error al contacte'
+                            continue
+            else:
+                to_address = 'scp.admin@upc.edu'
+                to_name = 'Genweb amb error al contacte'
 
         lang = utils.pref_lang()
         if lang == 'ca':
