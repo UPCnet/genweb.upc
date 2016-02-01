@@ -18,6 +18,7 @@ from pyquery import PyQuery as pq
 import re
 import requests
 import urlparse
+from plone import api
 
 
 class IContentPortlet(IPortletDataProvider):
@@ -124,8 +125,9 @@ class Renderer(base.Renderer):
         Convert relative url to absolute
         """
         if not ("://" in url):
-            root = "http://directori.upc.edu/directori/"
-            return urlparse.urljoin(root, url)
+            root = api.portal.get().absolute_url()
+            base = root + '/' + api.portal.get_navigation_root(self.context).id + '/'
+            return urlparse.urljoin(base, url)
         else:
             # Already absolute
             return url
