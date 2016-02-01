@@ -18,7 +18,6 @@ from pyquery import PyQuery as pq
 import re
 import requests
 import urlparse
-from plone import api
 
 
 class IContentPortlet(IPortletDataProvider):
