@@ -1,11 +1,36 @@
 Changelog
 =========
 
-2.9 (unreleased)
-----------------
+2.10 (unreleased)
+-----------------
 
 - Nothing changed yet.
 
+
+2.9 (2016-01-28)
+----------------
+
+* Removed blanks from socialtools links, because firefox, doesn't generate mail link well [roberto.diaz]
+* replaced string to nothing [roberto.diaz]
+* solved problem adding newsletter in render [roberto.diaz]
+* contact personalized multilanguage [hanirok]
+* contact personalized multilanguage [hanirok]
+* Styling [hanirok]
+* merge [oscar]
+* news styling [oscar]
+* Styling [hanirok]
+* Styling [hanirok]
+* Styling [hanirok]
+* Enviar error a SCP [hanirok]
+* Estilos [root muntanyeta]
+* Mas estilos [hanirok]
+* Oscar Styling [hanirok]
+* existing_content: control different charsets [oscar]
+* hide 'select view' in News and Events [oscar]
+* fix search box position on layout transition from desktop to tablet [oscar]
+* remove conflict [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* styling events portlet [oscar]
 
 2.8 (2015-11-05)
 ----------------

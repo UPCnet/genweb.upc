@@ -45,7 +45,7 @@
                         <!-- FI MISSATGE D'ERROR -->
 
                         <!-- DADES DE CONTACTE -->
-                        <tal:co tal:condition="dades">
+                        <tal:co tal:condition="python:dades and not isCustomized">
                             <div class="span5"
                                  tal:define="adreca dades/adreca_sencera;
                                              telefon dades/telefon;
@@ -133,18 +133,20 @@
                                         </span>
                                     </div>
                                 </tal:co>
+                            </div>
+                        </tal:co>
                                 <!-- FI DADES CONTACTE AUTOMÀTIQUES -->
 
                                 <!-- DADES CONTACTE PERSONALITZADES -->
+
                                 <tal:co tal:condition="isCustomized">
-                                    <div>
+                                    <div class="span5">
                                         <div tal:replace="structure view/getContactPage">Cos de la pagina de contacte</div>
                                     </div>
                                 </tal:co>
+
                                 <!-- FI DADES CONTACTE PERSONALITZADES -->
 
-                            </div>
-                        </tal:co>
                     </div>
                 <!-- FI DADES CONTACTE -->
                 </tal:block>
