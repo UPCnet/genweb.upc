@@ -125,9 +125,8 @@ class Renderer(base.Renderer):
         Convert relative url to absolute
         """
         if not ("://" in url):
-            root = api.portal.get().absolute_url()
-            base = root + '/' + api.portal.get_navigation_root(self.context).id + '/'
-            return urlparse.urljoin(base, url)
+            root = "http://directori.upc.edu/directori/"
+            return urlparse.urljoin(root, url)
         else:
             # Already absolute
             return url
