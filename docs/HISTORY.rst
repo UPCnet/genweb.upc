@@ -1,11 +1,18 @@
 Changelog
 =========
 
-2.10 (unreleased)
+2.11 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.10 (2016-02-02)
+-----------------
+
+* sorry for lasts commits [Alberto Duran]
+* return back last commit [Alberto Duran]
+* relative url in contingut upc [Alberto Duran]
 
 2.9 (2016-01-28)
 ----------------
