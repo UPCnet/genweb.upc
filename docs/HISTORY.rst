@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.11 (unreleased)
+2.11 (2016-02-11)
 -----------------
 
-- Nothing changed yet.
-
+* actualitzar override del pt als nous contenttypes [Alberto Duran]
+* rename pt view [Alberto Duran]
 
 2.10 (2016-02-02)
 -----------------
