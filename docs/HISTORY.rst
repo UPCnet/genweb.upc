@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.12 (unreleased)
+2.12 (2016-02-16)
 -----------------
 
-- Nothing changed yet.
-
+* css vista carpeta [Alberto Duran]
 
 2.11 (2016-02-11)
 -----------------
