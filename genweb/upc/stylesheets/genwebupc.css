@@ -11887,6 +11887,7 @@ input[type="file"] {
 }
 /* line 58, ../scss/_portlets.scss */
 .list-portlet li:before{
+  padding: 8px 0 8px 1px !important;
   content: '' !important;
 }
 

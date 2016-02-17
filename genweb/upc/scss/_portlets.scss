@@ -50,9 +50,10 @@
   list-style-type: none;
   li
    {
-      padding-left: 0px !important;
+      padding: 8px 0 8px 1px !important;
       &:before {
       content: '' !important;
+
       }
     }
 }
