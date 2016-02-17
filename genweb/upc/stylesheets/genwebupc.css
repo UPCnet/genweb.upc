@@ -11886,10 +11886,7 @@ input[type="file"] {
   padding-left: 0px !important;
 }
 /* line 58, ../scss/_portlets.scss */
-.template-event_listing ul.list-portlet li:before,
-.template-news_listing ul.list-portlet li:before,
-.template-event_view ul.list-portlet li:before,
-.template-newscollection_view ul.list-portlet li:before {
+.list-portlet li:before{
   content: '' !important;
 }
 

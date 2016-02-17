@@ -46,20 +46,15 @@
 }
 
 // treure bullets portlet esdeveniments i noticies
-.template-event_listing,
-.template-news_listing,
-.template-event_view,
-.template-newscollection_view {
-  ul.list-portlet {
-    list-style-type: none;
-    li
-     {
-        padding-left: 0px !important;
-        &:before {
-        content: '' !important;
-        }
+.list-portlet {
+  list-style-type: none;
+  li
+   {
+      padding-left: 0px !important;
+      &:before {
+      content: '' !important;
       }
-  }
+    }
 }
 
 // fletxes portlet esdeveniments
