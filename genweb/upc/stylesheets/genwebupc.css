@@ -932,7 +932,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
-  background-color: #e1f2f8;
+  background-color: #e1f3f8;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   -webkit-border-radius: 4px;
@@ -2082,7 +2082,7 @@ legend + .control-group {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('++genweb++static/images/gh.png?1434546601');
+  background-image: url('++genweb++static/images/gh.png?1455534307');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -2135,981 +2135,982 @@ legend + .control-group {
 .dropdown-menu > .selected > a > .tileFooter:before,
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-menu > .selected > a > [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1434546601');
+  background-image: url('++genweb++static/images/gh-w.png?1455534307');
 }
 
 /* line 44, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-color {
-  background-image: url('++genweb++static/images/gh-c.png?1434546601');
+  background-image: url('++genweb++static/images/gh-c.png?1455534307');
 }
 
-/* line 49, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 48, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-glass {
   background-position: 0      0;
 }
 
-/* line 50, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 49, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-music {
   background-position: -24px  0;
 }
 
-/* line 51, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 50, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-search {
   background-position: -48px  0;
 }
 
-/* line 52, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 51, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-envelope, .icon-formmaileradapter {
   background-position: -72px  0;
 }
 
-/* line 53, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 52, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-heart {
   background-position: -96px  0;
 }
 
-/* line 54, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 53, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-star,
 .icon-folderChangeDefaultPage {
   background-position: -120px 0;
 }
 
-/* line 56, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 55, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-star-empty, .icon-contextSetDefaultPage,
 .icon-contextSetDefaultPage {
   background-position: -144px 0;
 }
 
-/* line 58, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 57, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-user {
   background-position: -168px 0;
 }
 
-/* line 59, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 58, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-film {
   background-position: -192px 0;
 }
 
-/* line 60, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 59, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-th-large {
   background-position: -216px 0;
 }
 
-/* line 61, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 60, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-th, .icon-surveymatrix, .icon-atct_album_view,
 .icon-plone-contentmenu-display-atct_album_view,
 .icon-plone-contentmenu-display-album_view,
+.icon-folder-album_view,
 .icon-folder-atct_album_view {
   background-position: -240px 0;
 }
 
-/* line 64, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 65, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-th-list {
   background-position: -264px 0;
 }
 
-/* line 65, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 66, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ok {
   background-position: -288px 0;
 }
 
-/* line 66, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 67, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-remove, .icon-delete, .icon-plone-contentmenu-actions-delete {
   background-position: -312px 0;
 }
 
-/* line 67, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 68, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-zoom-in {
   background-position: -336px 0;
 }
 
-/* line 68, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 69, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-zoom-out {
   background-position: -360px 0;
 }
 
-/* line 69, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 70, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-off {
   background-position: -384px 0;
 }
 
-/* line 70, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 71, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-signal, .icon-formlikertfield {
   background-position: -408px 0;
 }
 
-/* line 71, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 72, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-cog, .icon-workflow-transition-advanced {
   background-position: -432px 0;
 }
 
-/* line 72, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 73, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-trash {
   background-position: -456px 0;
 }
 
-/* line 74, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 75, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-home {
   background-position: 0      -24px;
 }
 
-/* line 75, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 76, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-page, .icon-document {
   background-position: -24px  -24px;
 }
 
-/* line 76, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 77, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-time, .icon-surveydatequestion, .icon-formdatefield {
   background-position: -48px  -24px;
 }
 
-/* line 77, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 78, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-road {
   background-position: -72px  -24px;
 }
 
-/* line 78, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 79, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-download-alt {
   background-position: -96px  -24px;
 }
 
-/* line 79, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 80, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-download {
   background-position: -120px -24px;
 }
 
-/* line 80, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 81, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-upload {
   background-position: -144px -24px;
 }
 
-/* line 81, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 82, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-inbox {
   background-position: -168px -24px;
 }
 
-/* line 82, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 83, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-play-circle {
   background-position: -192px -24px;
 }
 
-/* line 83, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 84, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-repeat {
   background-position: -216px -24px;
 }
 
-/* line 84, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 85, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-refresh {
   background-position: -240px -24px;
 }
 
-/* line 85, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 86, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list-alt, .icon-subsurvey, .icon-survey {
   background-position: -264px -24px;
 }
 
-/* line 86, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 87, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-lock, .icon-formpasswordfield, .icon-workflow-transition-restrict {
   background-position: -287px -24px;
 }
 
-/* line 87, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 88, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-flag, .icon-banner {
   background-position: -312px -24px;
 }
 
-/* line 88, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 89, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-headphones {
   background-position: -336px -24px;
 }
 
-/* line 89, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 90, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-volume-off {
   background-position: -360px -24px;
 }
 
-/* line 90, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 91, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-volume-down {
   background-position: -384px -24px;
 }
 
-/* line 91, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 92, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-volume-up {
   background-position: -408px -24px;
 }
 
-/* line 92, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 93, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-qrcode {
   background-position: -432px -24px;
 }
 
-/* line 93, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 94, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-barcode {
   background-position: -456px -24px;
 }
 
-/* line 95, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 96, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-tag, .icon-formlabelfield {
   background-position: 0      -48px;
 }
 
-/* line 96, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 97, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-tags, .icon-formrichlabelfield, #category.documentByLine:before {
   background-position: -25px  -48px;
 }
 
-/* line 97, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 98, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-book {
   background-position: -48px  -48px;
 }
 
-/* line 98, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 99, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bookmark {
   background-position: -72px  -48px;
 }
 
-/* line 99, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 100, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-print {
   background-position: -96px  -48px;
 }
 
-/* line 100, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 101, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-camera {
   background-position: -120px -48px;
 }
 
-/* line 101, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 102, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-font, .icon-formtextfield {
   background-position: -144px -48px;
 }
 
-/* line 102, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 103, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bold, .icon-formrichtextfield {
   background-position: -167px -48px;
 }
 
-/* line 103, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 104, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-italic {
   background-position: -192px -48px;
 }
 
-/* line 104, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 105, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-text-height {
   background-position: -216px -48px;
 }
 
-/* line 105, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 106, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-text-width {
   background-position: -240px -48px;
 }
 
-/* line 106, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 107, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-left, .icon-surveytextquestion {
   background-position: -264px -48px;
 }
 
-/* line 107, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 108, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-center {
   background-position: -288px -48px;
 }
 
-/* line 108, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 109, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-right {
   background-position: -312px -48px;
 }
 
-/* line 109, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 110, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-justify, .icon-formmultiselectionfield {
   background-position: -336px -48px;
 }
 
-/* line 110, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 111, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list {
   background-position: -360px -48px;
 }
 
-/* line 111, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 112, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-indent-left {
   background-position: -384px -48px;
 }
 
-/* line 112, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 113, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-indent-right {
   background-position: -408px -48px;
 }
 
-/* line 113, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 114, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-facetime-video {
   background-position: -432px -48px;
 }
 
-/* line 114, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 115, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-picture, .icon-image {
   background-position: -456px -48px;
 }
 
-/* line 116, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 117, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-pencil {
   background-position: 0      -72px;
 }
 
-/* line 117, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 118, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-map-marker {
   background-position: -24px  -72px;
 }
 
-/* line 118, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 119, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-adjust {
   background-position: -48px  -72px;
 }
 
-/* line 119, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 120, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-tint {
   background-position: -72px  -72px;
 }
 
-/* line 120, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 121, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-edit, .icon-formstringfield, .icon-formlinesfield, .icon-formintegerfield, .icon-formfixedpointfield {
   background-position: -96px  -72px;
 }
 
-/* line 121, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 122, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-share {
   background-position: -120px -72px;
 }
 
-/* line 122, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 123, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-check, .icon-formbooleanfield, .icon-formfolder {
   background-position: -144px -72px;
 }
 
-/* line 123, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 124, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-move {
   background-position: -168px -72px;
 }
 
-/* line 124, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 125, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-step-backward, .icon-fieldsetstart {
   background-position: -192px -72px;
 }
 
-/* line 125, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 126, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fast-backward {
   background-position: -216px -72px;
 }
 
-/* line 126, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 127, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-backward {
   background-position: -240px -72px;
 }
 
-/* line 127, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 128, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-play {
   background-position: -264px -72px;
 }
 
-/* line 128, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 129, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-pause {
   background-position: -288px -72px;
 }
 
-/* line 129, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 130, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-stop {
   background-position: -312px -72px;
 }
 
-/* line 130, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 131, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-forward {
   background-position: -336px -72px;
 }
 
-/* line 131, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 132, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fast-forward {
   background-position: -360px -72px;
 }
 
-/* line 132, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 133, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-step-forward, .icon-fieldsetend {
   background-position: -384px -72px;
 }
 
-/* line 133, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 134, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-eject {
   background-position: -408px -72px;
 }
 
-/* line 134, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 135, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-left {
   background-position: -432px -72px;
 }
 
-/* line 135, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 136, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-right {
   background-position: -456px -72px;
 }
 
-/* line 137, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 138, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plus-sign, .tileFooter:before {
   background-position: 0      -96px;
 }
 
-/* line 138, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 139, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-minus-sign {
   background-position: -24px  -96px;
 }
 
-/* line 139, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 140, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-remove-sign {
   background-position: -48px  -96px;
 }
 
-/* line 140, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 141, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ok-sign, .icon-plone-contentmenu-display-fg_base_view_p3 {
   background-position: -72px  -96px;
 }
 
-/* line 141, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 142, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-question-sign {
   background-position: -96px  -96px;
 }
 
-/* line 142, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 143, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-info-sign, .icon-policy, .icon-plone-contentmenu-display-pfg_draft_view {
   background-position: -120px -96px;
 }
 
-/* line 143, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 144, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-screenshot {
   background-position: -144px -96px;
 }
 
-/* line 144, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 145, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-remove-circle, .icon-workflow-transition-reject, .icon-workflow-transition-show, .icon-workflow-transition-retiraaesborrany {
   background-position: -168px -96px;
 }
 
-/* line 145, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 146, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ok-circle, .icon-surveyselectquestion, .icon-formselectionfield, .icon-workflow-transition-submit {
   background-position: -192px -96px;
 }
 
-/* line 146, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 147, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ban-circle, .icon-workflow-transition-hide {
   background-position: -216px -96px;
 }
 
-/* line 147, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 148, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-left, .icon-plone-contentmenu-actions-import {
   background-position: -240px -96px;
 }
 
-/* line 148, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 149, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-right, .icon-plone-contentmenu-actions-export {
   background-position: -264px -96px;
 }
 
-/* line 149, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 150, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-up {
   background-position: -289px -96px;
 }
 
-/* line 150, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 151, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-down {
   background-position: -312px -96px;
 }
 
-/* line 151, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 152, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-share-alt {
   background-position: -336px -96px;
 }
 
-/* line 152, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 153, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-full {
   background-position: -360px -96px;
 }
 
-/* line 153, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 154, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-small {
   background-position: -384px -96px;
 }
 
-/* line 154, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 155, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plus, .icon-more {
   background-position: -408px -96px;
 }
 
-/* line 155, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 156, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-minus {
   background-position: -433px -96px;
 }
 
-/* line 156, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 157, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-asterisk {
   background-position: -456px -96px;
 }
 
-/* line 158, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 159, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-exclamation-sign {
   background-position: 0      -120px;
 }
 
-/* line 159, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 160, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-gift {
   background-position: -24px  -120px;
 }
 
-/* line 160, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 161, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-leaf {
   background-position: -48px  -120px;
 }
 
-/* line 161, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 162, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fire {
   background-position: -72px  -120px;
 }
 
-/* line 162, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 163, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-eye-open, .icon-workflow-transition-publish {
   background-position: -96px  -120px;
 }
 
-/* line 163, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 164, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-eye-close, .icon-workflow-transition-publishtointranet, .icon-workflow-transition-publicaalaintranet, .icon-workflow-transition-retracttointranet, .icon-workflow-transition-retiraalaintranet {
   background-position: -120px -120px;
 }
 
-/* line 164, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 165, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-warning-sign {
   background-position: -144px -120px;
 }
 
-/* line 165, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 166, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plane {
   background-position: -168px -120px;
 }
 
-/* line 166, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 167, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-calendar, .icon-event, .icon-event {
   background-position: -192px -120px;
 }
 
-/* line 167, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 168, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-random {
   background-position: -216px -120px;
   width: 16px;
 }
 
-/* line 168, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 169, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-comment {
   background-position: -240px -120px;
 }
 
-/* line 169, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 170, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-magnet {
   background-position: -264px -120px;
 }
 
-/* line 170, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 171, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-up {
   background-position: -288px -120px;
 }
 
-/* line 171, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 172, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-down {
   background-position: -313px -119px;
 }
 
-/* line 172, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 173, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-retweet {
   background-position: -336px -120px;
 }
 
-/* line 173, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 174, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-shopping-cart {
   background-position: -360px -120px;
 }
 
-/* line 174, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 175, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-folder-close, .icon-fieldsetfolder, .icon-folder, .icon-folder {
   background-position: -384px -120px;
 }
 
-/* line 175, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 176, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-folder-open {
   background-position: -408px -120px;
   width: 16px;
 }
 
-/* line 176, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 177, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-vertical {
   background-position: -432px -119px;
 }
 
-/* line 177, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 178, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-horizontal {
   background-position: -456px -118px;
 }
 
-/* line 179, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 180, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hdd, .icon-formsavedataadapter {
   background-position: 0      -144px;
 }
 
-/* line 180, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 181, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bullhorn {
   background-position: -24px  -144px;
 }
 
-/* line 181, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 182, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bell {
   background-position: -48px  -144px;
 }
 
-/* line 182, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 183, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-certificate {
   background-position: -72px  -144px;
 }
 
-/* line 183, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 184, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-thumbs-up, .icon-formthankspage {
   background-position: -96px  -144px;
 }
 
-/* line 184, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 185, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-thumbs-down {
   background-position: -120px -144px;
 }
 
-/* line 185, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 186, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-right {
   background-position: -144px -144px;
 }
 
-/* line 186, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 187, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-left {
   background-position: -168px -144px;
 }
 
-/* line 187, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 188, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-up {
   background-position: -192px -144px;
 }
 
-/* line 188, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 189, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-down {
   background-position: -216px -144px;
 }
 
-/* line 189, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 190, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-right {
   background-position: -240px -144px;
 }
 
-/* line 190, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 191, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-left {
   background-position: -264px -144px;
 }
 
-/* line 191, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 192, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-up {
   background-position: -288px -144px;
 }
 
-/* line 192, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 193, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-down {
   background-position: -312px -144px;
 }
 
-/* line 193, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 194, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-globe {
   background-position: -336px -144px;
 }
 
-/* line 194, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 195, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-wrench, .icon-_manage_translations, .icon-advanced {
   background-position: -360px -144px;
 }
 
-/* line 195, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 196, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-tasks {
   background-position: -384px -144px;
 }
 
-/* line 196, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 197, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-filter, .icon-plone-contentmenu-settings, .icon-settings {
   background-position: -408px -144px;
 }
 
-/* line 197, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 198, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-briefcase {
   background-position: -432px -144px;
 }
 
-/* line 198, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 199, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fullscreen {
   background-position: -456px -144px;
 }
 
 /*afegits per a GW*/
-/* line 203, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 204, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-upc {
   background-position: 0      -169px;
 }
 
-/* line 204, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 205, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-news, .icon-news-item {
   background-position: -23px  -169px;
 }
 
-/* line 205, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 206, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-box, .icon-packet, .icon-packet {
   background-position: -48px  -168px;
 }
 
-/* line 206, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 207, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-link {
   background-position: -72px  -169px;
 }
 
-/* line 207, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 208, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-iframe, .icon-window {
   background-position: -96px  -169px;
 }
 
-/* line 208, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 209, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-desktop {
   background-position: -120px -169px;
 }
 
-/* line 209, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 210, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-logosfooter, .icon-logos_footer {
   background-position: -144px -169px;
 }
 
-/* line 210, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 211, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-file, .icon-formfilefield {
   background-position: -168px -169px;
 }
 
-/* line 211, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 212, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-paste, .icon-plone-contentmenu-actions-paste {
   background-position: -192px -168px;
 }
 
-/* line 212, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 213, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-collage {
   background-position: -216px -169px;
 }
 
-/* line 213, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 214, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-smart-folder {
   background-position: -240px -169px;
 }
 
-/* line 214, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 215, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-copy, .icon-plone-contentmenu-actions-copy {
   background-position: -264px -169px;
 }
 
-/* line 215, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 216, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-rename, .icon-plone-contentmenu-actions-rename {
   background-position: -288px -169px;
 }
 
-/* line 216, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 217, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resume-view, .icon-folder_summary_view,
 .icon-folder-folder_summary_view,
 .icon-plone-contentmenu-display-folder_summary_view,
-.icon-plone-contentmenu-display-summary_view {
+.icon-plone-contentmenu-display-summary_view,
+.icon-folder-summary_view {
   background-position: -312px -169px;
 }
 
-/* line 219, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 222, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-table-view, .icon-folder_tabular_view,
 .icon-folder-folder_tabular_view,
-.icon-plone-contentmenu-display-folder_tabular_view,
-.icon-plone-contentmenu-display-tabular_view {
+.icon-folder-tabular_view,
+.icon-plone-contentmenu-display-tabular_view,
+.icon-plone-contentmenu-display-folder_tabular_view {
   background-position: -336px -169px;
 }
 
-/* line 222, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 227, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list-view, .icon-folder_listing,
 .icon-plone-contentmenu-display-folder_listing,
 .icon-plone-contentmenu-display-listing_view,
+.icon-folder-listing_view,
 .icon-folder-folder_listing {
   background-position: -360px -169px;
 }
 
-/* line 225, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 232, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list-extended-view,
 .icon-plone-contentmenu-display-folder_extended,
-.icon-plone-contentmenu-display-extended_view,
 .icon-folder-folder_extended {
   background-position: -384px -169px;
 }
 
-/* line 228, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 235, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-article-view {
   background-position: -408px -169px;
 }
 
-/* line 229, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 236, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-article-extended-view {
   background-position: -432px -169px;
 }
 
-/* line 230, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 237, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-cut, .icon-plone-contentmenu-actions-cut {
   background-position: -456px -169px;
 }
 
-/* line 232, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 239, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-upload {
   background-position: 0      -192px;
 }
 
-/* line 233, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 240, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-rss {
   background-position: -24px  -192px;
 }
 
-/* line 234, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 241, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-poll, .icon-collective-polls-poll {
   background-position: -48px  -192px;
 }
 
-/* line 235, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 242, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-collection {
   background-position: -72px  -192px;
 }
 
-/* line 236, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 243, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-caching {
   background-position: -96px  -192px;
 }
 
-/* line 237, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 244, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-html, .icon-formcustomscriptadapter {
   background-position: -120px -192px;
 }
 
-/* line 238, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 245, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-language, .icon-translate_into_en,
 .icon-translate_into_es {
   background-position: -144px -192px;
 }
 
-/* line 239, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 246, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-site {
   background-position: -168px -192px;
 }
 
-/* line 240, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 247, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-edit-image {
   background-position: -192px -192px;
 }
 
-/* line 241, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 248, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-navigation, .icon-workflow-transition-policy {
   background-position: -216px -192px;
 }
 
-/* line 242, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 249, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-content-view, .icon-full_view,
-.icon-plone-contentmenu-display-full_view,
 .icon-plone-contentmenu-display-full_view,
 .icon-folder-full_view {
   background-position: -265px -24px;
 }
 
-/* line 245, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 252, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plone-contentmenu-display-folder_index_view,
-.icon-plone-contentmenu-display-index_view,
 .icon-folder-folder_index_view {
   background-position: -240px -192px;
 }
 
-/* line 247, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 254, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-genweb {
   background-position: -264px -192px;
 }
 
-/* line 248, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 255, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-captcha, .icon-formcaptchafield {
   background-position: -288px -192px;
 }
 
-/* line 249, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 256, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-users {
   background-position: -312px -192px;
 }
 
-/* line 250, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 257, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-user-news {
   background-position: -336px -192px;
 }
 
-/* line 251, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 258, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-doc {
   background-position: -360px -192px;
 }
 
-/* line 252, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 259, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-xls {
   background-position: -384px -192px;
 }
 
-/* line 253, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ppt {
   background-position: -408px -192px;
 }
 
-/* line 254, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-pdf {
   background-position: -432px -192px;
 }
 
-/* line 255, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 262, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-translate {
   background-position: -456px -192px;
 }
 
-/* line 259, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 266, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon {
-  background-image: url('++genweb++static/images/gh-150.png?1434546601');
+  background-image: url('++genweb++static/images/gh-150.png?1455534307');
   width: 21px;
   height: 21px;
   margin-top: -1px;
   margin-right: -5px;
 }
-/* line 266, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 273, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-news, .large-icon.icon-news-item {
   background-position: -37px  -252px;
 }
-/* line 267, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 274, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-link {
   background-position: -108px -252px;
 }
-/* line 268, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 275, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-upc {
   background-position: 0      -252px;
 }
-/* line 269, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 276, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-poll, .large-icon.icon-collective-polls-poll {
   background-position: -73px  -288px;
 }
-/* line 270, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 277, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-calendar, .large-icon.icon-event {
   background-position: -287px -180px;
 }
-/* line 271, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 278, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-user-news {
   background-position: -504px -252px;
 }
 
-/* line 275, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 282, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-white {
-  background-image: url('++genweb++static/images/gh-150-w.png?1434546601');
+  background-image: url('++genweb++static/images/gh-150-w.png?1455534307');
 }
 
 /*extends icones*/
@@ -3207,7 +3208,7 @@ legend + .control-group {
   text-decoration: none;
   color: #fff;
   background-color: #007bc0;
-  background-color: #0075b6;
+  background-color: #0075b7;
   background-image: -moz-linear-gradient(top, #007bc0, #006ba7);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007bc0), to(#006ba7));
   background-image: -webkit-linear-gradient(top, #007bc0, #006ba7);
@@ -3226,7 +3227,7 @@ legend + .control-group {
   text-decoration: none;
   outline: 0;
   background-color: #007bc0;
-  background-color: #0075b6;
+  background-color: #0075b7;
   background-image: -moz-linear-gradient(top, #007bc0, #006ba7);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007bc0), to(#006ba7));
   background-image: -webkit-linear-gradient(top, #007bc0, #006ba7);
@@ -3437,7 +3438,7 @@ button.close {
   cursor: pointer;
   color: #333;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  background-color: whitesmoke;
+  background-color: #f6f6f6;
   background-image: -moz-linear-gradient(top, #fff, #e6e6e6);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e6e6e6));
   background-image: -webkit-linear-gradient(top, #fff, #e6e6e6);
@@ -3664,7 +3665,7 @@ button.active.pfg-draft-save,
 .btn-primary, .context {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #006eac;
+  background-color: #006fad;
   background-image: -moz-linear-gradient(top, #007bc0, #005a8d);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007bc0), to(#005a8d));
   background-image: -webkit-linear-gradient(top, #007bc0, #005a8d);
@@ -3693,7 +3694,7 @@ button.active.pfg-draft-save,
 .btn-warning {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #e58805;
+  background-color: #e58906;
   background-image: -moz-linear-gradient(top, #f89406, #c67605);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f89406), to(#c67605));
   background-image: -webkit-linear-gradient(top, #f89406, #c67605);
@@ -3722,7 +3723,7 @@ button.active.pfg-draft-save,
 .btn-danger {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #c03524;
+  background-color: #c13624;
   background-image: -moz-linear-gradient(top, #d13a27, #a62e1f);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d13a27), to(#a62e1f));
   background-image: -webkit-linear-gradient(top, #d13a27, #a62e1f);
@@ -3751,7 +3752,7 @@ button.active.pfg-draft-save,
 .btn-success, button.pfg-draft-save {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #66921a;
+  background-color: #67931a;
   background-image: -moz-linear-gradient(top, #72a31d, #547815);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#72a31d), to(#547815));
   background-image: -webkit-linear-gradient(top, #72a31d, #547815);
@@ -3780,7 +3781,7 @@ button.active.pfg-draft-save,
 .btn-info, .link-parent {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #2c95b3;
+  background-color: #2c95b4;
   background-image: -moz-linear-gradient(top, #30a2c3, #26809a);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30a2c3), to(#26809a));
   background-image: -webkit-linear-gradient(top, #30a2c3, #26809a);
@@ -4243,7 +4244,7 @@ button.pfg-draft-save .caret,
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  background-color: #f9eaba;
+  background-color: #faeaba;
   background-image: -moz-linear-gradient(top, #fbf0cc, #f8e19c);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbf0cc), to(#f8e19c));
   background-image: -webkit-linear-gradient(top, #fbf0cc, #f8e19c);
@@ -4273,7 +4274,7 @@ button.pfg-draft-save .caret,
   border-color: #a7de48;
   color: #456211;
   border-bottom: 1px solid #90ce25;
-  background-color: #ddf2b9;
+  background-color: #def2ba;
   background-image: -moz-linear-gradient(top, #e5f5ca, #d1ee9e);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5f5ca), to(#d1ee9e));
   background-image: -webkit-linear-gradient(top, #e5f5ca, #d1ee9e);
@@ -4291,7 +4292,7 @@ button.pfg-draft-save .caret,
   border-color: #eeaba3;
   color: #722015;
   border-bottom: 1px solid #e27163;
-  background-color: #f7d7d3;
+  background-color: #f7d7d4;
   background-image: -moz-linear-gradient(top, #fae6e4, #f2bfb9);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fae6e4), to(#f2bfb9));
   background-image: -webkit-linear-gradient(top, #fae6e4, #f2bfb9);
@@ -4303,16 +4304,16 @@ button.pfg-draft-save .caret,
 
 /* line 52, ../bootstrap/scss/compass_twitter_bootstrap/_alerts.scss */
 .alert-info, .portalMessage.info {
-  background-color: #e1f2f8;
+  background-color: #e1f3f8;
   border-color: #8fd1e3;
   color: #216f86;
-  border-bottom: 1px solid #66bfd9;
-  background-color: #d1ebf4;
-  background-image: -moz-linear-gradient(top, #e1f2f8, #b8e1ee);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e1f2f8), to(#b8e1ee));
-  background-image: -webkit-linear-gradient(top, #e1f2f8, #b8e1ee);
-  background-image: -o-linear-gradient(top, #e1f2f8, #b8e1ee);
-  background-image: linear-gradient(to bottom, #e1f2f8, #b8e1ee);
+  border-bottom: 1px solid #66c0d9;
+  background-color: #d2edf4;
+  background-image: -moz-linear-gradient(top, #e1f3f8, #b8e2ee);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e1f3f8), to(#b8e2ee));
+  background-image: -webkit-linear-gradient(top, #e1f3f8, #b8e2ee);
+  background-image: -o-linear-gradient(top, #e1f3f8, #b8e2ee);
+  background-image: linear-gradient(to bottom, #e1f3f8, #b8e2ee);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ddf1f7', endColorstr='#b4e0ed', GradientType=0);
 }
@@ -5400,7 +5401,7 @@ button.pfg-draft-save .caret,
 }
 /* line 387, ../bootstrap/scss/compass_twitter_bootstrap/_navbar.scss */
 .navbar-inverse .navbar-inner {
-  background-color: #303030;
+  background-color: #313131;
   background-image: -moz-linear-gradient(top, #444, #111);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444), to(#111));
   background-image: -webkit-linear-gradient(top, #444, #111);
@@ -5558,7 +5559,7 @@ button.pfg-draft-save .caret,
 .navbar-inverse .btn-navbar {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #232323;
+  background-color: #242424;
   background-image: -moz-linear-gradient(top, #373737, #040404);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#373737), to(#040404));
   background-image: -webkit-linear-gradient(top, #373737, #040404);
@@ -6440,7 +6441,7 @@ button.pfg-draft-save .badge,
   overflow: hidden;
   height: 18px;
   margin-bottom: 18px;
-  background-color: #f6f6f6;
+  background-color: #f7f7f7;
   background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
   background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
@@ -6465,7 +6466,7 @@ button.pfg-draft-save .badge,
   font-size: 12px;
   text-align: center;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #0e90d2;
+  background-color: #0e91d3;
   background-image: -moz-linear-gradient(top, #149bdf, #0480be);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
   background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
@@ -6520,7 +6521,7 @@ button.pfg-draft-save .badge,
 
 /* line 94, ../bootstrap/scss/compass_twitter_bootstrap/_progress-bars.scss */
 .progress-danger .bar, .progress .bar-danger {
-  background-color: #de514c;
+  background-color: #de524d;
   background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#c43c35));
   background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
@@ -6542,7 +6543,7 @@ button.pfg-draft-save .badge,
 
 /* line 102, ../bootstrap/scss/compass_twitter_bootstrap/_progress-bars.scss */
 .progress-success .bar, .progress .bar-success {
-  background-color: #5db95d;
+  background-color: #5eba5e;
   background-image: -moz-linear-gradient(top, #62c462, #57a957);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#57a957));
   background-image: -webkit-linear-gradient(top, #62c462, #57a957);
@@ -6586,7 +6587,7 @@ button.pfg-draft-save .badge,
 
 /* line 118, ../bootstrap/scss/compass_twitter_bootstrap/_progress-bars.scss */
 .progress-warning .bar, .progress .bar-warning {
-  background-color: #f9a834;
+  background-color: #faa834;
   background-image: -moz-linear-gradient(top, #fbb450, #f89406);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
   background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
@@ -7038,7 +7039,7 @@ button.pfg-draft-save .badge,
   }
   /* line 28, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   .navbar .btn-navbar i {
-    background-image: url('++genweb++static/images/gh-w.png?1434546601');
+    background-image: url('++genweb++static/images/gh-w.png?1455534307');
   }
 
   /* line 31, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
@@ -7359,7 +7360,7 @@ button.pfg-draft-save .badge,
   }
   /* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   #portal-personaltools-wrapper .nav i, #portal-personaltools-wrapper .contentViews i, #portal-personaltools-wrapper .configlets i, #portal-personaltools-wrapper .formTabs i {
-    background-image: url('++genweb++static/images/gh-w.png?1434546601');
+    background-image: url('++genweb++static/images/gh-w.png?1455534307');
   }
   /* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus {
@@ -8698,7 +8699,7 @@ button.pfg-draft-save .badge,
 
 /* line 39, ../scss/_base.scss */
 .userScreen, .userTablet, .userMobile, .userGenweb {
-  background: url('++genweb++static/images/sprite_usuari.png?1434546601') transparent no-repeat center top;
+  background: url('++genweb++static/images/sprite_usuari.png?1455534307') transparent no-repeat center top;
   height: 1.5em;
   width: 1.5em;
 }
@@ -8784,7 +8785,7 @@ button.pfg-draft-save .badge,
   text-decoration: none;
   color: #fff;
   background-color: #d13a27;
-  background-color: #c83725;
+  background-color: #c93826;
   background-image: -moz-linear-gradient(top, #d13a27, #bb3423);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d13a27), to(#bb3423));
   background-image: -webkit-linear-gradient(top, #d13a27, #bb3423);
@@ -8802,7 +8803,7 @@ button.pfg-draft-save .badge,
 /*ajusta imatges icos en menús per a hovers */
 /* line 66, ../scss/_base.scss */
 .dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1434546601') !important;
+  background-image: url('++genweb++static/images/gh-w.png?1455534307') !important;
 }
 
 /* line 73, ../scss/_base.scss */
@@ -9119,7 +9120,7 @@ button.pfg-draft-save .badge,
 }
 /* line 214, ../scss/_base.scss */
 #canvia-vista a {
-  background: url('++genweb++static/images/vistabg.png?1434546601') #666;
+  background: url('++genweb++static/images/vistabg.png?1455534307') #666;
   text-align: center;
   -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
@@ -9255,7 +9256,7 @@ button.pfg-draft-save .badge,
 }
 /* line 52, ../scss/_nav.scss */
 .subnavbar .nav-list a:hover {
-  background-color: #e7e7e7;
+  background-color: #e8e8e8;
   background-image: -moz-linear-gradient(top, #eeeeee, #dddddd);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#dddddd));
   background-image: -webkit-linear-gradient(top, #eeeeee, #dddddd);
@@ -9285,7 +9286,7 @@ button.pfg-draft-save .badge,
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   right: 7px;
   top: 8px;
-  background-image: url('++genweb++static/images/gh-w.png?1434546601');
+  background-image: url('++genweb++static/images/gh-w.png?1455534307');
   background-position: -455px -71px;
   background-repeat: no-repeat;
   width: 17px;
@@ -9413,7 +9414,7 @@ button.pfg-draft-save .badge,
 }
 /* line 144, ../scss/_nav.scss */
 .subnavbar .nav-list .active ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .active ul a[class*=" contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class*=" contenttype-"] span:after {
-  background-image: url('++genweb++static/images/gh.png?1434546601');
+  background-image: url('++genweb++static/images/gh.png?1455534307');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -9511,7 +9512,7 @@ button.pfg-draft-save .badge,
 
 /* line 195, ../scss/_nav.scss */
 html * .dropdown-menu a:hover .img_blank {
-  content: url('++genweb++static/images/blank_blanc.png?1434546601');
+  content: url('++genweb++static/images/blank_blanc.png?1455534307');
   width: 10px;
   height: 10px;
 }
@@ -9563,7 +9564,7 @@ html * .dropdown-menu a:hover .img_blank {
 }
 /* line 233, ../scss/_nav.scss */
 #listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, #listing-table span[class^="contenttype-"]:before, #listing-table span[class*=" contenttype-"]:before, .template-tabular_view .listing a[class^="contenttype-"]:before, .template-tabular_view .listing a[class*=" contenttype-"]:before, .template-tabular_view .listing span[class^="contenttype-"]:before, .template-tabular_view .listing span[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree span[class^="contenttype-"]:before, .contenttreeWidget > .navTree span[class*=" contenttype-"]:before, .collage-content-menu a[class^="contenttype-"]:before, .collage-content-menu a[class*=" contenttype-"]:before, .collage-content-menu span[class^="contenttype-"]:before, .collage-content-menu span[class*=" contenttype-"]:before {
-  background-image: url('++genweb++static/images/gh.png?1434546601');
+  background-image: url('++genweb++static/images/gh.png?1455534307');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -9671,7 +9672,7 @@ dt[class*="contenttype"] + dd {
 
 /* line 285, ../scss/_nav.scss */
 dt[class*="contenttype"]:before {
-  background-image: url('++genweb++static/images/gh.png?1434546601');
+  background-image: url('++genweb++static/images/gh.png?1455534307');
   background-repeat: no-repeat;
   display: block;
   width: 15px;
@@ -9907,7 +9908,7 @@ dt.contenttype-lrf:before {
 
 /* line 19, ../scss/_plantilles.scss */
 .info {
-  background-color: #e1f2f8 !important;
+  background-color: #e1f3f8 !important;
   color: #333;
 }
 
@@ -10285,7 +10286,7 @@ a.primary, .primary a, a .primary {
 
 /* line 51, ../scss/_wells-boxes.scss */
 .well-gradient {
-  background-color: #f6f6f6;
+  background-color: #f7f7f7;
   background-image: -moz-linear-gradient(top, #f2f2f2, #fff);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#fff));
   background-image: -webkit-linear-gradient(top, #f2f2f2, #fff);
@@ -10296,7 +10297,7 @@ a.primary, .primary a, a .primary {
 }
 /* line 53, ../scss/_wells-boxes.scss */
 .well-gradient.well-inverse {
-  background-color: #191919;
+  background-color: #1a1a1a;
   background-image: -moz-linear-gradient(top, #000, #444);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(#444));
   background-image: -webkit-linear-gradient(top, #000, #444);
@@ -10594,7 +10595,7 @@ ul {
 
 /* line 127, ../scss/_lists.scss */
 .list-links li:before, .portaltype-packet .estudis .llistatEnllacos li:before {
-  content: url('++genweb++static/images/arrow.png?1434546601');
+  content: url('++genweb++static/images/arrow.png?1455534307');
   margin-left: -15px;
   margin-top: -13px;
 }
@@ -10606,7 +10607,7 @@ ul {
 
 /* line 137, ../scss/_lists.scss */
 .list-highlighted li:before {
-  content: url('++genweb++static/images/arrow_hl.png?1434546601');
+  content: url('++genweb++static/images/arrow_hl.png?1455534307');
   margin-left: -22px;
   margin-top: -11px;
 }
@@ -11018,7 +11019,7 @@ table .span24 {
 .listing th.info,
 .taulaRegistres th.info,
 .portaltype-packet .estudis table.minimal th.info {
-  background-color: #e1f2f8 !important;
+  background-color: #e1f3f8 !important;
   color: #333;
 }
 /* line 217, ../scss/_tables.scss */
@@ -11476,7 +11477,7 @@ hr.liniaDalt, hr.tileHeadline {
   display: block;
   width: 14px;
   height: 14px;
-  background: url('++genweb++static/images/gh.png?1434546601');
+  background: url('++genweb++static/images/gh.png?1455534307');
 }
 
 /* line 94, ../scss/_texts.scss */
@@ -11524,7 +11525,7 @@ a {
 
 /* line 114, ../scss/_texts.scss */
 .pdf:after, .ppt:after, .xls:after, .doc:after, .down:after, .https:after, .vid:after, .img:after, .txt:after {
-  background: url('++genweb++static/images/gh-c.png?1434546601') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1455534307') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -11747,7 +11748,7 @@ input[type="file"] {
 }
 /* line 18, ../scss/_inputs.scss */
 .customfile-feedback-populated:before {
-  background: url('++genweb++static/images/gh-c.png?1434546601') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1455534307') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -11871,41 +11872,35 @@ input[type="file"] {
   white-space: nowrap;
 }
 
-/* line 53, ../scss/_portlets.scss */
-.template-event_listing ul.list-portlet,
-.template-news_listing ul.list-portlet,
-.template-event_view ul.list-portlet,
-.template-newscollection_view ul.list-portlet {
+/* line 49, ../scss/_portlets.scss */
+.list-portlet {
   list-style-type: none;
 }
-/* line 55, ../scss/_portlets.scss */
-.template-event_listing ul.list-portlet li,
-.template-news_listing ul.list-portlet li,
-.template-event_view ul.list-portlet li,
-.template-newscollection_view ul.list-portlet li {
+/* line 51, ../scss/_portlets.scss */
+.list-portlet li {
   padding-left: 0px !important;
 }
-/* line 58, ../scss/_portlets.scss */
-.list-portlet li:before{
+/* line 54, ../scss/_portlets.scss */
+.list-portlet li:before {
   content: '' !important;
 }
 
-/* line 67, ../scss/_portlets.scss */
+/* line 63, ../scss/_portlets.scss */
 .event-arrow {
   font-size: 16px;
 }
 
-/* line 72, ../scss/_portlets.scss */
+/* line 68, ../scss/_portlets.scss */
 .template-newscollection_view #content-core .list-portlet {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 75, ../scss/_portlets.scss */
+/* line 71, ../scss/_portlets.scss */
 .template-newscollection_view #content-core .list-portlet li {
   margin-right: 0;
 }
 
-/* line 80, ../scss/_portlets.scss */
+/* line 76, ../scss/_portlets.scss */
 .portlet-footer {
   background: #f2f2f2;
   display: block;
@@ -11918,7 +11913,7 @@ input[type="file"] {
   position: relative;
   font-size: 92.3076923%;
 }
-/* line 89, ../scss/_portlets.scss */
+/* line 85, ../scss/_portlets.scss */
 .portlet-footer i {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
@@ -11927,7 +11922,7 @@ input[type="file"] {
 }
 
 /* les llistes s'extenen a l'arxiu de llistes*/
-/* line 99, ../scss/_portlets.scss */
+/* line 95, ../scss/_portlets.scss */
 .portlet-baners {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -11935,11 +11930,11 @@ input[type="file"] {
   border: 0;
 }
 
-/* line 103, ../scss/_portlets.scss */
+/* line 99, ../scss/_portlets.scss */
 .portlet-baners li {
   padding: 0 0 1em;
 }
-/* line 105, ../scss/_portlets.scss */
+/* line 101, ../scss/_portlets.scss */
 .portlet-baners li a:hover img {
   -moz-box-shadow: 0 0 5px rgba(0, 123, 192, 0.25);
   -webkit-box-shadow: 0 0 5px rgba(0, 123, 192, 0.25);
@@ -11949,35 +11944,35 @@ input[type="file"] {
   border-radius: 2px;
 }
 
-/* line 113, ../scss/_portlets.scss */
+/* line 109, ../scss/_portlets.scss */
 .portlet-ampliat h3 {
   padding: 0 15px;
   text-align: left;
   color: #666;
 }
-/* line 118, ../scss/_portlets.scss */
+/* line 114, ../scss/_portlets.scss */
 .portlet-ampliat .content-noticies {
   padding: 0 15px;
   margin-bottom: 0;
   text-align: left;
 }
-/* line 123, ../scss/_portlets.scss */
+/* line 119, ../scss/_portlets.scss */
 .portlet-ampliat li > img {
   margin: 0 0 10px;
   -moz-box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.25);
   box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.25);
 }
-/* line 127, ../scss/_portlets.scss */
+/* line 123, ../scss/_portlets.scss */
 .portlet-ampliat .list-portlet {
   margin: 0 !important;
   padding: 0 !important;
 }
-/* line 130, ../scss/_portlets.scss */
+/* line 126, ../scss/_portlets.scss */
 .portlet-ampliat .list-portlet:before {
   content: none;
 }
-/* line 133, ../scss/_portlets.scss */
+/* line 129, ../scss/_portlets.scss */
 .portlet-ampliat .list-portlet li {
   border-color: #b2b2b2;
   padding: 0 0 12px 0 !important;
@@ -11987,11 +11982,11 @@ input[type="file"] {
   -webkit-box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.1);
 }
-/* line 139, ../scss/_portlets.scss */
+/* line 135, ../scss/_portlets.scss */
 .portlet-ampliat .list-portlet li:before {
   content: none;
 }
-/* line 142, ../scss/_portlets.scss */
+/* line 138, ../scss/_portlets.scss */
 .portlet-ampliat .list-portlet li:first-child {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -11999,7 +11994,7 @@ input[type="file"] {
 }
 
 /* adaptació imatge a protlet ample */
-/* line 149, ../scss/_portlets.scss */
+/* line 145, ../scss/_portlets.scss */
 .span6 .portlet-ampliat li > img, .w1\3a 2 .portlet-ampliat li > img, .w2\3a 4 .portlet-ampliat li > img,
 .span7 .portlet-ampliat li > img,
 .span8 .portlet-ampliat li > img,
@@ -12013,12 +12008,12 @@ input[type="file"] {
   float: left;
 }
 
-/* line 162, ../scss/_portlets.scss */
+/* line 158, ../scss/_portlets.scss */
 .portlet-esdeveniments ul {
   margin-bottom: 0;
   border-bottom: 1px solid #b2b2b2;
 }
-/* line 165, ../scss/_portlets.scss */
+/* line 161, ../scss/_portlets.scss */
 .portlet-esdeveniments ul li {
   position: relative;
   border-top: 1px solid #e5e5e5;
@@ -12026,22 +12021,22 @@ input[type="file"] {
   margin: 0 15px;
   padding: 9px 0;
 }
-/* line 171, ../scss/_portlets.scss */
+/* line 167, ../scss/_portlets.scss */
 .portlet-esdeveniments ul li:first-child {
   border-top: 0;
 }
-/* line 175, ../scss/_portlets.scss */
+/* line 171, ../scss/_portlets.scss */
 .portlet-esdeveniments ul a {
   display: block;
   padding-left: 40px;
   border-left: 3px solid #f2f2f2;
   min-height: 36px;
 }
-/* line 180, ../scss/_portlets.scss */
+/* line 176, ../scss/_portlets.scss */
 .portlet-esdeveniments ul a:hover {
   border-color: #007bc0;
 }
-/* line 184, ../scss/_portlets.scss */
+/* line 180, ../scss/_portlets.scss */
 .portlet-esdeveniments ul time {
   position: absolute;
   left: 7px;
@@ -12050,7 +12045,7 @@ input[type="file"] {
   color: #aaa;
   font-weight: bold;
 }
-/* line 191, ../scss/_portlets.scss */
+/* line 187, ../scss/_portlets.scss */
 .portlet-esdeveniments ul time abbr {
   display: block;
   font-size: 53.8461538462%;
@@ -12060,22 +12055,22 @@ input[type="file"] {
   margin-top: -3px;
 }
 
-/* line 202, ../scss/_portlets.scss */
+/* line 198, ../scss/_portlets.scss */
 .portlet-esdeveniments ul time {
   text-align: center;
 }
 
-/* line 203, ../scss/_portlets.scss */
+/* line 199, ../scss/_portlets.scss */
 .portlet-esdeveniments .multidate-before {
   padding-left: 60px;
 }
 
-/* line 204, ../scss/_portlets.scss */
+/* line 200, ../scss/_portlets.scss */
 .portlet-esdeveniments .multidate time + time {
   margin-left: 1.3em !important;
 }
 
-/* line 205, ../scss/_portlets.scss */
+/* line 201, ../scss/_portlets.scss */
 .portlet-esdeveniments .multidate time + time:before {
   content: "-";
   font-size: 70%;
@@ -12084,35 +12079,35 @@ input[type="file"] {
   margin-top: -2px;
 }
 
-/* line 206, ../scss/_portlets.scss */
+/* line 202, ../scss/_portlets.scss */
 .portlet-esdeveniments .multidate {
   font-size: 90%;
 }
 
-/* line 207, ../scss/_portlets.scss */
+/* line 203, ../scss/_portlets.scss */
 .portlet-esdeveniments .multidate time abbr {
   font-size: 48%;
 }
 
-/* line 211, ../scss/_portlets.scss */
+/* line 207, ../scss/_portlets.scss */
 .portlet-enquesta fieldset {
   margin: 0 15px;
 }
-/* line 214, ../scss/_portlets.scss */
+/* line 210, ../scss/_portlets.scss */
 .portlet-enquesta legend {
   font-size: 100%;
   line-height: 18px;
   padding: 10px 0;
 }
-/* line 219, ../scss/_portlets.scss */
+/* line 215, ../scss/_portlets.scss */
 .portlet-enquesta form {
   margin: 0 15px 15px;
 }
-/* line 222, ../scss/_portlets.scss */
+/* line 218, ../scss/_portlets.scss */
 .portlet-enquesta .progress {
   position: relative;
 }
-/* line 224, ../scss/_portlets.scss */
+/* line 220, ../scss/_portlets.scss */
 .portlet-enquesta .progress span {
   color: black;
   font-size: 84.6153846%;
@@ -12120,18 +12115,18 @@ input[type="file"] {
   position: absolute;
   text-shadow: 0 -1px rgba(255, 255, 255, 0.5);
 }
-/* line 232, ../scss/_portlets.scss */
+/* line 228, ../scss/_portlets.scss */
 .portlet-enquesta > p {
   margin: 0 15px 18px;
   border-bottom: 1px solid #b2b2b2;
   padding: 10px 0;
 }
-/* line 237, ../scss/_portlets.scss */
+/* line 233, ../scss/_portlets.scss */
 .portlet-enquesta > ul {
   margin: 0 15px;
 }
 
-/* line 243, ../scss/_portlets.scss */
+/* line 239, ../scss/_portlets.scss */
 .portlet-inverse h2 {
   background: #007bc0;
   border: 0;
@@ -12141,38 +12136,38 @@ input[type="file"] {
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 0 0;
 }
-/* line 249, ../scss/_portlets.scss */
+/* line 245, ../scss/_portlets.scss */
 .portlet-inverse h2 i {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=9000);
   opacity: 90;
 }
 
-/* line 253, ../scss/_portlets.scss */
+/* line 249, ../scss/_portlets.scss */
 h2.title-inverse {
   color: #fff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
-/* line 256, ../scss/_portlets.scss */
+/* line 252, ../scss/_portlets.scss */
 h2.title-inverse i {
-  background-image: url('++genweb++static/images/gh-w.png?1434546601');
+  background-image: url('++genweb++static/images/gh-w.png?1455534307');
 }
 
-/* line 263, ../scss/_portlets.scss */
+/* line 259, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar {
   text-align: center;
   font-size: 85%;
   table-layout: fixed;
   /* grey out prev/next month incl. links and background */
 }
-/* line 265, ../scss/_portlets.scss */
+/* line 261, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td {
   height: 25px;
 }
-/* line 266, ../scss/_portlets.scss */
+/* line 262, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.event {
   background: #ccc;
 }
-/* line 267, ../scss/_portlets.scss */
+/* line 263, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td:not(:empty) {
   background: #f2f2f2;
   -moz-border-radius: 50px;
@@ -12180,43 +12175,43 @@ h2.title-inverse i {
   border-radius: 50px;
   text-shadow: 0 1px #fff;
 }
-/* line 268, ../scss/_portlets.scss */
+/* line 264, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.cal_has_events {
   background: #08c;
   font-weight: bold;
   text-shadow: 0 -1px #06a;
 }
-/* line 272, ../scss/_portlets.scss */
+/* line 268, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.cal_has_events a {
   color: #fff;
 }
-/* line 273, ../scss/_portlets.scss */
+/* line 269, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.cal_has_events .popover-content, .portletCalendar .ploneCalendar td.cal_has_events .expandable-content .inner-content, .expandable-content .portletCalendar .ploneCalendar td.cal_has_events .inner-content {
   text-align: center;
 }
-/* line 275, ../scss/_portlets.scss */
+/* line 271, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.cal_has_events .popover-content a, .portletCalendar .ploneCalendar td.cal_has_events .expandable-content .inner-content a, .expandable-content .portletCalendar .ploneCalendar td.cal_has_events .inner-content a {
   color: #333333;
   text-shadow: none;
 }
-/* line 278, ../scss/_portlets.scss */
+/* line 274, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.today {
   font-weight: bold;
   color: #000;
 }
-/* line 281, ../scss/_portlets.scss */
+/* line 277, ../scss/_portlets.scss */
 .portletCalendar .ploneCalendar td.cal_prev_month, .portletCalendar .ploneCalendar td.cal_next_month {
   opacity: 0.4;
 }
 
-/* line 288, ../scss/_portlets.scss */
+/* line 284, ../scss/_portlets.scss */
 #portlet-prefs {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-/* line 289, ../scss/_portlets.scss */
+/* line 285, ../scss/_portlets.scss */
 .portlet > .pad {
   border-bottom: 1px solid #b2b2b2;
 }
@@ -12479,7 +12474,7 @@ iframe {
   width: 14px;
   height: 14px;
   display: inline-block;
-  background: url('++genweb++static/images/gh.png?1434546601') -239px -143px no-repeat;
+  background: url('++genweb++static/images/gh.png?1455534307') -239px -143px no-repeat;
   margin-left: 5px;
 }
 /* line 266, ../scss/_plone.scss */
@@ -13823,7 +13818,7 @@ html {
   #portal-header h1.pull-left {
     height: 46px;
     width: 207px;
-    background: url('++genweb++static/images/logoUPC@2x.png?1434546601') no-repeat;
+    background: url('++genweb++static/images/logoUPC@2x.png?1455534307') no-repeat;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     -webkit-background-size: 100%;
@@ -13841,7 +13836,7 @@ html {
 
   /* line 15, ../scss/_retina.scss */
   .list-highlighted li {
-    content: url('++genweb++static/images/arrow_hl@2x.png?1434546601');
+    content: url('++genweb++static/images/arrow_hl@2x.png?1455534307');
   }
 
   /* line 17, ../scss/_retina.scss */
@@ -13852,22 +13847,22 @@ html {
 
   /* line 18, ../scss/_retina.scss */
   .img_blank[src*="blank_blau"] {
-    content: url('++genweb++static/images/blank_blau@2x.png?1434546601');
+    content: url('++genweb++static/images/blank_blau@2x.png?1455534307');
   }
 
   /* line 19, ../scss/_retina.scss */
   .img_blank[src*="blank_gris"] {
-    content: url('++genweb++static/images/blank_gris@2x.png?1434546601');
+    content: url('++genweb++static/images/blank_gris@2x.png?1455534307');
   }
 
   /* line 20, ../scss/_retina.scss */
   .img_blank[src*="blank_blanc"] {
-    content: url('++genweb++static/images/blank_blanc@2x.png?1434546601');
+    content: url('++genweb++static/images/blank_blanc@2x.png?1455534307');
   }
 
   /* line 22, ../scss/_retina.scss */
   .userScreen, .userTablet, .userMobile, .userGenweb {
-    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1434546601');
+    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1455534307');
     -moz-background-size: 20px 400px;
     -o-background-size: 20px 400px;
     -webkit-background-size: 20px 400px;
@@ -14374,7 +14369,7 @@ html.lt-ie8 .list-portlet li  {
 }
 /* line 34, ../scss/_upcnet.scss */
 .link-parent:before {
-  background: url('++genweb++static/images/gh-w.png?1434546601') no-repeat -290px -95px;
+  background: url('++genweb++static/images/gh-w.png?1455534307') no-repeat -290px -95px;
   content: " ";
   display: inline-block;
   height: 14px;
@@ -14681,6 +14676,11 @@ select {
 .past_events_button {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+/* line 389, ../scss/_upcnet.scss */
+.icon-serveitic {
+  background-position: -432px -144px;
 }
 
 /* TINY */
