@@ -170,11 +170,11 @@ class ContactForm(form.SchemaForm):
                             to_name = to_name.encode('utf-8')
                             continue
                         else:
-                            to_address = 'scp.admin@upc.edu'
+                            to_address += ', scp.admin@upc.edu'
                             to_name = 'Genweb amb error al contacte'
                             continue
             else:
-                to_address = 'scp.admin@upc.edu'
+                to_address += ', scp.admin@upc.edu'
                 to_name = 'Genweb amb error al contacte'
 
         lang = utils.pref_lang()
