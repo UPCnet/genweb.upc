@@ -11857,7 +11857,7 @@ input[type="file"] {
   border-top: 1px solid #e5e5e5;
   *border-top: 1px solid #e5e5e5;
   margin-left: 0 !important;
-  padding: 8px 0 8px 18px !important;
+  padding: 8px 0 8px 1px !important;
   margin-right: 10px;
   *display: inline-block;
 }
@@ -11887,7 +11887,6 @@ input[type="file"] {
 }
 /* line 58, ../scss/_portlets.scss */
 .list-portlet li:before{
-  padding: 8px 0 8px 1px !important;
   content: '' !important;
 }
 
