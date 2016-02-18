@@ -1,11 +1,15 @@
 Changelog
 =========
 
-2.13 (unreleased)
+2.13 (2016-02-18)
 -----------------
 
-- Nothing changed yet.
-
+* folder view icons actual [Alberto Duran]
+* template ready for collections in contenttypes [Alberto Duran]
+* css changes [Paco Gregori]
+* css changes [Paco Gregori]
+* remove bullet from list-portlet class [Paco Gregori]
+* change contact to send error mail to scp.admin@upc.edu and admin site mail [Paco Gregori]
 
 2.12 (2016-02-16)
 -----------------
