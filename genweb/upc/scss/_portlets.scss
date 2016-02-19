@@ -32,7 +32,7 @@
     border-top:1px solid lighten($tableBorder, 20%);
     *border-top:1px solid #e5e5e5;
     margin-left: 0 !important;
-    padding: 8px 0 8px 18px !important;
+    padding: 8px 0 8px 1px !important;
     margin-right:10px;
     *display:inline-block;
     &:first-child {
@@ -46,20 +46,16 @@
 }
 
 // treure bullets portlet esdeveniments i noticies
-.template-event_listing,
-.template-news_listing,
-.template-event_view,
-.template-newscollection_view {
-  ul.list-portlet {
-    list-style-type: none;
-    li
-     {
-        padding-left: 0px !important;
-        &:before {
-        content: '' !important;
-        }
+.list-portlet {
+  list-style-type: none;
+  li
+   {
+      padding-left: 0px !important;
+      &:before {
+      content: '' !important;
+
       }
-  }
+    }
 }
 
 // fletxes portlet esdeveniments

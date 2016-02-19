@@ -38,7 +38,7 @@
                         use_view_action site_properties/typesUseViewActionInListings|python:();
                         Batch python:modules['Products.CMFPlone'].Batch;
                         b_start python:request.get('b_start', 0);
-                        batch python:isinstance(folderContents, Batch) and folderContents or Batch(folderContents, limit_display or 100, int(b_start), orphan=1);
+                        batch view/batch;
                         isAnon context/@@plone_portal_state/anonymous;
                         normalizeString nocall: context/plone_utils/normalizeString;
                         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
@@ -52,21 +52,24 @@
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
             <tal:block tal:define="item_url item/getURL|item/absolute_url;
                                    item_id item/getId|item/id;
-                                   item_title_or_id item/pretty_title_or_id;
+                                   item_title item/Title;
                                    item_description item/Description;
                                    item_type item/portal_type;
                                    item_type_title item/Type;
                                    item_modified item/ModificationDate;
                                    item_created item/CreationDate;
-                                   item_icon python:plone_view.getIcon(item);
+                                   item_icon item/getIcon;
                                    item_type_class python:'contenttype-' + normalizeString(item_type);
                                    item_wf_state item/review_state|python: context.portal_workflow.getInfoFor(item, 'review_state', '');
                                    item_wf_state_class python:'state-' + normalizeString(item_wf_state);
                                    item_creator item/Creator;
                                    item_start item/start|item/StartDate|nothing;
                                    item_end item/end|item/EndDate|nothing;
+                                   item_link python:item_type in view.use_view_action and item_url+'/view' or item_url;
+                                   item_has_image python:view.has_image(item);
                                    item_sametime python: item_start == item_end;
-                                   item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False">
+                                   item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False;
+                                   item_is_event python:view.is_event(item)">
                 <metal:block define-slot="entry">
                 <dt metal:define-macro="listitem"
                     tal:attributes="class python: item_type == 'Event' and 'vevent' or ''">
@@ -75,12 +78,13 @@
                         <a href="#"
                            tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url;
                                            class string:$item_type_class $item_wf_state_class url"
-                           tal:content="item_title_or_id">
+                           tal:content="item_title">
                             Item Title
                         </a>
                     </span>
 
-                    <span class="documentByLine">
+                    <metal:block metal:define-macro="document_byline">
+                      <span class="documentByLine">
                         <span tal:condition="python: item_type == 'Event' and item_sametime"
                               i18n:translate="label_event_byline_onlyfrom">
                              <abbr class="dtstart"
@@ -130,8 +134,8 @@
                                 </tal:comment>
                             </metal:description>
                         </tal:byline>
-                    </span>
-
+                      </span>
+                    </metal:block>
                 </dt>
 
                 <dd tal:condition="item_description" class="margin0">
@@ -150,7 +154,7 @@
     </tal:listing>
     <metal:empty metal:define-slot="no_items_in_listing">
         <p class="discreet"
-           tal:condition="not: folderContents"
+           tal:condition="not: view/batch"
            i18n:translate="description_no_items_in_folder">
             There are currently no items in this folder.
         </p>
