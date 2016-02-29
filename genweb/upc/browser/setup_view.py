@@ -15,6 +15,8 @@ from plone.app.contenttypes.behaviors.richtext import IRichText
 from plone.dexterity.utils import createContentInContainer
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignmentMapping
+from plone.portlets.constants import CONTEXT_CATEGORY
+from plone.portlets.interfaces import ILocalPortletAssignmentManager
 from plone.app.controlpanel.mail import IMailSchema
 from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
@@ -168,9 +170,9 @@ class setup(grok.View):
         self.link_translations([(news, 'en'), (noticias, 'es'), (noticies, 'ca')])
 
         # Set layout for news folders
-        news.setLayout('newscollection_view')
-        noticias.setLayout('newscollection_view')
-        noticies.setLayout('newscollection_view')
+        news.setLayout('news_listing')
+        noticias.setLayout('news_listing')
+        noticies.setLayout('news_listing')
 
         news.exclude_from_nav = True
         noticias.exclude_from_nav = True
@@ -211,9 +213,9 @@ class setup(grok.View):
         self.link_translations([(events, 'en'), (eventos, 'es'), (esdeveniments, 'ca')])
 
         # Set layout for news folders
-        events.setLayout('event_listing')
-        eventos.setLayout('event_listing')
-        esdeveniments.setLayout('event_listing')
+        events.setLayout('news_listing')
+        eventos.setLayout('news_listing')
+        esdeveniments.setLayout('news_listing')
 
         events.exclude_from_nav = True
         eventos.exclude_from_nav = True
@@ -512,6 +514,63 @@ class setup(grok.View):
                 target_manager_bienvenido_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
             if 'navigation' not in target_manager_benvingut_assignments:
                 target_manager_benvingut_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
+
+        # Blacklist the left column on portal_ca['noticies'] and portal_ca['esdeveniments'],
+        # portal_es['noticias'] and portal_es['eventos'],
+        # portal_en['news'] and portal_en['events']
+        left_manager = queryUtility(IPortletManager, name=u'plone.leftcolumn')
+        blacklist_ca = getMultiAdapter((portal_ca['noticies'], left_manager), ILocalPortletAssignmentManager)
+        blacklist_ca.setBlacklistStatus(CONTEXT_CATEGORY, True)
+        blacklist_ca = getMultiAdapter((portal_ca['esdeveniments'], left_manager), ILocalPortletAssignmentManager)
+        blacklist_ca.setBlacklistStatus(CONTEXT_CATEGORY, True)
+        blacklist_es = getMultiAdapter((portal_es['noticias'], left_manager), ILocalPortletAssignmentManager)
+        blacklist_es.setBlacklistStatus(CONTEXT_CATEGORY, True)
+        blacklist_es = getMultiAdapter((portal_es['eventos'], left_manager), ILocalPortletAssignmentManager)
+        blacklist_es.setBlacklistStatus(CONTEXT_CATEGORY, True)
+        blacklist_en = getMultiAdapter((portal_en['news'], left_manager), ILocalPortletAssignmentManager)
+        blacklist_en.setBlacklistStatus(CONTEXT_CATEGORY, True)
+        blacklist_en = getMultiAdapter((portal_en['events'], left_manager), ILocalPortletAssignmentManager)
+        blacklist_en.setBlacklistStatus(CONTEXT_CATEGORY, True)
+
+        from genweb.theme.portlets.news_events_listing import Assignment as news_events_Assignment
+        # Put Categories portlet by default on:
+
+        # noticies
+        target_manager_left = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_ca['noticies'])
+        target_manager_assignments_left = getMultiAdapter((portal_ca['noticies'], target_manager_left), IPortletAssignmentMapping)
+        if 'news_events_listing' not in target_manager_assignments_left:
+            target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'News')
+
+        # esdeveniments
+        target_manager_left = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_ca['esdeveniments'])
+        target_manager_assignments_left = getMultiAdapter((portal_ca['esdeveniments'], target_manager_left), IPortletAssignmentMapping)
+        if 'news_events_listing' not in target_manager_assignments_left:
+            target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'Events')
+
+        # noticias
+        target_manager_left = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es['noticias'])
+        target_manager_assignments_left = getMultiAdapter((portal_es['noticias'], target_manager_left), IPortletAssignmentMapping)
+        if 'news_events_listing' not in target_manager_assignments_left:
+            target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'News')
+
+        # eventos
+        target_manager_left = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_es['eventos'])
+        target_manager_assignments_left = getMultiAdapter((portal_es['eventos'], target_manager_left), IPortletAssignmentMapping)
+        if 'news_events_listing' not in target_manager_assignments_left:
+            target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'Events')
+
+        # news
+        target_manager_left = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en['news'])
+        target_manager_assignments_left = getMultiAdapter((portal_en['news'], target_manager_left), IPortletAssignmentMapping)
+        if 'news_events_listing' not in target_manager_assignments_left:
+            target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'News')
+
+        # events
+        target_manager_left = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal_en['events'])
+        target_manager_assignments_left = getMultiAdapter((portal_en['events'], target_manager_left), IPortletAssignmentMapping)
+        if 'news_events_listing' not in target_manager_assignments_left:
+            target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'Events')
+
 
         # Delete default Navigation portlet on root
         target_manager_root = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal)

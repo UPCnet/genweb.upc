@@ -3,7 +3,7 @@ from plone import api
 from zope.component import getMultiAdapter
 from zope.component.hooks import getSite
 from zope.publisher.browser import TestRequest
-
+from Products.CMFCore.utils import getToolByName
 
 def setupVarious(context):
 
@@ -29,3 +29,11 @@ def setupVarious(context):
         api.content.delete(obj=portal['events'])
     if getattr(portal, 'Members', False):
         api.content.delete(obj=portal['Members'])
+
+    product_name = 'plone.app.collection'
+    qi = getToolByName(portal, 'portal_quickinstaller')
+
+    if qi.isProductInstalled(product_name):
+        qi.uninstallProducts([product_name, ], reinstall=False)
+        qi.uninstallProducts(['genweb.upc', ], reinstall=True)
+        qi.installProducts(['genweb.upc'], reinstall=True)
