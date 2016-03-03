@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.14 (unreleased)
+2.14 (2016-03-03)
 -----------------
 
-- Nothing changed yet.
-
+* views exclude from nav [Alberto Duran]
+* config setup nova vista noticies i esdeveniments & reinstall plone.app.collection [Alberto Duran]
 
 2.13 (2016-02-18)
 -----------------
