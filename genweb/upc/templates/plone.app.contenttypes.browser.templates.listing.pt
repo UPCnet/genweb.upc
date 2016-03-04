@@ -38,7 +38,7 @@
                         use_view_action site_properties/typesUseViewActionInListings|python:();
                         Batch python:modules['Products.CMFPlone'].Batch;
                         b_start python:request.get('b_start', 0);
-                        batch python:isinstance(folderContents, Batch) and folderContents or Batch(folderContents, limit_display or 100, int(b_start), orphan=1);
+                        batch view/batch;
                         isAnon context/@@plone_portal_state/anonymous;
                         normalizeString nocall: context/plone_utils/normalizeString;
                         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
@@ -51,6 +51,7 @@
         <dl metal:define-slot="entries">
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
             <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                                   item_exclude_from_nav item/exclude_from_nav;
                                    item_id item/getId|item/id;
                                    item_title item/Title;
                                    item_description item/Description;
@@ -70,7 +71,7 @@
                                    item_sametime python: item_start == item_end;
                                    item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False;
                                    item_is_event python:view.is_event(item)">
-                <metal:block define-slot="entry">
+                <metal:block define-slot="entry" tal:condition="not: item_exclude_from_nav">
                 <dt metal:define-macro="listitem"
                     tal:attributes="class python: item_type == 'Event' and 'vevent' or ''">
 
@@ -82,7 +83,6 @@
                             Item Title
                         </a>
                     </span>
-
                     <metal:block metal:define-macro="document_byline">
                       <span class="documentByLine">
                         <span tal:condition="python: item_type == 'Event' and item_sametime"

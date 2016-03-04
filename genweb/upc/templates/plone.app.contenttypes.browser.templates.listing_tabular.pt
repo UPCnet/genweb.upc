@@ -28,7 +28,7 @@
               folderContents python:[i for i in folderContents if i.exclude_from_nav == False];
               Batch python:modules['Products.CMFPlone'].Batch;
               b_start python:request.get('b_start', 0);
-              batch python:isinstance(folderContents, Batch) and folderContents or Batch(folderContents, limit_display or 100, int(b_start), orphan=1);">
+              batch view/batch;">
     <tal:listing condition="batch">
 
       <div metal:use-macro="context/batch_macros/macros/navigation" />
@@ -47,6 +47,7 @@
           <tbody>
             <tal:entries tal:repeat="item batch">
               <tal:block tal:define="item_url item/getURL;
+                                     item_exclude_from_nav item/exclude_from_nav;
                                      item_title item/Title;
                                      item_description item/Description;
                                      item_type item/portal_type;
@@ -57,7 +58,8 @@
                                      item_link python:item_type in view.use_view_action and item_url+'/view' or item_url">
                 <tr metal:define-macro="listitem"
                     tal:define="oddrow repeat/item/odd;"
-                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                    tal:attributes="class python: oddrow and 'even' or 'odd'"
+                    tal:condition="not: item_exclude_from_nav">
 
                   <tal:block tal:repeat="field view/tabular_fields">
                     <td tal:condition="python:field not in ['Title', 'Creator', 'getIcon']"
