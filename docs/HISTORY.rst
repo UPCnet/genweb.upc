@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.15 (unreleased)
+2.15 (2016-03-04)
 -----------------
 
-- Nothing changed yet.
-
+* limpieza [Alberto Duran]
+* collection views and exclude_from_nav [Alberto Duran]
 
 2.14 (2016-03-03)
 -----------------
