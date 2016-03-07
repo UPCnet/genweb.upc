@@ -21,8 +21,8 @@
   </div>
 
   <tal:images tal:repeat="image images">
-    <div tal:define="imageObj image/getObject">
-      <div class="photoAlbumEntry" tal:condition="not: imageObj/exclude_from_nav">
+    <div tal:define="imageObj image/getObject; object_type context/portal_type; item_exclude_from_nav imageObj/exclude_from_nav;">
+      <div class="photoAlbumEntry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
         <a tal:attributes="href string:${image/getURL}/view;
                            title image/Description">
           <span class="photoAlbumEntryWrapper">

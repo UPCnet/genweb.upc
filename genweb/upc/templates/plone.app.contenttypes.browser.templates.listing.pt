@@ -26,13 +26,14 @@
     <tal:foldercontents define="                        
                         site_properties context/portal_properties/site_properties;
                         use_view_action site_properties/typesUseViewActionInListings|python:();
+                        object_type context/portal_type;
                         batch view/batch;
                         isAnon context/@@plone_portal_state/anonymous;
                         normalizeString nocall: context/plone_utils/normalizeString;
                         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                         show_about python:not isAnon or site_properties.allowAnonymousViewAbout;">
     <tal:listing condition="batch">
-
+    
         <dl metal:define-slot="entries">
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
             <tal:block tal:define="item_url item/getURL|item/absolute_url;
@@ -56,7 +57,7 @@
                                    item_sametime python: item_start == item_end;
                                    item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False;
                                    item_is_event python:view.is_event(item)">
-                <metal:block define-slot="entry" tal:condition="not: item_exclude_from_nav">
+                <metal:block define-slot="entry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
                 <dt metal:define-macro="listitem"
                     tal:attributes="class python: item_type == 'Event' and 'vevent' or ''">
 

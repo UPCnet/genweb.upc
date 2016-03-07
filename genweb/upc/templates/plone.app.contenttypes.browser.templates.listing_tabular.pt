@@ -23,6 +23,7 @@
               limit_display limit_display|request/limit_display|nothing;
               limit_display python:limit_display and int(limit_display) or None;
               is_a_topic python:context.portal_type=='Topic';
+              object_type context/portal_type;
               folderContents folderContents|nothing;
               folderContents python:folderContents or is_a_topic and context.queryCatalog(batch=True, **contentFilter) or context.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
               folderContents python:[i for i in folderContents if i.exclude_from_nav == False];
@@ -59,7 +60,7 @@
                 <tr metal:define-macro="listitem"
                     tal:define="oddrow repeat/item/odd;"
                     tal:attributes="class python: oddrow and 'even' or 'odd'"
-                    tal:condition="not: item_exclude_from_nav">
+                    tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
 
                   <tal:block tal:repeat="field view/tabular_fields">
                     <td tal:condition="python:field not in ['Title', 'Creator', 'getIcon']"

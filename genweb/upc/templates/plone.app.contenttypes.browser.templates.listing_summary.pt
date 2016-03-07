@@ -14,8 +14,11 @@
     <metal:block use-macro="context/@@listing_view/macros/entries">
       <metal:entry fill-slot="entry">
 
-        <article class="tileItem visualIEFloatFix" tal:define="obj item/getObject">
-          <tal:block tal:condition="not: obj/exclude_from_nav">
+        <article class="tileItem visualIEFloatFix" 
+                  tal:define="obj item/getObject;
+                              item_exclude_from_nav item/exclude_from_nav;
+                              object_type context/portal_type;">
+          <tal:block tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
             <div class="tileImage" tal:condition="item_has_image">
               <a tal:attributes="href item_link">
                 <img tal:define="scales obj/@@images;
