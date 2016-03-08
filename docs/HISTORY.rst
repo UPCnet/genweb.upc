@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.16 (unreleased)
+2.16 (2016-03-08)
 -----------------
 
-- Nothing changed yet.
-
+* views: object_type == Collection or not item_exclude_from_nav [Alberto Duran]
 
 2.15 (2016-03-04)
 -----------------
