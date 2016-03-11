@@ -22,8 +22,7 @@ class FitxaGrau(BasePacket):
         self.context = context
         self.title = _(u"Fitxa de grau")
         self.description = _(u"Informació sobre un estudi d'un grau específic")
-        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol'
-        #self.URL_schema = 'http://147.83.128.10/content/index.php/grau/fitxa/html?codi=%(codi_grau)s&lang=%(lang)s&sense_titol&contingut_upc=true'
+        self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?codi=%(codi_grau)s&lang=%(lang)s&sense_titol&contingut_upc=true'
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'codi_grau')
