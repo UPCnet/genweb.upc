@@ -23,34 +23,21 @@
     </div>
 
     <metal:listingmacro define-macro="listing">
-    <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
-                        contentFilter python:contentFilter and dict(contentFilter) or {};
-                        genwebDummy python:contentFilter.setdefault('exclude_from_nav', False);
-                        limit_display limit_display|request/limit_display|nothing;
-                        limit_display python:limit_display and int(limit_display) or None;
-                        more_url more_url|request/more_url|string:folder_contents;
-                        is_a_topic python:context.portal_type=='Topic';
-                        friendly_types context/@@plone_portal_state/friendly_types;
-                        dummy python:not is_a_topic and contentFilter.setdefault('portal_type', friendly_types);
-                        folderContents folderContents|nothing; folderContents python:folderContents or is_a_topic and context.queryCatalog(batch=True, **contentFilter) or context.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
-                        folderContents python:[i for i in folderContents if i.exclude_from_nav == False];
+    <tal:foldercontents define="                        
                         site_properties context/portal_properties/site_properties;
                         use_view_action site_properties/typesUseViewActionInListings|python:();
-                        Batch python:modules['Products.CMFPlone'].Batch;
-                        b_start python:request.get('b_start', 0);
+                        object_type context/portal_type;
                         batch view/batch;
                         isAnon context/@@plone_portal_state/anonymous;
                         normalizeString nocall: context/plone_utils/normalizeString;
                         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
-                        show_about python:not isAnon or site_properties.allowAnonymousViewAbout;
-                        navigation_root_url context/@@plone_portal_state/navigation_root_url;
-                        pas_member context/@@pas_member;
-                        plone_view context/@@plone;">
+                        show_about python:not isAnon or site_properties.allowAnonymousViewAbout;">
     <tal:listing condition="batch">
-
+    
         <dl metal:define-slot="entries">
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
             <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                                   item_exclude_from_nav item/exclude_from_nav;
                                    item_id item/getId|item/id;
                                    item_title item/Title;
                                    item_description item/Description;
@@ -70,7 +57,7 @@
                                    item_sametime python: item_start == item_end;
                                    item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False;
                                    item_is_event python:view.is_event(item)">
-                <metal:block define-slot="entry">
+                <metal:block define-slot="entry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
                 <dt metal:define-macro="listitem"
                     tal:attributes="class python: item_type == 'Event' and 'vevent' or ''">
 
@@ -82,7 +69,6 @@
                             Item Title
                         </a>
                     </span>
-
                     <metal:block metal:define-macro="document_byline">
                       <span class="documentByLine">
                         <span tal:condition="python: item_type == 'Event' and item_sametime"

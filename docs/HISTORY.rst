@@ -1,11 +1,28 @@
 Changelog
 =========
 
-2.14 (unreleased)
+2.17 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.16 (2016-03-08)
+-----------------
+
+* views: object_type == Collection or not item_exclude_from_nav [Alberto Duran]
+
+2.15 (2016-03-04)
+-----------------
+
+* limpieza [Alberto Duran]
+* collection views and exclude_from_nav [Alberto Duran]
+
+2.14 (2016-03-03)
+-----------------
+
+* views exclude from nav [Alberto Duran]
+* config setup nova vista noticies i esdeveniments & reinstall plone.app.collection [Alberto Duran]
 
 2.13 (2016-02-18)
 -----------------
