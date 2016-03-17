@@ -1,11 +1,25 @@
 Changelog
 =========
 
-2.17 (unreleased)
+2.17 (2016-03-17)
 -----------------
 
-- Nothing changed yet.
-
+* Fix bug in form validation [Santiago Cortes]
+* The Plone z3c form inline validation was not triggered for the input
+* elements with type 'file'. It prevented the validation message "No file
+* provided" from being removed even after the file was provided by the
+* user.
+* The original validation logic is provided by Products.CMFPlone. This fix
+* overrides the file inline_validation.js extending the list of elements
+* affected by the 'onBlur' JS event so that input elements with type file
+* are included.
+* https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=633392
+*
+* Fix bug when displaying fitxes de grau [Santiago Cortes]
+* When retrieving contents from http://www.upc.edu/grau/fitxa_grau.php
+* make sure the parameter contingut_upc=true is present in order to
+* prevent css-related data from being included in the contents.
+* https://gn6.upc.edu/tiquets/control/tiquetDetallDadesGenerals?requirementId=648968
 
 2.16 (2016-03-08)
 -----------------
