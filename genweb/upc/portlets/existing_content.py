@@ -86,11 +86,14 @@ class Renderer(base.Renderer):
         """
         try:
             url = self.get_absolute_url(self.data.url)
+
             # check url to avoid autoreference, removing http(s) and final slash
             check_url = re.findall('https?(.*)\/?', url)[0].strip('/')
             check_parent = re.findall('https?(.*)\/?', self.context.absolute_url())[0].strip('/')
+
             # check url to avoid reference to root, removing language /xx
             check_root = re.findall('https?(.*)\/?', api.portal.get().absolute_url())[0].strip('/')
+
             if check_url != check_parent and check_url.strip('/ca').strip('/es').strip('/en') != check_root:
                 raw_html = requests.get(url)
                 charset = re.findall('charset=(.*)"', raw_html.content)
