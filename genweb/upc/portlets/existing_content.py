@@ -85,37 +85,27 @@ class Renderer(base.Renderer):
             Avisa si hi ha problemes en la URL o si no troba Element. 
         """
         try:
-            url = self.get_absolute_url(self.data.url)
-
-            # check url to avoid autoreference, removing http(s) and final slash
-            check_url = re.findall('https?(.*)\/?', url)[0].strip('/')
-            check_parent = re.findall('https?(.*)\/?', self.context.absolute_url())[0].strip('/')
-
-            # check url to avoid reference to root, removing language /xx
-            check_root = re.findall('https?(.*)\/?', api.portal.get().absolute_url())[0].strip('/')
-
-            if check_url != check_parent and check_url.strip('/ca').strip('/es').strip('/en') != check_root:
-                raw_html = requests.get(url)
-                charset = re.findall('charset=(.*)"', raw_html.content)
-                if len(charset) > 0:
-                    clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
-                    doc = pq(clean_html)
-                    match = re.search(r'This page does not exist', clean_html)
-                    if not match:
-                        content = pq('<div/>').append(
-                            doc(self.data.element).outerHtml()).html(method='html')
-                        if not content:
-                            content = _(u"ERROR. This element does not exist.") + " " + self.data.element
-                    else:
-                        content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+            url = self.absolute_url(self.data.url)
+            raw_html = requests.get(url)
+            charset = re.findall('charset=(.*)"', raw_html.content)
+            if len(charset) > 0:
+                clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                doc = pq(clean_html)
+                match = re.search(r'This page does not exist', clean_html)
+                content = ''
+                if match:
+                    # page not found in site
+                    content = _(u"ERROR: Unknown identifier. This page does not exist." + self.data.url)
                 else:
-                    content = _(u"ERROR. Charset undefined")
+                    content = doc(self.data.element).outerHtml()
+                    if not content:
+                        # element not found in page
+                        content = _(u"ERROR. This element does not exist.") + " " + self.data.element
             else:
-                content = _(u"ERROR. Autoreference")
+                content = _(u"ERROR. Charset undefined") + " " + self.data.url    
         except requests.exceptions.RequestException:
-            content = _(u"ERROR. This URL does not exist.")
-        except:
-            content = _(u"ERROR. Unexpected exception.")
+            # maybe malformed url?
+            content = _(u"ERROR. This URL does not exist.") + " " + self.data.url
         return content
 
     def getTitle(self):
@@ -130,7 +120,7 @@ class Renderer(base.Renderer):
         else:
             return 'existing_content_portlet'
 
-    def get_absolute_url(self, url):
+    def absolute_url(self, url):
         """
         Convert relative url to absolute
         """
