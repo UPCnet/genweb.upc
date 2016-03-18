@@ -82,7 +82,7 @@ class Renderer(base.Renderer):
 
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
-            Avisa si hi ha problemes en la URL o si no troba Element. 
+            Avisa si hi ha problemes en la URL o si no troba Element.
         """
         try:
             url = self.absolute_url(self.data.url)
