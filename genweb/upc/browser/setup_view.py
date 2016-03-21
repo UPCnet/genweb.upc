@@ -757,3 +757,5 @@ class setup(grok.View):
         site_props = portal.portal_properties.site_properties
         site_props.exposeDCMetaTags = True
         site_props.enable_sitemap = True
+        navtree_props = portal.portal_properties.navtree_properties
+        navtree_props.sitemapDepth = 4
