@@ -8,8 +8,9 @@ class DocumentBylineViewletisReader(DocumentBylineViewlet):
     def isReader(self):
         """Check if user rol is Reader"""
         userid = api.user.get_current().id
-        context = aq_inner(self.context)
-        for obj in aq_chain(context):
+        inner_context = aq_inner(self.context)
+        context = aq_chain(inner_context)
+        for obj in context[:-1]:
             local_roles = obj.get_local_roles()
             user_roles = [x for x in local_roles if x[0] == userid]
             if user_roles:
