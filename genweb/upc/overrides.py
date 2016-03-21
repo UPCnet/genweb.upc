@@ -20,4 +20,4 @@ class DocumentBylineViewletisReader(DocumentBylineViewlet):
                         return False
                     else:
                         return True
-        return False
+        return True
