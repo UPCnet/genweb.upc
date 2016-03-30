@@ -213,9 +213,9 @@ class setup(grok.View):
         self.link_translations([(events, 'en'), (eventos, 'es'), (esdeveniments, 'ca')])
 
         # Set layout for news folders
-        events.setLayout('news_listing')
-        eventos.setLayout('news_listing')
-        esdeveniments.setLayout('news_listing')
+        events.setLayout('event_listing')
+        eventos.setLayout('event_listing')
+        esdeveniments.setLayout('event_listing')
 
         events.exclude_from_nav = True
         eventos.exclude_from_nav = True
