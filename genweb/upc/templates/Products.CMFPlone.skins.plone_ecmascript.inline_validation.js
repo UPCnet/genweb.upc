@@ -101,9 +101,13 @@ jQuery(function ($) {
         '.z3cformInlineValidation input[type="password"], ' +
         '.z3cformInlineValidation input[type="checkbox"], ' +
         '.z3cformInlineValidation input[type="radio"], ' +
-        '.z3cformInlineValidation input[type="file"], ' +
         '.z3cformInlineValidation select, ' +
         '.z3cformInlineValidation textarea',
+        function () { z3cform_validate_field(this); });
+
+    $(document).on(
+        'change',
+        '.z3cformInlineValidation input[type="file"]',
         function () { z3cform_validate_field(this); });
 
 });
