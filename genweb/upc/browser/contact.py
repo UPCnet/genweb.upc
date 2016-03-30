@@ -8,6 +8,7 @@ from Acquisition import aq_inner
 
 from zope.schema import TextLine, Text, ValidationError, Choice
 from z3c.form import button
+from z3c.form.error import ValueErrorViewSnippet
 from plone.directives import form
 
 from plone.formwidget.recaptcha.widget import ReCaptchaFieldWidget
@@ -21,13 +22,14 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 from genweb.theme.browser.interfaces import IGenwebTheme
 
 from genweb.core import utils
+from genweb.core import _ as _core
 
 from genweb.core.utils import pref_lang
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 from genweb.controlpanel.interface import IGenwebControlPanelSettings
 from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.interfaces import IVocabularyFactory, InvalidValue
 
 grok.templatedir("views_templates")
 
@@ -87,7 +89,8 @@ class IContactForm(form.Schema):
     """
     recipient = Choice(title=_('to_address',
                        default=u"Recipient"),
-                       vocabulary="availableContacts")
+                       vocabulary="availableContacts",
+                       required=False)
 
     nombre = TextLine(title=_('genweb_sender_fullname', default=u"Name"),
                       required=True)
@@ -127,9 +130,34 @@ class ContactForm(form.SchemaForm):
 
     def updateWidgets(self):
         super(ContactForm, self).updateWidgets()
+        # Quickfix: Copy the value of the captcha input field to the captcha
+        # field of the form. Otherwise the parameter 'form.widgets.captcha'
+        # will not be present in the request.
+        self.request['form.widgets.captcha'] = self.request.get(
+            'recaptcha_response_field')
         # Override the interface forced 'hidden' to 'input' for add form only
         if not api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email') or not self.getDataContact():
             self.widgets['recipient'].mode = 'hidden'
+
+    def get_captcha_error_instace(self):
+        error_instance = ValueErrorViewSnippet(
+            InvalidValue(),
+            self.request,
+            self.widgets['captcha'],
+            self.fields['captcha'].field,
+            self.form_instance,
+            self.context)
+        error_instance.defaultMessage = _core(
+            u"The entered text does not match the text in the image")
+        error_instance.update()
+        return error_instance
+
+    def captcha_is_invalid(self):
+        if self.context.restrictedTraverse('@@recaptcha').verify():
+            return False
+        if not self.widgets['captcha'].error:
+            self.widgets['captcha'].error = self.get_captcha_error_instace()
+        return True
 
     @button.buttonAndHandler(_(u"Send"))
     def action_send(self, action):
@@ -137,13 +165,8 @@ class ContactForm(form.SchemaForm):
         front page, showing a status message to say the message was received.
         """
         data, errors = self.extractData()
-        if 'recaptcha_response_field' in self.request.keys():
-            # Verify the user input against the captcha
-            if self.context.restrictedTraverse('@@recaptcha').verify():
-                pass
-            else:
-                return
-        else:
+
+        if self.captcha_is_invalid():
             return
 
         if 'asunto' not in data or \
