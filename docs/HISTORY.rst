@@ -1,11 +1,55 @@
 Changelog
 =========
 
-2.18 (unreleased)
+2.18 (2016-04-07)
 -----------------
 
-- Nothing changed yet.
-
+* removed icons [roberto.diaz]
+* updated icons [roberto.diaz]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [roberto.diaz]
+* added bootstrap mimetype icons [roberto.diaz]
+* view methods for LIF and LRF [Alberto Duran]
+* Fix contact form validation [Santiago Cortes]
+*  [Santiago Cortes]
+* Fix the following bugs: [Santiago Cortes]
+*  [Santiago Cortes]
+* - The hidden field 'recipient' was required and always produced the 'No [Santiago Cortes]
+* value provided' error message even though it was programmatically [Santiago Cortes]
+* filled. [Santiago Cortes]
+* - The captcha field did always force the 'No value provided' message, [Santiago Cortes]
+* regardless its actual value. [Santiago Cortes]
+* - When the text entered in the captcha field did not match the text [Santiago Cortes]
+* shown in the captcha image, no validation message was provided to [Santiago Cortes]
+* inform the user. [Santiago Cortes]
+* Improve form validation for file type fields [Santiago Cortes]
+*  [Santiago Cortes]
+* The form validation of the fields with type file was triggered when [Santiago Cortes]
+* the field lost the focus via the 'onBlur' JS event (see commit 20d1bab). [Santiago Cortes]
+*  [Santiago Cortes]
+* In order to improve the user experience, the validation of the fields [Santiago Cortes]
+* with type file is from now on triggered by the 'onChange' JS event. [Santiago Cortes]
+* This way, once the user chooses the file, the "No file provided" [Santiago Cortes]
+* error message is immediately removed from the field. [Santiago Cortes]
+* correct view for events [Alberto Duran]
+* creacio de nous genwebs amb 3 nivells de profunditat del sitemap [Alberto Duran]
+* treure byline pels readers amb herencia de permissos v4 [Alberto Duran]
+* treure byline pels readers amb herencia de permissos v3 [Alberto Duran]
+* treure byline pels readers amb herencia de permissos v2 [Alberto Duran]
+* commit equal to c889e78a8ae8a8198d8646cefb3421ef3c2ad082 [root muntanyeta]
+* add genwebupc.css [Alberto Duran]
+* revert commit b8faf11c46fab54c0c98d2791fbe7014d63c86e1 [Alberto Duran]
+* Revert "Merge branch 'master' of github.com:UPCnet/genweb.upc" [Alberto Duran]
+*  [Alberto Duran]
+* This reverts commit 312e2777619dc889e917c9ef62871a8b18850501, reversing [Alberto Duran]
+* changes made to 5cb64e943d56cbb0db135f152a3fc1d40d0c02a6. [Alberto Duran]
+* revert commit 72e77ed9e31cf792f75ca2101336e3b9e24be212 [Alberto Duran]
+* portlet existing_content afegir control errors per autoreferencia [oscar]
+* portlet existing_content afegir control errors per autoreferencia [oscar]
+* portlet existing_content afegir control errors per autoreferencia [oscar]
+* treure info pels readers amb herencia de permissos [Alberto Duran]
+* portlet existing_content afegir control errors per autoreferencia [oscar]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [oscar]
+* treure informació del creador i data modif amb permissos lectura [Alberto Duran]
 
 2.17 (2016-03-17)
 -----------------
