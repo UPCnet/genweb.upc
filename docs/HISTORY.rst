@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.19 (unreleased)
+2.19 (2016-04-21)
 -----------------
 
-- Nothing changed yet.
-
+* moved genweb/upc/templates/Products.CMFPlone.skins.plone_templates.default_error_message.pt genweb.theme to genweb.upc [Paco Gregori]
 
 2.18 (2016-04-07)
 -----------------
