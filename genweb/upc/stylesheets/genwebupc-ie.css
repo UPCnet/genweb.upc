@@ -9089,4 +9089,9 @@ li#portal-languageselector {
   width: auto !important;
 }
 
+.icon-genweb-upc-subhome,
+state-visible contenttype-genweb-upc-subhome {
+  background-position: -216px -169px;
+}
+
 /*# sourceMappingURL=genwebupc.css.map */
