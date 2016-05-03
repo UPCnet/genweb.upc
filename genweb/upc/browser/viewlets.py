@@ -10,11 +10,9 @@ from zope.component import getMultiAdapter
 
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.CMFPlone.utils import safe_unicode
-from Products.CMFCore import permissions
 from plone.app.layout.viewlets.interfaces import IHtmlHead
-from plone.app.layout.viewlets.common import TitleViewlet
-from plone.app.layout.viewlets.interfaces import IAboveContent
-from plone.app.layout.viewlets.interfaces import IAboveContentTitle
+from plone.app.layout.viewlets.common import TitleViewlet, ManagePortletsFallbackViewlet
+from plone.app.layout.viewlets.interfaces import IAboveContent, IAboveContentTitle, IBelowContent
 from plone.app.contenttypes.interfaces import IEvent
 from plone.app.contenttypes.interfaces import INewsItem
 
@@ -25,6 +23,13 @@ from genweb.core.utils import portal_url
 from genweb.theme.browser.viewlets import viewletBase
 from genweb.theme.browser.interfaces import IGenwebTheme
 from genweb.upc.browser.interfaces import IGenwebUPC
+from genweb.upc.content.subhome import ISubhome
+
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.layout.navigation.interfaces import INavigationRoot
+from Products.CMFCore.utils import getToolByName
+from genweb.core.utils import pref_lang
+from AccessControl import getSecurityManager
 
 import re
 
@@ -167,3 +172,51 @@ class gwTitleViewlet(TitleViewlet, viewletBase):
             self.site_title = u"%s &mdash; %s" % (genweb_title, marca_UPC)
         else:
             self.site_title = u"%s &mdash; %s &mdash; %s" % (page_title, genweb_title, marca_UPC)
+
+
+class gwManagePortletsFallbackViewletMixin(object):
+    """ The override for the manage_portlets_fallback viewlet for IPloneSiteRoot
+    """
+
+    render = ViewPageTemplateFile('viewlets_templates/manage_portlets_fallback.pt')
+
+    def getPortletContainerPath(self):
+        context = aq_inner(self.context)
+
+        container_url = context.absolute_url()
+
+        # Portlet container will be in the context,
+        # Except in the portal root, when we look for an alternative
+        if INavigationRoot.providedBy(self.context):
+            pc = getToolByName(context, 'portal_catalog')
+            # Add the use case of mixin types of IHomepages. The main ones of a
+            # non PAM-enabled site and the possible inner ones.
+            result = pc.searchResults(object_provides=IHomePage.__identifier__,
+                                      portal_type='Document',
+                                      Language=pref_lang())
+
+            if result:
+                # Return the object without forcing a getObject()
+                container_url = result[0].getURL()
+
+        return container_url
+
+    def managePortletsURL(self):
+        return "%s/%s" % (self.getPortletContainerPath(), '@@manage-homeportlets')
+
+    def available(self):
+        secman = getSecurityManager()
+
+        if secman.checkPermission('Genweb: Manage home portlets', self.context):
+            return True
+        else:
+            return False
+
+
+class gwManagePortletsFallbackViewletForIHomePage(gwManagePortletsFallbackViewletMixin, ManagePortletsFallbackViewlet, viewletBase):
+    """ The override for the manage_portlets_fallback viewlet for ISubhome
+    """
+    grok.context(ISubhome)
+    grok.name('plone.manage_portlets_fallback')
+    grok.viewletmanager(IBelowContent)
+    grok.layer(IGenwebUPC)

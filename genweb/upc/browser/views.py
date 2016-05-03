@@ -14,12 +14,17 @@ from Products.statusmessages.interfaces import IStatusMessage
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.memoize import ram
 
+from genweb.upc.content.subhome import ISubhome
 from genweb.upc.browser.interfaces import IGenwebUPC
 from genweb.core.utils import genweb_config
-from genweb.theme.browser.views import _render_cachekey
+from genweb.theme.browser.views import _render_cachekey, HomePageBase
+from genweb.theme.browser.interfaces import IHomePageView
 
 import pkg_resources
 import scss
+
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 
 grok.templatedir("views_templates")
 
@@ -166,3 +171,19 @@ class ContactFeedback(grok.View):
 #             assignments = getMultiAdapter((self.context, target), IPortletAssignmentMapping)
 #             from genweb.theme.portlets.news_events_listing import Assignment as news_events_listing_Assignment
 #             assignments['navigation'] = news_events_listing_Assignment([''], u'Events')
+
+class SubhomeView(HomePageBase):
+    """ This is the special view for the subhomepage containing support for the
+        portlet managers provided by the package genweb.portlets.
+        This is the PAM aware default LRF homepage view.
+        It is also used in IFolderish (DX and AT) content for use in inner landing
+        pages.
+    """
+    grok.name('subhome_view')
+    grok.implements(IHomePageView)
+    grok.context(ISubhome)
+    grok.layer(IGenwebUPC)
+
+    def render(self):
+        template = ViewPageTemplateFile('views_templates/subhome_view.pt')
+        return template(self)

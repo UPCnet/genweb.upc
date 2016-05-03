@@ -10,6 +10,21 @@
              title="Contingut existent"
              i18n:attributes="title" />    
 
+<!--    <portletmanager
+         name="genweb.portlets.SubhomePortletManager4"
+         type="genweb.portlets.browser.interfaces.IPortletsHomepage"
+    />
+
+    <portletmanager
+         name="genweb.portlets.SubhomePortletManager5"
+         type="genweb.portlets.browser.interfaces.IPortletsHomepage"
+    />
+
+    <portletmanager
+         name="genweb.portlets.SubhomePortletManager6"
+         type="genweb.portlets.browser.interfaces.IPortletsHomepage"
+    /> -->
+
 <assignment remove="True" name="navigation" category="context" key="/" manager="plone.leftcolumn" type="portlets.Navigation">
 </assignment>
              
