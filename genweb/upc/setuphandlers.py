@@ -33,6 +33,10 @@ def setupVarious(context):
     product_name = 'plone.app.collection'
     qi = getToolByName(portal, 'portal_quickinstaller')
 
+    pl = api.portal.get_tool('portal_languages')
+    pl.setDefaultLanguage('ca')
+    pl.supported_langs = ['ca', 'es', 'en']
+
     if qi.isProductInstalled(product_name):
         qi.uninstallProducts([product_name, ], reinstall=False)
         qi.uninstallProducts(['genweb.upc', ], reinstall=True)
