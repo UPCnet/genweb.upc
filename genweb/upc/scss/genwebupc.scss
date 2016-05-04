@@ -123,6 +123,7 @@ div.content-noticies {
 // alinear selector idioma i caixa cerca amb text menú
 div#gwsearch {
     margin-top: -3px;
+    margin-left: 3px;
 }
 li#portal-languageselector {
     margin-top: -1px;
@@ -238,3 +239,10 @@ li#portal-languageselector {
 
 .icon-genweb-upc-subhome, a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px; }
+
+
+// oculta text si usuari autenticat o no
+.userrole-authenticated .amaga-autenticat,
+.userrole-anonymous .amaga-no-autenticat { 
+  display:none; 
+}

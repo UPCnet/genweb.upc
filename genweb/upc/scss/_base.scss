@@ -93,12 +93,20 @@ background-image: image-url("gh-w.png") !important;
 }
 .logoPropi {height:49px;display:table-cell; vertical-align:middle;min-width: 49px; padding:5px 0;}
 
-#eines {margin:15px 0 0 0;
+#eines {
+	margin:15px 0 0 0;
+	& > li:not(:first-child) > a:before {
+  		content: '·';
+  		margin-right: 3px;
+	}
+
 	& > li > a {
 	  	border-radius: 4px;
 	  	margin-top: 0px;
 	  	padding-bottom: 7px;
 	  	padding-top: 6px;
+	  	padding-left: 0px;
+		padding-right: 2px;
 	}
 	& .input-append {
 	  	border-left: 1px dotted $tableBorder;
