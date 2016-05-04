@@ -236,5 +236,5 @@ li#portal-languageselector {
    width: auto!important;
 }
 
-.icon-genweb-upc-subhome, state-visible contenttype-genweb-upc-subhome {
+.icon-genweb-upc-subhome, a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px; }
