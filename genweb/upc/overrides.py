@@ -10,7 +10,6 @@ class DocumentBylineViewletisReader(DocumentBylineViewlet):
         user = api.user.get(username=userid)
         context = self.context
         roles = user.getRolesInContext(context)
-        import ipdb;ipdb.set_trace()
         for rol in roles:
             if rol in ['Author', 'Owner', 'Editor', 'Contributor', 'Manager', 'Reviewer', 'Site Administrator', 'WebMaster']:
                 return False
