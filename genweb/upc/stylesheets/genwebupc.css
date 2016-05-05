@@ -6420,11 +6420,16 @@ button.pfg-draft-save .badge,
 
 #eines {
   margin: 15px 0 0 0; }
+  #eines > li:not(:first-child) > a:before {
+    content: '·';
+    margin-right: 3px; }
   #eines > li > a {
     border-radius: 4px;
     margin-top: 0px;
     padding-bottom: 7px;
-    padding-top: 6px; }
+    padding-top: 6px;
+    padding-left: 0px;
+    padding-right: 2px; }
   #eines .input-append {
     border-left: 1px dotted #b2b2b2;
     margin-left: 2px;
@@ -8428,6 +8433,9 @@ del, .del {
   color: #c00;
   text-decoration: line-through; }
 
+.white-text, .white_text {
+  color: #fff; }
+
 input[type="file"] {
   position: absolute;
   cursor: pointer;
@@ -9774,6 +9782,9 @@ html {
   animation-direction: alternate;
   animation-timing-function: ease-out; }
 
+@media only screen and (max-width: 979px) {
+  #eines > li > a:before {
+    content: '' !important; } }
 @media only screen and (max-width: 640px) {
   .span6 .portlet-ampliat li > img, .w1\3a 2 .portlet-ampliat li > img, .w2\3a 4 .portlet-ampliat li > img,
   .span7 .portlet-ampliat li > img,
@@ -11435,7 +11446,8 @@ div.content-noticies {
   margin-top: 10px; }
 
 div#gwsearch {
-  margin-top: -3px; }
+  margin-top: -3px;
+  margin-left: 3px; }
 
 li#portal-languageselector {
   margin-top: -1px; }
@@ -11522,5 +11534,9 @@ li#portal-languageselector {
 
 .icon-genweb-upc-subhome, a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px; }
+
+.userrole-authenticated .amaga-autenticat,
+.userrole-anonymous .amaga-no-autenticat {
+  display: none; }
 
 /*# sourceMappingURL=genwebupc.css.map */

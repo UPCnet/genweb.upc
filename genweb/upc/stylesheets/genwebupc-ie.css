@@ -1542,11 +1542,18 @@
   margin: 15px 0 0 0;
 }
 
+#eines > li:not(:first-child) > a:before {
+  content: '·';
+  margin-right: 3px;
+}
+
 #eines > li > a {
   border-radius: 4px;
   margin-top: 0px;
   padding-bottom: 7px;
   padding-top: 6px;
+  padding-left: 0px;
+  padding-right: 2px;
 }
 
 #eines .input-append {
@@ -4831,6 +4838,11 @@ del,
   text-decoration: line-through;
 }
 
+.white-text,
+.white_text {
+  color: #fff;
+}
+
 input[type="file"] {
   position: absolute;
   cursor: pointer;
@@ -6742,6 +6754,12 @@ html {
   animation-iteration-count: 2;
   animation-direction: alternate;
   animation-timing-function: ease-out;
+}
+
+@media only screen and (max-width: 979px) {
+  #eines > li > a:before {
+    content: '' !important;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -8973,6 +8991,7 @@ div.content-noticies {
 
 div#gwsearch {
   margin-top: -3px;
+  margin-left: 3px;
 }
 
 li#portal-languageselector {
@@ -9090,8 +9109,13 @@ li#portal-languageselector {
 }
 
 .icon-genweb-upc-subhome,
-state-visible contenttype-genweb-upc-subhome {
+a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px;
+}
+
+.userrole-authenticated .amaga-autenticat,
+.userrole-anonymous .amaga-no-autenticat {
+  display: none;
 }
 
 /*# sourceMappingURL=genwebupc.css.map */
