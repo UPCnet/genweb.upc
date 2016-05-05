@@ -3,25 +3,18 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="genweb.portlets">
-<head>
-  <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
-  </div>
-</head>
+      i18n:domain="genweb.upc">
 
 <body class="homepage">
 
-  <metal:block fill-slot="top_slot"
-                   tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                               disable_column_two python:request.set('disable_plone.rightcolumn',1)" />
+  <metal:custom_title fill-slot="content-title">
+    <h1 class="documentFirstHeading" tal:content="context/Title"></h1>
+  </metal:custom_title>
 
-  <div metal:fill-slot="portlets_one_slot">
-      <tal:comment tal:replace="nothing">get rid of the left hand column portlets to avoid confusion</tal:comment>
-  </div>
-
-  <div metal:fill-slot="main">
-
-    <div tal:define="view nocall:view;
+  <metal:content-core fill-slot="content-core">
+  <div class="span12">
+    <div class="upc-desc span12">
+      <div tal:define="view nocall:view;
                          have_portlets_slot1 python:view.have_portlets('genweb.portlets.HomePortletManager1', view);
                          have_portlets_slot2 python:view.have_portlets('genweb.portlets.HomePortletManager2', view);
                          have_portlets_slot3 python:view.have_portlets('genweb.portlets.HomePortletManager3', view);
@@ -107,12 +100,9 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
+</metal:content-core>
 
-     
-        <div metal:fill-slot="portlets_two_slot">
-            <tal:comment tal:replace="nothing">get rid of the left hand column portlets to avoid confusion</tal:comment>
-        </div>
-
-    </body>
+</body>
 </html>
