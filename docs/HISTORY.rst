@@ -1,11 +1,26 @@
 Changelog
 =========
 
-2.20 (unreleased)
+2.20 (2016-05-12)
 -----------------
 
-- Nothing changed yet.
-
+* Specify image dimensions in socialtools bar [Santiago Cortes]
+*  [Santiago Cortes]
+* As a part of the Genweb performance enhancement task, the dimensions of the [Santiago Cortes]
+* images on the socialtools bar are fixed for faster rendering and to eliminate [Santiago Cortes]
+* the need for unnecessary reflows and repaints. [Santiago Cortes]
+* oscar css changes [Alberto Duran]
+* view title and navigation portlet at subhome type [Alberto Duran]
+* css: white-text, amaga-identicat, separació opcions menú superior [oscar.albareda]
+* without ipdb [Alberto Duran]
+* roles in context for history viewlet [Alberto Duran]
+* Subhome icon [Alberto Duran]
+* css changes [Alberto Duran]
+* new content type Subhome for genweb [Alberto Duran]
+* mantenir idiomes al reinstalar genweb.upc [Alberto Duran]
+* historial en continguts creats per un altre usuari [Alberto Duran]
+* css for quickedit [Alberto Duran]
+* css form quickedit [Alberto Duran]
 
 2.19 (2016-04-21)
 -----------------
