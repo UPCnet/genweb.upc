@@ -3,4 +3,9 @@
  <layout>
   <content_css value="++genwebupc++stylesheets/genwebupc.css"/>
  </layout>
+ <resourcetypes>
+  <linkable>
+   <element value="genweb.upc.subhome"/>
+  </linkable>
+ </resourcetypes>
 </object>
