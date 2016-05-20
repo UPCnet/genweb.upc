@@ -1,4 +1,4 @@
-<tal:div condition="view/available">
+<tal:div>
     <a class="btn btn-small btn-block"
        tal:attributes="href view/managePortletsURL">
        <i class="icon-cog"></i>
