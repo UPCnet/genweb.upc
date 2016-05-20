@@ -212,6 +212,18 @@ class gwManagePortletsFallbackViewletMixin(object):
         else:
             return False
 
+    def canManageGrid(self):
+        secman = getSecurityManager()
+        user = secman.getUser()
+        context = self.context
+        roles = user.getRolesInContext(context)
+        for rol in roles:
+            if rol in ['Author', 'Owner', 'Editor', 'Contributor', 'Manager', 'Reviewer', 'Site Administrator', 'WebMaster']:
+                return True
+            # Reader or Authenticated or Member
+            else:
+                return False
+
 
 class gwManagePortletsFallbackViewletForIHomePage(gwManagePortletsFallbackViewletMixin, ManagePortletsFallbackViewlet, viewletBase):
     """ The override for the manage_portlets_fallback viewlet for ISubhome

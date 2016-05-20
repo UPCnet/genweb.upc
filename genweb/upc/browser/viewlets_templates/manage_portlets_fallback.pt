@@ -1,4 +1,4 @@
-<tal:div>
+<tal:div condition="view/canManageGrid">
     <a class="btn btn-small btn-block"
        tal:attributes="href view/managePortletsURL">
        <i class="icon-cog"></i>
