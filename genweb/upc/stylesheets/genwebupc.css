@@ -9886,9 +9886,6 @@ html {
     -webkit-background-size: 100%;
     background-size: 100%; }
 
-  .list-highlighted li {
-    content: url('++genweb++static/images/arrow_hl@2x.png?1456412163'); }
-
   .img_blank[src*="blank_"] {
     width: 10px;
     height: 10px; }
