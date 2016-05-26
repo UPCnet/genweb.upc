@@ -389,3 +389,7 @@ select {
 .icon-serveitic {
   background-position: -432px -144px;
 }
+
+.nav > li > a, .contentViews > li > a, .configlets > li > a, .formTabs > li > a >img {
+    display: inline;
+}
