@@ -6,6 +6,7 @@
  <resourcetypes>
   <linkable>
    <element value="genweb.upc.subhome"/>
+   <element value="LIF"/>
   </linkable>
  </resourcetypes>
 </object>
