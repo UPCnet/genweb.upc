@@ -1,11 +1,22 @@
 Changelog
 =========
 
-2.21 (unreleased)
+2.21 (2016-06-02)
 -----------------
 
-- Nothing changed yet.
-
+* Link menu second level [Corina Riba]
+* SCSS to CSS [Corina Riba]
+* Corregir estilos erróneos [Corina Riba]
+* boto seu electronica [Alberto Duran]
+* fitxers compartits linkables desde tiny [Alberto Duran]
+* remove unused css [roberto.diaz]
+* IE8 now loads CSS correctly! [roberto.diaz]
+* Style custom link [Corina Riba]
+* css changes oscar [Alberto Duran]
+* remove wrong style applied to li.list-highlighted on retina.scss [oscar.albareda]
+* permetre a tots els usuaris gestionar la graella de portlets [Alberto Duran]
+* permetre a tots els usuaris gestionar la graella de portlets [Alberto Duran]
+* config tiny subhome [Alberto Duran]
 
 2.20 (2016-05-12)
 -----------------
