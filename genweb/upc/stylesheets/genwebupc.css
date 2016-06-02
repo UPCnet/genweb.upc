@@ -6743,14 +6743,14 @@ button.pfg-draft-save .badge,
     -webkit-box-shadow: inset 0 5px 5px -5px rgba(0, 0, 0, 0.25);
     box-shadow: inset 0 5px 5px -5px rgba(0, 0, 0, 0.25); }
     .subnavbar .nav-list .active ul a, .subnavbar .nav-list .selected ul a {
-      border-top: 0 !important;
+      border-top: 1px solid #d9d9d9 !important;
+      padding: 8px 24px 8px 21px !important;
       font-size: 12px;
       font-weight: normal;
       color: #666;
       margin-left: 0px;
       margin-right: 0px;
       background: transparent !important;
-      padding: 0 !important;
       border-right: 3px solid #007bc0;
       *border-top: 1px solid #fff !important;
       -moz-border-radius: 0 !important;
@@ -6779,21 +6779,14 @@ button.pfg-draft-save .badge,
       .subnavbar .nav-list .active ul a[class^="state-"]:hover, .subnavbar .nav-list .selected ul a[class^="state-"]:hover, .subnavbar .nav-list .active ul a[class*=" state-"]:hover, .subnavbar .nav-list .selected ul a[class*=" state-"]:hover {
         color: #000;
         text-decoration: none; }
-      .subnavbar .nav-list .active ul a span, .subnavbar .nav-list .selected ul a span {
-        border-top: 1px solid #d9d9d9 !important;
-        padding: 8px 0 8px 12px !important;
-        display: block;
-        margin-right: 24px;
-        margin-left: 10px;
-        line-height: 15px; }
-        .subnavbar .nav-list .active ul a span:before, .subnavbar .nav-list .selected ul a span:before {
-          content: ".";
-          color: #007bc0;
-          top: 4px;
-          left: 7px;
-          position: absolute;
-          font-size: 44px;
-          line-height: 0 !important; }
+      .subnavbar .nav-list .active ul a:before, .subnavbar .nav-list .selected ul a:before {
+        content: ".";
+        color: #007bc0;
+        top: 4px;
+        left: 7px;
+        position: absolute;
+        font-size: 44px;
+        line-height: 0 !important; }
       .subnavbar .nav-list .active ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .active ul a[class*=" contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class*=" contenttype-"] span:after {
         background-image: url('++genweb++static/images/gh.png?1450093242');
         background-repeat: no-repeat;
@@ -6845,7 +6838,8 @@ button.pfg-draft-save .badge,
         filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10000);
         opacity: 100; }
     .subnavbar .nav-list .active ul li:first-child a span, .subnavbar .nav-list .selected ul li:first-child a span {
-      border-top: 0 !important; }
+      border-top: 0 !important;
+      padding-left: 0px; }
 
 #portal-personaltools-wrapper .nav a:focus, #portal-personaltools-wrapper .contentViews a:focus, #portal-personaltools-wrapper .configlets a:focus, #portal-personaltools-wrapper .formTabs a:focus {
   background-color: #000; }
