@@ -217,12 +217,11 @@ class gwManagePortletsFallbackViewletMixin(object):
         user = secman.getUser()
         context = self.context
         roles = user.getRolesInContext(context)
-        for rol in roles:
-            if rol in ['Author', 'Owner', 'Editor', 'Contributor', 'Manager', 'Reviewer', 'Site Administrator', 'WebMaster']:
-                return True
-            # Reader or Authenticated or Member
-            else:
-                return False
+        if 'Author' or 'Owner' or 'Editor' or 'Contributor' or 'Manager' or 'Reviewer' or 'Site Administrator' or 'WebMaster' in roles:
+            return True
+        # Reader or Authenticated or Member
+        else:
+            return False
 
 
 class gwManagePortletsFallbackViewletForIHomePage(gwManagePortletsFallbackViewletMixin, ManagePortletsFallbackViewlet, viewletBase):
