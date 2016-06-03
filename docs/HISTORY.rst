@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.22 (unreleased)
+2.22 (2016-06-03)
 -----------------
 
-- Nothing changed yet.
-
+* permissions for manage grid again... [Alberto Duran]
+* correction of style .ploneSkin .mceIframeContainer [oscar.albareda]
 
 2.21 (2016-06-02)
 -----------------
