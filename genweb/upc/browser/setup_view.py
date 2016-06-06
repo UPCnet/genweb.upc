@@ -131,8 +131,9 @@ class setup(grok.View):
         # Let's configure mail
         mail = IMailSchema(portal)
         mail.smtp_host = u'localhost'
-        mail.email_from_name = "Administrador del Genweb"
-        mail.email_from_address = "noreply@upc.edu"
+        if mail.email_from_address in ('noreply@upc.edu', 'no-reply@upcnet.es'):
+            mail.email_from_name = "Administrador del Genweb"
+            mail.email_from_address = "noreply@upc.edu"
 
         # Get rid of the original page
         if getattr(portal_en, 'front-page', False):
