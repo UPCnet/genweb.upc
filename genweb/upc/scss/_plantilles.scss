@@ -32,6 +32,26 @@
   background-color: $blue !important;
   color:$white;
 }
+
+// extra backgrounds
+.purple-background {
+	background-color: lighten($purple, 40%);
+}
+.pink-background {
+	background-color: lighten($pink, 40%);
+}
+.orange-background {
+	background-color: lighten($orange, 30%);	
+}
+.blueDark-background {
+	background-color: lighten($blueDark, 40%);	
+}
+
+.gray-background {background-color: lighten($gray, 30%); }
+.grayLight-background {background-color: lighten($gray, 40%); }
+.grayLighter-background {background-color: lighten($gray, 50%) }
+
+
 /*exten error de plone*/
 .field.error {margin: 0 -5px; padding:0 5px; @include border-radius(6px); @include box-shadow (0 0 5px lighten($red,25%));}
 
