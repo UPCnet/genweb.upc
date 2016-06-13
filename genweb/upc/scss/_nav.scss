@@ -23,6 +23,7 @@
 
 // PORTAL SUBNAV
 // -------------------------
+
 .subnavbar {margin-bottom:18px;}
 .subnavbar .nav-list {
 	border:1px solid #b2b2b2; box-shadow:0 3px 5px #ccc;
@@ -181,7 +182,44 @@
 
 }
 
+
+// fix per a 3er i 4rt nivell
+ul#portlet-navigation-tree {
+	.navTreeLevel2 {
+	    margin-left: 0px !important;
+	    margin-right: 0px !important;
+		a {
+			&:before {
+	    		top: 7px;
+        		left: 19px;
+        		font-size: 33px;
+	    	}
+	    	span {
+	    		padding-left: 10px !important;
+	    	}
+	    }
+
+	}
+
+	.navTreeLevel3 {
+	    margin-left: 0px !important;
+	    margin-right: 0px !important;
+		a {
+			&:before {
+	    		top: 10px;
+        		left: 32px;
+        		font-size: 22px;
+	    	}
+	    	span {
+	    		padding-left: 20px !important;
+	    	}
+	    }
+
+	}
+}
+
 #portal-personaltools-wrapper .nav a:focus {background-color:$black;}
+
 
 
 
