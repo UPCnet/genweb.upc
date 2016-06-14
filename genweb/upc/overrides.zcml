@@ -10,4 +10,10 @@
  		class=".overrides.DocumentBylineViewletisReader"
  		permission="zope2.View"
  	/>
+
+    <subscriber
+        for="plone.dexterity.interfaces.IDexterityContent
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
+
 </configure>
