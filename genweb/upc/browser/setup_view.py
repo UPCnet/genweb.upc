@@ -78,13 +78,7 @@ class setup(grok.View):
                         self.request.response.redirect(base_url)
                 self.setGenwebProperties(gwtype)
             if 'createexamples' in query:
-                if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
-                    self.apply_default_language_settings()
-                    api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
-                gwtype = 'examples'
-                for name in query['createexamples']:
-                    if name == 'all':
-                        self.createExampleContent()
+                self.createExampleContent()
 
     def contentStatus(self):
         objects = [(u'Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),
@@ -572,7 +566,6 @@ class setup(grok.View):
         if 'news_events_listing' not in target_manager_assignments_left:
             target_manager_assignments_left['news_events_listing'] = news_events_Assignment([], 'Events')
 
-
         # Delete default Navigation portlet on root
         target_manager_root = queryUtility(IPortletManager, name='plone.leftcolumn', context=portal)
         target_manager_root_assignments = getMultiAdapter((portal, target_manager_root), IPortletAssignmentMapping)
@@ -694,9 +687,9 @@ class setup(grok.View):
 
     def link_translations(self, items):
         """
-            Links the translations with the declared items with the form:
-            [(obj1, lang1), (obj2, lang2), ...] assuming that the first element
-            is the 'canonical' (in PAM there is no such thing).
+        Links the translations with the declared items with the form:
+        [(obj1, lang1), (obj2, lang2), ...] assuming that the first element
+        is the 'canonical' (in PAM there is no such thing).
         """
         # Grab the first item object and get its canonical handler
         canonical = ITranslationManager(items[0][0])
@@ -733,8 +726,9 @@ class setup(grok.View):
         return object_status
 
     def publish_content(self, context):
-        """ Make the content visible either in both possible genweb.simple and
-            genweb.review workflows.
+        """
+        Make the content visible either in both possible genweb.simple and
+        genweb.review workflows.
         """
         pw = getToolByName(context, "portal_workflow")
         object_workflow = pw.getWorkflowsFor(context)[0].id
