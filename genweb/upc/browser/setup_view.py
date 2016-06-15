@@ -79,6 +79,7 @@ class setup(grok.View):
                 self.setGenwebProperties(gwtype)
             if 'createexamples' in query:
                 self.createExampleContent()
+                self.request.response.redirect(base_url)
 
     def contentStatus(self):
         objects = [(u'Notícies', [('noticies', 'ca'), ('noticias', 'es'), ('news', 'en')]),

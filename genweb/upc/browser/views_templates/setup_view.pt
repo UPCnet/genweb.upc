@@ -58,8 +58,7 @@
                 <input id="setup_view_submit" class="context" type="submit" value="Crear GW n3" name="setup_view_submit"/>
             </form>
             <form method="get" action="@@setup-view">
-                <input type="hidden" name="createexamples">
-                <input id="setup_view_submit" class="context" type="submit" value="Crear contingut de mostra" name="setup_view_submit" />
+                <input id="setup_view_submit" class="context" type="submit" value="Crear contingut de mostra" name="createexamples" />
             </form>
             <form method="get" action="configuraSiteCache" target="_blank">
                 <input id="setup_view_submit" class="context" type="submit" value="Configurar la caché" />
