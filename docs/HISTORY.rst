@@ -1,11 +1,18 @@
 Changelog
 =========
 
-2.23 (unreleased)
+2.23 (2016-06-16)
 -----------------
 
-- Nothing changed yet.
-
+* css oscar compiled [Alberto Duran]
+* Optimized setup-view buttons [Corina Riba]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Corina Riba]
+* Add cache config option [Corina Riba]
+* parche per a fixers compartits hasta nueva version PAM [Alberto Duran]
+* add new styles: align-justify, purple-background, pink-background, orange-background, blueDark-background, gray-background, grayLight-background, grayLighter-background [oscar.albareda]
+* fix navigation style level 3 & 4 [oscar.albareda]
+* Protect contact data [Corina Riba]
+* css oscar changes compiled [Alberto Duran]
 
 2.22 (2016-06-03)
 -----------------
