@@ -1,11 +1,5 @@
-//
 // Plantilles
 // --------------------------------------------------
-
-
-
-
-
 
 /* ABANS EREN LI */
 .success {
@@ -41,16 +35,15 @@
 	background-color: lighten($pink, 40%);
 }
 .orange-background {
-	background-color: lighten($orange, 30%);	
+	background-color: lighten($orange, 30%);
 }
 .blueDark-background {
-	background-color: lighten($blueDark, 40%);	
+	background-color: lighten($blueDark, 40%);
 }
 
 .gray-background {background-color: lighten($gray, 30%); }
 .grayLight-background {background-color: lighten($gray, 40%); }
 .grayLighter-background {background-color: lighten($gray, 50%) }
-
 
 /*exten error de plone*/
 .field.error {margin: 0 -5px; padding:0 5px; @include border-radius(6px); @include box-shadow (0 0 5px lighten($red,25%));}
@@ -64,16 +57,13 @@ a.primary, .primary a, a .primary {
 	color:#ff0;
 }
 
-
-
-
 /*FAQ*/
 .accordion.faq .accordion-heading a  {
 	position:relative;
 	&:after {
 		content:"+";
 	  	//@include box-shadow(0 1px 1px $btnBorder);
-	  	@include border-radius(25px);  	
+	  	@include border-radius(25px);
 	  	background: $grayLight;
 	  	position:absolute;
 	  	font-weight:bold;
@@ -82,7 +72,7 @@ a.primary, .primary a, a .primary {
 	  	color: $white;
 	  	font-size:107.692308%;
 	  	padding:0 6px 2px;
-	  }	
+	  }
 	&:hover {
 		background:#f2f8fb;
 		&:after {background-color:$blue;}
@@ -90,23 +80,21 @@ a.primary, .primary a, a .primary {
 
 }
 
-
 /* COLUMNES AUTO */
 .content-columns-3 {
 	@include content-columns(3,20px)
 }
 .content-columns-2 {
-	@include content-columns(2,20px)	
+	@include content-columns(2,20px)
 }
-
 
 // plantilla pestanyes amb ombra
 
 $beautytabcolor: #b2b2b2;
-.beautytab { 
-	width: 100%; 
+.beautytab {
+	width: 100%;
 
-	ul#myTab { 
+	ul#myTab {
 		display: flex;
       	display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6
   		display: -ms-flexbox;      // TWEENER - IE 10
@@ -118,26 +106,26 @@ $beautytabcolor: #b2b2b2;
 		li.formTab {
 		flex-grow: 1;
 		list-style: none;
-		text-align: center; 
+		text-align: center;
 		border-style: solid;
 		border-color: $beautytabcolor ;
 		-moz-border-top-colors: none;
 		-moz-border-right-colors: none;
 		-moz-border-bottom-colors: none;
 		-moz-border-left-colors: none;
-		padding: 0; 
+		padding: 0;
 		@include gradient-vertical(#fff, lighten($beautytabcolor,15%));
-		border-width:1px 1px 1px 0; 
+		border-width:1px 1px 1px 0;
 		text-decoration:none;
 		@include box-shadow(0 3px 6px rgba(0,0,0,0.1));
-		
+
 		&:hover {
 			@include gradient-vertical(#fff, $beautytabcolor);
 		}
 
 		&.active {
 			@include gradient-vertical(#fff, $beautytabcolor);
-			&:after { 
+			&:after {
 				content: "";
 				float: right;
 				position: relative;
@@ -152,9 +140,9 @@ $beautytabcolor: #b2b2b2;
 		}
 	}
 	a {
-		display:block; 
-		padding: 6px 4px 0px 4px; 
-		color:#4c4c4c; 	 
+		display:block;
+		padding: 6px 4px 0px 4px;
+		color:#4c4c4c;
 		text-shadow: 0 0 0.5em white;
 		&:hover {
 			text-decoration: none;
@@ -171,18 +159,17 @@ $beautytabcolor: #b2b2b2;
 		border-right-width:1px !important;
 		@include border-top-right-radius(0.5em);
 		}
-	}	
+	}
 }
 
 .beautytab-content {
-	border-style: solid; 
-	border-color: $beautytabcolor; 
-	border-width: 0 1px 1px 1px; 
+	border-style: solid;
+	border-color: $beautytabcolor;
+	border-width: 0 1px 1px 1px;
 	padding: 10px 5px;
 	@include border-bottom-right-radius(0.5em);
 	@include border-bottom-left-radius(0.5em);
-	} 
-
+	}
 
 // per a mòbils canviem pestanyes per botons
 @media only screen and (max-width: 360px) {
@@ -211,6 +198,5 @@ $beautytabcolor: #b2b2b2;
 		}
 	 }
 }
-
 
 // fi plantilla pestanyes amb ombra

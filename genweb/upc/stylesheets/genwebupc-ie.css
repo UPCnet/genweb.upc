@@ -2301,6 +2301,36 @@
   padding-left: 0px;
 }
 
+ul#portlet-navigation-tree .navTreeLevel2 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+ul#portlet-navigation-tree .navTreeLevel2 a:before {
+  top: 7px;
+  left: 19px;
+  font-size: 33px;
+}
+
+ul#portlet-navigation-tree .navTreeLevel2 a span {
+  padding-left: 10px !important;
+}
+
+ul#portlet-navigation-tree .navTreeLevel3 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+ul#portlet-navigation-tree .navTreeLevel3 a:before {
+  top: 10px;
+  left: 32px;
+  font-size: 22px;
+}
+
+ul#portlet-navigation-tree .navTreeLevel3 a span {
+  padding-left: 20px !important;
+}
+
 #portal-personaltools-wrapper .nav a:focus,
 #portal-personaltools-wrapper .contentViews a:focus,
 #portal-personaltools-wrapper .configlets a:focus,
@@ -2918,6 +2948,34 @@ dt.contenttype-lrf:before {
 .primary {
   background-color: #007bc0 !important;
   color: #fff;
+}
+
+.purple-background {
+  background-color: #e7dbee;
+}
+
+.pink-background {
+  background-color: #f4bfe1;
+}
+
+.orange-background {
+  background-color: #fdd49a;
+}
+
+.blueDark-background {
+  background-color: #9acbff;
+}
+
+.gray-background {
+  background-color: #b3b3b3;
+}
+
+.grayLight-background {
+  background-color: #cccccc;
+}
+
+.grayLighter-background {
+  background-color: #e6e6e6;
 }
 
 /*exten error de plone*/
@@ -4446,11 +4504,6 @@ També ha de ser aplicable directament al td i a altres elements com les llistes
   border-top: 1px solid #B2B2B2 !important;
 }
 
-/*
-// MIDES SAMARRETA
-// ------------------------- 
-*/
-
 h1,
 h2,
 h3 {
@@ -4620,6 +4673,10 @@ hr.tileHeadline {
 
 .align-right {
   text-align: right;
+}
+
+.align-justify {
+  text-align: justify;
 }
 
 .pdf:after {
