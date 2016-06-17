@@ -108,16 +108,53 @@ z-index: 1020 !important;
     float:right;
     margin-left:10px;
     border: 1px solid #ccc;
-    padding:3px;
+    padding: 0px;
 }
 
 div.content-noticies {
     overflow: hidden;
 }
 
+// vista notíces full
+.noticies-full {
+  padding: 20px 0 15px 0;
+  &+h3 {
+    padding-top: 0px;
+    margin-top: 0px;
+    color: $blue;
+  }
+  .portlet-ampliat .list-portlet li  {
+    padding-top: 8px;
+  }
+}
+.image-noticies-full {
+    border: 0;
+    padding: 0px;
+    max-width: 100%;
+}
+
 .listingBar {
     margin-top: 10px;
 }
+
+// vista notícies full 2 cols
+.noticies-full-2cols {
+  hr {
+    margin: 5px 0 3% 0;
+  }
+  .noticia-full-2cols:last-child hr { //amaga darrer hr
+    display: none;
+  }
+  .noticies-full {
+    padding: 15px;
+  }
+}
+@media only screen and (max-width: 979px) { // mostrar darrer hr en columna esquerra en mobil
+  #pair-news hr {
+    display: block;
+  }
+}
+
 
 
 // alinear selector idioma i caixa cerca amb text menú
