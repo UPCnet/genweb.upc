@@ -204,6 +204,9 @@ class gwManagePortletsFallbackViewletMixin(object):
     def managePortletsURL(self):
         return "%s/%s" % (self.getPortletContainerPath(), '@@manage-homeportlets')
 
+    def manageSubhomePortletsURL(self):
+        return "%s/%s" % (self.getPortletContainerPath(), '@@manage-subhome')
+
     def available(self):
         secman = getSecurityManager()
 

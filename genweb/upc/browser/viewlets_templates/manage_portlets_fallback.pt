@@ -1,6 +1,6 @@
 <tal:div condition="view/canManageGrid">
     <a class="btn btn-small btn-block"
-       tal:attributes="href view/managePortletsURL">
+       tal:attributes="href view/manageSubhomePortletsURL">
        <i class="icon-cog"></i>
        <tal:adminPortlets i18n:domain="genweb"
                           i18n:translate="manage_subhomeportlets_link">
