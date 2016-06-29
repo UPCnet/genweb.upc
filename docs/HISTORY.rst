@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.24 (unreleased)
+2.24 (2016-06-29)
 -----------------
 
-- Nothing changed yet.
-
+* compiled style: remove helvetica neue and change order to Arial, Helvetica [oscar.albareda]
+* style: remove helvetica neue and change order to Arial, Helvetica [oscar.albareda]
+* indenpendent view for subhome type [Alberto Duran]
+* estilos notícias [Corina Riba]
+* styling new views in fullnews portlet [oscar.albareda]
 
 2.23 (2016-06-16)
 -----------------
