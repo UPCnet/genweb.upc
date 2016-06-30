@@ -9022,15 +9022,53 @@ a#calendar-previous {
   float: right;
   margin-left: 10px;
   border: 1px solid #ccc;
-  padding: 3px;
+  padding: 0px;
 }
 
 div.content-noticies {
   overflow: hidden;
 }
 
+.noticies-full {
+  padding: 20px 0 15px 0;
+}
+
+.noticies-full + h3 {
+  padding-top: 0px;
+  margin-top: 0px;
+  color: #007bc0;
+}
+
+.noticies-full .portlet-ampliat .list-portlet li {
+  padding-top: 8px;
+}
+
+.image-noticies-full {
+  border: 0;
+  padding: 0px;
+  max-width: 100%;
+}
+
 .listingBar {
   margin-top: 10px;
+}
+
+.noticies-full-2cols hr {
+  margin: 5px 0 3% 0;
+}
+
+.noticies-full-2cols .noticia-full-2cols:last-child hr {
+  display: none;
+}
+
+.noticies-full-2cols .noticies-full {
+  padding: 15px;
+}
+
+@media only screen and (max-width: 979px) {
+  #pair-news hr {
+    display: block;
+  }
 }
 
 div#gwsearch {
