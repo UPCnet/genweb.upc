@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.25 (unreleased)
+2.25 (2016-06-30)
 -----------------
 
-- Nothing changed yet.
-
+* css nou portlet noticies compilat [Alberto Duran]
 
 2.24 (2016-06-29)
 -----------------
