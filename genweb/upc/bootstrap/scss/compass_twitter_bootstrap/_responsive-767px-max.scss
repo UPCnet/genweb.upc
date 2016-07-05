@@ -48,7 +48,7 @@
       margin:0;
     }
     & li {
-      padding: 8px !important;
+      padding: 8px;
     }
   }
 
@@ -189,18 +189,18 @@
 
   // canviem les pestanyes a botons però NO quan estan dins editor tiny
   body:not(.mceContentBody) {
-	.nav-tabs, .contentViews, .configlets, #edit-bar {
-	    border-bottom: 0px !important;
-	    box-shadow: 0 0px 0px 0px black inset !important;
-	}
+  .nav-tabs, .contentViews, .configlets, #edit-bar {
+      border-bottom: 0px !important;
+      box-shadow: 0 0px 0px 0px black inset !important;
+  }
 
-	.nav-tabs > li > a, .contentViews > li > a, .configlets > li > a {
-	  border-radius: 4px;
-	}
+  .nav-tabs > li > a, .contentViews > li > a, .configlets > li > a {
+    border-radius: 4px;
+  }
 
-	.nav-tabs > .active > a, .contentViews > .active > a, .configlets > .active > a, .nav-tabs > .selected > a, .configlets > .selected > a, .nav-tabs > .active > a:hover, .contentViews > .active > a:hover, .configlets > .active > a:hover, .nav-tabs > .selected > a:hover, .configlets > .selected > a:hover {
-		border-color: #b2b2b2 !important;
-	}	
+  .nav-tabs > .active > a, .contentViews > .active > a, .configlets > .active > a, .nav-tabs > .selected > a, .configlets > .selected > a, .nav-tabs > .active > a:hover, .contentViews > .active > a:hover, .configlets > .active > a:hover, .nav-tabs > .selected > a:hover, .configlets > .selected > a:hover {
+    border-color: #b2b2b2 !important;
+  } 
   }
   
 
@@ -221,12 +221,12 @@
   #tab-pdf { display: none; } // ocultem generació fitxa pdf
 
   #tab-academic-information, #tab-admission { // mostrem la taula en format continu
-  	tr, th, td {
-  		display: block;
-  		border-top: 0 !important;
-  		border-bottom: 0 !important;
-  	}
-  	th { background: transparent !important; }
+    tr, th, td {
+      display: block;
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+    }
+    th { background: transparent !important; }
   }
 
   .unit-content .unit-picture, .studies { display:none;} // oculta imatge centre i llista estudis
@@ -285,10 +285,10 @@
   }
 
   #eines {
-    input {width:65%;}
+    //input {width:65%;}
     button {width:34%; line-height:20px;}
     a {
-      margin: 0 0 20px 0!important; //canvi espai entre opcions menú eines 0->20 només per a telèfon
+      margin: 0 0 5px 0!important; //canvi espai entre opcions menú eines 0->10 només per a telèfon
     }
   }
 
