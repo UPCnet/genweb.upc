@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.26 (unreleased)
+2.26 (2016-07-06)
 -----------------
 
-- Nothing changed yet.
-
+* fix tools menu in mobile version: search box, language selector, padding & margin [oscar.albareda]
 
 2.25 (2016-06-30)
 -----------------
