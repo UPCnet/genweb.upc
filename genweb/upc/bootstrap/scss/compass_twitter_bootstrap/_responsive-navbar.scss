@@ -102,13 +102,21 @@
     #portal-globalnav .nav-collapse .nav > li > a,
     #portal-globalnav .nav-collapse .dropdown-menu a, 
     .nav-collapse-eines.nav-collapse .nav > li > a,
-    .nav-collapse-eines.nav-collapse .dropdown-menu a {
+    .nav-collapse-eines.nav-collapse .dropdown-menu a,
+    #custom-link {
         padding: 0;
         font-weight: bold;
         color: $white;
         @include border-radius(3px);
     }
-
+    #custom-link {
+      padding-bottom: 10px;
+    }
+    #menu-1 {
+      a {
+        padding: 10px 5px 10px 5px !important;
+      }
+    }
     // Buttons
     #portal-globalnav .nav-collapse .btn {
         padding: 4px 10px 4px;

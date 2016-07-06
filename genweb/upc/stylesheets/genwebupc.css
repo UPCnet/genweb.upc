@@ -8282,7 +8282,8 @@ button.pfg-draft-save .badge,
   .nav-collapse-eines.nav-collapse .contentViews > li > a,
   .nav-collapse-eines.nav-collapse .configlets > li > a,
   .nav-collapse-eines.nav-collapse .formTabs > li > a,
-  .nav-collapse-eines.nav-collapse .dropdown-menu a {
+  .nav-collapse-eines.nav-collapse .dropdown-menu a,
+  #custom-link {
     padding: 0;
     font-weight: bold;
     color: #fff;
@@ -8291,7 +8292,17 @@ button.pfg-draft-save .badge,
     border-radius: 3px;
   }
 
-  /* line 113, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 112, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  #custom-link {
+    padding-bottom: 10px;
+  }
+
+  /* line 116, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  #menu-1 a {
+    padding: 10px 5px 10px 5px !important;
+  }
+
+  /* line 121, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .btn, #portal-globalnav .nav-collapse .standalone, #portal-globalnav .nav-collapse input[value^="Cancel"], #portal-globalnav .nav-collapse [type="submit"], #portal-globalnav .nav-collapse .context, #portal-globalnav .nav-collapse .searchButton, #portal-globalnav .nav-collapse button.pfg-draft-save, #portal-globalnav .nav-collapse .link-parent {
     padding: 4px 10px 4px;
     font-weight: normal;
@@ -8300,30 +8311,30 @@ button.pfg-draft-save .badge,
     border-radius: 4px;
   }
 
-  /* line 118, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 126, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
 
-  /* line 121, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 129, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .nav > li > a:hover, #portal-globalnav .nav-collapse .contentViews > li > a:hover, #portal-globalnav .nav-collapse .configlets > li > a:hover, #portal-globalnav .nav-collapse .formTabs > li > a:hover,
   #portal-globalnav .nav-collapse .dropdown-menu a:hover {
     background-color: #e0e0e0;
   }
 
-  /* line 125, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 133, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .navbar-inverse .nav-collapse .nav > li > a:hover, #portal-globalnav .navbar-inverse .nav-collapse .contentViews > li > a:hover, #portal-globalnav .navbar-inverse .nav-collapse .configlets > li > a:hover, #portal-globalnav .navbar-inverse .nav-collapse .formTabs > li > a:hover,
   #portal-globalnav .navbar-inverse .nav-collapse .dropdown-menu a:hover {
     background-color: #111;
   }
 
-  /* line 130, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 138, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse.in .btn-group {
     margin-top: 5px;
     padding: 0;
   }
 
-  /* line 135, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 143, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .dropdown-menu,
   .nav-collapse-eines.nav-collapse .dropdown-menu {
     position: static;
@@ -8343,18 +8354,18 @@ button.pfg-draft-save .badge,
     box-shadow: none;
   }
 
-  /* line 150, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 158, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .dropdown-menu:before,
   #portal-globalnav .nav-collapse .dropdown-menu:after {
     display: none;
   }
 
-  /* line 154, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 162, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .dropdown-menu .divider {
     display: none;
   }
 
-  /* line 158, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 166, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse .navbar-form,
   #portal-globalnav .nav-collapse .navbar-search {
     float: none;
@@ -8367,36 +8378,36 @@ button.pfg-draft-save .badge,
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* line 168, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 176, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .navbar .nav-collapse .nav.pull-right, #portal-globalnav .navbar .nav-collapse .pull-right.contentViews, #portal-globalnav .navbar .nav-collapse .contentViews.newsImageContainer, #portal-globalnav .navbar .nav-collapse .pull-right.configlets, #portal-globalnav .navbar .nav-collapse .configlets.newsImageContainer, #portal-globalnav .navbar .nav-collapse .nav.newsImageContainer, #portal-globalnav .navbar .nav-collapse .newsImageContainer.formTabs, #portal-globalnav .navbar .nav-collapse .pull-right.formTabs {
     float: none;
     margin-left: 0;
   }
 
-  /* line 173, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 181, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav-collapse,
   #portal-globalnav .nav-collapse.collapse {
     overflow: hidden;
     height: 0;
   }
 
-  /* line 179, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 187, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .navbar .btn-navbar {
     display: block;
   }
 
-  /* line 183, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 191, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-header .btn-navbar.pull-right, #portal-header .btn-navbar.newsImageContainer {
     margin-top: 18px;
   }
 
-  /* line 184, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 192, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse-eines.nav-collapse {
     overflow: hidden;
     height: 0;
   }
 
-  /* line 185, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 193, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse-eines.nav-collapse .nav, .nav-collapse-eines.nav-collapse .contentViews, .nav-collapse-eines.nav-collapse .configlets, .nav-collapse-eines.nav-collapse .formTabs {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -8409,29 +8420,29 @@ button.pfg-draft-save .badge,
     box-shadow: inset 0 2px 5px 2px rgba(0, 0, 0, 0.15);
   }
 
-  /* line 186, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 194, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse-eines.nav-collapse .nav .dropdown-toggle, .nav-collapse-eines.nav-collapse .contentViews .dropdown-toggle, .nav-collapse-eines.nav-collapse .configlets .dropdown-toggle, .nav-collapse-eines.nav-collapse .formTabs .dropdown-toggle {
     display: block;
   }
 
-  /* line 187, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 195, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse-eines.nav-collapse a {
     color: #007bc0 !important;
   }
 
-  /* line 190, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 198, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .navbar-static .navbar-inner {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  /* line 194, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 202, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav, #portal-globalnav .contentViews, #portal-globalnav .configlets, #portal-globalnav .formTabs {
     margin-bottom: 0 !important;
     border-top: 1px solid #b2b2b2;
   }
 
-  /* line 195, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 203, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav a, #portal-globalnav .contentViews a, #portal-globalnav .configlets a, #portal-globalnav .formTabs a {
     color: #666 !important;
     border-bottom: 0 !important;
@@ -8440,117 +8451,117 @@ button.pfg-draft-save .badge,
     border-radius: 0 !important;
     margin-bottom: 0 !important;
   }
-  /* line 196, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 204, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .nav a:focus, #portal-globalnav .contentViews a:focus, #portal-globalnav .configlets a:focus, #portal-globalnav .formTabs a:focus, #portal-globalnav .nav a:hover, #portal-globalnav .contentViews a:hover, #portal-globalnav .configlets a:hover, #portal-globalnav .formTabs a:hover {
     color: #222 !important;
   }
 
-  /* line 198, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 206, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .state-published, #portal-globalnav #workflow-transition-publish {
     border-right: 3px solid #007bc0 !important;
   }
 
-  /* line 199, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 207, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .state-draft, #portal-globalnav #workflow-transition-reject, #portal-globalnav #workflow-transition-retiraaesborrany, #portal-globalnav #workflow-transition-show {
     border-right: 3px solid #72a31d !important;
   }
 
-  /* line 200, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 208, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .state-pending, #portal-globalnav #workflow-transition-submit {
     border-right: 3px solid #ad6704 !important;
   }
 
-  /* line 201, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 209, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .state-intranet, #portal-globalnav #workflow-transition-publishtointranet, #portal-globalnav #workflow-transition-publicaalaintranet, #portal-globalnav #workflow-transition-retracttointranet, #portal-globalnav #workflow-transition-retiraalaintranet {
     border-right: 3px solid #8952ab !important;
   }
 
-  /* line 202, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 210, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   #portal-globalnav .state-private, #portal-globalnav #workflow-transition-hide {
     border-right: 3px solid #a62e1f !important;
   }
 }
 @media only screen and (max-width: 639px), only screen and (max-width: 639px) and (orientation: landscape) {
-  /* line 215, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 223, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-fixed-top, .navbar-fixed-bottom {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 218, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 226, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     position: static;
   }
 
-  /* line 220, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 228, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-fixed-top {
     margin-bottom: 18px;
   }
 
-  /* line 221, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 229, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-fixed-bottom {
     margin-top: 18px;
   }
 
-  /* line 222, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 230, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-fixed-top .navbar-inner,
   .navbar-fixed-bottom .navbar-inner {
     padding: 5px;
   }
 
-  /* line 224, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 232, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar .container {
     width: auto;
     padding: 0;
   }
 
-  /* line 226, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 234, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar .brand {
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 0 0 -5px;
   }
 
-  /* line 228, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 236, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-fixed-top, #portal-globalnav .navbar-fixed-bottom {
     margin-left: -10px;
     margin-right: -10px;
   }
 
-  /* line 232, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 240, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse {
     clear: both;
   }
 
-  /* line 234, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 242, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav, .nav-collapse .contentViews, .nav-collapse .configlets, .nav-collapse .formTabs {
     float: none;
     margin: 0 0 9px;
   }
 
-  /* line 238, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 246, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav > li, .nav-collapse .contentViews > li, .nav-collapse .configlets > li, .nav-collapse .formTabs > li {
     float: none;
   }
 
-  /* line 241, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 249, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav > li > a, .nav-collapse .contentViews > li > a, .nav-collapse .configlets > li > a, .nav-collapse .formTabs > li > a {
     margin-bottom: 2px;
   }
 
-  /* line 244, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 252, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav > .divider-vertical, .nav-collapse .contentViews > .divider-vertical, .nav-collapse .configlets > .divider-vertical, .nav-collapse .formTabs > .divider-vertical {
     display: none;
   }
 
-  /* line 247, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 255, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav .nav-header, .nav-collapse .contentViews .nav-header, .nav-collapse .configlets .nav-header, .nav-collapse .formTabs .nav-header {
     color: #666;
     text-shadow: none;
   }
 
-  /* line 252, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav > li > a, .nav-collapse .contentViews > li > a, .nav-collapse .configlets > li > a, .nav-collapse .formTabs > li > a,
   .nav-collapse .dropdown-menu a {
     padding: 9px 15px;
@@ -8561,7 +8572,7 @@ button.pfg-draft-save .badge,
     border-radius: 3px;
   }
 
-  /* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 269, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .btn, .nav-collapse .standalone, .nav-collapse input[value^="Cancel"], .nav-collapse [type="submit"], .nav-collapse .context, .nav-collapse .searchButton, .nav-collapse button.pfg-draft-save, .nav-collapse .link-parent {
     padding: 4px 10px 4px;
     font-weight: normal;
@@ -8570,30 +8581,30 @@ button.pfg-draft-save .badge,
     border-radius: 4px;
   }
 
-  /* line 266, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 274, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
 
-  /* line 269, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 277, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .nav > li > a:hover, .nav-collapse .contentViews > li > a:hover, .nav-collapse .configlets > li > a:hover, .nav-collapse .formTabs > li > a:hover,
   .nav-collapse .dropdown-menu a:hover {
     background-color: #e0e0e0;
   }
 
-  /* line 273, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 281, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-inverse .nav-collapse .nav > li > a:hover, .navbar-inverse .nav-collapse .contentViews > li > a:hover, .navbar-inverse .nav-collapse .configlets > li > a:hover, .navbar-inverse .nav-collapse .formTabs > li > a:hover,
   .navbar-inverse .nav-collapse .dropdown-menu a:hover {
     background-color: #111;
   }
 
-  /* line 278, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 286, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse.in .btn-group {
     margin-top: 5px;
     padding: 0;
   }
 
-  /* line 283, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 291, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .dropdown-menu {
     position: static;
     top: auto;
@@ -8612,23 +8623,23 @@ button.pfg-draft-save .badge,
     box-shadow: none;
   }
 
-  /* line 298, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 306, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse.nav-collapse-edit .dropdown-menu {
     display: block;
   }
 
-  /* line 302, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 310, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .dropdown-menu:before,
   .nav-collapse .dropdown-menu:after {
     display: none;
   }
 
-  /* line 306, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 314, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .dropdown-menu .divider {
     display: none;
   }
 
-  /* line 310, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 318, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse .navbar-form,
   .nav-collapse .navbar-search {
     float: none;
@@ -8641,32 +8652,32 @@ button.pfg-draft-save .badge,
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* line 320, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 328, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar .nav-collapse .nav.pull-right, .navbar .nav-collapse .pull-right.contentViews, .navbar .nav-collapse .contentViews.newsImageContainer, .navbar .nav-collapse .pull-right.configlets, .navbar .nav-collapse .configlets.newsImageContainer, .navbar .nav-collapse .nav.newsImageContainer, .navbar .nav-collapse .newsImageContainer.formTabs, .navbar .nav-collapse .pull-right.formTabs {
     float: none;
     margin-left: 0;
   }
 
-  /* line 325, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 333, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .nav-collapse,
   .nav-collapse.collapse {
     overflow: hidden;
     height: 0;
   }
 
-  /* line 331, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 339, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar .btn-navbar {
     display: block;
   }
 
-  /* line 337, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 345, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   .navbar-static .navbar-inner {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  /* line 344, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
+  /* line 352, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-navbar.scss */
   * .reView {
     display: none !important;
   }
