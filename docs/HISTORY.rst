@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.27 (unreleased)
+2.27 (2016-07-06)
 -----------------
 
-- Nothing changed yet.
-
+* fix mobile custom link and menu-1 [oscar.albareda]
 
 2.26 (2016-07-06)
 -----------------
