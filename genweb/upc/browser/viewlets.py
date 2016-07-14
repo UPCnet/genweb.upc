@@ -220,7 +220,7 @@ class gwManagePortletsFallbackViewletMixin(object):
         user = secman.getUser()
         context = self.context
         roles = user.getRolesInContext(context)
-        if 'Author' or 'Owner' or 'Editor' or 'Contributor' or 'Manager' or 'Reviewer' or 'Site Administrator' or 'WebMaster' in roles:
+        if 'Author' in roles or 'Owner' in roles or 'Editor' in roles or 'Contributor' in roles or 'Manager' in roles or 'Reviewer' in roles or 'Site Administrator' in roles or 'WebMaster' in roles:
             return True
         # Reader or Authenticated or Member
         else:
