@@ -20,8 +20,6 @@ from genweb.core.utils import genweb_config
 from genweb.theme.browser.views import _render_cachekey, HomePageBase
 from genweb.theme.browser.interfaces import IHomePageView
 
-from Products.CMFCore.interfaces import IFolderish
-
 import pkg_resources
 import scss
 
@@ -206,7 +204,7 @@ class ArticleView(grok.View):
         self.request = request
 
     def render(self):
-        template = ViewPageTemplateFile('views_templates/article2.pt')
+        template = ViewPageTemplateFile('views_templates/article.pt')
         return template(self)
 
     def getImageBrains(self):
@@ -215,8 +213,3 @@ class ArticleView(grok.View):
         return catalog.searchResults(path=dict(query=folder_path, depth=1),
                                      portal_type='Image',
                                      sort_on='getObjPositionInParent')
-
-    def getFiles(self):
-        items = self.context.getRelatedItems()
-        result = [dict(title=item.title_or_id(), url=item.absolute_url()) for item in items]
-        return result

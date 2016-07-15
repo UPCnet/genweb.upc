@@ -13,4 +13,8 @@
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
   <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
  </property>
+ <property name="view_methods">
+  <element value="document_view"/>
+  <element value="article"/>
+ </property>
 </object>
