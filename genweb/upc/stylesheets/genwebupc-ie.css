@@ -1793,7 +1793,7 @@
 }
 
 #canvia-vista a {
-  background: url('++genweb++static/images/vistabg.png?1456412163') #666;
+  background: url('++genweb++static/images/vistabg.png') #666;
   text-align: center;
   -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
