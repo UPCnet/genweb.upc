@@ -16429,17 +16429,12 @@ li#portal-languageselector {
 }
 
 /* line 308, ../scss/genwebupc.scss */
-#article_body {
-  float: left;
-}
-
-/* line 312, ../scss/genwebupc.scss */
 .article_thumbs {
   list-style: none;
   width: 100%;
 }
 
-/* line 317, ../scss/genwebupc.scss */
+/* line 313, ../scss/genwebupc.scss */
 .article_thumbs li {
   width: 112px;
   margin: 10px;
@@ -16447,7 +16442,7 @@ li#portal-languageselector {
   /* float: left; */
 }
 
-/* line 324, ../scss/genwebupc.scss */
+/* line 320, ../scss/genwebupc.scss */
 .article_thumbs img {
   width: 112px;
   padding: 6px;
@@ -16455,7 +16450,7 @@ li#portal-languageselector {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.32);
 }
 
-/* line 331, ../scss/genwebupc.scss */
+/* line 327, ../scss/genwebupc.scss */
 #article_relateditems {
   border: 1px solid #d9d9d9;
   padding: 9px;
