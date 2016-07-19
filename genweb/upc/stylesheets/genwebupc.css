@@ -9173,7 +9173,7 @@ button.pfg-draft-save .badge,
 }
 /* line 222, ../scss/_base.scss */
 #canvia-vista a {
-  background: url('++genweb++static/images/vistabg.png') #666;
+  background: url('++genweb++static/images/vistabg.png?1468833481') #666;
   text-align: center;
   -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
@@ -11374,7 +11374,7 @@ NOTEBOOK
   border-top: 3px double #ffb68d !important;
 }
 
-/*
+/* 
 .table
 .table-striped
 .table-bordered
@@ -16128,41 +16128,41 @@ a#calendar-previous {
   width: 12px;
 }
 
-/* line 38, ../scss/genwebupc.scss */
+/* line 29, ../scss/genwebupc.scss */
 .searchSection label {
   font-size: 10px;
 }
 
-/* line 42, ../scss/genwebupc.scss */
+/* line 33, ../scss/genwebupc.scss */
 .searchSection {
   margin-bottom: 5px;
   margin-top: -5px;
 }
 
-/* line 48, ../scss/genwebupc.scss */
+/* line 39, ../scss/genwebupc.scss */
 .tt-dropdown-menu {
   z-index: 1020 !important;
 }
 
-/* line 52, ../scss/genwebupc.scss */
+/* line 43, ../scss/genwebupc.scss */
 .hCalendar-hidden {
   display: none;
 }
 
-/* line 60, ../scss/genwebupc.scss */
+/* line 51, ../scss/genwebupc.scss */
 #folder-index-view ul {
   list-style-type: none;
 }
-/* line 64, ../scss/genwebupc.scss */
+/* line 55, ../scss/genwebupc.scss */
 #folder-index-view h3 {
   margin-bottom: 30px !important;
   margin-top: 0 !important;
 }
-/* line 69, ../scss/genwebupc.scss */
+/* line 60, ../scss/genwebupc.scss */
 #folder-index-view h3 + ul {
   margin-top: -20px !important;
 }
-/* line 73, ../scss/genwebupc.scss */
+/* line 64, ../scss/genwebupc.scss */
 #folder-index-view .index-img {
   height: 90px;
   width: 90px;
@@ -16173,29 +16173,29 @@ a#calendar-previous {
   background-color: #fff;
   padding: 0.4em;
 }
-/* line 84, ../scss/genwebupc.scss */
+/* line 75, ../scss/genwebupc.scss */
 #folder-index-view .level-3 li {
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
 
-/* line 90, ../scss/genwebupc.scss */
+/* line 81, ../scss/genwebupc.scss */
 .folder-index-view-dreta {
   border-left: 1px solid #ccc;
 }
 
-/* line 94, ../scss/genwebupc.scss */
+/* line 85, ../scss/genwebupc.scss */
 .folder-index-view-row {
   border-bottom: 3px solid #ccc;
   margin-bottom: 10px;
 }
 
-/* line 100, ../scss/genwebupc.scss */
+/* line 91, ../scss/genwebupc.scss */
 .portlet-content {
   padding: 3% 3% 1% 3%;
 }
 
-/* line 106, ../scss/genwebupc.scss */
+/* line 97, ../scss/genwebupc.scss */
 .image-noticies {
   max-width: 75px;
   float: right;
@@ -16204,73 +16204,73 @@ a#calendar-previous {
   padding: 0px;
 }
 
-/* line 114, ../scss/genwebupc.scss */
+/* line 105, ../scss/genwebupc.scss */
 div.content-noticies {
   overflow: hidden;
 }
 
-/* line 119, ../scss/genwebupc.scss */
+/* line 110, ../scss/genwebupc.scss */
 .noticies-full {
   padding: 20px 0 15px 0;
 }
-/* line 121, ../scss/genwebupc.scss */
+/* line 112, ../scss/genwebupc.scss */
 .noticies-full + h3 {
   padding-top: 0px;
   margin-top: 0px;
   color: #007bc0;
 }
-/* line 126, ../scss/genwebupc.scss */
+/* line 117, ../scss/genwebupc.scss */
 .noticies-full .portlet-ampliat .list-portlet li {
   padding-top: 8px;
 }
 
-/* line 130, ../scss/genwebupc.scss */
+/* line 121, ../scss/genwebupc.scss */
 .image-noticies-full {
   border: 0;
   padding: 0px;
   max-width: 100%;
 }
 
-/* line 136, ../scss/genwebupc.scss */
+/* line 127, ../scss/genwebupc.scss */
 .listingBar {
   margin-top: 10px;
 }
 
-/* line 142, ../scss/genwebupc.scss */
+/* line 133, ../scss/genwebupc.scss */
 .noticies-full-2cols hr {
   margin: 5px 0 3% 0;
 }
-/* line 145, ../scss/genwebupc.scss */
+/* line 136, ../scss/genwebupc.scss */
 .noticies-full-2cols .noticia-full-2cols:last-child hr {
   display: none;
 }
-/* line 148, ../scss/genwebupc.scss */
+/* line 139, ../scss/genwebupc.scss */
 .noticies-full-2cols .noticies-full {
   padding: 15px;
 }
 
 @media only screen and (max-width: 979px) {
-  /* line 153, ../scss/genwebupc.scss */
+  /* line 144, ../scss/genwebupc.scss */
   #pair-news hr {
     display: block;
   }
 }
-/* line 160, ../scss/genwebupc.scss */
+/* line 151, ../scss/genwebupc.scss */
 div#gwsearch {
   margin-top: -3px;
   margin-left: 3px;
 }
 
-/* line 164, ../scss/genwebupc.scss */
+/* line 155, ../scss/genwebupc.scss */
 li#portal-languageselector {
   margin-top: -1px;
 }
 
-/* line 172, ../scss/genwebupc.scss */
+/* line 163, ../scss/genwebupc.scss */
 .event_listing {
   margin-top: 22px;
 }
-/* line 174, ../scss/genwebupc.scss */
+/* line 165, ../scss/genwebupc.scss */
 .event_listing header {
   border: 1px solid #CCCCCC !important;
   -moz-border-radius: 4px;
@@ -16286,31 +16286,31 @@ li#portal-languageselector {
   padding: 10px 15px 10px 5px;
   width: 9%;
 }
-/* line 184, ../scss/genwebupc.scss */
+/* line 175, ../scss/genwebupc.scss */
 .event_listing header .selected {
   font-weight: bold;
 }
-/* line 189, ../scss/genwebupc.scss */
+/* line 180, ../scss/genwebupc.scss */
 .event_listing section {
   float: left;
   width: 80%;
 }
-/* line 194, ../scss/genwebupc.scss */
+/* line 185, ../scss/genwebupc.scss */
 .event_listing .cal_date {
   display: none;
 }
-/* line 198, ../scss/genwebupc.scss */
+/* line 189, ../scss/genwebupc.scss */
 .event_listing .documentByLine {
   padding-bottom: 10px;
 }
 
-/* line 206, ../scss/genwebupc.scss */
+/* line 197, ../scss/genwebupc.scss */
 .portaltype-bannercontainer #upload-files,
 .portaltype-logos_container #upload-files {
   display: none;
 }
 
-/* line 212, ../scss/genwebupc.scss */
+/* line 203, ../scss/genwebupc.scss */
 .existing_content_portlet {
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -16321,7 +16321,7 @@ li#portal-languageselector {
   margin-bottom: 20px;
   border: 1px solid #b2b2b2;
 }
-/* line 217, ../scss/genwebupc.scss */
+/* line 208, ../scss/genwebupc.scss */
 .existing_content_portlet h2.portlet-title {
   margin: 0;
   font-size: 107%;
@@ -16330,7 +16330,7 @@ li#portal-languageselector {
   line-height: 18px;
   position: relative;
 }
-/* line 225, ../scss/genwebupc.scss */
+/* line 216, ../scss/genwebupc.scss */
 .existing_content_portlet h2.portlet-title i {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=7500);
   opacity: 75;
@@ -16338,28 +16338,28 @@ li#portal-languageselector {
   *top: 10px;
   *right: 15px;
 }
-/* line 232, ../scss/genwebupc.scss */
+/* line 223, ../scss/genwebupc.scss */
 .existing_content_portlet ul:last-child {
   border-bottom: 0 !important;
 }
 
-/* line 238, ../scss/genwebupc.scss */
+/* line 229, ../scss/genwebupc.scss */
 .existing_content_portlet_no_border > .portlet-content {
   padding: 0;
 }
 
-/* line 244, ../scss/genwebupc.scss */
+/* line 235, ../scss/genwebupc.scss */
 .portlet-content .share_popover {
   display: none;
 }
 
-/* line 251, ../scss/genwebupc.scss */
+/* line 242, ../scss/genwebupc.scss */
 .section-noticies #plone-contentmenu-display, .section-noticias #plone-contentmenu-display, .section-news #plone-contentmenu-display,
 .section-esdeveniments #plone-contentmenu-display, .section-eventos #plone-contentmenu-display, .section-events #plone-contentmenu-display {
   display: none;
 }
 
-/* line 257, ../scss/genwebupc.scss */
+/* line 248, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax h1.documentFirstHeading {
   margin-bottom: 15px;
   margin-left: -15px;
@@ -16367,43 +16367,43 @@ li#portal-languageselector {
   margin-right: -15px;
 }
 
-/* line 264, ../scss/genwebupc.scss */
+/* line 255, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax div#content {
   padding: 15px;
 }
 
-/* line 268, ../scss/genwebupc.scss */
+/* line 259, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax {
   height: 420px;
 }
 
-/* line 272, ../scss/genwebupc.scss */
+/* line 263, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax input {
   width: auto !important;
 }
 
-/* line 276, ../scss/genwebupc.scss */
+/* line 267, ../scss/genwebupc.scss */
 .icon-genweb-upc-subhome, a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px;
 }
 
-/* line 281, ../scss/genwebupc.scss */
+/* line 272, ../scss/genwebupc.scss */
 .userrole-authenticated .amaga-autenticat,
 .userrole-anonymous .amaga-no-autenticat {
   display: none;
 }
 
-/* line 287, ../scss/genwebupc.scss */
+/* line 278, ../scss/genwebupc.scss */
 #amagat {
   display: none;
 }
 
-/* line 290, ../scss/genwebupc.scss */
+/* line 281, ../scss/genwebupc.scss */
 .textDestacat, .destacatBandejat {
   background: #f3f3f3;
 }
 
-/* line 293, ../scss/genwebupc.scss */
+/* line 284, ../scss/genwebupc.scss */
 .textDestacat {
   font-size: 1.1em;
   line-height: 1.5em;
@@ -16413,7 +16413,7 @@ li#portal-languageselector {
   border-radius: 5px;
 }
 
-/* line 304, ../scss/genwebupc.scss */
+/* line 295, ../scss/genwebupc.scss */
 #article_firstimage {
   background: #FFFFFF none repeat scroll 0 0;
   display: block;
@@ -16423,23 +16423,23 @@ li#portal-languageselector {
   padding-top: 0px;
 }
 
-/* line 313, ../scss/genwebupc.scss */
+/* line 304, ../scss/genwebupc.scss */
 #article_title {
   margin-top: -9px;
 }
 
-/* line 317, ../scss/genwebupc.scss */
+/* line 308, ../scss/genwebupc.scss */
 #article_body {
   float: left;
 }
 
-/* line 321, ../scss/genwebupc.scss */
+/* line 312, ../scss/genwebupc.scss */
 .article_thumbs {
   list-style: none;
   width: 100%;
 }
 
-/* line 326, ../scss/genwebupc.scss */
+/* line 317, ../scss/genwebupc.scss */
 .article_thumbs li {
   width: 112px;
   margin: 10px;
@@ -16447,7 +16447,7 @@ li#portal-languageselector {
   /* float: left; */
 }
 
-/* line 333, ../scss/genwebupc.scss */
+/* line 324, ../scss/genwebupc.scss */
 .article_thumbs img {
   width: 112px;
   padding: 6px;
@@ -16455,7 +16455,7 @@ li#portal-languageselector {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.32);
 }
 
-/* line 340, ../scss/genwebupc.scss */
+/* line 331, ../scss/genwebupc.scss */
 #article_relateditems {
   border: 1px solid #d9d9d9;
   padding: 9px;
