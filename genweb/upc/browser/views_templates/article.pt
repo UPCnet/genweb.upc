@@ -7,7 +7,7 @@
       i18n:domain="upc.genwebupc">
 
     <body>
-        <div metal:fill-slot="main">
+        <tal:block metal:fill-slot="main">
             <metal:body_macro metal:define-macro="body"
                               tal:define="image_brains view/getImageBrains;
                                           first_image python: len(image_brains)>0 and image_brains[0] or [];
@@ -28,6 +28,7 @@
                         <span tal:replace="structure here/getText"></span>
 
                 </div>
+                <div style="clear: both;"></div>
                 <div id="article_images" tal:condition="other_images">
                     <legend i18n:translate="legend_images">Images</legend>
                     <div class="article_wrapper">
@@ -44,9 +45,9 @@
                     </div>
                 </div>
                 <div id="article_relateditems">
-                                <div tal:replace="structure provider:plone.belowcontentbody" />
+                    <tal:rep replace="structure provider:plone.belowcontentbody" />
                 </div>
             </metal:body_macro>
-        </div>
+        </tal:block>
     </body>
 </html>
