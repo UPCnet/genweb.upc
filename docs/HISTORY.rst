@@ -1,11 +1,19 @@
 Changelog
 =========
 
-2.28 (unreleased)
+2.28 (2016-07-21)
 -----------------
 
-- Nothing changed yet.
-
+* More article styles [Corina Riba]
+* Article view style [Corina Riba]
+* Article view [Corina Riba]
+* Styles [Corina Riba]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Corina Riba]
+* Article [Corina Riba]
+* changes rendiment [root@peterpre]
+* visualitzar historial correctament [Alberto Duran]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Corina Riba]
+* Add article view and delete serveistic view [Corina Riba]
 
 2.27 (2016-07-06)
 -----------------
