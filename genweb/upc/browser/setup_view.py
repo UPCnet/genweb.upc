@@ -33,6 +33,8 @@ from genweb.core import utils
 from plone.app.event.base import localized_now
 from datetime import timedelta
 import pkg_resources
+import logging
+
 
 grok.templatedir('views_templates')
 
@@ -52,32 +54,37 @@ class setup(grok.View):
     def update(self):
         base_url = "%s/@@setup-view" % str(getMultiAdapter((self.context, self.request), name='absolute_url'))
         qs = self.request.get('QUERY_STRING', None)
+
         if qs is not None:
             query = parse_qs(qs)
             gwtype = ''
             if 'createn2' in query:
+                logger = logging.getLogger('Genweb: Executing setup-view N2 on site -')
+                logger.info('%s' % self.context.id)
                 if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
                     self.apply_default_language_settings()
                     api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
                 gwtype = 'n2'
-                for name in query['createn2']:
-                    if name == 'all':
-                        self.setup_multilingual()
-                        self.createContent(gwtype)
-                        self.request.response.redirect(base_url)
+                self.setup_multilingual()
+                self.createContent(gwtype)
+                self.request.response.redirect(base_url)
                 self.setGenwebProperties(gwtype)
+
             if 'createn3' in query:
+                logger = logging.getLogger('Genweb: Executing setup-view N3 on site -')
+                logger.info('%s' % self.context.id)
                 if not api.portal.get_registry_record(name='genweb.hidden_settings.languages_applied'):
                     self.apply_default_language_settings()
                     api.portal.set_registry_record('genweb.hidden_settings.languages_applied', True)
                 gwtype = 'n3'
-                for name in query['createn3']:
-                    if name == 'all':
-                        self.setup_multilingual()
-                        self.createContent(gwtype)
-                        self.request.response.redirect(base_url)
+                self.setup_multilingual()
+                self.createContent(gwtype)
+                self.request.response.redirect(base_url)
                 self.setGenwebProperties(gwtype)
+
             if 'createexamples' in query:
+                logger = logging.getLogger('Genweb: Executing setup-view Examples on site -')
+                logger.info('%s' % self.context.id)
                 self.createExampleContent()
                 self.request.response.redirect(base_url)
 
@@ -511,7 +518,8 @@ class setup(grok.View):
             if 'navigation' not in target_manager_benvingut_assignments:
                 target_manager_benvingut_assignments['navigation'] = navigationAssignment(topLevel=0, bottomLevel=2)
 
-        # Blacklist the left column on portal_ca['noticies'] and portal_ca['esdeveniments'],
+        # Blacklist the left column on:
+        # portal_ca['noticies'] and portal_ca['esdeveniments'],
         # portal_es['noticias'] and portal_es['eventos'],
         # portal_en['news'] and portal_en['events']
         left_manager = queryUtility(IPortletManager, name=u'plone.leftcolumn')
@@ -603,11 +611,7 @@ class setup(grok.View):
         event_sample_en = self.create_content(events, 'Event', 'event-sample', title='Event sample')
 
         now = localized_now().replace(minute=0, second=0, microsecond=0)
-        # tomorrow = now + timedelta(days=1)
-        # past = now - timedelta(days=10)
-        # future = now + timedelta(days=10)
         far = now + timedelta(days=300)
-        # duration = timedelta(hours=1)
 
         event_sample_ca.text = IRichText['text'].fromUnicode(eventbody_sample)
         event_sample_ca.location = "Lloc de l'esdeveniment"
@@ -736,10 +740,6 @@ class setup(grok.View):
         object_status = pw.getStatusOf(object_workflow, context)
         if object_status:
             api.content.transition(obj=context, transition={'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
-        #     try:
-        #         pw.doActionFor(context, {'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
-        #     except:
-        #         pass
 
     def setGenwebProperties(self, gwtype):
         """ Set default configuration in genweb properties """

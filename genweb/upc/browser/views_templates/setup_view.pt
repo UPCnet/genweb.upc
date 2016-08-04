@@ -50,18 +50,12 @@
                 </table>
             </div>
             <form method="get" action="@@setup-view">
-                <input type="hidden" name="createn2" value="all">
-                <input id="setup_view_submit" class="context" type="submit" value="Crear GW n2" name="setup_view_submit"/>
-            </form>
-            <form method="get" action="@@setup-view">
-                <input type="hidden" name="createn3" value="all">
-                <input id="setup_view_submit" class="context" type="submit" value="Crear GW n3" name="setup_view_submit"/>
-            </form>
-            <form method="get" action="@@setup-view">
-                <input id="setup_view_submit" class="context" type="submit" value="Crear contingut de mostra" name="createexamples" />
+                <input id="createn2" class="context" type="submit" value="Crear GW n2" name="createn2"/>
+                <input id="createn3" class="context" type="submit" value="Crear GW n3" name="createn3"/>
+                <input id="createexamples" class="context" type="submit" value="Crear contingut de mostra" name="createexamples" />
             </form>
             <form method="get" action="configuraSiteCache" target="_blank">
-                <input id="setup_view_submit" class="context" type="submit" value="Configurar la caché" />
+                <input id="configuraSiteCache" class="context" type="submit" value="Configurar la caché" />
             </form>
         </fieldset>
     </metal:main-macro>
