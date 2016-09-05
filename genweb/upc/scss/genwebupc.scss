@@ -267,6 +267,15 @@ li#portal-languageselector {
 .icon-genweb-upc-subhome, a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px; }
 
+i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
+  background-image: url('/++resource++genweb_kbtic_images/notes-gris.png') !important;
+  background-position: 0px;
+}
+
+.dropdown-menu > li > a:hover > [class="icon-kbticdocument"] {
+  background-image: url('/++resource++genweb_kbtic_images/notes-icon.png') !important;
+  background-position: 0px;
+}
 
 // oculta text si usuari autenticat o no
 .userrole-authenticated .amaga-autenticat,
