@@ -12,4 +12,18 @@
         replacement=".patches.custom_recaptcha.image_tag"
         />
 
+    <monkey:patch
+        description="If there are results, make the query and return the results"
+        class="plone.app.querystring.querybuilder.QueryBuilder"
+        original="__call__"
+        replacement=".patch.__call__"
+        />
+
+    <monkey:patch
+        description="Parse the (form)query and return using multi-adapter"
+        class="plone.app.querystring.querybuilder.QueryBuilder"
+        original="_makequery"
+        replacement=".patch._makequery"
+        />
+
 </configure>

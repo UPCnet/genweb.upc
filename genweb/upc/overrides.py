@@ -1,6 +1,6 @@
 from plone.app.layout.viewlets.content import DocumentBylineViewlet
-from plone import api
 from AccessControl import getSecurityManager
+
 
 class DocumentBylineViewletisReader(DocumentBylineViewlet):
 
