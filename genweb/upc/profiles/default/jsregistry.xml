@@ -2,8 +2,8 @@
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
 
  <!-- Reorder JS Specific for Genweb UPC -->
- <javascript id="++resource++plone.formwidget.querystring.querywidget.js" insert-after="kss-bbb.js" />
- <javascript id="collective.js.jqueryui.custom.min.js" insert-after="++resource++plone.formwidget.querystring.querywidget.js" />
+ <javascript id="++genwebupc++js/plone.formwidget.querystring.querywidget.js" insert-after="kss-bbb.js" />
+ <javascript id="collective.js.jqueryui.custom.min.js" insert-after="++genwebupc++js/plone.formwidget.querystring.querywidget.js" />
  <javascript id="++resource++collective.polls/js/jquery.flot.js" insert-after="collective.js.jqueryui.custom.min.js" />
  <javascript id="++resource++collective.polls/js/jquery.flot.pie.js" insert-after="++resource++collective.polls/js/jquery.flot.js" />
  <javascript id="++resource++collective.polls/js/polls.js" insert-after="++resource++collective.polls/js/jquery.flot.pie.js" />

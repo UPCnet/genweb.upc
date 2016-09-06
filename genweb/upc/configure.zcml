@@ -25,7 +25,7 @@
   <!-- Templates overriden -->
   <include package="z3c.jbot" file="meta.zcml" />
   <include file="behaviors.zcml" />
-  
+
   <browser:jbot
       directory="templates"
       layer=".browser.interfaces.IGenwebUPC"
@@ -42,6 +42,12 @@
       directory="stylesheets"
       type="genwebupc"
       name="stylesheets"
+    />
+
+  <plone:static
+      directory="js"
+      type="genwebupc"
+      name="js"
     />
 
   <!-- Commented constrained folders -->
