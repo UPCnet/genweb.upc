@@ -20,7 +20,6 @@ def __call__(self, query, batch=False, b_start=0, b_size=30,
              sort_on=None, sort_order=None, limit=0, brains=False,
              custom_query=None):
     """If there are results, make the query and return the results"""
-    #import ipdb;ipdb.set_trace()
     if self._results is None:
         try:
             op = query[0]['k']
@@ -50,7 +49,6 @@ def _makequery(self, query=None, batch=False, b_start=0, b_size=30,
                sort_on=None, sort_order=None, limit=0, brains=False,
                custom_query=None, logical_op=None):
     """Parse the (form)query and return using multi-adapter"""
-    #import ipdb;ipdb.set_trace()
     parsedquery = queryparser.parseFormquery(
         self.context, query, sort_on, sort_order)
 
@@ -97,7 +95,11 @@ def _makequery(self, query=None, batch=False, b_start=0, b_size=30,
         # override parsed query options.
         parsedquery.update(custom_query)
 
-    results = catalog.searchResults(path=parsedquery['path'], Subject={'query': query['query'], 'operator': logical_op}, sort_limit=limit, sort_on=sort_on, sort_order=sort_order)
+    if 'Subject' in parsedquery:
+        pq = parsedquery
+        pq['Subject'] = {'query': query['query'], 'operator': logical_op}
+
+    results = catalog(**parsedquery)
 
     if getattr(results, 'actual_result_count', False) and limit\
             and results.actual_result_count > limit:

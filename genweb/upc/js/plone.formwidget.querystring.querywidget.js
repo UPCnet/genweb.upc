@@ -318,7 +318,7 @@
 
     // Enhance for javascript browsers
     $(document).ready(function () {
-      
+
         // Check if QueryWidget exists on page
         if ($(".QueryWidget").length === 0) {
             return false;
@@ -397,22 +397,24 @@
                 obj.find(".addIndexButton").hide();
                 obj.find(".multipleSelectionWidget dt").removeClass('hiddenStructure');
                 obj.find(".multipleSelectionWidget dd").addClass('hiddenStructure widgetPulldownMenu');
-                if (obj.find(".multipleSelectionWidget") != null) {
-                    logicalop = $('#form-widgets-ICollectionCustom-logical_op').val();
-                    if (logicalop == 'or'){
-                      obj.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" checked="checked" value="or"/><span>Or</span></label></dl>');
-                    }
-                    else{
-                      obj.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" checked="checked" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" value="or"/><span>Or</span></label></dl>');
+                var criteria = obj.find(".criteria");
+                var input = obj.find(".queryindex input");
+                for (i=0; i<input.size(); i++) {
+                    var elem = input[i];
+                    var key = elem.value;
+                    if (key == "Subject") {
+                        logicalop = $('#form-widgets-ICollectionCustom-logical_op').val();
+                        var div = obj.find(criteria[i])
+                        if (logicalop == 'or'){
+                          div.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" checked="checked" value="or"/><span>Or</span></label></dl>');
+                        }
+                        else{
+                          div.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" checked="checked" value="or"/><span>Or</span></label></dl>');
+                        }
                     }
                 }
 
                 $('div.queryindex').each(function () {
-                    $(this).before(
-                        $(document.createElement('div'))
-                            .addClass('queryresults discreet')
-                            .html('')
-                    );
                     $(this).replaceWith($.querywidget.createQueryIndex($(this).children('input').val(), fname));
                 });
                 $('div.queryoperator').each(function () {
@@ -505,11 +507,6 @@
             var newcriteria = $(document.createElement('div'))
                                 .addClass('criteria');
 
-            newcriteria.append(
-                    $(document.createElement('div'))
-                        .addClass('queryresults discreet')
-                        .html('')
-                );
             newcriteria.append($.querywidget.createQueryIndex(index, fname));
             var operator = $.querywidget.createQueryOperator(index, '', fname);
             newcriteria.append(operator);
