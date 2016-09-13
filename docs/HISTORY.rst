@@ -1,11 +1,16 @@
 Changelog
 =========
 
-2.29 (unreleased)
+2.29 (2016-09-13)
 -----------------
 
-- Nothing changed yet.
-
+* instalar nou js de coleccions al instalar [Alberto Duran]
+* refactor coleccions [Alberto Duran]
+* js for CollectionCustom [Alberto Duran]
+* Collection Custom: and/or between tags [Alberto Duran]
+* Compile for genweb.kbtic changes [Santiago Cortes]
+* added tal:comments [roberto.diaz]
+* added LOG messages to setup-view [roberto.diaz]
 
 2.28 (2016-07-21)
 -----------------
