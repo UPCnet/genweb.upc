@@ -186,7 +186,6 @@
                                     'id': 'optand',
                                     'type': 'radio',
                                     'name': 'optradio',
-                                    'checked': 'checked',
                                     'value': 'and'
                                 })
                             )
@@ -203,6 +202,7 @@
                                     'id': 'optor',
                                     'type': 'radio',
                                     'name': 'optradio',
+                                    'checked': 'checked',
                                     'value': 'or'
                                 })
                             )
@@ -409,7 +409,7 @@
                           div.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" checked="checked" value="or"/><span>Or</span></label></dl>');
                         }
                         else{
-                          div.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" checked="checked" value="or"/><span>Or</span></label></dl>');
+                          div.find(".multipleSelectionWidget").after('<dl class="querywidget radioWidget" style=\'width: 90px;\'><span>&nbsp;&nbsp;</span><label>Operator:</label><span>&nbsp;&nbsp;</span><label style="padding-left: 7px;"><input id="optand" type="radio" name="optradio" checked="checked" value="and"/><span>And</span></label><span>&nbsp;&nbsp;</span><label><input id="optor" type="radio" name="optradio" value="or"/><span>Or</span></label></dl>');
                         }
                     }
                 }

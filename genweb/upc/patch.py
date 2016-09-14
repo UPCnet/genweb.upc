@@ -29,7 +29,7 @@ def __call__(self, query, batch=False, b_start=0, b_size=30,
             try:
                 op = self.context.logical_op
             except:
-                op = 'and'
+                op = 'or'
         self._results = self._makequery(
             query=query,
             batch=batch,

@@ -14,7 +14,7 @@ class ICollectionCustom(form.Schema):
         description=_(u'Logical operator to refine searches at ZODB'),
         values=['and', 'or'],
         required=False,
-        default='and'
+        default='or'
     )
 
 alsoProvides(ICollectionCustom, form.IFormFieldProvider)
