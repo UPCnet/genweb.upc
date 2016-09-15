@@ -1,11 +1,9 @@
 Changelog
 =========
 
-2.30 (unreleased)
+2.30 (2016-09-15)
 -----------------
-
-- Nothing changed yet.
-
+* per defecte or a les coleccions [Alberto Duran]
 
 2.29 (2016-09-13)
 -----------------
