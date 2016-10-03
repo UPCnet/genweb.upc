@@ -45,6 +45,10 @@
   }
 }
 
+.portlet-noticies.portlet-ampliat > div.row-fluid {
+    border-bottom: 1px solid $tableBorder; // 2 columns layout
+}
+
 // treure bullets portlet esdeveniments i noticies
 .list-portlet {
   list-style-type: none;
