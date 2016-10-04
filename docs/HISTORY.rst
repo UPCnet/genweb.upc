@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.31 (unreleased)
+2.31 (2016-10-04)
 -----------------
 
-- Nothing changed yet.
-
+* add bottom border to 2col news portlet layout [oscar.albareda]
+* no exposar sitemap al crear n2 o n3 [Alberto Duran]
 
 2.30 (2016-09-15)
 -----------------
