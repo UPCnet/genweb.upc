@@ -96,6 +96,7 @@ class gwSendEventView(grok.View):
 
 
 class dynamicCSS(grok.View):
+
     grok.name('dynamic.css')
     grok.context(Interface)
     grok.layer(IGenwebUPC)
@@ -107,6 +108,13 @@ class dynamicCSS(grok.View):
     def render(self):
         self.request.response.setHeader('Content-Type', 'text/css')
         self.request.response.addHeader('Cache-Control', 'must-revalidate, max-age=0, no-cache, no-store')
+
+        # afegim valors per defecte als colors i aixi sempre compila la css dinamica
+        if not self.especific1:
+            self.especific1 = '#007bc0'
+        if not self.especific2:
+            self.especific2 = '#557C95'
+
         if self.especific1 and self.especific2:
             return '@import "{}/genwebcustom.css";\n'.format(api.portal.get().absolute_url()) + \
                    self.compile_scss(especific1=self.especific1, especific2=self.especific2)
