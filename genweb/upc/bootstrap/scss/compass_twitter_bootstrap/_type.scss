@@ -62,8 +62,8 @@ h1, h2, h3, h4, h5, h6 {
     color: $grayLight;
   }
 }
-h1 { font-size: 192.307692%; line-height: $baseLineHeight / 2 * 3; }
-h2 { font-size: 153.846154%; line-height: $baseLineHeight; }
+h1 { font-size: 192.307692%; line-height: $baseLineHeight / 4 * 6; }
+h2 { font-size: 153.846154%; line-height: $baseLineHeight / 4 * 5; }
 h3 { font-size: 130.769231%; line-height: $baseLineHeight; }
 h4 { font-size: 115.384615%; line-height: $baseLineHeight; }
 h5 { font-size: 107.692308%; line-height: $baseLineHeight; }
