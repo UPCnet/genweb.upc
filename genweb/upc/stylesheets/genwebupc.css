@@ -652,7 +652,7 @@ cite {
 }
 
 /* line 29, ../bootstrap/scss/compass_twitter_bootstrap/_type.scss */
-.muted, .box-example:after, .formHelp, .discreet, .discussion .documentByLine, .discussion .commentDate, .portaltype-packet .estudis *.gris, #category.documentByLine {
+.muted, .box-example:after, .formHelp, .discreet, .discussion .documentByLine, .discussion .commentDate, .portaltype-packet .estudis *.gris, #category.documentByLine, #relatedItemBox {
   color: #aaa;
 }
 
@@ -2074,7 +2074,7 @@ legend + .control-group {
 }
 
 /* line 17, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
-[class^="icon-"], #category.documentByLine:before, .tileFooter:before,
+[class^="icon-"], #category.documentByLine:before, #relatedItemBox:before, .tileFooter:before,
 [class*=" icon-"] {
   display: inline-block;
   width: 14px;
@@ -2107,6 +2107,14 @@ legend + .control-group {
 .configlets > .selected > a > #category.documentByLine:before,
 .formTabs > .selected > a > #category.documentByLine:before,
 .contentViews > .selected > a > #category.documentByLine:before,
+.nav > .active > a > #relatedItemBox:before,
+.contentViews > .active > a > #relatedItemBox:before,
+.configlets > .active > a > #relatedItemBox:before,
+.formTabs > .active > a > #relatedItemBox:before,
+.nav > .selected > a > #relatedItemBox:before,
+.configlets > .selected > a > #relatedItemBox:before,
+.formTabs > .selected > a > #relatedItemBox:before,
+.contentViews > .selected > a > #relatedItemBox:before,
 .nav > .active > a > .tileFooter:before,
 .contentViews > .active > a > .tileFooter:before,
 .configlets > .active > a > .tileFooter:before,
@@ -2125,12 +2133,15 @@ legend + .control-group {
 .contentViews > .selected > a > [class*=" icon-"],
 .dropdown-menu > li > a:hover > [class^="icon-"],
 .dropdown-menu > li > a:hover > #category.documentByLine:before,
+.dropdown-menu > li > a:hover > #relatedItemBox:before,
 .dropdown-menu > li > a:hover > .tileFooter:before,
 .dropdown-menu > li > a:hover > [class*=" icon-"],
 .dropdown-menu > .active > a > [class^="icon-"],
 .dropdown-menu > .selected > a > [class^="icon-"],
 .dropdown-menu > .active > a > #category.documentByLine:before,
 .dropdown-menu > .selected > a > #category.documentByLine:before,
+.dropdown-menu > .active > a > #relatedItemBox:before,
+.dropdown-menu > .selected > a > #relatedItemBox:before,
 .dropdown-menu > .active > a > .tileFooter:before,
 .dropdown-menu > .selected > a > .tileFooter:before,
 .dropdown-menu > .active > a > [class*=" icon-"],
@@ -2360,564 +2371,569 @@ legend + .control-group {
 }
 
 /* line 98, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+.icon-relatedItems, #relatedItemBox:before {
+  background-position: -216px -120px;
+}
+
+/* line 99, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-book {
   background-position: -48px  -48px;
 }
 
-/* line 99, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 100, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bookmark {
   background-position: -72px  -48px;
 }
 
-/* line 100, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 101, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-print {
   background-position: -96px  -48px;
 }
 
-/* line 101, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 102, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-camera {
   background-position: -120px -48px;
 }
 
-/* line 102, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 103, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-font, .icon-formtextfield {
   background-position: -144px -48px;
 }
 
-/* line 103, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 104, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bold, .icon-formrichtextfield {
   background-position: -167px -48px;
 }
 
-/* line 104, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 105, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-italic {
   background-position: -192px -48px;
 }
 
-/* line 105, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 106, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-text-height {
   background-position: -216px -48px;
 }
 
-/* line 106, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 107, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-text-width {
   background-position: -240px -48px;
 }
 
-/* line 107, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 108, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-left, .icon-surveytextquestion {
   background-position: -264px -48px;
 }
 
-/* line 108, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 109, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-center {
   background-position: -288px -48px;
 }
 
-/* line 109, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 110, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-right {
   background-position: -312px -48px;
 }
 
-/* line 110, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 111, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-align-justify, .icon-formmultiselectionfield {
   background-position: -336px -48px;
 }
 
-/* line 111, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 112, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list {
   background-position: -360px -48px;
 }
 
-/* line 112, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 113, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-indent-left {
   background-position: -384px -48px;
 }
 
-/* line 113, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 114, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-indent-right {
   background-position: -408px -48px;
 }
 
-/* line 114, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 115, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-facetime-video {
   background-position: -432px -48px;
 }
 
-/* line 115, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 116, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-picture, .icon-image {
   background-position: -456px -48px;
 }
 
-/* line 117, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 118, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-pencil {
   background-position: 0      -72px;
 }
 
-/* line 118, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 119, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-map-marker {
   background-position: -24px  -72px;
 }
 
-/* line 119, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 120, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-adjust {
   background-position: -48px  -72px;
 }
 
-/* line 120, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 121, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-tint {
   background-position: -72px  -72px;
 }
 
-/* line 121, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 122, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-edit, .icon-formstringfield, .icon-formlinesfield, .icon-formintegerfield, .icon-formfixedpointfield {
   background-position: -96px  -72px;
 }
 
-/* line 122, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 123, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-share {
   background-position: -120px -72px;
 }
 
-/* line 123, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 124, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-check, .icon-formbooleanfield, .icon-formfolder {
   background-position: -144px -72px;
 }
 
-/* line 124, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 125, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-move {
   background-position: -168px -72px;
 }
 
-/* line 125, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 126, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-step-backward, .icon-fieldsetstart {
   background-position: -192px -72px;
 }
 
-/* line 126, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 127, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fast-backward {
   background-position: -216px -72px;
 }
 
-/* line 127, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 128, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-backward {
   background-position: -240px -72px;
 }
 
-/* line 128, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 129, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-play {
   background-position: -264px -72px;
 }
 
-/* line 129, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 130, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-pause {
   background-position: -288px -72px;
 }
 
-/* line 130, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 131, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-stop {
   background-position: -312px -72px;
 }
 
-/* line 131, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 132, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-forward {
   background-position: -336px -72px;
 }
 
-/* line 132, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 133, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fast-forward {
   background-position: -360px -72px;
 }
 
-/* line 133, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 134, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-step-forward, .icon-fieldsetend {
   background-position: -384px -72px;
 }
 
-/* line 134, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 135, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-eject {
   background-position: -408px -72px;
 }
 
-/* line 135, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 136, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-left {
   background-position: -432px -72px;
 }
 
-/* line 136, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 137, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-right {
   background-position: -456px -72px;
 }
 
-/* line 138, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 139, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plus-sign, .tileFooter:before {
   background-position: 0      -96px;
 }
 
-/* line 139, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 140, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-minus-sign {
   background-position: -24px  -96px;
 }
 
-/* line 140, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 141, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-remove-sign {
   background-position: -48px  -96px;
 }
 
-/* line 141, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 142, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ok-sign, .icon-plone-contentmenu-display-fg_base_view_p3 {
   background-position: -72px  -96px;
 }
 
-/* line 142, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 143, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-question-sign {
   background-position: -96px  -96px;
 }
 
-/* line 143, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 144, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-info-sign, .icon-policy, .icon-plone-contentmenu-display-pfg_draft_view {
   background-position: -120px -96px;
 }
 
-/* line 144, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 145, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-screenshot {
   background-position: -144px -96px;
 }
 
-/* line 145, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 146, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-remove-circle, .icon-workflow-transition-reject, .icon-workflow-transition-show, .icon-workflow-transition-retiraaesborrany {
   background-position: -168px -96px;
 }
 
-/* line 146, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 147, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ok-circle, .icon-surveyselectquestion, .icon-formselectionfield, .icon-workflow-transition-submit {
   background-position: -192px -96px;
 }
 
-/* line 147, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 148, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ban-circle, .icon-workflow-transition-hide {
   background-position: -216px -96px;
 }
 
-/* line 148, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 149, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-left, .icon-plone-contentmenu-actions-import {
   background-position: -240px -96px;
 }
 
-/* line 149, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 150, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-right, .icon-plone-contentmenu-actions-export {
   background-position: -264px -96px;
 }
 
-/* line 150, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 151, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-up {
   background-position: -289px -96px;
 }
 
-/* line 151, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 152, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-arrow-down {
   background-position: -312px -96px;
 }
 
-/* line 152, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 153, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-share-alt {
   background-position: -336px -96px;
 }
 
-/* line 153, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 154, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-full {
   background-position: -360px -96px;
 }
 
-/* line 154, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 155, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-small {
   background-position: -384px -96px;
 }
 
-/* line 155, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 156, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plus, .icon-more {
   background-position: -408px -96px;
 }
 
-/* line 156, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 157, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-minus {
   background-position: -433px -96px;
 }
 
-/* line 157, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 158, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-asterisk {
   background-position: -456px -96px;
 }
 
-/* line 159, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 160, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-exclamation-sign {
   background-position: 0      -120px;
 }
 
-/* line 160, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 161, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-gift {
   background-position: -24px  -120px;
 }
 
-/* line 161, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 162, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-leaf {
   background-position: -48px  -120px;
 }
 
-/* line 162, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 163, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fire {
   background-position: -72px  -120px;
 }
 
-/* line 163, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 164, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-eye-open, .icon-workflow-transition-publish {
   background-position: -96px  -120px;
 }
 
-/* line 164, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 165, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-eye-close, .icon-workflow-transition-publishtointranet, .icon-workflow-transition-publicaalaintranet, .icon-workflow-transition-retracttointranet, .icon-workflow-transition-retiraalaintranet {
   background-position: -120px -120px;
 }
 
-/* line 165, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 166, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-warning-sign {
   background-position: -144px -120px;
 }
 
-/* line 166, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 167, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plane {
   background-position: -168px -120px;
 }
 
-/* line 167, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 168, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-calendar, .icon-event, .icon-event {
   background-position: -192px -120px;
 }
 
-/* line 168, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 169, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-random {
   background-position: -216px -120px;
   width: 16px;
 }
 
-/* line 169, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 170, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-comment {
   background-position: -240px -120px;
 }
 
-/* line 170, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 171, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-magnet {
   background-position: -264px -120px;
 }
 
-/* line 171, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 172, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-up {
   background-position: -288px -120px;
 }
 
-/* line 172, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 173, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-chevron-down {
   background-position: -313px -119px;
 }
 
-/* line 173, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 174, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-retweet {
   background-position: -336px -120px;
 }
 
-/* line 174, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 175, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-shopping-cart {
   background-position: -360px -120px;
 }
 
-/* line 175, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 176, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-folder-close, .icon-fieldsetfolder, .icon-folder, .icon-folder {
   background-position: -384px -120px;
 }
 
-/* line 176, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 177, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-folder-open {
   background-position: -408px -120px;
   width: 16px;
 }
 
-/* line 177, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 178, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-vertical {
   background-position: -432px -119px;
 }
 
-/* line 178, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 179, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resize-horizontal {
   background-position: -456px -118px;
 }
 
-/* line 180, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 181, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hdd, .icon-formsavedataadapter {
   background-position: 0      -144px;
 }
 
-/* line 181, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 182, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bullhorn {
   background-position: -24px  -144px;
 }
 
-/* line 182, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 183, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-bell {
   background-position: -48px  -144px;
 }
 
-/* line 183, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 184, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-certificate {
   background-position: -72px  -144px;
 }
 
-/* line 184, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 185, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-thumbs-up, .icon-formthankspage {
   background-position: -96px  -144px;
 }
 
-/* line 185, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 186, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-thumbs-down {
   background-position: -120px -144px;
 }
 
-/* line 186, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 187, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-right {
   background-position: -144px -144px;
 }
 
-/* line 187, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 188, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-left {
   background-position: -168px -144px;
 }
 
-/* line 188, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 189, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-up {
   background-position: -192px -144px;
 }
 
-/* line 189, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 190, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-hand-down {
   background-position: -216px -144px;
 }
 
-/* line 190, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 191, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-right {
   background-position: -240px -144px;
 }
 
-/* line 191, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 192, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-left {
   background-position: -264px -144px;
 }
 
-/* line 192, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 193, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-up {
   background-position: -288px -144px;
 }
 
-/* line 193, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 194, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-circle-arrow-down {
   background-position: -312px -144px;
 }
 
-/* line 194, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 195, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-globe {
   background-position: -336px -144px;
 }
 
-/* line 195, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 196, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-wrench, .icon-_manage_translations, .icon-advanced {
   background-position: -360px -144px;
 }
 
-/* line 196, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 197, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-tasks {
   background-position: -384px -144px;
 }
 
-/* line 197, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 198, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-filter, .icon-plone-contentmenu-settings, .icon-settings {
   background-position: -408px -144px;
 }
 
-/* line 198, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 199, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-briefcase {
   background-position: -432px -144px;
 }
 
-/* line 199, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 200, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-fullscreen {
   background-position: -456px -144px;
 }
 
 /*afegits per a GW*/
-/* line 204, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 205, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-upc {
   background-position: 0      -169px;
 }
 
-/* line 205, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 206, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-news, .icon-news-item {
   background-position: -23px  -169px;
 }
 
-/* line 206, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 207, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-box, .icon-packet, .icon-packet {
   background-position: -48px  -168px;
 }
 
-/* line 207, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 208, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-link {
   background-position: -72px  -169px;
 }
 
-/* line 208, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 209, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-iframe, .icon-window {
   background-position: -96px  -169px;
 }
 
-/* line 209, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 210, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-desktop {
   background-position: -120px -169px;
 }
 
-/* line 210, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 211, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-logosfooter, .icon-logos_footer {
   background-position: -144px -169px;
 }
 
-/* line 211, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 212, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-file, .icon-formfilefield {
   background-position: -168px -169px;
 }
 
-/* line 212, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 213, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-paste, .icon-plone-contentmenu-actions-paste {
   background-position: -192px -168px;
 }
 
-/* line 213, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 214, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-collage {
   background-position: -216px -169px;
 }
 
-/* line 214, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 215, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-smart-folder {
   background-position: -240px -169px;
 }
 
-/* line 215, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 216, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-copy, .icon-plone-contentmenu-actions-copy {
   background-position: -264px -169px;
 }
 
-/* line 216, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 217, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-rename, .icon-plone-contentmenu-actions-rename {
   background-position: -288px -169px;
 }
 
-/* line 217, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 218, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-resume-view, .icon-folder_summary_view,
 .icon-folder-folder_summary_view,
 .icon-plone-contentmenu-display-folder_summary_view,
@@ -2926,7 +2942,7 @@ legend + .control-group {
   background-position: -312px -169px;
 }
 
-/* line 222, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 223, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-table-view, .icon-folder_tabular_view,
 .icon-folder-folder_tabular_view,
 .icon-folder-tabular_view,
@@ -2935,7 +2951,7 @@ legend + .control-group {
   background-position: -336px -169px;
 }
 
-/* line 227, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 228, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list-view, .icon-folder_listing,
 .icon-plone-contentmenu-display-folder_listing,
 .icon-plone-contentmenu-display-listing_view,
@@ -2944,138 +2960,138 @@ legend + .control-group {
   background-position: -360px -169px;
 }
 
-/* line 232, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 233, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-list-extended-view,
 .icon-plone-contentmenu-display-folder_extended,
 .icon-folder-folder_extended {
   background-position: -384px -169px;
 }
 
-/* line 235, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 236, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-article-view {
   background-position: -408px -169px;
 }
 
-/* line 236, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 237, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-article-extended-view {
   background-position: -432px -169px;
 }
 
-/* line 237, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 238, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-cut, .icon-plone-contentmenu-actions-cut {
   background-position: -456px -169px;
 }
 
-/* line 239, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 240, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-upload {
   background-position: 0      -192px;
 }
 
-/* line 240, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 241, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-rss {
   background-position: -24px  -192px;
 }
 
-/* line 241, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 242, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-poll, .icon-collective-polls-poll {
   background-position: -48px  -192px;
 }
 
-/* line 242, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 243, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-collection {
   background-position: -72px  -192px;
 }
 
-/* line 243, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 244, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-caching {
   background-position: -96px  -192px;
 }
 
-/* line 244, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 245, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-html, .icon-formcustomscriptadapter {
   background-position: -120px -192px;
 }
 
-/* line 245, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 246, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-language, .icon-translate_into_en,
 .icon-translate_into_es {
   background-position: -144px -192px;
 }
 
-/* line 246, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 247, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-site {
   background-position: -168px -192px;
 }
 
-/* line 247, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 248, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-edit-image {
   background-position: -192px -192px;
 }
 
-/* line 248, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 249, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-navigation, .icon-workflow-transition-policy {
   background-position: -216px -192px;
 }
 
-/* line 249, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 250, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-content-view, .icon-full_view,
 .icon-plone-contentmenu-display-full_view,
 .icon-folder-full_view {
   background-position: -265px -24px;
 }
 
-/* line 252, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 253, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-plone-contentmenu-display-folder_index_view,
 .icon-folder-folder_index_view {
   background-position: -240px -192px;
 }
 
-/* line 254, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 255, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-genweb {
   background-position: -264px -192px;
 }
 
-/* line 255, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 256, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-captcha, .icon-formcaptchafield {
   background-position: -288px -192px;
 }
 
-/* line 256, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 257, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-users {
   background-position: -312px -192px;
 }
 
-/* line 257, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 258, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-user-news {
   background-position: -336px -192px;
 }
 
-/* line 258, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 259, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-doc {
   background-position: -360px -192px;
 }
 
-/* line 259, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-xls {
   background-position: -384px -192px;
 }
 
-/* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-ppt {
   background-position: -408px -192px;
 }
 
-/* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 262, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-pdf {
   background-position: -432px -192px;
 }
 
-/* line 262, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 263, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-translate {
   background-position: -456px -192px;
 }
 
-/* line 266, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 267, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon {
   background-image: url('++genweb++static/images/gh-150.png?1462287888');
   width: 21px;
@@ -3083,32 +3099,32 @@ legend + .control-group {
   margin-top: -1px;
   margin-right: -5px;
 }
-/* line 273, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 274, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-news, .large-icon.icon-news-item {
   background-position: -37px  -252px;
 }
-/* line 274, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 275, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-link {
   background-position: -108px -252px;
 }
-/* line 275, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 276, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-upc {
   background-position: 0      -252px;
 }
-/* line 276, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 277, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-poll, .large-icon.icon-collective-polls-poll {
   background-position: -73px  -288px;
 }
-/* line 277, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 278, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-calendar, .large-icon.icon-event {
   background-position: -287px -180px;
 }
-/* line 278, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 279, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-user-news {
   background-position: -504px -252px;
 }
 
-/* line 282, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
+/* line 283, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-white {
   background-image: url('++genweb++static/images/gh-150-w.png?1462287888');
 }
@@ -3522,12 +3538,12 @@ button.close {
 }
 
 /* line 79, ../bootstrap/scss/compass_twitter_bootstrap/_buttons.scss */
-.btn [class^="icon-"], .standalone [class^="icon-"], input[value^="Cancel"] [class^="icon-"], [type="submit"] [class^="icon-"], .context [class^="icon-"], .searchButton [class^="icon-"], button.pfg-draft-save [class^="icon-"], .link-parent [class^="icon-"], .btn #category.documentByLine:before, .standalone #category.documentByLine:before, input[value^="Cancel"] #category.documentByLine:before, [type="submit"] #category.documentByLine:before, .context #category.documentByLine:before, .searchButton #category.documentByLine:before, button.pfg-draft-save #category.documentByLine:before, .link-parent #category.documentByLine:before, .btn .tileFooter:before, .standalone .tileFooter:before, input[value^="Cancel"] .tileFooter:before, [type="submit"] .tileFooter:before, .context .tileFooter:before, .searchButton .tileFooter:before, button.pfg-draft-save .tileFooter:before, .link-parent .tileFooter:before, .btn [class*=" icon-"], .standalone [class*=" icon-"], input[value^="Cancel"] [class*=" icon-"], [type="submit"] [class*=" icon-"], .context [class*=" icon-"], .searchButton [class*=" icon-"], button.pfg-draft-save [class*=" icon-"], .link-parent [class*=" icon-"] {
+.btn [class^="icon-"], .standalone [class^="icon-"], input[value^="Cancel"] [class^="icon-"], [type="submit"] [class^="icon-"], .context [class^="icon-"], .searchButton [class^="icon-"], button.pfg-draft-save [class^="icon-"], .link-parent [class^="icon-"], .btn #category.documentByLine:before, .standalone #category.documentByLine:before, input[value^="Cancel"] #category.documentByLine:before, [type="submit"] #category.documentByLine:before, .context #category.documentByLine:before, .searchButton #category.documentByLine:before, button.pfg-draft-save #category.documentByLine:before, .link-parent #category.documentByLine:before, .btn #relatedItemBox:before, .standalone #relatedItemBox:before, input[value^="Cancel"] #relatedItemBox:before, [type="submit"] #relatedItemBox:before, .context #relatedItemBox:before, .searchButton #relatedItemBox:before, button.pfg-draft-save #relatedItemBox:before, .link-parent #relatedItemBox:before, .btn .tileFooter:before, .standalone .tileFooter:before, input[value^="Cancel"] .tileFooter:before, [type="submit"] .tileFooter:before, .context .tileFooter:before, .searchButton .tileFooter:before, button.pfg-draft-save .tileFooter:before, .link-parent .tileFooter:before, .btn [class*=" icon-"], .standalone [class*=" icon-"], input[value^="Cancel"] [class*=" icon-"], [type="submit"] [class*=" icon-"], .context [class*=" icon-"], .searchButton [class*=" icon-"], button.pfg-draft-save [class*=" icon-"], .link-parent [class*=" icon-"] {
   opacity: .85;
 }
 
 /* line 83, ../bootstrap/scss/compass_twitter_bootstrap/_buttons.scss */
-.btn:hover [class^="icon-"], .customfile-hover .customfile-button [class^="icon-"], .customfile-focus .customfile-button [class^="icon-"], .standalone:hover [class^="icon-"], input[value^="Cancel"]:hover [class^="icon-"], [type="submit"]:hover [class^="icon-"], .context:hover [class^="icon-"], .searchButton:hover [class^="icon-"], button.pfg-draft-save:hover [class^="icon-"], .link-parent:hover [class^="icon-"], .btn:hover #category.documentByLine:before, .customfile-hover .customfile-button #category.documentByLine:before, .customfile-focus .customfile-button #category.documentByLine:before, .standalone:hover #category.documentByLine:before, input[value^="Cancel"]:hover #category.documentByLine:before, [type="submit"]:hover #category.documentByLine:before, .context:hover #category.documentByLine:before, .searchButton:hover #category.documentByLine:before, button.pfg-draft-save:hover #category.documentByLine:before, .link-parent:hover #category.documentByLine:before, .btn:hover .tileFooter:before, .customfile-hover .customfile-button .tileFooter:before, .customfile-focus .customfile-button .tileFooter:before, .standalone:hover .tileFooter:before, input[value^="Cancel"]:hover .tileFooter:before, [type="submit"]:hover .tileFooter:before, .context:hover .tileFooter:before, .searchButton:hover .tileFooter:before, button.pfg-draft-save:hover .tileFooter:before, .link-parent:hover .tileFooter:before, .btn:hover [class*=" icon-"], .customfile-hover .customfile-button [class*=" icon-"], .customfile-focus .customfile-button [class*=" icon-"], .standalone:hover [class*=" icon-"], input[value^="Cancel"]:hover [class*=" icon-"], [type="submit"]:hover [class*=" icon-"], .context:hover [class*=" icon-"], .searchButton:hover [class*=" icon-"], button.pfg-draft-save:hover [class*=" icon-"], .link-parent:hover [class*=" icon-"],
+.btn:hover [class^="icon-"], .customfile-hover .customfile-button [class^="icon-"], .customfile-focus .customfile-button [class^="icon-"], .standalone:hover [class^="icon-"], input[value^="Cancel"]:hover [class^="icon-"], [type="submit"]:hover [class^="icon-"], .context:hover [class^="icon-"], .searchButton:hover [class^="icon-"], button.pfg-draft-save:hover [class^="icon-"], .link-parent:hover [class^="icon-"], .btn:hover #category.documentByLine:before, .customfile-hover .customfile-button #category.documentByLine:before, .customfile-focus .customfile-button #category.documentByLine:before, .standalone:hover #category.documentByLine:before, input[value^="Cancel"]:hover #category.documentByLine:before, [type="submit"]:hover #category.documentByLine:before, .context:hover #category.documentByLine:before, .searchButton:hover #category.documentByLine:before, button.pfg-draft-save:hover #category.documentByLine:before, .link-parent:hover #category.documentByLine:before, .btn:hover #relatedItemBox:before, .customfile-hover .customfile-button #relatedItemBox:before, .customfile-focus .customfile-button #relatedItemBox:before, .standalone:hover #relatedItemBox:before, input[value^="Cancel"]:hover #relatedItemBox:before, [type="submit"]:hover #relatedItemBox:before, .context:hover #relatedItemBox:before, .searchButton:hover #relatedItemBox:before, button.pfg-draft-save:hover #relatedItemBox:before, .link-parent:hover #relatedItemBox:before, .btn:hover .tileFooter:before, .customfile-hover .customfile-button .tileFooter:before, .customfile-focus .customfile-button .tileFooter:before, .standalone:hover .tileFooter:before, input[value^="Cancel"]:hover .tileFooter:before, [type="submit"]:hover .tileFooter:before, .context:hover .tileFooter:before, .searchButton:hover .tileFooter:before, button.pfg-draft-save:hover .tileFooter:before, .link-parent:hover .tileFooter:before, .btn:hover [class*=" icon-"], .customfile-hover .customfile-button [class*=" icon-"], .customfile-focus .customfile-button [class*=" icon-"], .standalone:hover [class*=" icon-"], input[value^="Cancel"]:hover [class*=" icon-"], [type="submit"]:hover [class*=" icon-"], .context:hover [class*=" icon-"], .searchButton:hover [class*=" icon-"], button.pfg-draft-save:hover [class*=" icon-"], .link-parent:hover [class*=" icon-"],
 .btn:focus [class^="icon-"],
 .standalone:focus [class^="icon-"],
 input[value^="Cancel"]:focus [class^="icon-"],
@@ -3544,6 +3560,14 @@ input[value^="Cancel"]:focus #category.documentByLine:before,
 .searchButton:focus #category.documentByLine:before,
 button.pfg-draft-save:focus #category.documentByLine:before,
 .link-parent:focus #category.documentByLine:before,
+.btn:focus #relatedItemBox:before,
+.standalone:focus #relatedItemBox:before,
+input[value^="Cancel"]:focus #relatedItemBox:before,
+[type="submit"]:focus #relatedItemBox:before,
+.context:focus #relatedItemBox:before,
+.searchButton:focus #relatedItemBox:before,
+button.pfg-draft-save:focus #relatedItemBox:before,
+.link-parent:focus #relatedItemBox:before,
 .btn:focus .tileFooter:before,
 .standalone:focus .tileFooter:before,
 input[value^="Cancel"]:focus .tileFooter:before,
@@ -3568,6 +3592,14 @@ input[value^="Cancel"]:active #category.documentByLine:before,
 .searchButton:active #category.documentByLine:before,
 button.pfg-draft-save:active #category.documentByLine:before,
 .link-parent:active #category.documentByLine:before,
+.btn:active #relatedItemBox:before,
+.standalone:active #relatedItemBox:before,
+input[value^="Cancel"]:active #relatedItemBox:before,
+[type="submit"]:active #relatedItemBox:before,
+.context:active #relatedItemBox:before,
+.searchButton:active #relatedItemBox:before,
+button.pfg-draft-save:active #relatedItemBox:before,
+.link-parent:active #relatedItemBox:before,
 .btn:active .tileFooter:before,
 .standalone:active .tileFooter:before,
 input[value^="Cancel"]:active .tileFooter:before,
@@ -3590,7 +3622,7 @@ button.pfg-draft-save:active .tileFooter:before,
 }
 
 /* line 101, ../bootstrap/scss/compass_twitter_bootstrap/_buttons.scss */
-.btn-large [class^="icon-"], .btn-large #category.documentByLine:before, .btn-large .tileFooter:before {
+.btn-large [class^="icon-"], .btn-large #category.documentByLine:before, .btn-large #relatedItemBox:before, .btn-large .tileFooter:before {
   margin-top: 2px;
 }
 
@@ -3602,7 +3634,7 @@ button.pfg-draft-save:active .tileFooter:before,
 }
 
 /* line 111, ../bootstrap/scss/compass_twitter_bootstrap/_buttons.scss */
-.btn-small [class^="icon-"], .link-parent [class^="icon-"], .btn-small #category.documentByLine:before, .link-parent #category.documentByLine:before, .btn-small .tileFooter:before, .link-parent .tileFooter:before {
+.btn-small [class^="icon-"], .link-parent [class^="icon-"], .btn-small #category.documentByLine:before, .link-parent #category.documentByLine:before, .btn-small #relatedItemBox:before, .link-parent #relatedItemBox:before, .btn-small .tileFooter:before, .link-parent .tileFooter:before {
   margin-top: 0px;
 }
 
@@ -4407,7 +4439,7 @@ button.pfg-draft-save .caret,
 }
 
 /* line 71, ../bootstrap/scss/compass_twitter_bootstrap/_navs.scss */
-.nav-list [class^="icon-"], .nav-list #category.documentByLine:before, .nav-list .tileFooter:before {
+.nav-list [class^="icon-"], .nav-list #category.documentByLine:before, .nav-list #relatedItemBox:before, .nav-list .tileFooter:before {
   margin-right: 2px;
 }
 
@@ -8848,7 +8880,7 @@ button.pfg-draft-save .badge,
 
 /*ajusta imatges icos en menús per a hovers */
 /* line 66, ../scss/_base.scss */
-.dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
+.dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover #relatedItemBox:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
   background-image: url('++genweb++static/images/gh-w.png?1462287888') !important;
 }
 
@@ -10419,7 +10451,7 @@ a.primary, .primary a, a .primary {
 }
 
 /* line 61, ../scss/_wells-boxes.scss */
-.box, .box-inverse, .template-manage-homeportlets .portletHeader:hover, .portaltype-packet .estudis .caixa3, #category.documentByLine {
+.box, .box-inverse, .template-manage-homeportlets .portletHeader:hover, .portaltype-packet .estudis .caixa3, #category.documentByLine, #relatedItemBox {
   min-height: 20px;
   padding: 18px;
   margin-bottom: 20px;
@@ -10434,7 +10466,7 @@ a.primary, .primary a, a .primary {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 /* line 70, ../scss/_wells-boxes.scss */
-.box blockquote, .box-inverse blockquote, .template-manage-homeportlets .portletHeader:hover blockquote, .portaltype-packet .estudis .caixa3 blockquote, #category.documentByLine blockquote {
+.box blockquote, .box-inverse blockquote, .template-manage-homeportlets .portletHeader:hover blockquote, .portaltype-packet .estudis .caixa3 blockquote, #category.documentByLine blockquote, #relatedItemBox blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
@@ -10516,14 +10548,14 @@ html[lang="es"] .box-example:after {
 }
 
 /* line 122, ../scss/_wells-boxes.scss */
-.well-small, .box-small, .portaltype-packet .estudis .caixa3, #category.documentByLine {
+.well-small, .box-small, .portaltype-packet .estudis .caixa3, #category.documentByLine, #relatedItemBox {
   padding: 9px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
 /* line 125, ../scss/_wells-boxes.scss */
-.well-small.box-example:after, .box-small.box-example:after, .portaltype-packet .estudis .box-example.caixa3:after, .box-example#category.documentByLine:after {
+.well-small.box-example:after, .box-small.box-example:after, .portaltype-packet .estudis .box-example.caixa3:after, .box-example#category.documentByLine:after, .box-example#relatedItemBox:after {
   font-size: 84.6153846%;
   -moz-border-radius: 2px 0 2px 0;
   -webkit-border-radius: 2px;
@@ -10740,6 +10772,11 @@ ul {
 /* line 159, ../scss/_lists.scss */
 #document-toc .portletHeader {
   display: none;
+}
+
+/* line 166, ../scss/_lists.scss */
+#relatedItemList {
+  margin-left: 35px;
 }
 
 /* line 9, ../scss/_tables.scss */
@@ -14502,96 +14539,102 @@ html.lt-ie8 .list-portlet li  {
   width: 15px;
 }
 
-/* line 106, ../scss/_upcnet.scss */
+/* line 49, ../scss/_upcnet.scss */
+#relatedItemBox:before {
+  content: "";
+  width: 15px;
+}
+
+/* line 109, ../scss/_upcnet.scss */
 .actionSeparator {
   border-top: 1px solid #b2b2b2;
   margin-top: 5px;
 }
-/* line 107, ../scss/_upcnet.scss */
+/* line 110, ../scss/_upcnet.scss */
 .actionSeparator > a {
   margin-top: 5px;
 }
 
 /* aixo no serveix per res pero mira...*/
-/* line 129, ../scss/_upcnet.scss */
+/* line 132, ../scss/_upcnet.scss */
 .tileItem img {
   float: right;
   margin-top: 1em;
 }
 
-/* line 132, ../scss/_upcnet.scss */
+/* line 135, ../scss/_upcnet.scss */
 .tileFooter:before {
   content: "";
 }
 
-/* line 147, ../scss/_upcnet.scss */
+/* line 150, ../scss/_upcnet.scss */
 .plone_jscalendar > * {
   display: inline-block;
 }
 
-/* line 148, ../scss/_upcnet.scss */
+/* line 151, ../scss/_upcnet.scss */
 .plone_jscalendar select {
   width: auto;
   display: inline-block;
 }
 
-/* line 157, ../scss/_upcnet.scss */
+/* line 160, ../scss/_upcnet.scss */
 .pb-ajax .documentFirstHeading, .pb-ajax > div > h2 {
   margin: 0;
   font-size: 130.769% !important;
 }
 
-/* line 161, ../scss/_upcnet.scss */
+/* line 164, ../scss/_upcnet.scss */
 .pb-ajax #content-core, .pb-ajax .documentDescription, .pb-ajax #content-history {
   margin-bottom: 0;
   max-height: 400px;
 }
 
-/* line 165, ../scss/_upcnet.scss */
+/* line 168, ../scss/_upcnet.scss */
 .pb-ajax .historyRecord {
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
 
-/* line 167, ../scss/_upcnet.scss */
+/* line 170, ../scss/_upcnet.scss */
 input[type="checkbox"].required:after,
 input[type="radio"].required:after {
   content: none;
 }
 
-/* line 171, ../scss/_upcnet.scss */
+/* line 174, ../scss/_upcnet.scss */
 .recaptchatable {
   background: #fff;
 }
 
-/* line 173, ../scss/_upcnet.scss */
+/* line 176, ../scss/_upcnet.scss */
 .fieldUploadFile {
   display: none;
 }
 
-/* line 174, ../scss/_upcnet.scss */
+/* line 177, ../scss/_upcnet.scss */
 .fieldTextFormat {
   display: none;
 }
 
-/* line 190, ../scss/_upcnet.scss */
+/* line 193, ../scss/_upcnet.scss */
 #eines .typeahead.dropdown-menu a {
   font-size: 12px;
 }
 
-/* line 197, ../scss/_upcnet.scss */
+/* line 200, ../scss/_upcnet.scss */
 .QueryWidget {
   font-size: 13px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #666;
 }
-/* line 203, ../scss/_upcnet.scss */
+/* line 206, ../scss/_upcnet.scss */
 .QueryWidget dl.referenceWidget {
   width: 214px;
 }
-/* line 206, ../scss/_upcnet.scss */
+/* line 209, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget {
   position: relative;
   padding: 4px 6px 2px;
@@ -14600,21 +14643,21 @@ input[type="radio"].required:after {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 211, ../scss/_upcnet.scss */
+/* line 214, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget dt {
   border: none;
   font-weight: normal;
 }
-/* line 216, ../scss/_upcnet.scss */
+/* line 219, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget .arrowDownAlternative {
   font-size: 9px;
 }
-/* line 220, ../scss/_upcnet.scss */
+/* line 223, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget .multipleSelectionWidgetTitle {
   padding: 5px;
   line-height: normal;
 }
-/* line 225, ../scss/_upcnet.scss */
+/* line 228, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget dd.widgetPulldownMenu {
   z-index: 100;
   padding: 5px;
@@ -14623,13 +14666,13 @@ input[type="radio"].required:after {
   top: 27px;
   left: 0px;
 }
-/* line 232, ../scss/_upcnet.scss */
+/* line 235, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget dd.widgetPulldownMenu label {
   color: #666;
   margin-bottom: 0px;
   line-height: normal;
 }
-/* line 233, ../scss/_upcnet.scss */
+/* line 236, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget dd.widgetPulldownMenu label.header {
   background-color: #cdd;
   color: #777;
@@ -14641,59 +14684,59 @@ input[type="radio"].required:after {
   font-size: 16px;
   margin: 3px 0;
 }
-/* line 247, ../scss/_upcnet.scss */
+/* line 250, ../scss/_upcnet.scss */
 .QueryWidget dl.multipleSelectionWidget dd.widgetPulldownMenu label input[checked="checked"] ~ span {
   background-color: red;
   color: white;
   background-color: #557c95;
   font-weight: normal;
 }
-/* line 258, ../scss/_upcnet.scss */
+/* line 261, ../scss/_upcnet.scss */
 .QueryWidget .criteria {
   margin-bottom: 22px;
   position: relative;
 }
-/* line 261, ../scss/_upcnet.scss */
+/* line 264, ../scss/_upcnet.scss */
 .QueryWidget .criteria .queryresults {
   position: absolute;
   left: 293px;
   top: 29px;
 }
 
-/* line 271, ../scss/_upcnet.scss */
+/* line 274, ../scss/_upcnet.scss */
 #plonebrowser #general_panel {
   margin-left: 0px;
 }
 
-/* line 277, ../scss/_upcnet.scss */
+/* line 280, ../scss/_upcnet.scss */
 #search-results-bar [class*="span"], #search-results-bar .cella,
 #search-results-bar dl {
   margin-bottom: 0px;
 }
 
-/* line 279, ../scss/_upcnet.scss */
+/* line 282, ../scss/_upcnet.scss */
 #search-results-bar dt.actionMenuHeader a::after {
   content: " ▼";
 }
 
-/* line 284, ../scss/_upcnet.scss */
+/* line 287, ../scss/_upcnet.scss */
 ul.betaviewsicons {
   display: inline;
   list-style: none;
   float: right;
   margin-left: 5px;
 }
-/* line 289, ../scss/_upcnet.scss */
+/* line 292, ../scss/_upcnet.scss */
 ul.betaviewsicons li {
   display: inline-block;
 }
 
-/* line 291, ../scss/_upcnet.scss */
+/* line 294, ../scss/_upcnet.scss */
 .fontello-icon-mobile, .fontello-icon-tablet {
   font-size: 20px;
 }
 
-/* line 296, ../scss/_upcnet.scss */
+/* line 299, ../scss/_upcnet.scss */
 div.photoAlbumEntry {
   text-align: center;
   float: left;
@@ -14708,38 +14751,38 @@ div.photoAlbumEntry {
   padding: 4px;
   margin: 5px;
 }
-/* line 309, ../scss/_upcnet.scss */
+/* line 312, ../scss/_upcnet.scss */
 div.photoAlbumEntry a {
   border: 0 !important;
   box-shadow: 0 0 0 !important;
   border-radius: 0;
 }
 
-/* line 316, ../scss/_upcnet.scss */
+/* line 319, ../scss/_upcnet.scss */
 .estilImgPhotoAlbum3 {
   height: 83px !important;
   width: 96% !important;
 }
 
-/* line 321, ../scss/_upcnet.scss */
+/* line 324, ../scss/_upcnet.scss */
 .estilImgPhotoAlbum1 {
   height: 96px !important;
   width: 96% !important;
 }
 
-/* line 326, ../scss/_upcnet.scss */
+/* line 329, ../scss/_upcnet.scss */
 .estilImgPhotoAlbum2 {
   height: 128px !important;
   width: 96px !important;
 }
 
-/* line 335, ../scss/_upcnet.scss */
+/* line 338, ../scss/_upcnet.scss */
 #FCKTdiv1imatgedamunttext {
   margin: 0 auto;
   position: relative;
 }
 
-/* line 340, ../scss/_upcnet.scss */
+/* line 343, ../scss/_upcnet.scss */
 #FCKTdiv2imatgedamunttext {
   background-color: white;
   color: #333;
@@ -14756,12 +14799,12 @@ div.photoAlbumEntry a {
   width: 200px;
 }
 
-/* line 356, ../scss/_upcnet.scss */
+/* line 359, ../scss/_upcnet.scss */
 #FCKTdiv3imatgedamunttext {
   padding: 10px;
 }
 
-/* line 363, ../scss/_upcnet.scss */
+/* line 366, ../scss/_upcnet.scss */
 #tab-professional-opportunities ul {
   list-style: inside none square;
   box-shadow: 0 1px 1px #b2b2b2;
@@ -14779,23 +14822,23 @@ div.photoAlbumEntry a {
   border-radius: 4px;
 }
 
-/* line 376, ../scss/_upcnet.scss */
+/* line 379, ../scss/_upcnet.scss */
 select {
   width: auto;
 }
 
-/* line 380, ../scss/_upcnet.scss */
+/* line 383, ../scss/_upcnet.scss */
 #_shared_folder {
   display: none;
 }
 
-/* line 384, ../scss/_upcnet.scss */
+/* line 387, ../scss/_upcnet.scss */
 .past_events_button {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 389, ../scss/_upcnet.scss */
+/* line 392, ../scss/_upcnet.scss */
 .icon-serveitic {
   background-position: -432px -144px;
 }

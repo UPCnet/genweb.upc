@@ -45,6 +45,9 @@
 #category.documentByLine {@extend .muted; @extend .box; @extend .box-small;
     &:before { content:""; @extend [class^="icon-"]; @extend .icon-tags; width:15px;}
 }
+#relatedItemBox {@extend .muted; @extend .box; @extend .box-small;
+    &:before { content:""; @extend [class^="icon-"]; @extend .icon-relatedItems; width:15px;}
+}
 
 
 
