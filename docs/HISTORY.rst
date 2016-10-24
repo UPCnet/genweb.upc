@@ -1,11 +1,15 @@
 Changelog
 =========
 
-2.32 (unreleased)
+2.32 (2016-10-24)
 -----------------
 
-- Nothing changed yet.
-
+* restyling content related items [oscar.albareda]
+* increase line-height to h2 [oscar.albareda]
+* subir los js optimizados al inicio de la pagina [Paco Gregori]
+* mimic subnavbar behavior on news listing portlet [oscar.albareda]
+* add default values to colors in dynamicCSS [oscar.albareda]
+* Update travis.cfg [Alberto Duran]
 
 2.31 (2016-10-04)
 -----------------
