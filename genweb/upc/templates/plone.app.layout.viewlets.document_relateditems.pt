@@ -38,14 +38,3 @@
         </ul>
     </div>
 </div>
-<!--
-<div id="category" class="documentByLine">
-  arxivat sota:
-  <span>
-    <a href="//147.83.128.10:3000/170/pelat/ca/@@search?Subject%3Alist=etiqueta1" class="link-category" rel="tag">etiqueta1</a><span class="separator">,</span>
-  </span>
-  <span>
-    <a href="//147.83.128.10:3000/170/pelat/ca/@@search?Subject%3Alist=etiqueta2" class="link-category" rel="tag">etiqueta2</a>
-  </span>
-</div>
--->
