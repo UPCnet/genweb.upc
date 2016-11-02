@@ -163,7 +163,7 @@
                               </span>
                               &mdash;
                             </tal:name>
-                            <strong><span i18n:translate="genweb_create">creaci&oacute;</span></strong> 18/09/2008
+                            <strong i18n:translate="genweb_create">creaci&oacute; <span tal:content="python:toLocalizedTime(item_created,long_format=1)"></span></strong>
 
                             <tal:modified condition="python: item_type != 'Event'">
                                &mdash;
