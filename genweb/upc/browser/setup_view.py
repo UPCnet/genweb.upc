@@ -38,9 +38,13 @@ import logging
 
 grok.templatedir('views_templates')
 
-NEWS_QUERY = [{'i': u'portal_type', 'o': u'plone.app.querystring.operation.selection.is', 'v': [u'News Item']}, {'i': u'review_state', 'o': u'plone.app.querystring.operation.selection.is', 'v': [u'published']}]
+NEWS_QUERY = [{'i': u'portal_type', 'o': u'plone.app.querystring.operation.selection.is', 'v': [u'News Item', u'Link']},
+              {'i': u'review_state', 'o': u'plone.app.querystring.operation.selection.is', 'v': [u'published']},
+              {'i': u'path', 'o': u'plone.app.querystring.operation.string.relativePath', 'v': u'..'}]
 QUERY_SORT_ON = u'effective'
-EVENT_QUERY = [{'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.is', 'v': ['Event']}, {'i': 'start', 'o': 'plone.app.querystring.operation.date.afterToday', 'v': ''}, {'i': 'review_state', 'o': 'plone.app.querystring.operation.selection.is', 'v': ['published']}]
+EVENT_QUERY = [{'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.is', 'v': ['Event']},
+               {'i': 'start', 'o': 'plone.app.querystring.operation.date.afterToday', 'v': ''},
+               {'i': 'review_state', 'o': 'plone.app.querystring.operation.selection.is', 'v': ['published']}]
 
 
 class setup(grok.View):
@@ -205,9 +209,9 @@ class setup(grok.View):
 
         self.link_translations([(col_news, 'en'), (col_noticias, 'es'), (col_noticies, 'ca')])
 
-        self.constrain_content_types(news, ('News Item', 'Folder', 'Image'))
-        self.constrain_content_types(noticias, ('News Item', 'Folder', 'Image'))
-        self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image'))
+        self.constrain_content_types(news, ('News Item', 'Folder', 'Image', 'Link'))
+        self.constrain_content_types(noticias, ('News Item', 'Folder', 'Image', 'Link'))
+        self.constrain_content_types(noticies, ('News Item', 'Folder', 'Image', 'Link'))
 
         # Setup portal events folder
         events = self.create_content(portal_en, 'Folder', 'events', title='Events', description=u'Site events')
