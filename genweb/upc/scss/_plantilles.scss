@@ -40,6 +40,12 @@
 .blueDark-background {
 	background-color: lighten($blueDark, 40%);
 }
+.green-background {
+	background-color: lighten($green, 30%);
+}
+.purpleDark-background {
+	background-color: lighten($purple, 30%);
+}
 
 .gray-background {background-color: lighten($gray, 30%); }
 .grayLight-background {background-color: lighten($gray, 40%); }
