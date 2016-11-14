@@ -1,11 +1,13 @@
 Changelog
 =========
 
-2.33 (unreleased)
+2.33 (2016-11-14)
 -----------------
 
-- Nothing changed yet.
-
+* add extra background colors [oscar.albareda]
+* canvi querys coleccions aggregator noticies i esdeveniments i tipus per defecte [Alberto Duran]
+* correcio data creacio vista extesa [Alberto Duran]
+* aremoved commented content [Roberto Diaz]
 
 2.32 (2016-10-24)
 -----------------
