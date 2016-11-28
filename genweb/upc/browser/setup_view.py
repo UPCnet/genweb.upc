@@ -172,7 +172,7 @@ class setup(grok.View):
 
         # Setup portal news folder
         news = self.create_content(portal_en, 'Folder', 'news', title='News', description=u'Site news')
-        noticias = self.create_content(portal_es, 'Folder', 'noticias', title='Notícias', description=u'Notícias del sitio')
+        noticias = self.create_content(portal_es, 'Folder', 'noticias', title='Noticias', description=u'Noticias del sitio')
         noticies = self.create_content(portal_ca, 'Folder', 'noticies', title='Notícies', description=u'Notícies del lloc')
         self.link_translations([(news, 'en'), (noticias, 'es'), (noticies, 'ca')])
 
