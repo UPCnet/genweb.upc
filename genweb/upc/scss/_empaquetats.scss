@@ -64,6 +64,10 @@ img.link_blank, img.link_pdf {
     padding-bottom: 3px;
 }
 
+li.navTreeItem a img.link_blank {
+    margin-left: 0px!important;
+}
+
 .well p {
     margin: 0;
 }
