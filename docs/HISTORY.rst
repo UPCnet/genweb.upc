@@ -1,11 +1,19 @@
 Changelog
 =========
 
-2.34 (unreleased)
+2.34 (2016-12-15)
 -----------------
 
-- Nothing changed yet.
-
+* Add Multi-view Collection portlet [Santi]
+* fix list style, force left bullet only on direct li siblings [oscar.albareda]
+* Hide text attr in listing_view for Folders [Santi]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Alberto Duran]
+* Noticias sin acento [Alberto Duran]
+* Treure espai extra enllaços obrir en finestra nova [Santi]
+* Highlight important items* on folder_contents view [Santi]
+*  [Santi]
+* *Important items have attribute 'is_important' set to True. [Santi]
+* See ticket 702316. [Santi]
 
 2.33 (2016-11-14)
 -----------------
