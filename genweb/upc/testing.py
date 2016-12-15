@@ -12,6 +12,8 @@ from plone.app.multilingual.testing import SESSIONS_FIXTURE
 
 from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
 
+from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
+
 
 class GenwebUPC(PloneSandboxLayer):
 
@@ -38,3 +40,6 @@ GENWEB_UPC_INTEGRATION_TESTING = IntegrationTesting(
 GENWEB_UPC_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(GENWEB_UPC_FIXTURE,),
     name="GenwebUPC:Functional")
+GENWEB_UPC_ROBOT_TESTING = FunctionalTesting(
+    bases=(GENWEB_UPC_FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE, z2.ZSERVER_FIXTURE),
+    name="GenwebUPC:Robot")
