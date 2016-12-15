@@ -1,0 +1,35 @@
+<tal:def tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                     results view/result_dicts;"
+         tal:condition="results"
+         i18n:domain="genweb">
+  <div class="portlet portlet-noticies portlet-ampliat" role="complementary">
+    <h2 tal:content="view/data/header">Collection title</h2>
+
+    <ul class="list-portlet">
+      <li class="clearfix" tal:repeat="result results">
+        <h3>
+          <a tal:attributes="href result/url" tal:content="result/title">
+            Result title
+          </a>
+        </h3>
+        <img tal:condition="result/image" class="span6"
+             tal:attributes="src result/image_src;
+                             title result/image_caption;
+                             alt result/image_caption;"/>
+        <div class="content-noticies" class="span6">
+          <p tal:content="result/description">Description summary</p>
+          <time class="smaller" tal:content="python:toLocalizedTime(result['date'])">Date</time>
+        </div>
+      </li>
+    </ul>
+
+    <div class="portletFooter">
+      <span>
+        <a class="portlet-footer" tal:attributes="href view/collection_url">
+          <i class="icon-rss"></i>
+          <span i18n:translate="more_url" i18n:domain="plone">More&hellip;</span>
+        </a>
+      </span>
+    </div>
+  </div>
+</tal:def>
