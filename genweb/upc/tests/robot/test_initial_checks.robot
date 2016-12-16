@@ -9,7 +9,7 @@ Resource  keywords.robot
 Library  Remote  ${PLONE_URL}/RobotRemote
 
 Test Setup  Open browser  ${PLONE_URL}  chrome
-#Test Teardown  Close all browsers
+Test Teardown  Close all browsers
 
 *** Test Cases ***
 
@@ -28,11 +28,6 @@ Create default directories
   Then we verify that everything has been created correctly
 
 *** Keywords ***
-
-the test folder is activated
-  Given main page is open
-  Then Click Element  xpath=//*[@id="portaltab-robot-test-folder"]/a
-  And Click Confirm Button
 
 the default directories have been created
   Given Go to  ${PLONE_URL}/folder_contents

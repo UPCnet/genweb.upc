@@ -13,24 +13,10 @@ we're logged in as admin
   And Input Password  name=__ac_password  secret
   And Click Button  name=submit
 
-Click To Change Important
-  Click Element  xpath=//*[@id="viewlet-above-content-title"]/div[1]/div/a
+the test folder is activated
+  Given main page is open
+  Then Click Element  xpath=//*[@id="portaltab-robot-test-folder"]/a
+  And confirm action
 
-Click Confirm Button
+confirm action
   Click Button  name=form.button.confirm
-
-Create a news item
-  [Arguments]  ${URL}  @{TITLE}
-  Go to  ${URL}
-  Click Element  id=plone-contentmenu-factories
-  Click Element  id=news-item
-  Input Text  name=form.widgets.IDublinCore.title  ${TITLE}
-  Click Button  name=form.buttons.save
-
-An important news item
-  [Arguments]  ${URL}  @{TITLE}
-  Go to  ${URL}
-  Click Element  id=plone-contentmenu-factories
-  Click Element  id=news-item
-  Input Text  name=form.widgets.IDublinCore.title  ${TITLE}
-  Click Button  name=form.buttons.save

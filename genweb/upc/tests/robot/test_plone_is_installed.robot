@@ -8,7 +8,6 @@ Resource  keywords.robot
 
 Library  Remote  ${PLONE_URL}/RobotRemote
 
-# Suite Setup  Open browser  ${PLONE_URL}  chrome
 Test Setup  Open browser  ${PLONE_URL}  chrome
 Test Teardown  Close all browsers
 
