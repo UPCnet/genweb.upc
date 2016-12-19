@@ -1,11 +1,13 @@
 Changelog
 =========
 
-2.35 (unreleased)
+2.35 (2016-12-19)
 -----------------
 
-- Nothing changed yet.
-
+* Filter images out of recent portlet [Santi]
+*  [Santi]
+* Filter images out of recent portlet and recently_modified view. [Santi]
+* See ticket 709406. [Santi]
 
 2.34 (2016-12-15)
 -----------------
