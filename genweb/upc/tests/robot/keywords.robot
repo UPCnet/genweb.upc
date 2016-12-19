@@ -20,3 +20,21 @@ the test folder is activated
 
 confirm action
   Click Button  name=form.button.confirm
+
+Input F_Text
+  [Arguments]  ${FIELD}  ${TEXT}
+  Input text  name=form.widgets.IDublinCore.${FIELD}  ${TEXT}
+
+Input F_Rich
+  [Arguments]  ${FIELD}  ${TEXT}
+  Select frame  id=form.widgets.IRichText.${FIELD}_ifr
+  Input text  id=content  ${TEXT}
+  Unselect frame
+
+Input F_Image
+  [Arguments]  ${PATH}
+  Choose File  id=form-widgets-ILeadImage-image-input  ${PATH}
+
+Input F_Text_Image
+  [Arguments]  ${FIELD}  ${TEXT}
+  Choose File  name=form.widgets.ILeadImage.${FIELD}  ${TEXT}
