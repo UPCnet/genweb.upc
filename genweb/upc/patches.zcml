@@ -26,4 +26,11 @@
         replacement=".patch._makequery"
         />
 
+    <monkey:patch
+        description="Filter images out of the recent portlet"
+        class="plone.app.portlets.portlets.recent.Renderer"
+        original="_data"
+        replacement=".patch.plone_app_portlets_recent_data"
+        />
+
 </configure>
