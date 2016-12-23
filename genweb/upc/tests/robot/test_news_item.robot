@@ -3,6 +3,7 @@
 Force Tags  wip-not_in_docs
 
 Library  Selenium2Library
+Library	 OperatingSystem
 
 Resource  plone/app/robotframework/selenium.robot
 Resource  keywords.robot
@@ -74,10 +75,9 @@ it has been created a complete news item
   Input F_Text  title  ${TITLE}
   Input F_Text  description  ${DESCRIPTION}
   Input F_Rich  text  ${TEXT}
-  Input F_Image  ${IMAGE_PATH}
-  Input F_Text_Image  image_caption  ${FOOT_IMAGE}
-  Click Button  name=form.buttons.save
-  confirm action
+  ${STATUS} =  Run Keyword And Return Status  File Should Exist	 ${IMAGE_PATH}
+  Run Keyword If  ${STATUS}  the image exists so we insert it
+  ...  ELSE  the image does not exist so we do not insert it
 
 news item should contain
   [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${IMAGE_PATH}
@@ -86,10 +86,8 @@ news item should contain
   Page should contain  ${TITLE}
   Page should contain  ${DESCRIPTION}
   Page should contain  ${TEXT}
-  Page Should Contain Image  //*[@id="content-core"]/figure/a/img
-  ${IMAGE_TITLE} =  Get Element Attribute  xpath=//*[@id="content-core"]/figure/a/img@title
-  Should Contain  ${TITLE}  ${IMAGE_TITLE}
-  Page should contain  ${FOOT_IMAGE}
+  ${STATUS} =  Run Keyword And Return Status  File Should Exist	 ${IMAGE_PATH}
+  Run Keyword If  ${STATUS}  the image exists so we check that it is inserted
 
 the news item has been marked as important
   [Arguments]  ${URL}
@@ -111,3 +109,19 @@ Change the important status of the news
   When Go to  ${URL}
   Then Click Element  xpath=//*[@id="viewlet-above-content-title"]/div[1]/div/a
   And confirm action
+
+the image exists so we insert it
+  Input F_Image  ${IMAGE_PATH}
+  Input F_Text_Image  image_caption  ${FOOT_IMAGE}
+  Click Button  name=form.buttons.save
+  confirm action
+
+the image does not exist so we do not insert it
+  Click Button  name=form.buttons.save
+  Log  \nPodemos mejorar esta prueba insertando una imagen en ${IMAGE_PATH}  console=yes
+
+the image exists so we check that it is inserted
+  Page Should Contain Image  //*[@id="content-core"]/figure/a/img
+  ${IMAGE_TITLE} =  Get Element Attribute  xpath=//*[@id="content-core"]/figure/a/img@title
+  Should Contain  ${TITLE}  ${IMAGE_TITLE}
+  Page should contain  ${FOOT_IMAGE}

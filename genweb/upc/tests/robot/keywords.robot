@@ -37,4 +37,4 @@ Input F_Image
 
 Input F_Text_Image
   [Arguments]  ${FIELD}  ${TEXT}
-  Choose File  name=form.widgets.ILeadImage.${FIELD}  ${TEXT}
+  Input text  name=form.widgets.ILeadImage.${FIELD}  ${TEXT}
