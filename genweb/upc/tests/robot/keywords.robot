@@ -21,6 +21,9 @@ the test folder is activated
 confirm action
   Click Button  name=form.button.confirm
 
+save form
+  Click Button  name=form.buttons.save
+
 Input F_Text
   [Arguments]  ${FIELD}  ${TEXT}
   Input text  name=form.widgets.IDublinCore.${FIELD}  ${TEXT}

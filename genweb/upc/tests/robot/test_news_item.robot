@@ -64,7 +64,7 @@ it has been created a news item
   Click Element  id=plone-contentmenu-factories
   Click Element  id=news-item
   Input F_Text  title  ${TITLE}
-  Click Button  name=form.buttons.save
+  save form
 
 it has been created a complete news item
   [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${IMAGE_PATH}
@@ -113,11 +113,11 @@ Change the important status of the news
 the image exists so we insert it
   Input F_Image  ${IMAGE_PATH}
   Input F_Text_Image  image_caption  ${FOOT_IMAGE}
-  Click Button  name=form.buttons.save
+  save form
   confirm action
 
 the image does not exist so we do not insert it
-  Click Button  name=form.buttons.save
+  save form
   Log  \nPodemos mejorar esta prueba insertando una imagen en ${IMAGE_PATH}  console=yes
 
 the image exists so we check that it is inserted
