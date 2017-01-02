@@ -24,6 +24,15 @@ confirm action
 save form
   Click Button  name=form.buttons.save
 
+added a tag
+  [Arguments]  ${URL}  ${TAG}
+  Go to  ${URL}
+  Click Element  id=fieldsetlegend-0
+  Input Text  id=s2id_autogen1  ${TAG}
+  Wait Until Page Contains Element  xpath=//*[@class="select2-match"][text()="${TAG}"]  timeout=1
+  Click Element  xpath=//*[@class="select2-match"][text()="${TAG}"]
+  save form
+
 Input F_Text
   [Arguments]  ${FIELD}  ${TEXT}
   Input text  name=form.widgets.IDublinCore.${FIELD}  ${TEXT}
@@ -41,3 +50,7 @@ Input F_Image
 Input F_Text_Image
   [Arguments]  ${FIELD}  ${TEXT}
   Input text  name=form.widgets.ILeadImage.${FIELD}  ${TEXT}
+
+Select F_Checkbox
+  [Arguments]  ${VALUE}
+  Select Checkbox  xpath=//*[@name="form.widgets.ICollection.query.v:records:list"][@value="${VALUE}"]
