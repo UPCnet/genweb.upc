@@ -11,7 +11,7 @@ Resource  date_keywords.robot
 Library  Remote  ${PLONE_URL}/RobotRemote
 
 Test Setup  Open browser  ${PLONE_URL}  chrome
-#Test Teardown  Close all browsers
+Test Teardown  Close all browsers
 
 *** Variables ***
 
