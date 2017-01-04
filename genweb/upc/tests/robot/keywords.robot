@@ -50,7 +50,3 @@ Input F_Image
 Input F_Text_Image
   [Arguments]  ${FIELD}  ${TEXT}
   Input text  name=form.widgets.ILeadImage.${FIELD}  ${TEXT}
-
-Select F_Checkbox
-  [Arguments]  ${VALUE}
-  Select Checkbox  xpath=//*[@name="form.widgets.ICollection.query.v:records:list"][@value="${VALUE}"]

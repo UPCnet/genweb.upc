@@ -2,7 +2,8 @@
 
 Force Tags  wip-not_in_docs
 
-Library   Selenium2Library
+Library  Selenium2Library
+
 Resource  plone/app/robotframework/selenium.robot
 Resource  keywords.robot
 

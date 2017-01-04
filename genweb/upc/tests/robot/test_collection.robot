@@ -55,7 +55,8 @@ it has been created a collection
   Input F_Text  description  ${DESCRIPTION}
   Run Keyword If  '${SELECT_VALUE}' == 'Subject'
   ...  Input Search Term Subject  ${SELECT_VALUE}  ${SEARCH}
-  ...  ELSE  Input Search Term  ${SELECT_VALUE}  ${SEARCH}
+  ...  ELSE
+  ...  Input Search Term  ${SELECT_VALUE}  ${SEARCH}
   Input F_Rich  text  ${TEXT}
   save form
 
@@ -76,4 +77,4 @@ Input Search Term Subject
   [Arguments]  ${SELECT_VALUE}  ${TAG}
   Select From List By Value  name=addindex  ${SELECT_VALUE}
   Click Element  xpath=//*[@id="formfield-form-widgets-ICollection-query"]/div[2]/div/div[1]/div/dl[1]/dt/span[1]
-  Select F_Checkbox  ${TAG}
+  Select Checkbox  xpath=//*[@name="form.widgets.ICollection.query.v:records:list"][@value="${TAG}"]

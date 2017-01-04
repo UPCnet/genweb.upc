@@ -5,7 +5,7 @@ from genweb.upc.testing import GENWEB_UPC_ROBOT_TESTING
 from plone.testing import layered
 
 def setUP(testCase=None):
-    # Inicialitzar l’entorn de proves
+    # Inicialitzar el entorn de proves
     pass
 
 def test_suite():
@@ -25,6 +25,18 @@ def test_suite():
         ),
         layered(robotsuite.RobotTestSuite(
                 './robot/test_news_item.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_collection.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_event.robot',
                 setUp=setUP
             ),
             layer=GENWEB_UPC_ROBOT_TESTING
