@@ -11,7 +11,7 @@ Resource  date_keywords.robot
 Library  Remote  ${PLONE_URL}/RobotRemote
 
 Test Setup  Open browser  ${PLONE_URL}  chrome
-Test Teardown  Close all browsers
+#Test Teardown  Close all browsers
 
 *** Variables ***
 
@@ -22,7 +22,7 @@ ${NEWS_ID}  prueba
 @{EVENT_DATA}  titol-de-prova  Descripció de prova  @{START_DATE}
 ...            Ubicació de prova  Assistent de prova  Contacte de prova
 ...            correu@de.prova  933030303  http://www.google.com  Text de prova
-# To avoid problems, avoid placing too many numbers
+# To avoid problems, avoid placing values greater than 999
 @{RECURRENCE_DATA}  2  5
 
 *** Test Cases ***
@@ -88,10 +88,12 @@ event should contain
 event should contain recurrence
   [Arguments]  ${URL}  ${DAY}  ${MONTH}  ${YEAR}  ${REPEAT_EACH}  ${ENDED_AFTER}
   Go to  ${URL}
-  :FOR  ${INDEX}  IN RANGE  1  ${ENDED_AFTER}
+  :FOR  ${INDEX}  IN RANGE  1  6
   \  Page should contain a correct date  ${DAY}  ${MONTH}  ${YEAR}
   \  ${DAY}  ${MONTH}  ${YEAR} =  Add days to a date  ${DAY}  ${MONTH}  ${YEAR}
   \  ...  ${REPEAT_EACH}
+  Run Keyword If  ${ENDED_AFTER} > 6
+  ...  Page should contain more occurrences  ${ENDED_AFTER}
 
 Select Date
   [Arguments]  ${DAY}  ${MONTH}  ${YEAR}
@@ -107,3 +109,8 @@ Page should contain a correct date
   [Arguments]  ${DAY}  ${MONTH}  ${YEAR}
   ${FORMAT_DATE} =  Format a date  ${DAY}  ${MONTH}  ${YEAR}
   Page should contain  ${FORMAT_DATE}
+
+Page should contain more occurrences
+  [Arguments]  ${ENDED_AFTER}
+  ${MORE_OCCURRENCES} =  Evaluate  ${ENDED_AFTER} - 6
+  Page should contain  There are ${MORE_OCCURRENCES} more occurrences.
