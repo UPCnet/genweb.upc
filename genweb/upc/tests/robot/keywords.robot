@@ -1,3 +1,8 @@
+*** Settings ***
+
+Library  Selenium2Library
+Library  Collections
+
 *** Keywords ***
 
 main page is open
@@ -24,14 +29,36 @@ confirm action
 save form
   Click Button  name=form.buttons.save
 
-added a tag
-  [Arguments]  ${URL}  ${TAG}
+it has been created a simple portlet
+  [Arguments]  ${URL}  ${PORTLET}  ${TITLE}
   Go to  ${URL}
-  Click Element  id=fieldsetlegend-0
-  Input Text  id=s2id_autogen1  ${TAG}
-  Wait Until Page Contains Element  xpath=//*[@class="select2-match"][text()="${TAG}"]  timeout=1
-  Click Element  xpath=//*[@class="select2-match"][text()="${TAG}"]
+  Click Element  id=plone-contentmenu-factories
+  Click Element  id=news-item
+  Input F_Text  title  ${TITLE}
   save form
+
+added a tag
+  [Arguments]  ${URL}  @{TAGS}
+  Go to  ${URL}/edit
+  Click Element  id=fieldsetlegend-0
+  : FOR  ${TAG}  IN  @{TAGS}
+  \  Input Text  id=s2id_autogen1  ${TAG}
+  \  Wait Until Page Contains Element  xpath=//*[@class="select2-match"][text()="${TAG}"]  timeout=1.5
+  \  Click Element  xpath=//*[@class="select2-match"][text()="${TAG}"]
+  save form
+
+different items have been created with tags
+  [Arguments]  ${URL}  @{DATA}
+  :FOR  ${DATA_PORTLET}  IN   @{DATA}
+  \  ${PORTLET} =  Get From List  ${DATA_PORTLET}  0
+  \  ${TITLE_URL} =  Get From List  ${DATA_PORTLET}  1
+  \  it has been created a simple portlet  ${URL}  ${PORTLET}  ${TITLE_URL}
+  \  ${LENGTH} =  Get Length   ${DATA_PORTLET}
+  \  @{TAGS} =
+  \  ...  Run Keyword If  ${LENGTH} > 2
+  \  ...  Get Slice From List  ${DATA_PORTLET}  2
+  \  Run Keyword If  ${LENGTH} > 2
+  \  ...  added a tag  ${URL}/${TITLE_URL}   @{TAGS}
 
 Input F_Text
   [Arguments]  ${FIELD}  ${TEXT}

@@ -3,6 +3,7 @@
 Force Tags  wip-not_in_docs
 
 Library  Selenium2Library
+Library  Collections
 
 Resource  plone/app/robotframework/selenium.robot
 Resource  keywords.robot
@@ -105,6 +106,7 @@ Within the directory Templates
   :FOR  ${STRING}  IN  @{LIST_TEMPLATES_CONTENTS_1}
   \  Page should contain  ${STRING}
   Click Element  xpath=//*[@id="folderlisting-main-table-noplonedrag"]/div[1]/ul/a
-  Wait Until Page Contains  @{LIST_TEMPLATES_CONTENTS_2}[0]
+  ${LOADING_PAGE} =  Get From List  ${LIST_TEMPLATES_CONTENTS_2}  0
+  Wait Until Page Contains  ${LOADING_PAGE}
   :FOR  ${STRING}  IN  @{LIST_TEMPLATES_CONTENTS_2}
   \  Page should contain  ${STRING}

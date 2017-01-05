@@ -10,13 +10,14 @@ Resource  keywords.robot
 Library  Remote  ${PLONE_URL}/RobotRemote
 
 Test Setup  Open browser  ${PLONE_URL}  chrome
-Test Teardown  Close all browsers
+#Test Teardown  Close all browsers
 
 *** Variables ***
 
 ${URL_FOLDER}  ${PLONE_URL}/robot-test-folder
-${NEWS_ID}  prueba
-@{COLLECTION_DATA}  titol-de-prova  Descripció de prova  Text de prova
+${COLLECTION_ID}  titol_de_prova
+${URL_COLLECTION}  ${URL_FOLDER}/${COLLECTION_ID}
+@{COLLECTION_DATA}  ${COLLECTION_ID}  Descripció de prova  Text de prova
 
 *** Test Cases ***
 
@@ -27,7 +28,7 @@ Create a collection for the title value
   When the test folder is activated
   And it has been created a collection  ${URL_FOLDER}  @{COLLECTION_DATA}
   ...  ${SELECT_VALUE}  ${SEARCH}
-  Then collection should contain  ${URL_FOLDER}/@{COLLECTION_DATA}[0]
+  Then collection should contain  ${URL_COLLECTION}
   ...  @{COLLECTION_DATA}  ${SEARCH}
 
 Create a collection for the subject value
@@ -36,12 +37,11 @@ Create a collection for the subject value
   ${SELECT_VALUE} =  Set Variable  Subject
   Given we're logged in as admin
   When the test folder is activated
-  And added a tag  ${URL_FOLDER}/edit  ${TAG}
+  And added a tag  ${URL_FOLDER}  ${TAG}
   And it has been created a collection  ${URL_FOLDER}  @{COLLECTION_DATA}
   ...  ${SELECT_VALUE}  ${TAG}
-  Then collection should contain  ${URL_FOLDER}/@{COLLECTION_DATA}[0]
+  Then collection should contain  ${URL_COLLECTION}
   ...  @{COLLECTION_DATA}  ${SEARCH}
-
 
 *** Keywords ***
 

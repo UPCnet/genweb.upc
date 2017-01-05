@@ -41,5 +41,11 @@ def test_suite():
             ),
             layer=GENWEB_UPC_ROBOT_TESTING
         ),
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_news_events_listing.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
     ])
     return suite

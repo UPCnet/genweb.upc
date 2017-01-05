@@ -1,3 +1,7 @@
+*** Settings ***
+
+Library  Selenium2Library
+
 *** Keywords ***
 
 Add days to a date
