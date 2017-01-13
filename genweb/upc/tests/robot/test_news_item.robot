@@ -18,7 +18,7 @@ Test Teardown  Close all browsers
 ${URL_FOLDER}  ${PLONE_URL}/robot-test-folder
 ${NEWS_ID}  titol-de-prova
 ${URL_NEWS}  ${URL_FOLDER}/${NEWS_ID}
-${PORTLET}  news-item
+${ITEM}  news-item
 @{NEWS_DATA}  ${NEWS_ID}  Descripció de prova  Text de prova
 ...           /tmp/sample.jpg  Peu de prova
 
@@ -27,7 +27,7 @@ ${PORTLET}  news-item
 Create a news item
   Given we're logged in as admin
   When the test folder is activated
-  And it has been created a simple portlet  ${URL_FOLDER}  ${PORTLET}  ${NEWS_ID}
+  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
   Then Page should contain  Element creat
 
 Create a complete news item
@@ -40,14 +40,14 @@ Create a complete news item
 Marking as important news item
   Given we're logged in as admin
   When the test folder is activated
-  And it has been created a simple portlet  ${URL_FOLDER}  ${PORTLET}  ${NEWS_ID}
+  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
   And the news item has been marked as important  ${URL_FOLDER}/${NEWS_ID}
   Then Page should contain  Desmarca com a important
 
 Unmarked as important news item
   Given we're logged in as admin
   When the test folder is activated
-  And it has been created a simple portlet  ${URL_FOLDER}  ${PORTLET}  ${NEWS_ID}
+  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
   And the news item has been marked as important  ${URL_FOLDER}/${NEWS_ID}
   And the news item has been unmarked as important  ${URL_FOLDER}/${NEWS_ID}
   Then Page should contain  Marca com a important
@@ -55,7 +55,7 @@ Unmarked as important news item
 Check that important news is highlighted
   Given we're logged in as admin
   When the test folder is activated
-  And it has been created a simple portlet  ${URL_FOLDER}  ${PORTLET}  ${NEWS_ID}
+  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
   And the news item has been marked as important  ${URL_FOLDER}/${NEWS_ID}
   Then the news is highlighted  ${URL_FOLDER}/folder_contents
 

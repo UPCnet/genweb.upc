@@ -42,7 +42,19 @@ def test_suite():
             layer=GENWEB_UPC_ROBOT_TESTING
         ),
         layered(robotsuite.RobotTestSuite(
-                './robot/test_news_events_listing.robot',
+                './robot/test_portlet_event.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_portlet_news_events_listing.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_portlet_fullnews',
                 setUp=setUP
             ),
             layer=GENWEB_UPC_ROBOT_TESTING

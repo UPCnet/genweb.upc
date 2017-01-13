@@ -18,6 +18,11 @@ we're logged in as admin
   And Input Password  name=__ac_password  secret
   And Click Button  name=submit
 
+the default directories have been created
+  Given Go to  ${PLONE_URL}/folder_contents
+  Then Click Element  xpath=//*[@id="viewlet-above-content"]/div/a
+  And Click Button  name=createn3
+
 the test folder is activated
   Given main page is open
   Then Click Element  xpath=//*[@id="portaltab-robot-test-folder"]/a
@@ -27,37 +32,50 @@ confirm action
   Click Button  name=form.button.confirm
 
 save form
-  Click Button  name=form.buttons.save
+  ${STATUS} =  Run Keyword And Return Status
+  ...  Page Should Contain Element	name=form.buttons.save
+  Run Keyword If  ${STATUS}
+  ...  Click Button  name=form.buttons.save
+  ...  ELSE
+  ...  Click Button  name=form.actions.save
 
-it has been created a simple portlet
-  [Arguments]  ${URL}  ${PORTLET}  ${TITLE}
+it has been created a simple item
+  [Arguments]  ${URL}  ${ITEM}  ${TITLE}
   Go to  ${URL}
   Click Element  id=plone-contentmenu-factories
-  Click Element  id=news-item
+  Click Element  id=${ITEM}
   Input F_Text  title  ${TITLE}
   save form
 
 added a tag
   [Arguments]  ${URL}  @{TAGS}
   Go to  ${URL}/edit
-  Click Element  id=fieldsetlegend-0
+  Click Element  //*[span[text()="Categorització"]]
   : FOR  ${TAG}  IN  @{TAGS}
   \  Input Text  id=s2id_autogen1  ${TAG}
-  \  Wait Until Page Contains Element  xpath=//*[@class="select2-match"][text()="${TAG}"]  timeout=1.5
+  \  Wait Until Page Contains Element  xpath=//*[@class="select2-match"][text()="${TAG}"]  timeout=1
   \  Click Element  xpath=//*[@class="select2-match"][text()="${TAG}"]
   save form
 
+status has been passed to public
+  [Arguments]  ${URL}
+  Go to  ${URL}
+  Click Element  id=plone-contentmenu-workflow
+  Click Element  id=workflow-transition-publish
+  confirm action
+
 different items have been created with tags
-  [Arguments]  ${URL}  @{DATA}
+  [Arguments]  @{DATA}
   :FOR  ${DATA_PORTLET}  IN   @{DATA}
-  \  ${PORTLET} =  Get From List  ${DATA_PORTLET}  0
-  \  ${TITLE_URL} =  Get From List  ${DATA_PORTLET}  1
-  \  it has been created a simple portlet  ${URL}  ${PORTLET}  ${TITLE_URL}
+  \  ${URL} =  Get From List  ${DATA_PORTLET}  0
+  \  ${ITEM} =  Get From List  ${DATA_PORTLET}  1
+  \  ${TITLE_URL} =  Get From List  ${DATA_PORTLET}  2
+  \  it has been created a simple item  ${URL}  ${ITEM}  ${TITLE_URL}
   \  ${LENGTH} =  Get Length   ${DATA_PORTLET}
   \  @{TAGS} =
-  \  ...  Run Keyword If  ${LENGTH} > 2
-  \  ...  Get Slice From List  ${DATA_PORTLET}  2
-  \  Run Keyword If  ${LENGTH} > 2
+  \  ...  Run Keyword If  ${LENGTH} > 3
+  \  ...  Get Slice From List  ${DATA_PORTLET}  3
+  \  Run Keyword If  ${LENGTH} > 3
   \  ...  added a tag  ${URL}/${TITLE_URL}   @{TAGS}
 
 Input F_Text

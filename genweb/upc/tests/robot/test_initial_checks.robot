@@ -31,11 +31,6 @@ Create default directories
 
 *** Keywords ***
 
-the default directories have been created
-  Given Go to  ${PLONE_URL}/folder_contents
-  Then Click Element  xpath=//*[@id="viewlet-above-content"]/div/a
-  And Click Button  name=createn3
-
 we verify that everything has been created correctly
   Within the directory Home
   Within the directory Català
