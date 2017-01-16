@@ -35,7 +35,7 @@ ${URL_EVENT}  ${PLONE_URL}/ca/esdeveniments
 View a list of news events with tags created
   Given we're logged in as admin
   When the default directories have been created
-  And different items have been created with tags  @{DATA}
+  And different simple items have been created with tags  @{DATA}
   And open new list of news events  ${PLONE_URL}
   Then page should contain the list of tags  @{LIST_TAGS}
 
@@ -60,8 +60,8 @@ Create a news event listing of news type with tags
   @{LIST_TAGS_AND_DATA} =  Set Variable  ${LIST_TAGS}  ${DATA}
   Given we're logged in as admin
   When the default directories have been created
-  And different items have been created with tags  @{DATA}
-  And it has been created a news event listing with selected tags in homepage  News  @{LIST_TAGS}
+  And different simple items have been created with tags  @{DATA}
+  And it has been created a news event listing with selected tags in homepage  News
   Then homepage should contain a news event listing of news type with selected tags  @{LIST_TAGS}
   And each news link must contain the corresponding elements  @{LIST_TAGS_AND_DATA}
 
@@ -69,8 +69,8 @@ Create a news event listing of events type with tags
   @{LIST_TAGS_AND_DATA} =  Set Variable  ${LIST_TAGS}  ${DATA}
   Given we're logged in as admin
   When the default directories have been created
-  And different items have been created with tags  @{DATA}
-  And it has been created a news event listing with selected tags in homepage  Events  @{LIST_TAGS}
+  And different simple items have been created with tags  @{DATA}
+  And it has been created a news event listing with selected tags in homepage  Events
   Then homepage should contain a news event listing of events type
   And today events link must contain the corresponding elements  @{DATA}
 
@@ -84,7 +84,7 @@ it has been created a news event listing without selected tags in homepage
   save form
 
 it has been created a news event listing with selected tags in homepage
-  [Arguments]  ${TYPE_TAG}  @{LIST_TAGS}
+  [Arguments]  ${TYPE_TAG}
   open new list of news events in homepage
   Wait Until Page Contains Element  id=form.typetag  timeout=1
   Select From List  id=form.typetag  ${TYPE_TAG}
@@ -117,11 +117,11 @@ page should not contain the list of tags
   \  Page should not contain  ${TAG}
 
 homepage should contain a news event listing of news type without selected tags
-  Go to  ${PLONE_URL}
+  main page is open
   Page should contain element  xpath=//a[contains(text(), "Totes les notícies")]
 
 homepage should contain a news event listing of events type
-  Go to  ${PLONE_URL}
+  main page is open
   Page should contain element  xpath=//a[contains(text(), "Propers")]
   Page should contain element  xpath=//a[contains(text(), "Avui")]
   Page should contain element  xpath=//a[contains(text(), "Passat")]
@@ -132,7 +132,7 @@ homepage should contain a news event listing of events type
 
 homepage should contain a news event listing of news type with selected tags
   [Arguments]  @{TAGS}
-  Go to  ${PLONE_URL}
+  main page is open
   Page should contain element  xpath=//a[contains(text(), "Totes les notícies")]
   :FOR  ${TAG}  IN  @{TAGS}
   \  Page should contain  ${TAG}
@@ -142,7 +142,7 @@ each news link must contain the corresponding elements
   @{TAGS} =  Set Variable  @{LIST_TAGS_AND_DATA}[0]
   @{DATA} =  Set Variable  @{LIST_TAGS_AND_DATA}[1]
   :FOR  ${TAG}  IN  @{TAGS}
-  \  Go to  ${PLONE_URL}
+  \  main page is open
   \  Click Element  //a[contains(text(), '${TAG}')]
   \  Page should contain titles of news elements  ${TAG}  @{DATA}
 
@@ -161,7 +161,7 @@ Page should contain titles of news elements
 
 today events link must contain the corresponding elements
   [Arguments]  @{DATA}
-  Go to  ${PLONE_URL}
+  main page is open
   Click Element  xpath=//a[contains(text(), "Avui")]
   : FOR  ${ELEMENT}  IN  @{DATA}
   \  ${STATUS_TYPE} =  Run Keyword And Return Status

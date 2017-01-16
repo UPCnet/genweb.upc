@@ -19,8 +19,9 @@ ${URL_FOLDER}  ${PLONE_URL}/robot-test-folder
 ${NEWS_ID}  titol-de-prova
 ${URL_NEWS}  ${URL_FOLDER}/${NEWS_ID}
 ${ITEM}  news-item
-@{NEWS_DATA}  ${NEWS_ID}  Descripció de prova  Text de prova
-...           /tmp/sample.jpg  Peu de prova
+${IMAGE_PATH}  ${CURDIR}/img/sample.png
+@{NEWS_DATA}  ${NEWS_ID}  Descripció de prova  Text de prova  ${IMAGE_PATH}
+...           Peu de prova
 
 *** Test Cases ***
 
@@ -31,7 +32,6 @@ Create a news item
   Then Page should contain  Element creat
 
 Create a complete news item
-
   Given we're logged in as admin
   When the test folder is activated
   And it has been created a complete news item  ${URL_FOLDER}  @{NEWS_DATA}

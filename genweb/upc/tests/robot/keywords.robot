@@ -14,8 +14,8 @@ the login page
 we're logged in as admin
   Given the login page
   Then Click Element  xpath=//*[@id="accordionLogin"]/div[2]/div[1]/a
-  And Input Text  name=__ac_name  admin
-  And Input Password  name=__ac_password  secret
+  And Input Text  name=__ac_name  ${SITE_OWNER_NAME}
+  And Input Password  name=__ac_password  ${SITE_OWNER_PASSWORD}
   And Click Button  name=submit
 
 the default directories have been created
@@ -64,7 +64,7 @@ status has been passed to public
   Click Element  id=workflow-transition-publish
   confirm action
 
-different items have been created with tags
+different simple items have been created with tags
   [Arguments]  @{DATA}
   :FOR  ${DATA_PORTLET}  IN   @{DATA}
   \  ${URL} =  Get From List  ${DATA_PORTLET}  0

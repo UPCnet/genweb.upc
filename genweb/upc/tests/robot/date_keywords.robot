@@ -64,3 +64,7 @@ Format a date
   ...  ELSE
   ...  Set Variable  ${MONTH}
   [Return]  ${DAY}/${MONTH}/${YEAR}
+
+Get Current Date in European format
+  ${YEAR}  ${MONTH}  ${DAY} =  Get Time  year,month,day
+  [Return]  ${DAY}/${MONTH}/${YEAR}
