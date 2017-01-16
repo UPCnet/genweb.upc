@@ -134,31 +134,31 @@ Page Should Contain a news item portlet
   Page Should Contain  Notícies
 
 homepage should contain the news item with image left and text right
-  main page is open
+  homepage is open
   Page Should Contain Element  xpath=//ul[@class="list-portlet"]/li/h3/../img[@class="span6"]/../div[@class="content-noticies"]/p/../time
 
 homepage should contain the news item with image above text and below
-  main page is open
+  homepage is open
   Page Should Contain Element  xpath=//ul[@class="list-portlet"]/li/a/div[@class="noticies-full"]/img/../../h3/../../div[@class="content-noticies"]/p/../time
 
 homepage should contain the news items in two columns with image above and text below
-  main page is open
+  homepage is open
   Page Should Contain Element  xpath=//div[@id="pair-news"]/../div[@id="odd-news"]
   Page Should Contain Element  xpath=//div[@id="pair-news"]/div[@class="noticia-full-2cols"]/a/div[@class="noticies-full"]/img/../../h3/../../div[@class="content-noticies"]/p/../time
   Page Should Contain Element  xpath=//div[@id="odd-news"]/div[@class="noticia-full-2cols"]/a/div[@class="noticies-full"]/img/../../h3/../../div[@class="content-noticies"]/p/../time
 
 homepage should contain x news items
   [Arguments]  ${TOTAL}
-  main page is open
+  homepage is open
   ${COUNT} =  Get Matching Xpath Count  xpath=//ul[@class="list-portlet"]/li
   Should Be Equal  ${TOTAL}  ${COUNT}
 
 homepage should contain date of news item
-  main page is open
+  homepage is open
   ${DATE} =  Get Current Date in European format
   Page Should Contain Element  xpath=//time[text()="${DATE}"]
 
 homepage should not contain date of news item
-  main page is open
+  homepage is open
   ${DATE} =  Get Current Date in European format
   Page Should Not Contain Element  xpath=//time[text()="${DATE}"]

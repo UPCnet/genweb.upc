@@ -18,5 +18,5 @@ ${FOOTER}  Aquest web utilitza cookies pròpies per oferir una millor experiènc
 *** Test Cases ***
 
 Homepage is shown
-  Given main page is open
+  Given homepage is open
   Then Page should contain  ${FOOTER}

@@ -54,14 +54,14 @@ a event portlet has been created in homepage
 
 portlet event should contain in homepage
   [Arguments]  ${TITLE}  ${DAY}  ${MONTH}  ${YEAR}
-  main page is open
+  homepage is open
   Page should contain  ${TITLE}
   Page should contain a correct date  ${DAY}  ${MONTH}  ${YEAR}
 
 portlet event should contain recurrence in homepage
   [Arguments]  ${DAY}  ${MONTH}  ${YEAR}  ${REPEAT_EACH}  ${ENDED_AFTER}
   ...  ${ITEMS_TO_DISPLAY}
-  main page is open
+  homepage is open
   :FOR  ${INDEX}  IN RANGE  1  ${ITEMS_TO_DISPLAY}
   \  Page should contain a correct date  ${DAY}  ${MONTH}  ${YEAR}
   \  ${DAY}  ${MONTH}  ${YEAR} =  Add days to a date  ${DAY}  ${MONTH}  ${YEAR}

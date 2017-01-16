@@ -117,11 +117,11 @@ page should not contain the list of tags
   \  Page should not contain  ${TAG}
 
 homepage should contain a news event listing of news type without selected tags
-  main page is open
+  homepage is open
   Page should contain element  xpath=//a[contains(text(), "Totes les notícies")]
 
 homepage should contain a news event listing of events type
-  main page is open
+  homepage is open
   Page should contain element  xpath=//a[contains(text(), "Propers")]
   Page should contain element  xpath=//a[contains(text(), "Avui")]
   Page should contain element  xpath=//a[contains(text(), "Passat")]
@@ -132,7 +132,7 @@ homepage should contain a news event listing of events type
 
 homepage should contain a news event listing of news type with selected tags
   [Arguments]  @{TAGS}
-  main page is open
+  homepage is open
   Page should contain element  xpath=//a[contains(text(), "Totes les notícies")]
   :FOR  ${TAG}  IN  @{TAGS}
   \  Page should contain  ${TAG}
@@ -142,7 +142,7 @@ each news link must contain the corresponding elements
   @{TAGS} =  Set Variable  @{LIST_TAGS_AND_DATA}[0]
   @{DATA} =  Set Variable  @{LIST_TAGS_AND_DATA}[1]
   :FOR  ${TAG}  IN  @{TAGS}
-  \  main page is open
+  \  homepage is open
   \  Click Element  //a[contains(text(), '${TAG}')]
   \  Page should contain titles of news elements  ${TAG}  @{DATA}
 
@@ -161,7 +161,7 @@ Page should contain titles of news elements
 
 today events link must contain the corresponding elements
   [Arguments]  @{DATA}
-  main page is open
+  homepage is open
   Click Element  xpath=//a[contains(text(), "Avui")]
   : FOR  ${ELEMENT}  IN  @{DATA}
   \  ${STATUS_TYPE} =  Run Keyword And Return Status

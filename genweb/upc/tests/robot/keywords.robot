@@ -5,7 +5,7 @@ Library  Collections
 
 *** Keywords ***
 
-main page is open
+homepage is open
   Go to  ${PLONE_URL}
 
 the login page
@@ -24,7 +24,7 @@ the default directories have been created
   And Click Button  name=createn3
 
 the test folder is activated
-  Given main page is open
+  Given homepage is open
   Then Click Element  xpath=//*[@id="portaltab-robot-test-folder"]/a
   And confirm action
 
