@@ -17,6 +17,8 @@ from plone.portlets.interfaces import IPortletAssignmentMapping
 from genweb.core.interfaces import IHomePage
 from genweb.theme.portlets import homepage
 
+from genweb.core.adapters import IImportant
+
 from transaction import commit
 
 
@@ -112,8 +114,6 @@ class TestExample(unittest.TestCase):
     def testMarkingAsImportantNewsItem(self):
         """ We also created a news to do the test.
         """
-
-        from genweb.core.adapters import IImportant
 
         self.createDefaultDirectories()
 

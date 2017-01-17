@@ -11,12 +11,16 @@ homepage is open
 the login page
   Go to  ${PLONE_URL}/login_form
 
-we're logged in as admin
+Login
+  [Arguments]  ${USER}  ${PASSWORD}
   Given the login page
   Then Click Element  xpath=//*[@id="accordionLogin"]/div[2]/div[1]/a
-  And Input Text  name=__ac_name  ${SITE_OWNER_NAME}
-  And Input Password  name=__ac_password  ${SITE_OWNER_PASSWORD}
+  And Input Text  name=__ac_name  ${USER}
+  And Input Password  name=__ac_password  ${PASSWORD}
   And Click Button  name=submit
+
+we're logged in as admin
+  Login  ${SITE_OWNER_NAME}  ${SITE_OWNER_PASSWORD}
 
 the default directories have been created
   Given Go to  ${PLONE_URL}/folder_contents

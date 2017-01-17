@@ -17,6 +17,8 @@ from plone.portlets.interfaces import IPortletAssignmentMapping
 from genweb.core.interfaces import IHomePage
 from genweb.theme.portlets import homepage
 
+from genweb.core.adapters import IImportant
+
 from transaction import commit
 
 
@@ -45,11 +47,14 @@ class TestExample(unittest.TestCase):
         browser.getControl(name='__ac_password').value = "secret"
         browser.getControl(name='submit').click()
 
+    def openBrowserURL(self, browser, url):
+        portalURL = self.portal.absolute_url()
+        self.loginBrowser(browser, portalURL)
+        browser.open(portalURL + url)
+
     def testMarkingAsImportantNewsItem(self):
         """ We also created a news to do the test.
         """
-
-        from genweb.core.adapters import IImportant
 
         self.createDefaultDirectories()
 
@@ -59,7 +64,7 @@ class TestExample(unittest.TestCase):
             title=u"This is a test")
         self.assertTrue(self.portal.ca.noticies.get(news_id, False))
 
-        news_test = self.portal.ca.noticies.testnews;
+        news_test = self.portal.ca.noticies.testnews
         IImportant(news_test).is_important = True
 
         commit()
@@ -68,9 +73,7 @@ class TestExample(unittest.TestCase):
         self.assertTrue(IImportant(news_test).is_important)
 
         browser = Browser(self.app)
-        portalURL = self.portal.absolute_url()
-        self.loginBrowser(browser, portalURL)
-        browser.open(portalURL + "/ca/noticies/folder_contents")
+        self.openBrowserURL(browser, "/ca/noticies/folder_contents")
 
         search_important = ""
         for line in browser.contents.split('\n'):
@@ -78,3 +81,19 @@ class TestExample(unittest.TestCase):
                 search_important = line
                 break
         self.assertIn("item-important", search_important)
+
+    def testViewListingViewInAEventTypeFolder(self):
+        """ Given a event type folder
+            When the folder defines a attribute "text"
+            Then view does not have to show the value this attribute
+        """
+        self.createDefaultDirectories()
+        login(self.portal, TEST_USER_NAME)
+        attributeValue = "missatgeDeProva"
+        self.portal.ca.esdeveniments.text = attributeValue
+        commit()
+        logout()
+
+        browser = Browser(self.app)
+        self.openBrowserURL(browser, "/ca/esdeveniments/listing_view")
+        self.assertNotIn(attributeValue, browser.contents)
