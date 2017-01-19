@@ -1,3 +1,5 @@
+$fa-font-path: "++components++root/fontawesome/fonts";
+@import " ../../../../genweb.js/genweb/js/components/fontawesome/scss/font-awesome";
 @import "reboot";
 @import "genweb_upc";
 
@@ -353,5 +355,8 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
 }
 
 tr.item-important td {
-background-color: #ffff80!important;
+    background-color: #ffff80!important;
 }
+
+.portaltype-collective-polls-poll #content-core > div.poll-data.pie-poll > div > div  {position: relative; margin-top: 20px;}
+
