@@ -18,12 +18,12 @@
                              alt result/image_caption;"/>
         <div class="content-noticies" class="span6">
           <p tal:content="result/description">Description summary</p>
-          <time class="smaller" tal:content="python:toLocalizedTime(result['date'])">Date</time>
+          <time tal:condition="view/show_time" class="smaller" tal:content="python:toLocalizedTime(result['date'])">Date</time>
         </div>
       </li>
     </ul>
 
-    <div class="portletFooter">
+    <div tal:condition="view/more_info" class="portletFooter">
       <span>
         <a class="portlet-footer" tal:attributes="href view/collection_url">
           <i class="icon-rss"></i>

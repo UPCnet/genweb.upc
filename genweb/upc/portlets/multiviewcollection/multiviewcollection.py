@@ -164,6 +164,12 @@ class Renderer(base.Renderer):
     def available(self):
         return len(self.results())
 
+    def show_time(self):
+        return self.data.show_dates
+
+    def more_info(self):
+        return self.data.show_more
+
     def collection_url(self):
         collection = self.collection()
         if collection is None:
