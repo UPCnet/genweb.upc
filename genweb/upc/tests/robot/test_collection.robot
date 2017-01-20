@@ -22,59 +22,66 @@ ${URL_COLLECTION}  ${URL_FOLDER}/${COLLECTION_ID}
 *** Test Cases ***
 
 Create a collection for the title value
-  ${SEARCH} =  Set Variable  Test Folder
   ${SELECT_VALUE} =  Set Variable  Title
+  ${SEARCH_TERM} =  Set Variable  Test Folder
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a collection  ${URL_FOLDER}  @{COLLECTION_DATA}
-  ...  ${SELECT_VALUE}  ${SEARCH}
-  Then collection should contain  ${URL_COLLECTION}
-  ...  @{COLLECTION_DATA}  ${SEARCH}
+  When it has been created a collection in test folder  ${SELECT_VALUE}
+  ...  ${SEARCH_TERM}
+  Then collection should contain the data  ${SEARCH_TERM}
 
 Create a collection for the subject value
-  ${SEARCH} =  Set Variable  Test Folder
-  ${TAG} =  Set Variable  etiqueta
   ${SELECT_VALUE} =  Set Variable  Subject
+  ${TAG_TERM} =  Set Variable  etiqueta
+  ${SEARCH} =  Set Variable  Test Folder
   Given we're logged in as admin
-  When the test folder is activated
-  And added a tag  ${URL_FOLDER}  ${TAG}
-  And it has been created a collection  ${URL_FOLDER}  @{COLLECTION_DATA}
-  ...  ${SELECT_VALUE}  ${TAG}
-  Then collection should contain  ${URL_COLLECTION}
-  ...  @{COLLECTION_DATA}  ${SEARCH}
+  When it has been created a collection in test folder with tag  ${SELECT_VALUE}
+  ...  ${TAG_TERM}
+  Then collection should contain the data  ${SEARCH}
 
 *** Keywords ***
 
+it has been created a collection in test folder
+  [Arguments]  ${SELECT_VALUE}  ${SEARCH_TERM}
+  Given the test folder is activated
+  Then it has been created a collection  ${SELECT_VALUE}  ${SEARCH_TERM}
+
+it has been created a collection in test folder with tag
+  [Arguments]  ${SELECT_VALUE}  ${TAG_TERM}
+  Given the test folder is activated
+  Then added a tag  ${URL_FOLDER}  ${TAG_TERM}
+  And it has been created a collection  ${SELECT_VALUE}  ${TAG_TERM}
+
 it has been created a collection
-  [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${SELECT_VALUE}
-  ...          ${SEARCH}
-  Go to  ${URL}
+  [Arguments]  ${SELECT_VALUE}  ${TERM}
+  Go to  ${URL_FOLDER}
   Click Element  id=plone-contentmenu-factories
   Click Element  id=collection
+  ${TITLE}  ${DESCRIPTION}  ${TEXT} =  Set Variable  @{COLLECTION_DATA}
   Input F_Text  title  ${TITLE}
   Input F_Text  description  ${DESCRIPTION}
   Run Keyword If  '${SELECT_VALUE}' == 'Subject'
-  ...  Input Search Term Subject  ${SELECT_VALUE}  ${SEARCH}
+  ...  Input Search Term Subject  ${SELECT_VALUE}  ${TERM}
   ...  ELSE
-  ...  Input Search Term  ${SELECT_VALUE}  ${SEARCH}
+  ...  Input Search Term  ${SELECT_VALUE}  ${TERM}
   Input F_Rich  text  ${TEXT}
-  save form
+  Save form
 
-collection should contain
-  [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${SEARCH}
-  Go to  ${URL}
+collection should contain the data
+  [Arguments]  ${SEARCH}
+  Go to  ${URL_COLLECTION}
+  ${TITLE}  ${DESCRIPTION}  ${TEXT} =  Set Variable  @{COLLECTION_DATA}
   Page should contain  ${TITLE}
   Page should contain  ${DESCRIPTION}
   Page should contain  ${SEARCH}
   Page should contain  ${TEXT}
 
 Input Search Term
-  [Arguments]  ${SELECT_VALUE}  ${SEARCH}
+  [Arguments]  ${SELECT_VALUE}  ${TERM}
   Select From List By Value  name=addindex  ${SELECT_VALUE}
-  Input text  name=form.widgets.ICollection.query.v:records  ${SEARCH}
+  Input text  name=form.widgets.ICollection.query.v:records  ${TERM}
 
 Input Search Term Subject
-  [Arguments]  ${SELECT_VALUE}  ${TAG}
+  [Arguments]  ${SELECT_VALUE}  ${TERM}
   Select From List By Value  name=addindex  ${SELECT_VALUE}
   Click Element  xpath=//*[@id="formfield-form-widgets-ICollection-query"]/div[2]/div/div[1]/div/dl[1]/dt/span[1]
-  Select Checkbox  xpath=//*[@name="form.widgets.ICollection.query.v:records:list"][@value="${TAG}"]
+  Select Checkbox  xpath=//*[@name="form.widgets.ICollection.query.v:records:list"][@value="${TERM}"]

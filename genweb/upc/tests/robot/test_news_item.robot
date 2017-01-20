@@ -27,46 +27,49 @@ ${IMAGE_PATH}  ${CURDIR}/img/sample.png
 
 Create a news item
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
+  When it has been created a simple news item in test folder
   Then Page should contain  Element creat
 
 Create a complete news item
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a complete news item  ${URL_FOLDER}  @{NEWS_DATA}
-  Then news item should contain  ${URL_NEWS}  @{NEWS_DATA}
+  When it has been created a complete news item in test folder
+  Then news item should contain the data
 
 Marking as important news item
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
-  And the news item has been marked as important  ${URL_FOLDER}/${NEWS_ID}
+  When it has been created a simple news item in test folder
+  And the news item has been marked as important
   Then Page should contain  Desmarca com a important
 
 Unmarked as important news item
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
-  And the news item has been marked as important  ${URL_FOLDER}/${NEWS_ID}
-  And the news item has been unmarked as important  ${URL_FOLDER}/${NEWS_ID}
+  When it has been created a complete news item in test folder
+  And the news item has been marked as important
+  And the news item has been unmarked as important
   Then Page should contain  Marca com a important
 
 Check that important news is highlighted
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
-  And the news item has been marked as important  ${URL_FOLDER}/${NEWS_ID}
-  Then the news is highlighted  ${URL_FOLDER}/folder_contents
+  When it has been created a complete news item in test folder
+  And the news item has been marked as important
+  Then the news is highlighted
 
 *** Keywords ***
 
+it has been created a simple news item in test folder
+  Given the test folder is activated
+  Then it has been created a simple item  ${URL_FOLDER}  ${ITEM}  ${NEWS_ID}
+
+it has been created a complete news item in test folder
+  Given the test folder is activated
+  Then it has been created a complete news item
+
 it has been created a complete news item
-  [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${IMAGE_PATH}
-  ...          ${FOOT_IMAGE}
-  Go to  ${URL}
+  Go to  ${URL_FOLDER}
   Click Element  id=plone-contentmenu-factories
   Click Element  id=news-item
+  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${IMAGE_PATH}  ${FOOT_IMAGE} =
+  ...  Set Variable  @{NEWS_DATA}
   Input F_Text  title  ${TITLE}
   Input F_Text  description  ${DESCRIPTION}
   Input F_Rich  text  ${TEXT}
@@ -76,10 +79,10 @@ it has been created a complete news item
   ...  ELSE
   ...  the image does not exist so we do not insert it  ${IMAGE_PATH}
 
-news item should contain
-  [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${IMAGE_PATH}
-  ...          ${FOOT_IMAGE}
-  Go to  ${URL}
+news item should contain the data
+  Go to  ${URL_NEWS}
+  ${TITLE}  ${DESCRIPTION}  ${TEXT}  ${IMAGE_PATH}  ${FOOT_IMAGE} =
+  ...  Set Variable  @{NEWS_DATA}
   Page should contain  ${TITLE}
   Page should contain  ${DESCRIPTION}
   Page should contain  ${TEXT}
@@ -88,36 +91,32 @@ news item should contain
   ...  the image exists so we check that it is inserted  ${TITLE}  ${FOOT_IMAGE}
 
 the news item has been marked as important
-  [Arguments]  ${URL}
-  Change the important status of the news  ${URL}
+  Change the important status of the news
 
 the news item has been unmarked as important
-  [Arguments]  ${URL}
-  Change the important status of the news  ${URL}
+  Change the important status of the news
 
 the news is highlighted
-  [Arguments]  ${URL}
   ${CLASS_SEARCH} =  Set Variable  item-important
-  Go to  ${URL}
+  Go to  ${URL_FOLDER}/folder_contents
   ${CLASS} =  Get Element Attribute  id=folder-contents-item-${NEWS_ID}@class
   Should Contain  ${CLASS}  ${CLASS_SEARCH}
 
 Change the important status of the news
-  [Arguments]  ${URL}
-  When Go to  ${URL}
+  When Go to  ${URL_NEWS}/folder_contents
   Then Click Element  xpath=//*[@id="viewlet-above-content-title"]/div[1]/div/a
-  And confirm action
+  And Confirm action
 
 the image exists so we insert it
   [Arguments]  ${IMAGE_PATH}  ${FOOT_IMAGE}
   Input F_Image  ${IMAGE_PATH}
   Input F_Text_Image  image_caption  ${FOOT_IMAGE}
-  save form
-  confirm action
+  Save form
+  Confirm action
 
 the image does not exist so we do not insert it
   [Arguments]  ${IMAGE_PATH}
-  save form
+  Save form
   Log  \nPodemos mejorar esta prueba insertando una imagen en ${IMAGE_PATH}  console=yes
 
 the image exists so we check that it is inserted

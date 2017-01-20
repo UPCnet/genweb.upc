@@ -24,7 +24,7 @@ ${URL_EVENT}  ${URL_FOLDER}/${EVENT_ID}
 @{EVENT_DATA}  ${EVENT_ID}  Descripció de prova  @{START_DATE}
 ...            Ubicació de prova  Assistent de prova  Contacte de prova
 ...            correu@de.prova  933030303  http://www.google.com  Text de prova
-# To avoid problems, avoid placing values greater than 999
+# To avoid problems, avoid placing values greater than 100
 @{RECURRENCE_DATA}  2  5
 ${ITEMS_TO_DISPLAY}  5
 
@@ -32,36 +32,39 @@ ${ITEMS_TO_DISPLAY}  5
 
 Create event portlet with recurring event
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a event  ${URL_FOLDER}  @{EVENT_DATA}
-  And recurrence has been added  ${URL_EVENT}  @{RECURRENCE_DATA}
-  And status has been passed to public  ${URL_EVENT}
-  And a event portlet has been created in homepage  ${ITEMS_TO_DISPLAY}
-  Then portlet event should contain in homepage  ${EVENT_ID}  @{START_DATE}
-  And portlet event should contain recurrence in homepage  @{START_DATE}
-    ...  @{RECURRENCE_DATA}  ${ITEMS_TO_DISPLAY}
+  When it has been created a public event with recurrence in event folder
+  And a event portlet has been created in homepage
+  Then portlet event should contain the data and recurrence in homepage
 
 *** Keywords ***
 
+it has been created a public event with recurrence in event folder
+  Given the default directories have been created
+  When it has been created a event  ${URL_FOLDER}  @{EVENT_DATA}
+  And recurrence has been added  ${URL_EVENT}  @{RECURRENCE_DATA}
+  And status has been passed to public  ${URL_EVENT}
+
+portlet event should contain the data and recurrence in homepage
+  portlet event should contain in homepage
+  portlet event should contain recurrence in homepage
+
 a event portlet has been created in homepage
-  [Arguments]  ${ITEMS_TO_DISPLAY}
   Go to  ${PLONE_URL}/@@manage-homeportlets
-  confirm action
+  Confirm action
   Click Element  xpath=//*[@id="portletselectorform"]/div/button
   Click Element  xpath=//*[@id="gwportletselector"]/li/a[text()="Agenda"]
   Input Text  id=form.count  ${ITEMS_TO_DISPLAY}
-  save form
+  Save form
 
 portlet event should contain in homepage
-  [Arguments]  ${TITLE}  ${DAY}  ${MONTH}  ${YEAR}
-  homepage is open
-  Page should contain  ${TITLE}
-  Page should contain a correct date  ${DAY}  ${MONTH}  ${YEAR}
+  Open homepage
+  Page should contain  ${EVENT_ID}
+  Page should contain a correct date  @{START_DATE}
 
 portlet event should contain recurrence in homepage
-  [Arguments]  ${DAY}  ${MONTH}  ${YEAR}  ${REPEAT_EACH}  ${ENDED_AFTER}
-  ...  ${ITEMS_TO_DISPLAY}
-  homepage is open
+  Open homepage
+  ${DAY}  ${MONTH}  ${YEAR} =  Set Variable  @{START_DATE}
+  ${REPEAT_EACH}  ${ENDED_AFTER} =  Set Variable  @{RECURRENCE_DATA}
   :FOR  ${INDEX}  IN RANGE  1  ${ITEMS_TO_DISPLAY}
   \  Page should contain a correct date  ${DAY}  ${MONTH}  ${YEAR}
   \  ${DAY}  ${MONTH}  ${YEAR} =  Add days to a date  ${DAY}  ${MONTH}  ${YEAR}

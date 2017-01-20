@@ -26,7 +26,7 @@ it has been created a event
   Input IEC_Text  contact_phone  ${CONTACT_PHONE}
   Input IEC_Text  event_url  ${EVENT_URL}
   Input F_Rich  text  ${TEXT}
-  save form
+  Save form
 
 recurrence has been added
   [Arguments]  ${URL}  ${REPEAT_EACH}  ${ENDED_AFTER}
@@ -36,7 +36,7 @@ recurrence has been added
   Input Text  name=rirangebyoccurrencesvalue  ${ENDED_AFTER}
   Click Element  id=rirtemplate
   Click Button  xpath=//*[@id="rirtemplate"]/div/div[5]/input[2]
-  save form
+  Save form
 
 Select Date
   [Arguments]  ${DAY}  ${MONTH}  ${YEAR}

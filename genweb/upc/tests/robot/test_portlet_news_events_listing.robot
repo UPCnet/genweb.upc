@@ -34,15 +34,14 @@ ${URL_EVENT}  ${PLONE_URL}/ca/esdeveniments
 
 View a list of news events with tags created
   Given we're logged in as admin
-  When the default directories have been created
-  And different simple items have been created with tags  @{DATA}
-  And open new list of news events  ${PLONE_URL}
-  Then page should contain the list of tags  @{LIST_TAGS}
+  When different simple items have been created with tags in default folder
+  And open new list of news events
+  Then page should contain the list of tags
 
 View a list of news events without tags created
   Given we're logged in as admin
-  When open new list of news events  ${PLONE_URL}
-  Then page should not contain the list of tags  @{LIST_TAGS}
+  When open new list of news events
+  Then page should not contain the list of tags
 
 Create a news event listing of news type without selected tags
   Given we're logged in as admin
@@ -59,29 +58,34 @@ Create a news event listing of events type without selected tags
 Create a news event listing of news type with tags
   @{LIST_TAGS_AND_DATA} =  Set Variable  ${LIST_TAGS}  ${DATA}
   Given we're logged in as admin
-  When the default directories have been created
-  And different simple items have been created with tags  @{DATA}
+  When different simple items have been created with tags in default folder
   And it has been created a news event listing with selected tags in homepage  News
-  Then homepage should contain a news event listing of news type with selected tags  @{LIST_TAGS}
-  And each news link must contain the corresponding elements  @{LIST_TAGS_AND_DATA}
+  Then homepage should then contain a list of events of the selected tags with their corresponding news
 
 Create a news event listing of events type with tags
   @{LIST_TAGS_AND_DATA} =  Set Variable  ${LIST_TAGS}  ${DATA}
   Given we're logged in as admin
-  When the default directories have been created
-  And different simple items have been created with tags  @{DATA}
+  When different simple items have been created with tags in default folder
   And it has been created a news event listing with selected tags in homepage  Events
   Then homepage should contain a news event listing of events type
-  And today events link must contain the corresponding elements  @{DATA}
+  And today events link must contain the corresponding elements
 
 *** Keywords ***
+
+different simple items have been created with tags in default folder
+  Given the default directories have been created
+  When different simple items have been created with tags  @{DATA}
+
+homepage should then contain a list of events of the selected tags with their corresponding news
+  homepage should contain a news event listing of news type with selected tags
+  each news link must contain the corresponding elements
 
 it has been created a news event listing without selected tags in homepage
   [Arguments]  ${TYPE_TAG}
   open new list of news events in homepage
   Wait Until Page Contains Element  id=form.typetag  timeout=1
   Select From List  id=form.typetag  ${TYPE_TAG}
-  save form
+  Save form
 
 it has been created a news event listing with selected tags in homepage
   [Arguments]  ${TYPE_TAG}
@@ -90,16 +94,15 @@ it has been created a news event listing with selected tags in homepage
   Select From List  id=form.typetag  ${TYPE_TAG}
   Select All From List  id=form.tags.from
   Click Button  name=from2toButton
-  save form
+  Save form
 
 open new list of news events
-  [Arguments]  ${URL}
-  Go to  ${URL}/@@manage-portlets
+  Go to  ${PLONE_URL}/@@manage-portlets
   Continue open new list of news events
 
 open new list of news events in homepage
   Go to  ${PLONE_URL}/@@manage-homeportlets
-  confirm action
+  Confirm action
   Continue open new list of news events
 
 Continue open new list of news events
@@ -112,16 +115,15 @@ page should contain the list of tags
   \  Page should contain list  id=form.tags.from  ${TAG}
 
 page should not contain the list of tags
-  [Arguments]  @{LIST_TAGS}
   : FOR  ${TAG}  IN  @{LIST_TAGS}
   \  Page should not contain  ${TAG}
 
 homepage should contain a news event listing of news type without selected tags
-  homepage is open
+  Open homepage
   Page should contain element  xpath=//a[contains(text(), "Totes les notícies")]
 
 homepage should contain a news event listing of events type
-  homepage is open
+  Open homepage
   Page should contain element  xpath=//a[contains(text(), "Propers")]
   Page should contain element  xpath=//a[contains(text(), "Avui")]
   Page should contain element  xpath=//a[contains(text(), "Passat")]
@@ -131,23 +133,19 @@ homepage should contain a news event listing of events type
   Page should contain element  xpath=//a/span[contains(text(),"iCal")]
 
 homepage should contain a news event listing of news type with selected tags
-  [Arguments]  @{TAGS}
-  homepage is open
+  Open homepage
   Page should contain element  xpath=//a[contains(text(), "Totes les notícies")]
-  :FOR  ${TAG}  IN  @{TAGS}
+  :FOR  ${TAG}  IN  @{LIST_TAGS}
   \  Page should contain  ${TAG}
 
 each news link must contain the corresponding elements
-  [Arguments]  @{LIST_TAGS_AND_DATA}
-  @{TAGS} =  Set Variable  @{LIST_TAGS_AND_DATA}[0]
-  @{DATA} =  Set Variable  @{LIST_TAGS_AND_DATA}[1]
-  :FOR  ${TAG}  IN  @{TAGS}
-  \  homepage is open
+  :FOR  ${TAG}  IN  @{LIST_TAGS}
+  \  Open homepage
   \  Click Element  //a[contains(text(), '${TAG}')]
-  \  Page should contain titles of news elements  ${TAG}  @{DATA}
+  \  Page should contain titles of news elements  ${TAG}
 
 Page should contain titles of news elements
-  [Arguments]  ${TAG}  @{DATA}
+  [Arguments]  ${TAG}
   : FOR  ${ELEMENT}  IN  @{DATA}
   \  ${STATUS_TYPE} =  Run Keyword And Return Status
   \  ...  List Should Contain Value  ${ELEMENT}  news-item
@@ -160,8 +158,7 @@ Page should contain titles of news elements
   \  ...  Page Should Not Contain  ${TITLE}
 
 today events link must contain the corresponding elements
-  [Arguments]  @{DATA}
-  homepage is open
+  Open homepage
   Click Element  xpath=//a[contains(text(), "Avui")]
   : FOR  ${ELEMENT}  IN  @{DATA}
   \  ${STATUS_TYPE} =  Run Keyword And Return Status

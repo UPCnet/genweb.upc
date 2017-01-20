@@ -5,6 +5,7 @@ Force Tags  wip-not_in_docs
 Library  Selenium2Library
 
 Resource  plone/app/robotframework/selenium.robot
+
 Resource  keywords.robot
 Resource  date_keywords.robot
 
@@ -24,54 +25,56 @@ ${MAX_NOTICE}  14
 
 Create a fullnews portlet with normal render
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a public news item with image  @{DATA}
+  When it has been created a public news item with image in news folder
   And it has been created a fullnews with normal render in homepage
   Then homepage should contain the news item with image left and text right
 
 Create a fullnews portlet with total width
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a public news item with image  @{DATA}
+  When it has been created a public news item with image in news folder
   And it has been created a fullnews with total width in homepage
   Then homepage should contain the news item with image above text and below
 
 Create a fullnews portlet with total width of two columns
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a x public news items with image  2  @{DATA}
+  When it has been created a x public news items with image in news folder  2
   And it has been created a fullnews with total width of two columns in homepage
   Then homepage should contain the news items in two columns with image above and text below
 
 Create a fullnews portlet with the minimum of news item
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a public news item with image  @{DATA}
+  When it has been created a public news item with image in news folder
   And it has been created a fullnews with the minimum of news item
   Then homepage should contain x news items  1
 
 Create a fullnews portlet with the maximum of news item
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a x public news items with image  ${MAX_NOTICE}  @{DATA}
+  When it has been created a x public news items with image in news folder  ${MAX_NOTICE}
   And it has been created a fullnews with the maximum of news item
   Then homepage should contain x news items  ${MAX_NOTICE}
 
 Create a fullnews portlet with marked date show
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a public news item with image  @{DATA}
+  When it has been created a public news item with image in news folder
   And it has been created a fullnews with marked date show in homepage
   Then homepage should contain date of news item
 
 Create a fullnews portlet without marked date show
   Given we're logged in as admin
-  When the default directories have been created
-  And it has been created a public news item with image  @{DATA}
+  When it has been created a public news item with image in news folder
   And it has been created a fullnews without marked date show in homepage
   Then homepage should not contain date of news item
 
 *** Keywords ***
+
+it has been created a public news item with image in news folder
+  Given the default directories have been created
+  Then it has been created a public news item with image  @{DATA}
+
+it has been created a x public news items with image in news folder
+  [Arguments]  ${TOTAL}
+  Given the default directories have been created
+  Then it has been created a x public news items with image  ${TOTAL}
 
 it has been created a public news item with image
   [Arguments]  ${URL}  ${TITLE}  ${IMAGE_PATH}
@@ -81,7 +84,8 @@ it has been created a public news item with image
   status has been passed to public  ${EDIT_URL}
 
 it has been created a x public news items with image
-  [Arguments]  ${TOTAL}  ${URL}  ${TITLE}  ${IMAGE_PATH}
+  [Arguments]  ${TOTAL}
+  ${URL}  ${TITLE}  ${IMAGE_PATH} =  Set Variable  @{DATA}
   : FOR  ${INDEX}  IN RANGE  0  ${TOTAL}
   \  it has been created a public news item with image  ${URL}  ${TITLE}-${INDEX}
   \  ...  ${IMAGE_PATH}
@@ -90,8 +94,8 @@ Add image a news item
   [Arguments]  ${URL}  ${IMAGE_PATH}
   Go to  ${URL}/edit
   Input F_Image  ${IMAGE_PATH}
-  save form
-  confirm action
+  Save form
+  Confirm action
 
 it has been created a fullnews in homepage
   # ${VIEW_TYPE}  id_normal | id_full | id_full_2cols | default (Does not change)
@@ -99,7 +103,7 @@ it has been created a fullnews in homepage
   # ${SHOW_DATA}  boolean
   [Arguments]  ${VIEW_TYPE}  ${COUNT}  ${SHOW_DATA}
   Go to  ${PLONE_URL}/@@manage-homeportlets
-  confirm action
+  Confirm action
   Click Element  xpath=//*[@id="portletselectorform"]/div/button
   Click Element  xpath=//*[@id="gwportletselector"]/li/a[text()="Notícies amb foto"]
   ${STATUS} =  Run Keyword And Return Status  Should Be Equal  ${VIEW_TYPE}  default
@@ -107,7 +111,7 @@ it has been created a fullnews in homepage
   ${STATUS} =  Run Keyword And Return Status  Should Be Equal  ${COUNT}  default
   Run Keyword Unless  ${STATUS}  Select From List  id=form.count  ${COUNT}
   Run Keyword Unless  ${SHOW_DATA}  Unselect Checkbox  id=form.showdata
-  save form
+  Save form
 
 it has been created a fullnews with normal render in homepage
   it has been created a fullnews in homepage  id_normal  default  True
@@ -134,31 +138,31 @@ Page Should Contain a news item portlet
   Page Should Contain  Notícies
 
 homepage should contain the news item with image left and text right
-  homepage is open
+  Open homepage
   Page Should Contain Element  xpath=//ul[@class="list-portlet"]/li/h3/../img[@class="span6"]/../div[@class="content-noticies"]/p/../time
 
 homepage should contain the news item with image above text and below
-  homepage is open
+  Open homepage
   Page Should Contain Element  xpath=//ul[@class="list-portlet"]/li/a/div[@class="noticies-full"]/img/../../h3/../../div[@class="content-noticies"]/p/../time
 
 homepage should contain the news items in two columns with image above and text below
-  homepage is open
+  Open homepage
   Page Should Contain Element  xpath=//div[@id="pair-news"]/../div[@id="odd-news"]
   Page Should Contain Element  xpath=//div[@id="pair-news"]/div[@class="noticia-full-2cols"]/a/div[@class="noticies-full"]/img/../../h3/../../div[@class="content-noticies"]/p/../time
   Page Should Contain Element  xpath=//div[@id="odd-news"]/div[@class="noticia-full-2cols"]/a/div[@class="noticies-full"]/img/../../h3/../../div[@class="content-noticies"]/p/../time
 
 homepage should contain x news items
   [Arguments]  ${TOTAL}
-  homepage is open
+  Open homepage
   ${COUNT} =  Get Matching Xpath Count  xpath=//ul[@class="list-portlet"]/li
   Should Be Equal  ${TOTAL}  ${COUNT}
 
 homepage should contain date of news item
-  homepage is open
+  Open homepage
   ${DATE} =  Get Current Date in European format
   Page Should Contain Element  xpath=//time[text()="${DATE}"]
 
 homepage should not contain date of news item
-  homepage is open
+  Open homepage
   ${DATE} =  Get Current Date in European format
   Page Should Not Contain Element  xpath=//time[text()="${DATE}"]

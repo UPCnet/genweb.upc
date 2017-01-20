@@ -5,37 +5,40 @@ Library  Collections
 
 *** Keywords ***
 
-homepage is open
+Open homepage
   Go to  ${PLONE_URL}
 
-the login page
+Go to login page
   Go to  ${PLONE_URL}/login_form
 
 Login
   [Arguments]  ${USER}  ${PASSWORD}
-  Given the login page
-  Then Click Element  xpath=//*[@id="accordionLogin"]/div[2]/div[1]/a
-  And Input Text  name=__ac_name  ${USER}
-  And Input Password  name=__ac_password  ${PASSWORD}
-  And Click Button  name=submit
+  Go to login page
+  Click Element  xpath=//*[@id="accordionLogin"]/div[2]/div[1]/a
+  Input Text  inputEmail  ${USER}
+  Input Password  inputPassword  ${PASSWORD}
+  Click Button  submit
 
 we're logged in as admin
   Login  ${SITE_OWNER_NAME}  ${SITE_OWNER_PASSWORD}
 
+Logout
+  Go to  ${PLONE_URL}/cas_logout
+
 the default directories have been created
-  Given Go to  ${PLONE_URL}/folder_contents
-  Then Click Element  xpath=//*[@id="viewlet-above-content"]/div/a
-  And Click Button  name=createn3
+  Go to  ${PLONE_URL}/folder_contents
+  Click Element  xpath=//*[@id="viewlet-above-content"]/div/a
+  Click Button  name=createn3
 
 the test folder is activated
-  Given homepage is open
-  Then Click Element  xpath=//*[@id="portaltab-robot-test-folder"]/a
-  And confirm action
+  Open homepage
+  Click Element  xpath=//*[@id="portaltab-robot-test-folder"]/a
+  Confirm action
 
-confirm action
+Confirm action
   Click Button  name=form.button.confirm
 
-save form
+Save form
   ${STATUS} =  Run Keyword And Return Status
   ...  Page Should Contain Element	name=form.buttons.save
   Run Keyword If  ${STATUS}
@@ -49,24 +52,24 @@ it has been created a simple item
   Click Element  id=plone-contentmenu-factories
   Click Element  id=${ITEM}
   Input F_Text  title  ${TITLE}
-  save form
+  Save form
 
 added a tag
   [Arguments]  ${URL}  @{TAGS}
   Go to  ${URL}/edit
-  Click Element  //*[span[text()="Categorització"]]
+  Click Element  //span[text()="Categorització"]
   : FOR  ${TAG}  IN  @{TAGS}
   \  Input Text  id=s2id_autogen1  ${TAG}
   \  Wait Until Page Contains Element  xpath=//*[@class="select2-match"][text()="${TAG}"]  timeout=1
   \  Click Element  xpath=//*[@class="select2-match"][text()="${TAG}"]
-  save form
+  Save form
 
 status has been passed to public
   [Arguments]  ${URL}
   Go to  ${URL}
   Click Element  id=plone-contentmenu-workflow
   Click Element  id=workflow-transition-publish
-  confirm action
+  Confirm action
 
 different simple items have been created with tags
   [Arguments]  @{DATA}

@@ -23,21 +23,26 @@ ${URL_EVENT}  ${URL_FOLDER}/${EVENT_ID}
 @{EVENT_DATA}  ${EVENT_ID}  Descripció de prova  @{START_DATE}
 ...            Ubicació de prova  Assistent de prova  Contacte de prova
 ...            correu@de.prova  933030303  http://www.google.com  Text de prova
-# To avoid problems, avoid placing values greater than 999
+# To avoid problems, avoid placing values greater than 100
 @{RECURRENCE_DATA}  2  5
 
 *** Test Cases ***
 
 Create a recurring event
   Given we're logged in as admin
-  When the test folder is activated
-  And it has been created a event  ${URL_FOLDER}  @{EVENT_DATA}
-  And recurrence has been added  ${URL_EVENT}  @{RECURRENCE_DATA}
-  Then event should contain  ${URL_EVENT}  @{EVENT_DATA}
-  And event should contain recurrence  ${URL_EVENT}  @{START_DATE}
-  ...  @{RECURRENCE_DATA}
+  When it has been created a event with recurrence in test folder
+  Then event should contain the data and recurrence
 
 *** Keywords ***
+
+it has been created a event with recurrence in test folder
+  Given the test folder is activated
+  Then it has been created a event  ${URL_FOLDER}  @{EVENT_DATA}
+  And recurrence has been added  ${URL_EVENT}  @{RECURRENCE_DATA}
+
+event should contain the data and recurrence
+  event should contain  ${URL_EVENT}  @{EVENT_DATA}
+  event should contain recurrence  ${URL_EVENT}  @{START_DATE}  @{RECURRENCE_DATA}
 
 event should contain
   [Arguments]  ${URL}  ${TITLE}  ${DESCRIPTION}  ${DAY}  ${MONTH}  ${YEAR}
