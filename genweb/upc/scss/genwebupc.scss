@@ -358,5 +358,7 @@ tr.item-important td {
     background-color: #ffff80!important;
 }
 
-.portaltype-collective-polls-poll #content-core > div.poll-data.pie-poll > div > div  {position: relative; margin-top: 20px;}
-
+div.poll-data.pie-poll > div > div {position: relative; margin-top: 20px;}
+div.legend {right: -250px; top: -180px;}
+div.legend div {display: none;}
+div.legend table div {display: block !important;}
