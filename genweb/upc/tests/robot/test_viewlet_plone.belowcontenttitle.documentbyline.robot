@@ -22,14 +22,14 @@ ${SEARCH_VIEWLET}  darrera modificació
 
 Check that the following users can not see the viewlet historial
   @{USERS} =  Set Variable  Member  Reader
-  Given we're created different user types  @{USERS}
+  Given we have created different types of users  @{USERS}
   When we have a modified directory to do the test
   Then check that the following users can not see the viewlet historial  @{USERS}
 
 Check that the following users can see the viewlet historial
   @{USERS} =  Set Variable  Contributor  Editor  Reviewer  Site Administrator
   ...         WebMaster  Manager
-  Given we're created different user types  @{USERS}
+  Given we have created different types of users  @{USERS}
   When we have a modified directory to do the test
   Then check that the following users can see the viewlet historial  @{USERS}
 

@@ -14,7 +14,6 @@
   <grok:grok package=".content" />
 
   <include file="patches.zcml" />
-	<include file="overrides.zcml" />
 
   <include package=".browser" />
   <include package=".portlets" />

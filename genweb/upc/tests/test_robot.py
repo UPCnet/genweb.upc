@@ -82,4 +82,12 @@ def test_suite():
             layer=GENWEB_UPC_ROBOT_TESTING
         ),
     ])
+    suite.addTests([
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_gwPersonalBarViewlet.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
+    ])
     return suite
