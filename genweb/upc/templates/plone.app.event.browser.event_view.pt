@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone.app.event">
+<body>
+
+  <metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+      <tal:main-macro metal:define-macro="abovecontenttitle">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+      </tal:main-macro>
+
+      <h1 class="documentFirstHeading" tal:content="context/title" />
+      <div tal:replace="structure provider:plone.belowcontenttitle" />
+      
+      <div tal:replace="structure provider:plone.abovecontentbody" />
+      
+      <metal:block define-macro="content-core">
+        <tal:def tal:define="data nocall:view/data">
+
+          <div class="event" itemscope itemtype="http://schema.org/Event">
+
+            <ul class="hCalendar-hidden">
+              <li><a itemprop="url" class="url" href="" tal:attributes="href data/url" tal:content="data/url">url</a></li>
+              <li itemprop="summary" class="summary" tal:content="data/title">title</li>
+              <li itemprop="startDate" class="dtstart" tal:content="data/start/isoformat">end</li>
+              <li itemprop="endDate" class="dtend" tal:content="data/end/isoformat">end</li>
+              <li itemprop="description" class="description" tal:content="data/description">description</li>
+            </ul>
+            
+            <p tal:condition=not:context/image class="documentDescription" tal:content="data/description" />
+            <div tal:condition=context/image class='row-fluid'>
+              <div class='span9 documentDescription description'>
+                <tal:description replace="structure data/description">description</tal:description>
+              </div>
+              <div class='span3'>
+                <img tal:attributes="src string:${context/id}/@@images/image/mini">
+              </div>
+            </div>
+
+            <tal:eventsummary replace="structure context/@@event_summary"/>
+
+            <tal:txt replace="structure data/text" />
+
+          </div>
+
+          <span class="visualClear" />
+
+        </tal:def>
+      </metal:block>
+        
+      <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+  </metal:main>
+
+</body>
+</html>
