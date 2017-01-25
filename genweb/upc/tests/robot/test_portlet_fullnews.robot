@@ -98,10 +98,10 @@ Add image a news item
   Confirm action
 
 it has been created a fullnews in homepage
-  # ${VIEW_TYPE}  id_normal | id_full | id_full_2cols | default (Does not change)
-  # ${COUNT}      Number from 1 to ${MAX_NOTICE} | default (Does not change)
-  # ${SHOW_DATA}  boolean
   [Arguments]  ${VIEW_TYPE}  ${COUNT}  ${SHOW_DATA}
+  [Documentation]  VIEW_TYPE -> id_normal | id_full | id_full_2cols | default (Does not change)
+  ...              COUNT -> Number from 1 to ${MAX_NOTICE} | default (Does not change)
+  ...              SHOW_DATA -> boolean
   Go to  ${PLONE_URL}/@@manage-homeportlets
   Confirm action
   Click Element  xpath=//*[@id="portletselectorform"]/div/button

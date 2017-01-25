@@ -27,8 +27,9 @@ Login as
   Login  ${NAME}  ${PASS}
 
 we have created different types of users
-  # We do not create a Manager because it is already created by default
   [Arguments]  @{TYPE_USERS}
+  [Documentation]  We do not create a Manager because it is already created by
+  ...              default.
   we're logged in as admin
   Go to  ${PLONE_URL}/@@usergroup-userprefs
   Confirm action
@@ -39,8 +40,9 @@ we have created different types of users
   Logout
 
 we have created different types of users without role
-  # Permitted types of users: Contributor, Editor, Reviewer and Reader
   [Arguments]  @{TYPE_USERS}
+  [Documentation]  Permitted types of users: Contributor, Editor, Reviewer and
+  ...              Reader.
   @{NOT_VALID_USERS} =  Set Variable  Member  Site Administrator  WebMaster
   ...  Manager
   we're logged in as admin
