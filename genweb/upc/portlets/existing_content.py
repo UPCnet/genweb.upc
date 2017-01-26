@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from zope.interface import implements
@@ -94,7 +93,7 @@ class Renderer(base.Renderer):
             # check url to avoid reference to root, removing language /xx
             check_root = re.findall('https?(.*)\/?', self.get_absolute_url(api.portal.get().absolute_url()))[0].strip('/')
 
-            if check_url != check_parent and check_url.strip('/ca').strip('/es').strip('/en') != check_root:
+            if check_url != check_parent and (check_url.endswith('/ca') or check_url.endswith('/es') or check_url.endswith('/en') != check_root):
                 raw_html = requests.get(url)
                 charset = re.findall('charset=(.*)"', raw_html.content)
                 if len(charset) > 0:
