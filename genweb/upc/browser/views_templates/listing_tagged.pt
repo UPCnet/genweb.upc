@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+    <body>
+      <metal:content-title fill-slot="content-title">
+        <h1 class="documentFirstHeading"> 
+          <span tal:content="context/title" tal:omit-tag="">Directory Id</span>
+          <tal:block tal:condition="view/tags" tal:omit-tag="">- 
+            <tal:block tal:content="view/tags" tal:omit-tag="">url</tal:block>
+          </tal:block>
+          
+        </h1>        
+      </metal:content-title>
+         
+        <metal:content-core fill-slot="content-core">
+                <tal:def define="batch view/items;
+                                 mode request/mode|string:all;
+                                 toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
+                    <div role="complementary">
+                    <article class='tileItem visualIEFloatFix' tal:repeat="data batch">
+                      <div class='tileImage'>
+                        <a href="" tal:attributes="href data/getURL">
+                            <img tal:condition="data/news_image_filename|nothing"
+                                 tal:attributes="src string:${data/getURL}/@@images/image/preview;
+                                                 alt data/pretty_title_or_id"
+                                 class="tileImage"
+                                  >  <!-- large, preview, mini, thumb, tile, icon -->
+                        </a>
+                      </div>
+                      
+                          <h2 class="tileHeadline">
+                              <a href="" itemprop="url" class="url" tal:attributes="href data/getURL">
+                                  <span itemprop="summary" class="summary" tal:content="data/pretty_title_or_id">Title</span>
+                              </a>
+                          </h2>
+                          <metal:block tal:define="
+                                                    item data;
+                                                    item_type item/portal_type;
+                                                    item_start item/start|item/StartDate|nothing;
+                                                    item_end item/end|item/EndDate|nothing;
+                                                    item_sametime python: item_start == item_end;
+                                                    item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False;">
+                            <span class="documentByLine small data-noticies">
+                              <span tal:condition="python: item_type == 'Event' and item_sametime"
+                                    i18n:translate="label_event_byline_onlyfrom">
+                                   <abbr class="dtstart"
+                                         tal:attributes="title python:item_start"
+                                         tal:content="python:toLocalizedTime(item_start,long_format=1)"
+                                         i18n:name="start">from date</abbr>
+                              </span>
+                              <span tal:condition="python: item_type == 'Event' and item_samedate and not item_sametime"
+                                    i18n:translate="label_event_byline_samedate">
+                                   <abbr class="dtstart"
+                                         tal:attributes="title python:item_start"
+                                         tal:content="python:toLocalizedTime(item_start)"
+                                         i18n:name="start">from date</abbr> from
+                                   <abbr class="dtstart"
+                                         tal:attributes="title python:item_start"
+                                         tal:content="python:toLocalizedTime(item_start,time_only=1)"
+                                         i18n:name="starttime">from time</abbr> to
+                                   <abbr class="dtend"
+                                         tal:attributes="title python:item_end"
+                                         tal:content="python:toLocalizedTime(item_end,time_only=1)"
+                                         i18n:name="end">to time</abbr>
+                              </span>
+                              <span tal:condition="python: item_type == 'Event' and not item_samedate and not item_sametime"
+                                    i18n:translate="label_event_byline">
+                                    from
+                                         <abbr class="dtstart"
+                                         tal:attributes="title python:item_start"
+                                         tal:content="python:toLocalizedTime(item_start,long_format=1)"
+                                         i18n:name="start">from date</abbr> to
+                                   <abbr class="dtend"
+                                         tal:attributes="title python:item_end"
+                                         tal:content="python:toLocalizedTime(item_end,long_format=1)"
+                                         i18n:name="end">to date</abbr>
+                              </span>
+                               <span tal:condition="python: item_type == 'Event' and item.location"
+                                    i18n:translate="label_event_byline_location">&mdash;
+                                   <span tal:content="string:${item/location}"
+                                         class="location"
+                                         i18n:name="location">Oslo</span>,
+                              </span>
+       
+                            </span>
+                          </metal:block>
+                          <p class="tilebody">
+                              <span class='description' tal:content="data/Description">
+                                  New description
+                              </span>
+                          </p>
+                          <div class="visualClear"><!-- --></div>
+                      </article>
+                    </div>
+                    <div metal:use-macro="context/batch_macros/macros/navigation" />
+                </tal:def>
+        </metal:content-core>
+    </body>
+</html>

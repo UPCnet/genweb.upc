@@ -113,4 +113,11 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <!-- add index image to event contents -->
+  <adapter 
+    factory=".indexes.ImageFile"
+    name="news_image_filename" />
+
 </configure>
+
+

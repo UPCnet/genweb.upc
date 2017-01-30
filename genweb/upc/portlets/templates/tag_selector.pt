@@ -1,0 +1,23 @@
+<tal:portlet tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                           plone_view context/@@plone;
+                           tags view/get_tags;
+                           mode request/mode|string:future;"
+             i18n:domain="genweb">
+
+
+
+    <div class="subnavbar" role="complementary">
+      <ul id='portlet-navigation-tree' class="mode_selector nav nav-list">
+        <li>
+          <a href="" tal:content="context/get_title" tal:attributes="href python: view.tag_url()">
+            Titol vista que visualitza tots els elements
+          </a>
+        <li  tal:repeat="tag tags">
+          <a href="" tal:attributes="href python: view.tag_url(tag)">
+              <tal:titol replace="tag">Titol</tal:titol>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+</tal:portlet>
