@@ -4975,7 +4975,7 @@ legend + .control-group {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1462287888');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -5039,12 +5039,12 @@ legend + .control-group {
 .dropdown-menu > .selected > a > .tileFooter:before,
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-menu > .selected > a > [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-w.png?1462287888');
 }
 
 /* line 44, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-color {
-  background-image: url('++genweb++static/images/gh-c.png?1485760075');
+  background-image: url('++genweb++static/images/gh-c.png?1462287888');
 }
 
 /* line 48, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
@@ -5986,7 +5986,7 @@ legend + .control-group {
 
 /* line 267, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon {
-  background-image: url('++genweb++static/images/gh-150.png?1485760075');
+  background-image: url('++genweb++static/images/gh-150.png?1462287888');
   width: 21px;
   height: 21px;
   margin-top: -1px;
@@ -6019,7 +6019,7 @@ legend + .control-group {
 
 /* line 283, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-white {
-  background-image: url('++genweb++static/images/gh-150-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-150-w.png?1462287888');
 }
 
 /*extends icones*/
@@ -9964,7 +9964,7 @@ button.pfg-draft-save .badge,
   }
   /* line 28, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   .navbar .btn-navbar i {
-    background-image: url('++genweb++static/images/gh-w.png?1485760075');
+    background-image: url('++genweb++static/images/gh-w.png?1462287888');
   }
 
   /* line 31, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
@@ -10285,7 +10285,7 @@ button.pfg-draft-save .badge,
   }
   /* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   #portal-personaltools-wrapper .nav i, #portal-personaltools-wrapper .contentViews i, #portal-personaltools-wrapper .configlets i, #portal-personaltools-wrapper .formTabs i {
-    background-image: url('++genweb++static/images/gh-w.png?1485760075');
+    background-image: url('++genweb++static/images/gh-w.png?1462287888');
   }
   /* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus {
@@ -11670,7 +11670,7 @@ button.pfg-draft-save .badge,
 
 /* line 39, ../scss/_base.scss */
 .userScreen, .userTablet, .userMobile, .userGenweb {
-  background: url('++genweb++static/images/sprite_usuari.png?1485760075') transparent no-repeat center top;
+  background: url('++genweb++static/images/sprite_usuari.png?1462287888') transparent no-repeat center top;
   height: 1.5em;
   width: 1.5em;
 }
@@ -11774,7 +11774,7 @@ button.pfg-draft-save .badge,
 /*ajusta imatges icos en menús per a hovers */
 /* line 66, ../scss/_base.scss */
 .dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover #relatedItemBox:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1485760075') !important;
+  background-image: url('++genweb++static/images/gh-w.png?1462287888') !important;
 }
 
 /* line 73, ../scss/_base.scss */
@@ -12098,7 +12098,7 @@ button.pfg-draft-save .badge,
 }
 /* line 222, ../scss/_base.scss */
 #canvia-vista a {
-  background: url('++genweb++static/images/vistabg.png?1485760075') #666;
+  background: url('++genweb++static/images/vistabg.png?1474011288') #666;
   text-align: center;
   -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
@@ -12264,7 +12264,7 @@ button.pfg-draft-save .badge,
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   right: 7px;
   top: 8px;
-  background-image: url('++genweb++static/images/gh-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-w.png?1462287888');
   background-position: -455px -71px;
   background-repeat: no-repeat;
   width: 17px;
@@ -12383,7 +12383,7 @@ button.pfg-draft-save .badge,
 }
 /* line 138, ../scss/_nav.scss */
 .subnavbar .nav-list .active ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .active ul a[class*=" contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class*=" contenttype-"] span:after {
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1462287888');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -12513,7 +12513,7 @@ ul#portlet-navigation-tree .navTreeLevel3 a span {
 
 /* line 226, ../scss/_nav.scss */
 html * .dropdown-menu a:hover .img_blank {
-  content: url('++genweb++static/images/blank_blanc.png?1485760075');
+  content: url('++genweb++static/images/blank_blanc.png?1462287888');
   width: 10px;
   height: 10px;
 }
@@ -12565,7 +12565,7 @@ html * .dropdown-menu a:hover .img_blank {
 }
 /* line 264, ../scss/_nav.scss */
 #listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, #listing-table span[class^="contenttype-"]:before, #listing-table span[class*=" contenttype-"]:before, .template-tabular_view .listing a[class^="contenttype-"]:before, .template-tabular_view .listing a[class*=" contenttype-"]:before, .template-tabular_view .listing span[class^="contenttype-"]:before, .template-tabular_view .listing span[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree span[class^="contenttype-"]:before, .contenttreeWidget > .navTree span[class*=" contenttype-"]:before, .collage-content-menu a[class^="contenttype-"]:before, .collage-content-menu a[class*=" contenttype-"]:before, .collage-content-menu span[class^="contenttype-"]:before, .collage-content-menu span[class*=" contenttype-"]:before {
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1462287888');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -12673,7 +12673,7 @@ dt[class*="contenttype"] + dd {
 
 /* line 316, ../scss/_nav.scss */
 dt[class*="contenttype"]:before {
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1462287888');
   background-repeat: no-repeat;
   display: block;
   width: 15px;
@@ -13641,7 +13641,7 @@ ul {
 
 /* line 128, ../scss/_lists.scss */
 .list-links li:before, .portaltype-packet .estudis .llistatEnllacos li:before {
-  content: url('++genweb++static/images/arrow.png?1485760075');
+  content: url('++genweb++static/images/arrow.png?1462287888');
   margin-left: -15px;
   margin-top: -13px;
 }
@@ -13653,7 +13653,7 @@ ul {
 
 /* line 138, ../scss/_lists.scss */
 .list-highlighted li:before {
-  content: url('++genweb++static/images/arrow_hl.png?1485760075');
+  content: url('++genweb++static/images/arrow_hl.png?1462287888');
   margin-left: -22px;
   margin-top: -11px;
 }
@@ -14529,7 +14529,7 @@ hr.liniaDalt, hr.tileHeadline {
   display: block;
   width: 14px;
   height: 14px;
-  background: url('++genweb++static/images/gh.png?1485760075');
+  background: url('++genweb++static/images/gh.png?1462287888');
 }
 
 /* line 93, ../scss/_texts.scss */
@@ -14577,7 +14577,7 @@ a {
 
 /* line 113, ../scss/_texts.scss */
 .pdf:after, .ppt:after, .xls:after, .doc:after, .down:after, .https:after, .vid:after, .img:after, .txt:after {
-  background: url('++genweb++static/images/gh-c.png?1485760075') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1462287888') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -14805,7 +14805,7 @@ input[type="file"] {
 }
 /* line 18, ../scss/_inputs.scss */
 .customfile-feedback-populated:before {
-  background: url('++genweb++static/images/gh-c.png?1485760075') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1462287888') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -15211,7 +15211,7 @@ h2.title-inverse {
 }
 /* line 256, ../scss/_portlets.scss */
 h2.title-inverse i {
-  background-image: url('++genweb++static/images/gh-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-w.png?1462287888');
 }
 
 /* line 263, ../scss/_portlets.scss */
@@ -15536,7 +15536,7 @@ iframe {
   width: 14px;
   height: 14px;
   display: inline-block;
-  background: url('++genweb++static/images/gh.png?1485760075') -239px -143px no-repeat;
+  background: url('++genweb++static/images/gh.png?1462287888') -239px -143px no-repeat;
   margin-left: 5px;
 }
 /* line 266, ../scss/_plone.scss */
@@ -16880,7 +16880,7 @@ html {
   #portal-header h1.pull-left {
     height: 46px;
     width: 207px;
-    background: url('++genweb++static/images/logoUPC@2x.png?1485760075') no-repeat;
+    background: url('++genweb++static/images/logoUPC@2x.png?1462287888') no-repeat;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     -webkit-background-size: 100%;
@@ -16904,22 +16904,22 @@ html {
 
   /* line 18, ../scss/_retina.scss */
   .img_blank[src*="blank_blau"] {
-    content: url('++genweb++static/images/blank_blau@2x.png?1485760075');
+    content: url('++genweb++static/images/blank_blau@2x.png?1462287888');
   }
 
   /* line 19, ../scss/_retina.scss */
   .img_blank[src*="blank_gris"] {
-    content: url('++genweb++static/images/blank_gris@2x.png?1485760075');
+    content: url('++genweb++static/images/blank_gris@2x.png?1462287888');
   }
 
   /* line 20, ../scss/_retina.scss */
   .img_blank[src*="blank_blanc"] {
-    content: url('++genweb++static/images/blank_blanc@2x.png?1485760075');
+    content: url('++genweb++static/images/blank_blanc@2x.png?1462287888');
   }
 
   /* line 22, ../scss/_retina.scss */
   .userScreen, .userTablet, .userMobile, .userGenweb {
-    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1485760075');
+    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1462287888');
     -moz-background-size: 20px 400px;
     -o-background-size: 20px 400px;
     -webkit-background-size: 20px 400px;
@@ -17431,7 +17431,7 @@ html.lt-ie8 .list-portlet li  {
 }
 /* line 34, ../scss/_upcnet.scss */
 .link-parent:before {
-  background: url('++genweb++static/images/gh-w.png?1485760075') no-repeat -290px -95px;
+  background: url('++genweb++static/images/gh-w.png?1462287888') no-repeat -290px -95px;
   content: " ";
   display: inline-block;
   height: 14px;
