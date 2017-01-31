@@ -11,6 +11,10 @@ try:
     from plone.app.contenttypes.behaviors.collection import ICollection
 except ImportError:
     ICollection = None
+try:
+    from Products.ATContentTypes.interfaces import IATTopic
+except ImportError:
+    IATTopic = None
 
 
 class ListingTagged(BrowserView):
@@ -45,6 +49,11 @@ class ListingTagged(BrowserView):
     def is_collection(self):
         ctx = self.default_context
         return ICollection and ICollection.providedBy(ctx) or ctx.Type() == 'Collection' or False
+
+    @property
+    def is_topic(self):
+        ctx = self.default_context
+        return IATTopic and IATTopic.providedBy(ctx) or False
 
     @view.memoize
     def _get_folder_items(self):
@@ -82,18 +91,21 @@ class ListingTagged(BrowserView):
 
     def _get_collection_items(self):
         ctx = self.default_context
-        kw = {}
-        kw['batch'] = False
-        kw['brains'] = True
-        res = ctx.results(**kw)
-        if self.tags:
-            res = [x for x in res if self.tags in x.Subject]
-
+        if self.is_collection:
+            kw = {}
+            kw['batch'] = False
+            kw['brains'] = True
+            #kw['sort_on'] = 'getObjPositionInParent'
+            res = ctx.results(**kw)
+            if self.tags:
+                res = [x for x in res if self.tags in x.Subject]
+        else:
+            res = ctx.queryCatalog(batch=False, full_objects=False)
         return res
 
     def items(self, batch=True):
         res = []
-        if self.is_collection:
+        if self.is_collection or self.is_topic:
             res = self._get_collection_items()
         else:
             res = self._get_folder_items()
@@ -104,6 +116,16 @@ class ListingTagged(BrowserView):
             res = Batch(res, size=b_size, start=b_start, orphan=self.orphan)
 
         return res
+
+    def set_kw(self, kw):
+        if self.tags:
+            kw['Subject'] = {'query': self.tags, 'operator': 'and'}
+
+        if self.searchable_text:
+            kw['SearchableText'] = self.searchable_text
+
+        kw['sort_on'] = 'getObjPositionInParent'
+        return kw
 
     def batch(self):
         return self.items()

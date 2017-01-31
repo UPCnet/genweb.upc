@@ -1,6 +1,14 @@
 from five import grok
 from plone.indexer import indexer
 from plone.app.contenttypes.interfaces import IEvent
+# from zope.interface import Interface
+
+from repoze.catalog.catalog import Catalog
+from repoze.catalog.indexes.field import CatalogFieldIndex
+from repoze.catalog.indexes.keyword import CatalogKeywordIndex
+from souper.interfaces import ICatalogFactory
+from souper.soup import NodeAttributeIndexer
+from zope.interface import implementer
 
 
 @indexer(IEvent)
@@ -10,3 +18,16 @@ def ImageFile(context):
     """
     return context.image.filename
 grok.global_adapter(ImageFile, name='news_image_filename')
+
+
+@implementer(ICatalogFactory)
+class UserSubscribedTagsSoupCatalog(object):
+    def __call__(self, context):
+        catalog = Catalog()
+        idindexer = NodeAttributeIndexer('id')
+        catalog['id'] = CatalogFieldIndex(idindexer)
+        hashindex = NodeAttributeIndexer('tags')
+        catalog['tags'] = CatalogKeywordIndex(hashindex)
+
+        return catalog
+grok.global_utility(UserSubscribedTagsSoupCatalog, name='user_subscribed_tags')
