@@ -19,13 +19,4 @@
         template="templates/add_genweb.pt"
         />
 
-    <browser:page
-      name="listing-tagged"
-      permission="zope2.Public"
-      for="*"
-      class=".listing_tagged.ListingTagged"
-      template="views_templates/listing_tagged.pt"
-      layer=".interfaces.IGenwebUPC"
-      />
-
 </configure>

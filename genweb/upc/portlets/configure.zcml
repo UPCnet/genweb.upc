@@ -27,13 +27,4 @@
      editview=".multiviewcollection.EditForm"
      />
 
-    <plone:portlet
-     name="genweb.portlets.tag_selector"
-     interface=".tag_selector.ITagSelectorPortlet"
-     assignment=".tag_selector.Assignment"
-     renderer=".tag_selector.Renderer"
-     addview=".tag_selector.AddForm"
-     editview=".tag_selector.EditForm"
-     />
-
 </configure>

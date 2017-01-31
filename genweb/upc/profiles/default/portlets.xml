@@ -14,10 +14,6 @@
            title="portlet_multiviewcollection_title"
            i18n:attributes="title"/>
 
-  <portlet addview="genweb.portlets.tag_selector"
-           title="Tag selector"
-           i18n:attributes="title"/>           
-
 <!--    <portletmanager
          name="genweb.portlets.SubhomePortletManager4"
          type="genweb.portlets.browser.interfaces.IPortletsHomepage"
