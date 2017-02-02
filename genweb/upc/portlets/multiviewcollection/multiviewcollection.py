@@ -200,9 +200,16 @@ class Renderer(base.Renderer):
         for result in self.results():
             result_obj = result.getObject()
             result_image = getattr(result_obj, 'image', None)
+            try:
+                result_description = result.description
+            except:
+                try:
+                    result_description = result.Description()
+                except:
+                    result_description = ''
             result_dicts.append(dict(
                 date=result.EffectiveDate(),
-                description=self._summarize(result.description),
+                description=self._summarize(result_description),
                 image=result_image,
                 image_caption=getattr(result_obj, 'image_caption', None),
                 image_src=("{0}/@@images/image/mini".format(result.getURL())
@@ -238,7 +245,7 @@ class Renderer(base.Renderer):
             if limit and limit > 0:
                 # pass on batching hints to the catalog
                 results = collection.queryCatalog(
-                    batch=True, b_size=limit  + exclude_context)
+                    batch=True, b_size=limit + exclude_context)
                 results = results._sequence
             else:
                 results = collection.queryCatalog()

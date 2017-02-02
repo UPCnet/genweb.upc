@@ -26,7 +26,6 @@
                            class python:'tile contenttype-' + normalizeString(obj.portal_type);
                            title obj/Description"><span tal:replace="obj/title_or_id">Title</span></a>
             <time tal:condition="view/show_time" class="smaller"
-                  tal:condition="view/data/show_dates"
                   tal:content="python:toLocalizedTime(obj.Date)">
                 Date
             </time>
