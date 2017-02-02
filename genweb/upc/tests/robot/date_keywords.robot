@@ -5,7 +5,6 @@ Library  Selenium2Library
 *** Keywords ***
 
 Add days to a date
-  # To avoid problems, avoid placing too many numbers
   [Arguments]  ${DAY}  ${MONTH}  ${YEAR}  ${ADD_DAYS}
   : FOR  ${LOOP}  IN RANGE  1  999999
   \  @{TOTAL_DAYS_FOR_MONTH} =  Return day of each month  ${YEAR}
