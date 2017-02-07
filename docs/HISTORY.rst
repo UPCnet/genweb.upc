@@ -1,17 +1,17 @@
 Changelog
 =========
 
-2.37 (unreleased)
+2.37 (2017-02-07)
 -----------------
 
-- Nothing changed yet.
-
+* existing content search in plone site [alberto.duran]
+* description for Window content type [alberto.duran]
 
 2.36 (2017-02-01)
 -----------------
 
-- Nothing changed yet.
-
+* existing content search in plone site [alberto.duran]
+* description for Window content type [alberto.duran]
 
 2.35 (2016-12-19)
 -----------------
