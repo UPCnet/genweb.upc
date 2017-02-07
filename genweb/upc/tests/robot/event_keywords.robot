@@ -40,10 +40,10 @@ recurrence has been added
 
 Select Date
   [Arguments]  ${DAY}  ${MONTH}  ${YEAR}
-  Select From List By Value  id=form-widgets-IEventBasic-start-day  ${DAY}
-  Select From List By Value  id=form-widgets-IEventBasic-start-month  ${MONTH}
   Select From List By Value  id=form-widgets-IEventBasic-start-year  ${YEAR}
-
+  Select From List By Value  id=form-widgets-IEventBasic-start-month  ${MONTH}
+  Select From List By Value  id=form-widgets-IEventBasic-start-day  ${DAY}
+  
 Input IEC_Text
   [Arguments]  ${FIELD}  ${TEXT}
   Input Text  id=form-widgets-IEventContact-${FIELD}  ${TEXT}
