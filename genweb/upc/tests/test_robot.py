@@ -90,4 +90,12 @@ def test_suite():
             layer=GENWEB_UPC_ROBOT_TESTING
         ),
     ])
+    suite.addTests([
+        layered(robotsuite.RobotTestSuite(
+                './robot/test_folder_views.robot',
+                setUp=setUP
+            ),
+            layer=GENWEB_UPC_ROBOT_TESTING
+        ),
+    ])
     return suite
