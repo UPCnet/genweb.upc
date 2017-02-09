@@ -36,7 +36,13 @@ the test folder is activated
   Confirm action
 
 Confirm action
-  Click Button  name=form.button.confirm
+  ${BTN} =  Set Variable  name=form.button.confirm
+  :FOR    ${LOOP}    IN RANGE    5
+  \  ${STATUS} =  Run Keyword And Return Status  Page Should Contain Element  ${BTN}
+  \  Run Keyword If  ${STATUS}  Click Button  ${BTN}
+  \  ...  ELSE  Exit For Loop
+  \  Run Keyword If  ${LOOP} > 2  Fatal Error
+  \  ...  msg="There are problems with form button confirm. He asks for it more than once."
 
 Save form
   ${STATUS} =  Run Keyword And Return Status
@@ -47,11 +53,13 @@ Save form
   ...  Click Button  name=form.actions.save
 
 it has been created a simple item
-  [Arguments]  ${URL}  ${ITEM}  ${TITLE}
+  [Arguments]  ${URL}  ${ITEM}  ${TITLE}  ${DESCRIPTION}=None
   Go to  ${URL}
   Click Element  id=plone-contentmenu-factories
   Click Element  id=${ITEM}
   Input F_Text  title  ${TITLE}
+  ${STATUS} =  Run Keyword And Return Status  Should Be Equal  ${DESCRIPTION}  None
+  Run Keyword Unless  ${STATUS}  Input F_Text  description  ${DESCRIPTION}
   Save form
 
 added a tag
