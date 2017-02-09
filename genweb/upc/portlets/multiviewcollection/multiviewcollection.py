@@ -212,7 +212,7 @@ class Renderer(base.Renderer):
                 description=self._summarize(result_description),
                 image=result_image,
                 image_caption=getattr(result_obj, 'image_caption', None),
-                image_src=("{0}/@@images/image/mini".format(result.getURL())
+                image_src=("{0}/@@images/image/preview".format(result.getURL())
                            if result_image else None),
                 title=result.title,
                 url=result.getURL(),
