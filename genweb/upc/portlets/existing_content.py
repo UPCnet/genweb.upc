@@ -13,7 +13,6 @@ from zope import schema
 from zope.formlib import form
 
 from pyquery import PyQuery as pq
-import unicodedata
 import re
 import requests
 from requests.exceptions import RequestException, ReadTimeout
@@ -88,7 +87,7 @@ class Renderer(base.Renderer):
             raw_html = objects[0]()
         except:
             raw_html = objects[0].getObject()()
-        return unicodedata.normalize('NFKD', raw_html).encode('ascii', 'ignore')
+        return raw_html
 
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
@@ -113,7 +112,7 @@ class Renderer(base.Renderer):
                     raw_html = self.get_catalog_content(url_to_search)
                     charset = re.findall('charset=(.*)"', raw_html)
                     if len(charset) > 0:
-                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.decode(charset[0]))
+                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
                         doc = pq(clean_html)
                         match = re.search(r'This page does not exist', clean_html)
                         if not match:
