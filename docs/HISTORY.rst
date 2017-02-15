@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.38 (unreleased)
+2.38 (2017-02-15)
 -----------------
 
-- Nothing changed yet.
-
+* accents en cerca local existing content [alberto.duran]
+* ajustar grandaria imatges multicolview [Iago López Fernández]
 
 2.37 (2017-02-07)
 -----------------
