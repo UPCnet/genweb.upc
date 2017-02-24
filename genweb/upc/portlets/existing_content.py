@@ -3,7 +3,7 @@ from zope.interface import implements
 from plone import api
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
-
+from Products.PloneFormGen.interfaces import IPloneFormGenForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
@@ -80,13 +80,18 @@ class Renderer(base.Renderer):
 
     def get_catalog_content(self, path_to_search):
         """ Fem una consulta al catalog, en comptes de fer un PyQuery """
-        catalog = getToolByName(self.context, 'portal_catalog')
-        objects = catalog(path=path_to_search)
         raw_html = u''
-        try:
-            raw_html = objects[0]()
-        except:
-            raw_html = objects[0].getObject()()
+        catalog = getToolByName(self.context, 'portal_catalog')
+        """ Mirem el cas especial dels form """
+        im_searching_forms = catalog(path=path_to_search, object_provides=IPloneFormGenForm.__identifier__)
+        if len(im_searching_forms) > 0:
+            raw_html = im_searching_forms[0].getObject()()
+        else:
+            objects = catalog(path=path_to_search)
+            try:
+                raw_html = objects[0]()
+            except:
+                raw_html = objects[0].getObject()()
         return raw_html
 
     def getHTML(self):
@@ -105,9 +110,9 @@ class Renderer(base.Renderer):
             link_a_larrel = link_url.endswith('/ca') or link_url.endswith('/es') or link_url.endswith('/en') == root_url
 
             if link_url not in parent_url and not link_a_larrel:
-                if root_url in link_url:
+                if link_url.startswith(root_url):
                     # link intern, search through the catalog
-                    relative_path = '/' + re.findall(root_url + '(.*)', link_url)[0]
+                    relative_path = re.findall(root_url + '(.*)', link_url)[0]
                     url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
                     raw_html = self.get_catalog_content(url_to_search)
                     charset = re.findall('charset=(.*)"', raw_html)
