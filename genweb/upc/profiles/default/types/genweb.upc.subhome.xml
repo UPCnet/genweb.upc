@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="genweb.upc.subhome" meta_type="Dexterity FTI" 
+<object name="genweb.upc.subhome" meta_type="Dexterity FTI"
     i18n:domain="plone"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
@@ -27,6 +27,7 @@
 
  <!-- enabled behaviors -->
  <property name="behaviors">
+   <element  value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
     <element value="plone.app.content.interfaces.INameFromTitle"/>
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
@@ -58,4 +59,3 @@
  </action>
 
 </object>
-
