@@ -66,7 +66,7 @@ class gwSendEventView(grok.View):
         to_address = 'agenda.web@upc.edu'
         from_name = portal.getProperty('email_from_name')
         from_address = portal.getProperty('email_from_address')
-        titulo_web = portal.getProperty('title')
+        titulo_web = portal.getProperty('title').decode('utf-8')
         mtool = self.context.portal_membership
         userid = mtool.getAuthenticatedMember().id
         source = "%s <%s>" % (from_name, from_address)
