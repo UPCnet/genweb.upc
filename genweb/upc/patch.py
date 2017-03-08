@@ -10,6 +10,7 @@ from plone.app.querystring.interfaces import IParsedQueryIndexModifier
 
 from Products.CMFCore.utils import getToolByName
 from plone.batching import Batch
+from plone.memoize.instance import memoize
 
 
 logger = logging.getLogger('plone.app.querystring')
@@ -110,3 +111,20 @@ def _makequery(self, query=None, batch=False, b_start=0, b_size=30,
     if batch:
         results = Batch(results, b_size, start=b_start)
     return results
+
+
+@memoize
+def plone_app_portlets_recent_data(self):
+    limit = self.data.count
+    path = self.navigation_root_path
+    portal_type = list(self.typesToShow)
+    try:
+        portal_type.remove('Image')
+    except ValueError:
+        pass
+    return self.catalog(
+        portal_type=portal_type,
+        path=path,
+        sort_on='modified',
+        sort_order='reverse',
+        sort_limit=limit)[:limit]

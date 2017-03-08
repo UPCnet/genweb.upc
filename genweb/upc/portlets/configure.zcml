@@ -18,4 +18,13 @@
      editview=".existing_content.EditForm"
      />
 
+     <plone:portlet
+     name="genweb.portlets.multiview_collection"
+     interface=".multiviewcollection.IMultiviewCollectionPortlet"
+     assignment=".multiviewcollection.Assignment"
+     renderer=".multiviewcollection.Renderer"
+     addview=".multiviewcollection.AddForm"
+     editview=".multiviewcollection.EditForm"
+     />
+
 </configure>

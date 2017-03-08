@@ -1,0 +1,8 @@
+<metal:block tal:condition="python:context.portal_type<>'Event'">
+	<div class="leadImage" tal:condition="view/available">
+	  <img tal:define="has_img context/image|nothing;
+	                   scales context/@@images|nothing"
+	       tal:condition="python:has_img and scales" 
+	       tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+	</div>
+</metal:block>

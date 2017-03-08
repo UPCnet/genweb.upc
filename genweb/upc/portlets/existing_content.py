@@ -1,12 +1,11 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from zope.interface import implements
-
+from plone import api
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
-
+from Products.PloneFormGen.interfaces import IPloneFormGenForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 
 from genweb.core import GenwebMessageFactory as _
 
@@ -14,11 +13,10 @@ from zope import schema
 from zope.formlib import form
 
 from pyquery import PyQuery as pq
-
 import re
 import requests
+from requests.exceptions import RequestException, ReadTimeout
 import urlparse
-from plone import api
 
 
 class IContentPortlet(IPortletDataProvider):
@@ -80,42 +78,82 @@ class Assignment (base.Assignment):
 class Renderer(base.Renderer):
     render = ViewPageTemplateFile('templates/existing_content.pt')
 
+    def get_catalog_content(self, path_to_search):
+        """ Fem una consulta al catalog, en comptes de fer un PyQuery """
+        raw_html = u''
+        catalog = getToolByName(self.context, 'portal_catalog')
+        """ Mirem el cas especial dels form """
+        im_searching_forms = catalog(path=path_to_search, object_provides=IPloneFormGenForm.__identifier__)
+        if len(im_searching_forms) > 0:
+            raw_html = im_searching_forms[0].getObject()()
+        else:
+            objects = catalog(path=path_to_search)
+            try:
+                raw_html = objects[0]()
+            except:
+                raw_html = objects[0].getObject()()
+        return raw_html
+
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
             Avisa si hi ha problemes en la URL o si no troba Element.
         """
+        portal_url = getToolByName(self.context, "portal_url")
+        portal = portal_url.getPortalObject()
+        url_portal_nginx = portal.absolute_url()  # url (per dns) del lloc
+        link = self.get_absolute_url(self.data.url)  # url del contingut que vol mostrar l'usuari
         try:
-            url = self.get_absolute_url(self.data.url)
+            link_url = re.findall('https?://(.*)', link)[0].strip('/')  # url del contingut netejada
+            parent_url = re.findall('https?://(.*)', self.context.absolute_url())[0].strip('/')  # url del pare netejada
+            root_url = re.findall('https?://(.*)', url_portal_nginx)[0].strip('/')  # url (per dns) del lloc netejada
 
-            # check url to avoid autoreference, removing http(s) and final slash
-            check_url = re.findall('https?(.*)\/?', url)[0].strip('/')
-            check_parent = re.findall('https?(.*)\/?', self.context.absolute_url())[0].strip('/')
+            link_a_larrel = link_url.endswith('/ca') or link_url.endswith('/es') or link_url.endswith('/en') == root_url
 
-            # check url to avoid reference to root, removing language /xx
-            check_root = re.findall('https?(.*)\/?', self.get_absolute_url(api.portal.get().absolute_url()))[0].strip('/')
-
-            if check_url != check_parent and check_url.strip('/ca').strip('/es').strip('/en') != check_root:
-                raw_html = requests.get(url)
-                charset = re.findall('charset=(.*)"', raw_html.content)
-                if len(charset) > 0:
-                    clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
-                    doc = pq(clean_html)
-                    match = re.search(r'This page does not exist', clean_html)
-                    if not match:
-                        content = pq('<div/>').append(
-                            doc(self.data.element).outerHtml()).html(method='html')
-                        if not content:
-                            content = _(u"ERROR. This element does not exist.") + " " + self.data.element
+            if link_url not in parent_url and not link_a_larrel:
+                if link_url.startswith(root_url):
+                    # link intern, search through the catalog
+                    relative_path = re.findall(root_url + '(.*)', link_url)[0]
+                    url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
+                    raw_html = self.get_catalog_content(url_to_search)
+                    charset = re.findall('charset=(.*)"', raw_html)
+                    if len(charset) > 0:
+                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
+                        doc = pq(clean_html)
+                        match = re.search(r'This page does not exist', clean_html)
+                        if not match:
+                            content = pq('<div/>').append(
+                                doc(self.data.element).outerHtml()).html(method='html')
+                            if not content:
+                                content = _(u"ERROR. This element does not exist.") + " " + self.data.element
+                        else:
+                            content = _(u"ERROR: Unknown identifier. This page does not exist." + link)
                     else:
-                        content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+                        content = _(u"ERROR. Charset undefined")
                 else:
-                    content = _(u"ERROR. Charset undefined")
+                    # link extern, pyreq
+                    raw_html = requests.get(link, timeout=5)
+                    charset = re.findall('charset=(.*)"', raw_html.content)
+                    if len(charset) > 0:
+                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                        doc = pq(clean_html)
+                        match = re.search(r'This page does not exist', clean_html)
+                        if not match:
+                            content = pq('<div/>').append(
+                                doc(self.data.element).outerHtml()).html(method='html')
+                            if not content:
+                                content = _(u"ERROR. This element does not exist.") + " " + self.data.element
+                        else:
+                            content = _(u"ERROR: Unknown identifier. This page does not exist." + link)
+                    else:
+                        content = _(u"ERROR. Charset undefined")
             else:
                 content = _(u"ERROR. Autoreference")
-        except requests.exceptions.RequestException:
-            content = _(u"ERROR. This URL does not exist.")
+        except ReadTimeout:
+            content = _(u"ERROR. There was a timeout while waiting for '{0}'".format(self.get_absolute_url(self.data.url)))
+        except RequestException:
+            content = _(u"ERROR. This URL does not exist")
         except:
-            content = _(u"ERROR. Unexpected exception.")
+            content = _(u"ERROR. Unexpected exception")
         return content
 
     def getTitle(self):

@@ -1,11 +1,51 @@
 Changelog
 =========
 
-2.34 (unreleased)
+2.39 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.38 (2017-02-15)
+-----------------
+
+* accents en cerca local existing content [alberto.duran]
+* ajustar grandaria imatges multicolview [Iago López Fernández]
+
+2.37 (2017-02-07)
+-----------------
+
+* existing content search in plone site [alberto.duran]
+* description for Window content type [alberto.duran]
+
+2.36 (2017-02-01)
+-----------------
+
+* existing content search in plone site [alberto.duran]
+* description for Window content type [alberto.duran]
+
+2.35 (2016-12-19)
+-----------------
+
+* Filter images out of recent portlet [Santi]
+*  [Santi]
+* Filter images out of recent portlet and recently_modified view. [Santi]
+* See ticket 709406. [Santi]
+
+2.34 (2016-12-15)
+-----------------
+
+* Add Multi-view Collection portlet [Santi]
+* fix list style, force left bullet only on direct li siblings [oscar.albareda]
+* Hide text attr in listing_view for Folders [Santi]
+* Merge branch 'master' of github.com:UPCnet/genweb.upc [Alberto Duran]
+* Noticias sin acento [Alberto Duran]
+* Treure espai extra enllaços obrir en finestra nova [Santi]
+* Highlight important items* on folder_contents view [Santi]
+*  [Santi]
+* *Important items have attribute 'is_important' set to True. [Santi]
+* See ticket 702316. [Santi]
 
 2.33 (2016-11-14)
 -----------------

@@ -8,7 +8,11 @@
 
   <portlet addview="genweb.portlets.existing_content"
              title="Contingut existent"
-             i18n:attributes="title" />    
+             i18n:attributes="title" />
+
+  <portlet addview="genweb.portlets.multiview_collection"
+           title="portlet_multiviewcollection_title"
+           i18n:attributes="title"/>
 
 <!--    <portletmanager
          name="genweb.portlets.SubhomePortletManager4"
