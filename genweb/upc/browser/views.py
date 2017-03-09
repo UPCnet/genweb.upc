@@ -363,18 +363,18 @@ class SendEventToAttendees(grok.View):
         out.write(ICS_EVENT_START % map)
 
         for assistant in self.context.attendees:
-            out.write('ATTENDEE;CN={0};ROLE=REQ-PARTICIPANT:{0}\n'
-                .format(assistant.encode('utf-8')))
+            out.write('ATTENDEE;CN={0};ROLE=REQ-PARTICIPANT:{0}\n'.format(assistant.encode('utf-8')))
 
         for category in self.context.subject:
             out.write('CATEGORIES:%s\n' % category.encode('utf-8'))
 
+        location = self.context.location.encode('utf-8') if self.context.location else None
         map = {
             'contact_name': self.context.contact_name,
             'contact_email': self.context.contact_email,
             'created': self.rfc2445dt(self.context.creation_date),
             'modified': self.rfc2445dt(self.context.modification_date),
-            'location': self.context.location.encode('utf-8'),
+            'location': location,
             'url': self.context.absolute_url(),
         }
         out.write(ICS_EVENT_END % map)
