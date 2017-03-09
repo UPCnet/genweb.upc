@@ -323,7 +323,7 @@ class SendEventToAttendees(grok.View):
         msg['From'] = portal.getProperty('email_from_address')
         msg['To'] = ', '.join(self.context.attendees).encode('utf-8')
         msg['Date'] = formatdate(localtime=True)
-        msg['Subject'] = subject
+        msg['Subject'] = subject.decode('utf-8')
 
         msg.attach(MIMEText(body, 'plain'))
         msg.attach(self.get_ics())
