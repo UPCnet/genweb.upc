@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.39 (unreleased)
+2.39 (2017-03-09)
 -----------------
 
-- Nothing changed yet.
-
+* codify location of event [alberto.duran]
+* Afegir convocatòria en els esdeveniments [Iago López Fernández]
+* solve enconding problems with events to agendaupc [alberto.duran]
+* Make graella de portlets translatable [alberto.duran]
+* existing content i forms per link intern [alberto.duran]
 
 2.38 (2017-02-15)
 -----------------
