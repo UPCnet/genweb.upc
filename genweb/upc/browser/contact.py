@@ -6,12 +6,14 @@ from plone import api
 from cgi import escape
 from Acquisition import aq_inner
 
-from zope.schema import TextLine, Text, ValidationError, Choice
+from zope.schema import TextLine, Text, ValidationError, Choice, Bool
 from z3c.form import button
 from z3c.form.error import ValueErrorViewSnippet
 from plone.directives import form
 
 from plone.formwidget.recaptcha.widget import ReCaptchaFieldWidget
+
+from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget 
 
 from Products.CMFPlone.utils import safe_unicode
 from Products.statusmessages.interfaces import IStatusMessage
@@ -30,6 +32,7 @@ from plone.registry.interfaces import IRegistry
 from genweb.controlpanel.interface import IGenwebControlPanelSettings
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory, InvalidValue
+from zope.interface import Invalid
 
 grok.templatedir("views_templates")
 
@@ -83,6 +86,12 @@ def validate_email(value):
         raise NotAnEmailAddress(value)
     return True
 
+def is_checked(value):
+    if not value:
+        raise Invalid(u"Acepta el uso y privacidad")
+        return False
+    else:
+        return True
 
 class IContactForm(form.Schema):
     """Define the fields of our form
@@ -105,6 +114,11 @@ class IContactForm(form.Schema):
     mensaje = Text(title=_('genweb_message', default="Message"),
                    description=_("genweb_help_message", default="Please enter the message you want to send."),
                    required=True)
+
+    privacidad = Bool(title=_core('title_privacy'),
+                      description=_core(u'desc_privacy'),
+                      required=True,
+                      constraint=is_checked)
 
     form.widget(captcha=ReCaptchaFieldWidget)
     captcha = TextLine(title=_('genweb_type_the_code', default="Type the code"),
@@ -159,12 +173,14 @@ class ContactForm(form.SchemaForm):
             self.widgets['captcha'].error = self.get_captcha_error_instace()
         return True
 
+
     @button.buttonAndHandler(_(u"Send"))
     def action_send(self, action):
         """Send the email to the configured mail address in properties and redirect to the
-        front page, showing a status message to say the message was received.
+        front page, showing a status message to say the message was sent.
         """
         data, errors = self.extractData()
+
 
         if self.captcha_is_invalid():
             return
@@ -172,7 +188,8 @@ class ContactForm(form.SchemaForm):
         if 'asunto' not in data or \
            'from_address' not in data or \
            'mensaje' not in data or \
-           'nombre' not in data:
+           'nombre' not in data or \
+           'privacidad' not in data:
             return
 
         context = aq_inner(self.context)
