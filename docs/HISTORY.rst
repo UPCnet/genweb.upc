@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.40 (unreleased)
+2.40 (2017-03-13)
 -----------------
 
-- Nothing changed yet.
-
+* Add checkbox to accept privacy policy [Corina Riba]
+* decode subject for email in convocatoria [alberto.duran]
 
 2.39 (2017-03-09)
 -----------------
