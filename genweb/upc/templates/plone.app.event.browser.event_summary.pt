@@ -97,7 +97,7 @@
     </tal:cond>
 
     <tal:cond condition="python:'ical' not in excludes">
-      <dt i18n:domain="genweb" i18n:translate="heading_send_event">Send event to attendees</dt>
+<!--       <dt i18n:domain="genweb" i18n:translate="heading_send_event">Send event to attendees</dt>
       <dd i18n:domain="genweb"
         tal:define="here_url context/@@plone_context_state/object_url;
                       portal_url context/@@plone_portal_state/portal_url;">
@@ -114,7 +114,7 @@
           </div>
         </div>
       </dd>
-      <dt i18n:translate="heading_add_to_calendar">Add event to calendar</dt>
+      <dt i18n:translate="heading_add_to_calendar">Add event to calendar</dt> -->
       <dd tal:define="here_url context/@@plone_context_state/object_url;
                       portal_url context/@@plone_portal_state/portal_url;">
         <a href="#"
