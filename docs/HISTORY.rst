@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.41 (unreleased)
+2.41 (2017-03-22)
 -----------------
 
-- Nothing changed yet.
-
+* Hide send event to attendees button [Corina Riba]
 
 2.40 (2017-03-13)
 -----------------
