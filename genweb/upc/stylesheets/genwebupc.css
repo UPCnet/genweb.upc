@@ -10079,7 +10079,7 @@ NOTEBOOK
   .table-notebook tr:first-child td {
     border-top: 3px double #ffb68d !important; }
 
-/* 
+/*
 .table
 .table-striped
 .table-bordered
@@ -12138,8 +12138,7 @@ table th {
 .nav-tabs, .contentViews, .configlets {
   border-bottom: 1px solid #B2B2B2; }
 
-a {
-  color: #007BC0; }
+a { color: #0074B5; }
 
 img.link_blank, img.link_pdf {
   padding-bottom: 3px; }
