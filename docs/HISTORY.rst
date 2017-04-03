@@ -1,11 +1,15 @@
 Changelog
 =========
 
-2.42 (unreleased)
+2.42 (2017-04-03)
 -----------------
 
-- Nothing changed yet.
-
+* Add new enquesta.py url [Corina Riba]
+* New feature SPRL [Corina Riba]
+* Merge branch 'master' of https://github.com/UPCnet/genweb.upc [Iago López Fernández]
+* Remove changes WCAG [Iago López Fernández]
+* Restore contact code deleted by error [Corina Riba]
+* WCAG: añadido más contraste en los enlaces [Iago López Fernández]
 
 2.41 (2017-03-22)
 -----------------
