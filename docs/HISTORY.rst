@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.43 (unreleased)
+2.43 (2017-04-05)
 -----------------
 
-- Nothing changed yet.
-
+* Borrar pruebas subidas por error [Corina Riba]
 
 2.42 (2017-04-03)
 -----------------
