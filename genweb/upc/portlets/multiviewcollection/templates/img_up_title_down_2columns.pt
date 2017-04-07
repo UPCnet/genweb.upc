@@ -12,7 +12,7 @@
             <a tal:attributes="href result/url">
               <div class='noticies-full'>
                 <img tal:condition="result/image"
-                     tal:attributes="src result/image_src;
+                     tal:attributes="src string:${result/url}/@@images/image/preview;
                                      title result/image_caption;
                                      alt result/image_caption;"
                      class="image-noticies-full" />
