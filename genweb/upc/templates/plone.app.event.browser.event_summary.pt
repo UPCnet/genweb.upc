@@ -16,13 +16,6 @@
       <dd class="title"><a tal:attributes="href data/url" tal:content="data/title">title</a></dd>
     </tal:cond>
 
-    <tal:cond condition="python:'subjects' not in excludes">
-    <tal:cond condition="data/subjects">
-      <dt i18n:translate="event_what">What</dt>
-      <dd itemprop="eventType" class="category" tal:repeat="item data/subjects" tal:content="item" />
-    </tal:cond>
-    </tal:cond>
-
     <tal:cond condition="python:'date' not in excludes">
       <dt i18n:translate="event_when">When</dt>
       <dd tal:define="start_tzname data/timezone;
