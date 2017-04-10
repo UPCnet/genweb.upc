@@ -13,7 +13,7 @@
               <div class='noticies-full'>
                 <img tal:condition="result/image"
                      tal:attributes="src result/image_src;
-                                     title result/image_caption;
+                                     title python: result['image_caption'] if result['image_caption'] else nothing;
                                      alt result/image_caption;"
                      class="image-noticies-full" />
               </div>

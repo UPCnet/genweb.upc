@@ -14,7 +14,7 @@
         </h3>
         <img tal:condition="result/image" class="span6"
              tal:attributes="src result/image_src;
-                             title result/image_caption;
+                             title python: result['image_caption'] if result['image_caption'] else nothing;
                              alt result/image_caption;"/>
         <div class="content-noticies" class="span6">
           <p tal:content="result/description">Description summary</p>
