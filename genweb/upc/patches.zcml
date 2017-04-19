@@ -33,4 +33,11 @@
         replacement=".patch.plone_app_portlets_recent_data"
         />
 
+    <monkey:patch
+        description="Solventar problema de codificación"
+        class="plone.app.contenttypes.browser.folder.FolderView"
+        original="results"
+        replacement=".patches.custom_folder.results"
+        />
+
 </configure>
