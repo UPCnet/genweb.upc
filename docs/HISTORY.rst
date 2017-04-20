@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.44 (unreleased)
+2.44 (2017-04-20)
 -----------------
 
-- Nothing changed yet.
-
+* Solventado paginación carpetas [Iago López Fernández]
+* Igualado tamaño de la imagenes del portlet multiviewcollection con los del portlet fullnews [Iago López Fernández]
+* Eliminado el campo Qué [Iago López Fernández]
 
 2.43 (2017-04-05)
 -----------------
