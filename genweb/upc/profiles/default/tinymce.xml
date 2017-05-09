@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding='utf-8'?>
 <object>
  <layout>
-  <content_css value="++genwebupc++stylesheets/genwebupc.css"/>
+  <content_css value="/++genwebupc++stylesheets/genwebupc.css"/>
  </layout>
  <resourcetypes>
   <linkable>
