@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.45 (unreleased)
+2.45 (2017-05-11)
 -----------------
 
-- Nothing changed yet.
-
+* Cargar estilos correctamente en TinyMCE [Iago López Fernández]
 
 2.44 (2017-04-20)
 -----------------
