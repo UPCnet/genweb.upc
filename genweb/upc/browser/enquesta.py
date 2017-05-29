@@ -6,6 +6,7 @@ from five import grok
 from hashlib import sha1
 from plone import api
 from zope.interface import Interface
+from zope.interface import alsoProvides
 
 import datetime
 
@@ -15,7 +16,7 @@ class enquestaRedirect(grok.View):
     ## in portal_memberdata propierties of plone site 
     ## where you want to run this views.
 
-    grok.name('enquestasalut')
+    grok.name('enquesta')
     grok.context(Interface)
     grok.require('zope2.View')
 
@@ -36,7 +37,7 @@ class enquestaRedirect(grok.View):
 
 
 class enquestaTokens(grok.View):
-    grok.name('enquestasalut-tokens')
+    grok.name('enquesta-tokens')
     grok.context(Interface)
     grok.require('cmf.ManagePortal')
 
@@ -44,4 +45,26 @@ class enquestaTokens(grok.View):
         mdata = getToolByName(self.context, 'portal_memberdata')
         users = [api.user.get(a) for a in mdata._members]
         users = [user for user in users if user]
-        return '\n'.join(['%s,%s' % (user.id, user.getProperty('asepeyo_hash')) for user in users if user.getProperty('asepeyo_hash')])
+        return 'Aquest son els tokens dels usuaris: \n\n'+'\n'.join(['%s,%s' % (user.id, user.getProperty('asepeyo_hash')) for user in users if user.getProperty('asepeyo_hash')])
+
+
+class enquestaDeleteTokens(grok.View):
+    grok.name('enquesta-delete-tokens')
+    grok.context(Interface)
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+        try:
+            from plone.protect.interfaces import IDisableCSRFProtection
+            alsoProvides(self.request, IDisableCSRFProtection)
+        except:
+            pass
+
+        mdata = getToolByName(self.context, 'portal_memberdata')
+        users = [api.user.get(a) for a in mdata._members]
+        users = [user for user in users if user]
+
+        for user in users:
+            if user.getProperty('asepeyo_hash'):
+                user.setMemberProperties(mapping={"asepeyo_hash": ''})
+                return user.id + ": Poll tokens deleted"
