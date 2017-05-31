@@ -11,12 +11,21 @@ from genweb.core import GenwebMessageFactory as _
 
 from zope import schema
 from zope.formlib import form
+from plone.directives import form as formm
 
 from pyquery import PyQuery as pq
 import re
 import requests
 from requests.exceptions import RequestException, ReadTimeout
 import urlparse
+
+from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
+from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+
+from plone.formwidget.contenttree import ContentTreeFieldWidget
+from z3c.relationfield.schema import RelationChoice
+
+from zope.interface import invariant, Invalid
 
 
 class IContentPortlet(IPortletDataProvider):
@@ -44,10 +53,26 @@ class IContentPortlet(IPortletDataProvider):
         default=False,
     )
 
+    own_content = schema.Choice(
+            title=_(u"existing_content.pt", default=u"Existing content"),
+            description=_(u'help_existing_content',
+                          default=u"You may search for and choose an existing content"),
+            required=False,
+            source=SearchableTextSourceBinder({}, default_query='path:')
+    )
+
+    content_or_url = schema.Bool(
+        title=_(u"Vull un contingut d'internet"),
+        description=_(u"Marqueu aquesta casella si es desitja mostrar un contingut extern al lloc"),
+        required=False,
+        default=False,
+    )
+
+
     url = schema.TextLine(
         title=_(u"URL de la pàgina a mostrar"),
         description=_(u"help_static_content_url_ca"),
-        required=True
+        required=False,
     )
 
     element = schema.TextLine(
@@ -57,18 +82,25 @@ class IContentPortlet(IPortletDataProvider):
         default=_(u"#content")
     )
 
+    @invariant
+    def URLSelected(existing_content):
+        if existing_content.content_or_url == True:
+            raise Invalid("Especifica una URL")
 
 class Assignment (base.Assignment):
     implements(IContentPortlet)
 
-    def __init__(self, url='http://genweb.upc.edu/ca/demana-un-genweb', ptitle='', element='#content', show_title=True, hide_footer=False):
+    def __init__(self, content_or_url, url, ptitle, own_content, element='#content', show_title=True, hide_footer=False):
         # s'invoca quan cliquem a Desa
         # import pdb; pdb.set_trace()
-        self.url = url
+
         self.ptitle = ptitle
-        self.element = element
         self.show_title = show_title
         self.hide_footer = hide_footer
+        self.content_or_url = content_or_url
+        self.url = url
+        self.element = element
+        self.own_content = own_content
 
     @property
     def title(self):
@@ -112,6 +144,7 @@ class Renderer(base.Renderer):
             if link_url not in parent_url and not link_a_larrel:
                 if link_url.startswith(root_url):
                     # link intern, search through the catalog
+
                     relative_path = re.findall(root_url + '(.*)', link_url)[0]
                     url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
                     raw_html = self.get_catalog_content(url_to_search)
@@ -180,11 +213,17 @@ class Renderer(base.Renderer):
             # Already absolute
             return url
 
+    def getContent(self):
+
+        return content
+
 
 class AddForm(base.AddForm):
     form_fields = form.Fields(IContentPortlet)
     label = _(u"Afegeix portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica")
+    form_fields['own_content'].custom_widget = UberSelectionWidget
+
 
     def create(self, data):
         # s'invoca despres de __init__ en clicar Desa
@@ -196,3 +235,5 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IContentPortlet)
     label = _(u"Edita portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica.")
+    form_fields['own_content'].custom_widget = UberSelectionWidget
+

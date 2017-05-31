@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.46 (unreleased)
+2.46 (2017-05-31)
 -----------------
 
-- Nothing changed yet.
-
+* Change poll url [Corina Riba]
+* Change enquesta name [Corina Riba]
 
 2.45 (2017-05-11)
 -----------------
