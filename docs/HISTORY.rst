@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.46 (unreleased)
+2.46 (2017-05-31)
 -----------------
 
-- Nothing changed yet.
-
+* Undo fail Egg [Corina Riba]
 
 2.45 (2017-05-11)
 -----------------
