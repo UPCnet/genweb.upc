@@ -75,4 +75,4 @@ class enquestaDeleteTokens(grok.View):
         for user in users:
             if user.getProperty('asepeyo_hash'):
                 user.setMemberProperties(mapping={"asepeyo_hash": ''})
-                return user.id + ": Poll tokens deleted"
+        return user.id + ": Poll tokens deleted"
