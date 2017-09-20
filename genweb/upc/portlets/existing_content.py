@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from zope.interface import implements
+from zope.interface import implements, invariant, Invalid
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -23,10 +23,13 @@ from zope.component import getMultiAdapter
 from plone.memoize.instance import memoize
 from zope.site import hooks
 
+
 class NotAnExternalLink(schema.ValidationError):
-    __doc__ = _(u"This is an internal link")
+    __doc__ = _(u"This is an inner link")
 
 # Define a validation method for external URL
+
+
 def validate_externalurl(value):
     root_url = hooks.getSite().absolute_url()
     link_extern = value.lower()
@@ -100,6 +103,13 @@ class IContentPortlet(IPortletDataProvider):
         required=True,
         default=_(u"#content-core")
     )
+
+    @invariant
+    def validate_isFull(data):
+        if data.content_or_url == 'INTERN' and not data.own_content:
+            raise Invalid(_(u"Falta seleccionar el contenido interno"))
+        elif data.content_or_url == 'EXTERN' and not data.url:
+            raise Invalid(_(u"Falta el enlace externo"))
 
 
 class Assignment (base.Assignment):
