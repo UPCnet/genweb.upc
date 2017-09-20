@@ -14314,7 +14314,7 @@ NOTEBOOK
   border-top: 3px double #ffb68d !important;
 }
 
-/* 
+/*
 .table
 .table-striped
 .table-bordered
@@ -19464,4 +19464,8 @@ div.legend div {
 /* line 364, ../scss/genwebupc.scss */
 div.legend table div {
   display: block !important;
+}
+
+#formfield-form-own_content > div.widget.formlibInlineValidation {
+  margin-left: 50px;
 }

@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 from zope.interface import implements
-from plone import api
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
-from Products.PloneFormGen.interfaces import IPloneFormGenForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import getToolByName
+
 
 from genweb.core import GenwebMessageFactory as _
 
@@ -16,7 +14,37 @@ from pyquery import PyQuery as pq
 import re
 import requests
 from requests.exceptions import RequestException, ReadTimeout
-import urlparse
+
+
+from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
+from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+
+from zope.component import getMultiAdapter
+from plone.memoize.instance import memoize
+from zope.site import hooks
+
+class NotAnExternalLink(schema.ValidationError):
+    __doc__ = _(u"This is an internal link")
+
+# Define a validation method for external URL
+def validate_externalurl(value):
+    root_url = hooks.getSite().absolute_url()
+    link_extern = value.lower()
+
+    if root_url.startswith("http://"):
+        root_url = root_url[7:]
+    elif root_url.startswith("https://"):
+        root_url = root_url[8:]
+
+    if link_extern.startswith("http://"):
+        link_extern = link_extern[7:]
+    elif link_extern.startswith("https://"):
+        link_extern = link_extern[8:]
+
+    isInnerLink = link_extern.startswith(root_url)
+    if isInnerLink:
+        raise NotAnExternalLink(value)
+    return not isInnerLink
 
 
 class IContentPortlet(IPortletDataProvider):
@@ -26,49 +54,68 @@ class IContentPortlet(IPortletDataProvider):
     ptitle = schema.TextLine(
         title=_(u"Títol del portlet"),
         description=_(u"help_static_content_title_ca"),
-        required=True,
+        required=False,
         default=_(u"")
     )
 
     show_title = schema.Bool(
         title=_(u"Mostra el títol?"),
         description=_(u"Marqueu aquesta casella si voleu que es mostri el títol del portlet"),
-        required=True,
+        required=False,
         default=True,
     )
 
     hide_footer = schema.Bool(
         title=_(u"Omet el contorn del portlet"),
         description=_(u"Marqueu aquesta casella si es desitja que el text mostrat a dalt sigui visualitzat sense la capçalera, el contorn o el peu estàndard"),
-        required=True,
+        required=False,
         default=False,
     )
 
-    url = schema.TextLine(
-        title=_(u"URL de la pàgina a mostrar"),
+    content_or_url = schema.Choice(
+        title=(u"Tipus de contingut"),
+        description=(u"Escull el tipus de contingut que vols"),
+        required=True,
+        values=['', 'EXTERN', 'INTERN'],
+        default=("")
+    )
+
+    own_content = schema.Choice(
+        title=_(u"INTERN: Existing content", default=u"INTERN: Existing content"),
+        description=_(u'help_existing_content', default=u"You may search for and choose an existing content"),
+        required=False,
+        source=SearchableTextSourceBinder({}, default_query='path:')
+    )
+
+    url = schema.URI(
+        title=_(u"EXTERN: URL de la pàgina a mostrar"),
         description=_(u"help_static_content_url_ca"),
-        required=True
+        required=False,
+        constraint=validate_externalurl,
     )
 
     element = schema.TextLine(
-        title=_(u"Element de la pàgina a mostrar, per defecte #content"),
+        title=_(u"Element de la pàgina a mostrar, per defecte #content-core"),
         description=_(u"help_static_content_element_ca"),
         required=True,
-        default=_(u"#content")
+        default=_(u"#content-core")
     )
 
 
 class Assignment (base.Assignment):
     implements(IContentPortlet)
 
-    def __init__(self, url='http://genweb.upc.edu/ca/demana-un-genweb', ptitle='', element='#content', show_title=True, hide_footer=False):
+    def __init__(self, content_or_url, url, ptitle, own_content, element='#content-core', show_title=True, hide_footer=False):
         # s'invoca quan cliquem a Desa
         # import pdb; pdb.set_trace()
-        self.url = url
+
         self.ptitle = ptitle
-        self.element = element
         self.show_title = show_title
         self.hide_footer = hide_footer
+        self.content_or_url = content_or_url
+        self.url = url
+        self.element = element
+        self.own_content = own_content
 
     @property
     def title(self):
@@ -78,78 +125,72 @@ class Assignment (base.Assignment):
 class Renderer(base.Renderer):
     render = ViewPageTemplateFile('templates/existing_content.pt')
 
-    def get_catalog_content(self, path_to_search):
+    @memoize
+    def owncontent(self):
+
+        owncontent_path = self.data.own_content
+        if not owncontent_path:
+            return None
+
+        if owncontent_path.startswith('/'):
+            owncontent_path = owncontent_path[1:]
+        if not owncontent_path:
+            return None
+        portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+        portal = portal_state.portal()
+        return portal.unrestrictedTraverse(owncontent_path, default=None)
+
+    def get_catalog_content(self):
         """ Fem una consulta al catalog, en comptes de fer un PyQuery """
-        raw_html = u''
-        catalog = getToolByName(self.context, 'portal_catalog')
-        """ Mirem el cas especial dels form """
-        im_searching_forms = catalog(path=path_to_search, object_provides=IPloneFormGenForm.__identifier__)
-        if len(im_searching_forms) > 0:
-            raw_html = im_searching_forms[0].getObject()()
+        content = self.owncontent()
+        if content.Type() == 'FormFolder':
+            content = content.getObject()()
         else:
-            objects = catalog(path=path_to_search)
-            try:
-                raw_html = objects[0]()
-            except:
-                raw_html = objects[0].getObject()()
-        return raw_html
+            content = self.owncontent()
+        return content
 
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
             Avisa si hi ha problemes en la URL o si no troba Element.
         """
-        portal_url = getToolByName(self.context, "portal_url")
-        portal = portal_url.getPortalObject()
-        url_portal_nginx = portal.absolute_url()  # url (per dns) del lloc
-        link = self.get_absolute_url(self.data.url)  # url del contingut que vol mostrar l'usuari
+        content = 'hola'
         try:
-            link_url = re.findall('https?://(.*)', link)[0].strip('/')  # url del contingut netejada
-            parent_url = re.findall('https?://(.*)', self.context.absolute_url())[0].strip('/')  # url del pare netejada
-            root_url = re.findall('https?://(.*)', url_portal_nginx)[0].strip('/')  # url (per dns) del lloc netejada
+            # CONTINGUT INTERN #
 
-            link_a_larrel = link_url.endswith('/ca') or link_url.endswith('/es') or link_url.endswith('/en') == root_url
+            if self.data.content_or_url == 'INTERN':
+                # link intern, search through the catalog
 
-            if link_url not in parent_url and not link_a_larrel:
-                if link_url.startswith(root_url):
-                    # link intern, search through the catalog
-                    relative_path = re.findall(root_url + '(.*)', link_url)[0]
-                    url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
-                    raw_html = self.get_catalog_content(url_to_search)
-                    charset = re.findall('charset=(.*)"', raw_html)
-                    if len(charset) > 0:
-                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
-                        doc = pq(clean_html)
-                        match = re.search(r'This page does not exist', clean_html)
-                        if not match:
-                            content = pq('<div/>').append(
-                                doc(self.data.element).outerHtml()).html(method='html')
-                            if not content:
-                                content = _(u"ERROR. This element does not exist.") + " " + self.data.element
-                        else:
-                            content = _(u"ERROR: Unknown identifier. This page does not exist." + link)
+                raw_html = self.get_catalog_content()()
+                charset = re.findall('charset=(.*)"', raw_html)
+                if len(charset) > 0:
+                    clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
+                    doc = pq(clean_html)
+                    if doc(self.data.element):
+                        content = pq('<div/>').append(doc(self.data.element).outerHtml()).html(method='html')
                     else:
-                        content = _(u"ERROR. Charset undefined")
+                        content = _(u"ERROR. This element does not exist:") + " " + self.data.element
                 else:
-                    # link extern, pyreq
-                    raw_html = requests.get(link, timeout=5)
-                    charset = re.findall('charset=(.*)"', raw_html.content)
-                    if len(charset) > 0:
-                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
-                        doc = pq(clean_html)
-                        match = re.search(r'This page does not exist', clean_html)
-                        if not match:
-                            content = pq('<div/>').append(
-                                doc(self.data.element).outerHtml()).html(method='html')
-                            if not content:
-                                content = _(u"ERROR. This element does not exist.") + " " + self.data.element
-                        else:
-                            content = _(u"ERROR: Unknown identifier. This page does not exist." + link)
+                    content = _(u"ERROR. Charset undefined")
+
+            # CONTENIDO EXTERNO #
+
+            elif self.data.content_or_url == 'EXTERN':
+                # link extern, pyreq
+                link_extern = self.data.url
+                raw_html = requests.get(link_extern, timeout=5)
+                charset = re.findall('charset=(.*)"', raw_html.content)
+                if len(charset) > 0:
+                    clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                    doc = pq(clean_html)
+                    if doc(self.data.element):
+                        content = pq('<div/>').append(doc(self.data.element).outerHtml()).html(method='html')
                     else:
-                        content = _(u"ERROR. Charset undefined")
-            else:
-                content = _(u"ERROR. Autoreference")
+                        content = _(u"ERROR. This element does not exist:") + " " + self.data.element
+                else:
+                    content = _(u"ERROR. Charset undefined")
+
         except ReadTimeout:
-            content = _(u"ERROR. There was a timeout while waiting for '{0}'".format(self.get_absolute_url(self.data.url)))
+            content = _(u"ERROR. There was a timeout.")
         except RequestException:
             content = _(u"ERROR. This URL does not exist")
         except:
@@ -168,23 +209,12 @@ class Renderer(base.Renderer):
         else:
             return 'existing_content_portlet'
 
-    def get_absolute_url(self, url):
-        """
-        Convert relative url to absolute
-        """
-        if not ("://" in url):
-            root = api.portal.get().absolute_url()
-            base = root + '/' + api.portal.get_navigation_root(self.context).id + '/'
-            return urlparse.urljoin(base, url)
-        else:
-            # Already absolute
-            return url
-
 
 class AddForm(base.AddForm):
     form_fields = form.Fields(IContentPortlet)
     label = _(u"Afegeix portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica")
+    form_fields['own_content'].custom_widget = UberSelectionWidget
 
     def create(self, data):
         # s'invoca despres de __init__ en clicar Desa
@@ -196,3 +226,4 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IContentPortlet)
     label = _(u"Edita portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica.")
+    form_fields['own_content'].custom_widget = UberSelectionWidget
