@@ -68,6 +68,35 @@ class findExistingContentPortlets(grok.View):
                                                                        )
                                                                   )
                                                       )
+        for item in api.content.find(portal_type='genweb.upc.subhome'):
+            item_obj = item.getObject()
+            for column in ["genweb.portlets.HomePortletManager1",
+                           "genweb.portlets.HomePortletManager2",
+                           "genweb.portlets.HomePortletManager3",
+                           "genweb.portlets.HomePortletManager4",
+                           "genweb.portlets.HomePortletManager5",
+                           "genweb.portlets.HomePortletManager6",
+                           "genweb.portlets.HomePortletManager7",
+                           "genweb.portlets.HomePortletManager8",
+                           "genweb.portlets.HomePortletManager9",
+                           "genweb.portlets.HomePortletManager10"
+                           ]:
+                manager = getUtility(IPortletManager, name=column, context=item_obj)
+                retriever = getMultiAdapter((item_obj, manager), IPortletRetriever)
+                portlets = retriever.getPortlets()
+                if portlets:
+                    for portlet in portlets:
+                        # portlet is {'category': 'context', 'assignment': <FacebookLikeBoxAssignment at facebook-like-box>, 'name': u'facebook-like-box', 'key': '/isleofback/sisalto/huvit-ja-harrasteet
+                        # Identify portlet by interface provided by assignment
+                        if IContentPortlet.providedBy(portlet["assignment"]):
+                            portlets_contingut.append('{}'.format(dict(where=item_obj.title,
+                                                                       column=column,
+                                                                       portlet=portlet["name"],
+                                                                       link=portlet["assignment"].url
+                                                                       )
+                                                                  )
+                                                      )
+
         if portlets_contingut:
             return portlets_contingut
         else:
