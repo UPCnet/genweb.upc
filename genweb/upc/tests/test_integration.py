@@ -17,7 +17,9 @@ from plone.portlets.interfaces import IPortletAssignmentMapping
 from genweb.core.interfaces import IHomePage
 from genweb.theme.portlets import homepage
 
-import transaction
+from genweb.core.adapters import IImportant
+
+from transaction import commit
 
 
 class TestExample(unittest.TestCase):
@@ -96,6 +98,36 @@ class TestExample(unittest.TestCase):
         setupview.createContent('n3')
         logout()
         self.assertTrue(IHomePage.providedBy(self.portal['ca']['benvingut']))
+
+    def createDefaultDirectories(self):
+        """ It would be advisable to use this method in the other classes
+        """
+
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        login(self.portal, TEST_USER_NAME)
+        setupview = getMultiAdapter((self.portal, self.request), name='setup-view')
+        setupview.apply_default_language_settings()
+        setupview.setup_multilingual()
+        setupview.createContent('n3')
+        logout()
+
+    def testMarkingAsImportantNewsItem(self):
+        """ We also created a news to do the test.
+        """
+
+        self.createDefaultDirectories()
+
+        login(self.portal, TEST_USER_NAME)
+        news_id = 'testnews'
+        self.portal.ca.noticies.invokeFactory('News Item', news_id,
+            title=u"This is a test")
+        self.assertTrue(self.portal.ca.noticies.get(news_id, False))
+
+        news_test = self.portal.ca.noticies.testnews;
+        IImportant(news_test).is_important = True
+        logout()
+
+        self.assertTrue(IImportant(news_test).is_important)
 
     # def testFolderConstrains(self):
     #     from genweb.upc.events import CONSTRAINED_TYPES, IMMEDIATELY_ADDABLE_TYPES
