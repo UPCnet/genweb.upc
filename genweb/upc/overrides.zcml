@@ -11,6 +11,7 @@
    	<browser:viewlet
    		name="plone.belowcontenttitle.documentbyline"
    		manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        layer="genweb.upc.browser.interfaces.IGenwebUPC"
    		class=".overrides.DocumentBylineViewletisReader"
    		permission="zope2.View"
    	/>
