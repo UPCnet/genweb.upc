@@ -1,11 +1,20 @@
 Changelog
 =========
 
-2.47 (unreleased)
+2.47 (2017-11-02)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* New portlet exsiting content. Old portlet existing content not addable [Corina Riba]
+* Update overrides.zcml [Corina Riba]
+* js amaga o mostra contingut extern o intern [oscar.albareda]
+* add layer to viewlet documentbyline [alberto.duran]
+* Merge branch tests into master [alberto.duran]
+* Find existingcontent portlet anywhere [Corina Riba]
+* Toucher for existing content old portlets [Corina Riba]
+* additional validators [Corina Riba]
+* Two fields for external and inner link for existing content portlets and add validations [Corina Riba]
+* corregir imatge que surt abans items list-links per tal que nomes surti en els fills directes, aixi aconseguim que si hi ha un ol dins list-links es vegin be els numeros sense que els xafi la fletxa blava [oscar.albareda]
 
 2.46 (2017-05-31)
 -----------------
