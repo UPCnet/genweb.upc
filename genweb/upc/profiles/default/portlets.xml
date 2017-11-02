@@ -6,8 +6,14 @@
   <portlet addview="portlets.Search" remove="true" />
   <portlet addview="portlets.Review" remove="true" />
 
+
   <portlet addview="genweb.portlets.existing_content"
              title="Contingut existent"
+             i18n:attributes="title"
+             remove="true" />
+
+  <portlet addview="genweb.portlets.new_existing_content"
+             title="Nou Contingut existent"
              i18n:attributes="title" />
 
   <portlet addview="genweb.portlets.multiview_collection"
@@ -29,9 +35,15 @@
          type="genweb.portlets.browser.interfaces.IPortletsHomepage"
     /> -->
 
-<assignment remove="True" name="navigation" category="context" key="/" manager="plone.leftcolumn" type="portlets.Navigation">
-</assignment>
-             
+  <assignment
+    remove="True"
+    name="navigation"
+    category="context"
+    key="/"
+    manager="plone.leftcolumn"
+    type="portlets.Navigation">
+  </assignment>
+
 </portlets>
 
-       
+

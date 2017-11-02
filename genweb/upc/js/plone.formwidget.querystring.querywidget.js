@@ -315,30 +315,30 @@
         $('.multipleSelectionWidget dd').addClass('hiddenStructure');
     }
 
-    function update_existing_content_type(selected_option) {
+    function update_new_existing_content_type(selected_option) {
         // amaga o mostra els camps corresponents a tipus de contingut extern o intern
         // inicialment amagats tots
         switch(selected_option) {
             case 'EXTERN':
                 $('#formfield-form-own_content').hide();
-                $('#formfield-form-url').show();
+                $('#formfield-form-external_url').show();
                 break;
             case 'INTERN':
                 $('#formfield-form-own_content').show();
-                $('#formfield-form-url').hide();
+                $('#formfield-form-external_url').hide();
                 break;
             default:
                 $('#formfield-form-own_content').hide();
-                $('#formfield-form-url').hide();
+                $('#formfield-form-external_url').hide();
         }
     }
 
     // Enhance for javascript browsers
     $(document).ready(function () {
 
-        update_existing_content_type($("select[id='form.content_or_url']").val()); 
+        update_new_existing_content_type($("select[id='form.content_or_url']").val());
         $("select[id='form.content_or_url']").change(function(){
-            update_existing_content_type($(this).val());
+            update_new_existing_content_type($(this).val());
         });
 
         // Check if QueryWidget exists on page

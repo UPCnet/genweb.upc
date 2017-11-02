@@ -7,7 +7,7 @@
 
     <include package="plone.app.portlets" />
 
-  
+
 
      <plone:portlet
      name="genweb.portlets.existing_content"
@@ -16,6 +16,15 @@
      renderer=".existing_content.Renderer"
      addview=".existing_content.AddForm"
      editview=".existing_content.EditForm"
+     />
+
+     <plone:portlet
+     name="genweb.portlets.new_existing_content"
+     interface=".new_existing_content.INewContentPortlet"
+     assignment=".new_existing_content.Assignment"
+     renderer=".new_existing_content.Renderer"
+     addview=".new_existing_content.AddForm"
+     editview=".new_existing_content.EditForm"
      />
 
      <plone:portlet
