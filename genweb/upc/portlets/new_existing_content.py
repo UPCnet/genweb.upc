@@ -162,7 +162,7 @@ class Renderer(base.Renderer):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
             Avisa si hi ha problemes en la URL o si no troba Element.
         """
-        content = 'hola'
+        content = ''
         try:
             # CONTINGUT INTERN #
 
@@ -197,6 +197,11 @@ class Renderer(base.Renderer):
                         content = _(u"ERROR. This element does not exist:") + " " + self.data.element
                 else:
                     content = _(u"ERROR. Charset undefined")
+
+            # PORTLET MALAMENT CONFIGURAT #
+
+            else:
+                content = _(u"ERROR. Review the portlet configuration.")
 
         except ReadTimeout:
             content = _(u"ERROR. There was a timeout.")
