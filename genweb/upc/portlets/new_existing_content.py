@@ -78,7 +78,7 @@ class INewContentPortlet(IPortletDataProvider):
     content_or_url = schema.Choice(
         title=(u"Tipus de contingut"),
         description=(u"Escull el tipus de contingut que vols"),
-        required=False,
+        required=True,
         values=['EXTERN', 'INTERN']
     )
 
