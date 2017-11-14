@@ -82,18 +82,18 @@ class INewContentPortlet(IPortletDataProvider):
         values=['EXTERN', 'INTERN']
     )
 
-    own_content = schema.Choice(
-        title=_(u"INTERN: Existing content", default=u"INTERN: Existing content"),
-        description=_(u'help_existing_content', default=u"You may search for and choose an existing content"),
-        required=False,
-        source=SearchableTextSourceBinder({}, default_query='path:')
-    )
-
     external_url = schema.URI(
         title=_(u"EXTERN: URL de la pàgina a mostrar"),
         description=_(u"help_static_content_url_ca"),
         required=False,
         constraint=validate_externalurl,
+    )
+
+    own_content = schema.Choice(
+        title=_(u"INTERN: Existing content", default=u"INTERN: Existing content"),
+        description=_(u'help_existing_content', default=u"You may search for and choose an existing content"),
+        required=False,
+        source=SearchableTextSourceBinder({}, default_query='path:')
     )
 
     element = schema.TextLine(
@@ -168,7 +168,6 @@ class Renderer(base.Renderer):
 
             if self.data.content_or_url == 'INTERN':
                 # link intern, search through the catalog
-
                 raw_html = self.get_catalog_content()()
                 charset = re.findall('charset=(.*)"', raw_html)
                 if len(charset) > 0:
