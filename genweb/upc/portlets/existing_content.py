@@ -34,14 +34,14 @@ class IContentPortlet(IPortletDataProvider):
     show_title = schema.Bool(
         title=_(u"Mostra el títol?"),
         description=_(u"Marqueu aquesta casella si voleu que es mostri el títol del portlet"),
-        required=True,
+        required=False,
         default=True,
     )
 
     hide_footer = schema.Bool(
         title=_(u"Omet el contorn del portlet"),
         description=_(u"Marqueu aquesta casella si es desitja que el text mostrat a dalt sigui visualitzat sense la capçalera, el contorn o el peu estàndard"),
-        required=True,
+        required=False,
         default=False,
     )
 
