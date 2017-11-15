@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.48 (unreleased)
+2.48 (2017-11-15)
 -----------------
 
-- Nothing changed yet.
-
+* Adjust required fields [Corina Riba]
+* Change fields order in Exsiting content [Corina Riba]
+* content_or_url required [Corina Riba]
+* Eliminar convocatòria en els esdeveniments [iago.lopez]
+* Change error message [Corina Riba]
 
 2.47 (2017-11-02)
 -----------------
