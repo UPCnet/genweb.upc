@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.49 (unreleased)
+2.49 (2017-11-21)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* Restore 'Què' deleted in summary events [Corina Riba]
 
 2.48 (2017-11-15)
 -----------------
