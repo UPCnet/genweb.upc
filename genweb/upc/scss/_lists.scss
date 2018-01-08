@@ -124,7 +124,7 @@ ul {margin-left: 18px;}
 
 
 
-.list-links li {
+.list-links > li {
   &:before {
     content: image-url("arrow.png");
     margin-left: -15px;

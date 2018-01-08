@@ -16,22 +16,15 @@
       <dd class="title"><a tal:attributes="href data/url" tal:content="data/title">title</a></dd>
     </tal:cond>
 
-    <tal:cond condition="python:'subjects' not in excludes">
-    <tal:cond condition="data/subjects">
-      <dt i18n:translate="event_what">What</dt>
-      <dd itemprop="eventType" class="category" tal:repeat="item data/subjects" tal:content="item" />
-    </tal:cond>
-    </tal:cond>
-
     <tal:cond condition="python:'date' not in excludes">
       <dt i18n:translate="event_when">When</dt>
       <dd tal:define="start_tzname data/timezone;
                       start_utcdelta python:data.start.tzinfo.utcoffset(data.start);
                       start_utcoffset python:(start_utcdelta.days*86400+start_utcdelta.seconds)*100/60/60;">
         <tal:date replace="structure python:view.formatted_date(context)" />
-        <!-- <span class="timezone" tal:condition="start_tzname">
+        <span class="timezone" tal:condition="start_tzname">
          (<tal:tzname replace="start_tzname">timezone name</tal:tzname> / UTC<tal:tzoffset replace="start_utcoffset" />)
-        </span> -->
+        </span>
       </dd>
     </tal:cond>
 
@@ -66,7 +59,7 @@
 
     <tal:cond condition="python:'contact' not in excludes">
     <tal:cond define="mail data/contact_email; name data/contact_name;" tal:condition="python:name or mail">
-      <dt i18n:domain="genweb" i18n:translate="contact_name">Contact Name</dt>
+      <dt i18n:translate="contact_name">Contact Name</dt>
       <dd>
         <a class="email fn" tal:condition="mail" tal:attributes="href string:mailto:${mail}" tal:content="name" />
         <span class="fn" tal:condition="not:mail" tal:content="name" />
@@ -86,35 +79,15 @@
 
     <tal:cond condition="python:'event_url' not in excludes">
     <tal:cond condition="data/event_url">
-      <dt i18n:domain="genweb" i18n:translate="event_url">Web</dt>
+      <dt i18n:translate="event_url">Web</dt>
       <dd class="url">
-        <a href="" tal:attributes="href data/event_url"
-                  tal:content="data/event_url">
-                  Visit external website
-        </a>
+        <a href="" tal:attributes="href data/event_url" i18n:translate="external_website">Visit external website</a>
       </dd>
     </tal:cond>
     </tal:cond>
 
     <tal:cond condition="python:'ical' not in excludes">
-<!--       <dt i18n:domain="genweb" i18n:translate="heading_send_event">Send event to attendees</dt>
-      <dd i18n:domain="genweb"
-        tal:define="here_url context/@@plone_context_state/object_url;
-                      portal_url context/@@plone_portal_state/portal_url;">
-        <div>
-          <a id="SendInvitation" href="#" tal:attributes="data-dexterityUrl string:$here_url">
-            <span i18n:translate="send_invitation_link">
-              Send invitation
-            </span>
-          </a>
-          <div id="NotAttendeesMsg">
-            <span i18n:translate="send_invitation_not_attendees">
-              There are no attendees to send the message
-            </span>
-          </div>
-        </div>
-      </dd>
-      <dt i18n:translate="heading_add_to_calendar">Add event to calendar</dt> -->
+      <dt i18n:translate="heading_add_to_calendar">Add event to calendar</dt>
       <dd tal:define="here_url context/@@plone_context_state/object_url;
                       portal_url context/@@plone_portal_state/portal_url;">
         <a href="#"

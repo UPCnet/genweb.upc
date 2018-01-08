@@ -1,11 +1,73 @@
 Changelog
 =========
 
-2.42 (unreleased)
+2.50 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.49 (2017-11-21)
+-----------------
+
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* Restore 'Què' deleted in summary events [Corina Riba]
+
+2.48 (2017-11-15)
+-----------------
+
+* Adjust required fields [Corina Riba]
+* Change fields order in Exsiting content [Corina Riba]
+* content_or_url required [Corina Riba]
+* Eliminar convocatòria en els esdeveniments [iago.lopez]
+* Change error message [Corina Riba]
+
+2.47 (2017-11-02)
+-----------------
+
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* New portlet exsiting content. Old portlet existing content not addable [Corina Riba]
+* Update overrides.zcml [Corina Riba]
+* js amaga o mostra contingut extern o intern [oscar.albareda]
+* add layer to viewlet documentbyline [alberto.duran]
+* Merge branch tests into master [alberto.duran]
+* Find existingcontent portlet anywhere [Corina Riba]
+* Toucher for existing content old portlets [Corina Riba]
+* additional validators [Corina Riba]
+* Two fields for external and inner link for existing content portlets and add validations [Corina Riba]
+* corregir imatge que surt abans items list-links per tal que nomes surti en els fills directes, aixi aconseguim que si hi ha un ol dins list-links es vegin be els numeros sense que els xafi la fletxa blava [oscar.albareda]
+
+2.46 (2017-05-31)
+-----------------
+
+* Undo fail Egg [Corina Riba]
+
+2.45 (2017-05-11)
+-----------------
+
+* Cargar estilos correctamente en TinyMCE [Iago López Fernández]
+
+2.44 (2017-04-20)
+-----------------
+
+* Solventado paginación carpetas [Iago López Fernández]
+* Igualado tamaño de la imagenes del portlet multiviewcollection con los del portlet fullnews [Iago López Fernández]
+* Eliminado el campo Qué [Iago López Fernández]
+
+2.43 (2017-04-05)
+-----------------
+
+* Borrar pruebas subidas por error [Corina Riba]
+
+2.42 (2017-04-03)
+-----------------
+
+* Add new enquesta.py url [Corina Riba]
+* New feature SPRL [Corina Riba]
+* Merge branch 'master' of https://github.com/UPCnet/genweb.upc [Iago López Fernández]
+* Remove changes WCAG [Iago López Fernández]
+* Restore contact code deleted by error [Corina Riba]
+* WCAG: añadido más contraste en los enlaces [Iago López Fernández]
 
 2.41 (2017-03-22)
 -----------------

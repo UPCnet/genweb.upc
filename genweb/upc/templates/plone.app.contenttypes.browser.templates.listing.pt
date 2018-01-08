@@ -23,7 +23,7 @@
     </div>
 
     <metal:listingmacro define-macro="listing">
-    <tal:foldercontents define="                        
+    <tal:foldercontents define="
                         site_properties context/portal_properties/site_properties;
                         use_view_action site_properties/typesUseViewActionInListings|python:();
                         object_type context/portal_type;
@@ -33,7 +33,7 @@
                         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                         show_about python:not isAnon or site_properties.allowAnonymousViewAbout;">
     <tal:listing condition="batch">
-    
+
         <dl metal:define-slot="entries">
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
             <tal:block tal:define="item_url item/getURL|item/absolute_url;
@@ -125,7 +125,7 @@
                 </dt>
 
                 <dd tal:condition="item_description" class="margin0">
-                    <span 
+                    <span
                            tal:content="item_description">
                         description
                     </span>
