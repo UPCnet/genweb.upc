@@ -8823,7 +8823,7 @@ button.pfg-draft-save .caret,
   margin-top: 1px;
 }
 /* line 65, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
-.modal-header h3, .pb-ajax .documentFirstHeading h3, .pb-ajax > div > h2 h3 {
+.modal-header h2, .pb-ajax .documentFirstHeading h3, .pb-ajax > div > h2 h3 {
   margin: 0;
   line-height: 24px;
 }
