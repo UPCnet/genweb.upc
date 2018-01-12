@@ -1,11 +1,13 @@
 Changelog
 =========
 
-2.50 (unreleased)
+2.50 (2018-01-12)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* Update tinymce.xml [Corina Riba]
+*  [Corina Riba]
+* Update css url in Tyni configuration to work in every site [Corina Riba]
 
 2.49 (2017-11-21)
 -----------------
