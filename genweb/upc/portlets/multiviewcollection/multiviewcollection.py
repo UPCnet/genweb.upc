@@ -177,6 +177,13 @@ class Renderer(base.Renderer):
         else:
             return collection.absolute_url()
 
+    def collection_url_rss(self):
+        collection = self.collection_url()
+        if collection is None:
+            return None
+        else:
+            return collection + "/RSS"
+
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
