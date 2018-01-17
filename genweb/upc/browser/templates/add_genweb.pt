@@ -60,7 +60,7 @@
                tal:attributes="value request/site_id|nothing" />
       </div>
 
-<!--       <div class="field">
+      <div class="field">
         <label for="title" i18n:translate="label_title">Title</label>
 
         <div class="formHelp" i18n:translate="">
@@ -70,7 +70,7 @@
 
         <input type="text" name="title" size="30" value="Site"
                i18n:attributes="value text_default_site_title;" />
-      </div> -->
+      </div>
 
 <!--       <div class="field">
         <label for="default_language" i18n:translate="">Language</label>
