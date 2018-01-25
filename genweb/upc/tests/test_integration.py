@@ -1,25 +1,13 @@
 import unittest2 as unittest
 from genweb.upc.testing import GENWEB_UPC_INTEGRATION_TESTING
-from genweb.upc.testing import GENWEB_UPC_FUNCTIONAL_TESTING
 from AccessControl import Unauthorized
-from zope.component import getMultiAdapter, queryUtility
+from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
-
-from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
 from plone.app.testing import login, logout
 from plone.app.testing import setRoles
-from plone.app.testing import applyProfile
-
-from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import IPortletAssignmentMapping
-
 from genweb.core.interfaces import IHomePage
-from genweb.theme.portlets import homepage
-
 from genweb.core.adapters import IImportant
-
-from transaction import commit
 
 
 class TestExample(unittest.TestCase):
@@ -119,43 +107,11 @@ class TestExample(unittest.TestCase):
 
         login(self.portal, TEST_USER_NAME)
         news_id = 'testnews'
-        self.portal.ca.noticies.invokeFactory('News Item', news_id,
-            title=u"This is a test")
+        self.portal.ca.noticies.invokeFactory('News Item', news_id, title=u"This is a test")
         self.assertTrue(self.portal.ca.noticies.get(news_id, False))
 
-        news_test = self.portal.ca.noticies.testnews;
+        news_test = self.portal.ca.noticies.testnews
         IImportant(news_test).is_important = True
         logout()
 
         self.assertTrue(IImportant(news_test).is_important)
-
-    # def testFolderConstrains(self):
-    #     from genweb.upc.events import CONSTRAINED_TYPES, IMMEDIATELY_ADDABLE_TYPES
-    #     from zope.event import notify
-    #     from Products.Archetypes.event import ObjectInitializedEvent
-    #     setRoles(self.portal, TEST_USER_ID, ['Manager'])
-    #     login(self.portal, TEST_USER_NAME)
-    #     self.portal.invokeFactory('Folder', 'userfolder', title=u"Soc una carpeta")
-    #     folder = self.portal['userfolder']
-    #     notify(ObjectInitializedEvent(folder))
-    #     self.assertEqual(sorted(folder.getLocallyAllowedTypes()), sorted(CONSTRAINED_TYPES))
-    #     self.assertEqual(sorted(folder.getImmediatelyAddableTypes()), sorted(IMMEDIATELY_ADDABLE_TYPES))
-
-    # On the fridge, as the migration worked and is no longer needed
-    # def test_rlf_migration(self):
-    #     self.setup_gw()
-    #     login(self.portal, TEST_USER_NAME)
-    #     migration_view = getMultiAdapter((self.portal, self.request), name='migrate_rlf')
-    #     migration_view.render()
-    #     logout()
-
-    #     self.assertFalse(self.portal.get('ca_old', False))
-    #     self.assertFalse(self.portal.get('en_old', False))
-    #     self.assertFalse(self.portal.get('es_old', False))
-
-    #     self.assertTrue(self.portal.get('ca', False))
-    #     self.assertTrue(self.portal.get('en', False))
-    #     self.assertTrue(self.portal.get('es', False))
-
-    #     self.assertTrue(self.portal['ca'].get('benvingut', False))
-    #     self.assertTrue(self.portal['ca'].get('shared', False))

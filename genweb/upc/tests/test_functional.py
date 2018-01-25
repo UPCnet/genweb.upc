@@ -1,24 +1,11 @@
 import unittest2 as unittest
-from genweb.upc.testing import GENWEB_UPC_INTEGRATION_TESTING
 from genweb.upc.testing import GENWEB_UPC_FUNCTIONAL_TESTING
-from AccessControl import Unauthorized
-from zope.component import getMultiAdapter, queryUtility
-from Products.CMFCore.utils import getToolByName
-
+from zope.component import getMultiAdapter
 from plone.testing.z2 import Browser
-from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
+from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import login, logout
 from plone.app.testing import setRoles
-from plone.app.testing import applyProfile
-
-from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import IPortletAssignmentMapping
-
-from genweb.core.interfaces import IHomePage
-from genweb.theme.portlets import homepage
-
 from genweb.core.adapters import IImportant
-
 from transaction import commit
 
 
@@ -43,8 +30,8 @@ class TestExample(unittest.TestCase):
 
     def loginBrowser(self, browser, portalURL):
         browser.open(portalURL + "/login_form")
-        browser.getControl(name='__ac_name').value = "admin"
-        browser.getControl(name='__ac_password').value = "secret"
+        browser.getControl(name='__ac_name').value = TEST_USER_NAME
+        browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
         browser.getControl(name='submit').click()
 
     def openBrowserURL(self, browser, url):
@@ -55,13 +42,10 @@ class TestExample(unittest.TestCase):
     def testMarkingAsImportantNewsItem(self):
         """ We also created a news to do the test.
         """
-
         self.createDefaultDirectories()
-
         login(self.portal, TEST_USER_NAME)
         news_id = 'testnews'
-        self.portal.ca.noticies.invokeFactory('News Item', news_id,
-            title=u"This is a test")
+        self.portal.ca.noticies.invokeFactory('News Item', news_id, title=u"This is a test")
         self.assertTrue(self.portal.ca.noticies.get(news_id, False))
 
         news_test = self.portal.ca.noticies.testnews
@@ -74,7 +58,6 @@ class TestExample(unittest.TestCase):
 
         browser = Browser(self.app)
         self.openBrowserURL(browser, "/ca/noticies/folder_contents")
-
         search_important = ""
         for line in browser.contents.split('\n'):
             if "id=\"folder-contents-item-" + news_id + "\"" in line:
