@@ -5,6 +5,7 @@ from zope.component.hooks import getSite
 from zope.publisher.browser import TestRequest
 from Products.CMFCore.utils import getToolByName
 
+
 def setupVarious(context):
 
     # Ordinarily, GenericSetup handlers check for the existence of XML files.

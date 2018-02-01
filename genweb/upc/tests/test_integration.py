@@ -107,6 +107,7 @@ class TestExample(unittest.TestCase):
 
         login(self.portal, TEST_USER_NAME)
         news_id = 'testnews'
+
         self.portal.ca.noticies.invokeFactory('News Item', news_id, title=u"This is a test")
         self.assertTrue(self.portal.ca.noticies.get(news_id, False))
 

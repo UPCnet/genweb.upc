@@ -1,10 +1,7 @@
 from zope.configuration import xmlconfig
-
 from plone.testing import z2
-#from plone.testing.z2 import ZSERVER_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
-from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 
@@ -33,13 +30,17 @@ class GenwebUPC(PloneSandboxLayer):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'genweb.upc:default')
 
+
 GENWEB_UPC_FIXTURE = GenwebUPC()
+
 GENWEB_UPC_INTEGRATION_TESTING = IntegrationTesting(
     bases=(GENWEB_UPC_FIXTURE,),
     name="GenwebUPC:Integration")
+
 GENWEB_UPC_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(GENWEB_UPC_FIXTURE,),
     name="GenwebUPC:Functional")
+
 GENWEB_UPC_ROBOT_TESTING = FunctionalTesting(
     bases=(GENWEB_UPC_FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE, z2.ZSERVER_FIXTURE),
     name="GenwebUPC:Robot")
