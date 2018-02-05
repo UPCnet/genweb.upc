@@ -16760,17 +16760,50 @@ html {
     display: none;
   }
 
-  /* line 10, ../scss/_mobile.scss */
-  #titol-menu-2 a {
-    color: red;
+  /* line 9, ../scss/_mobile.scss */
+  #titol-menu-2 {
+    position: relative;
   }
-  /* line 12, ../scss/_mobile.scss */
+  /* line 11, ../scss/_mobile.scss */
+  #titol-menu-2 a {
+    margin-left: 22px;
+  }
+  /* line 13, ../scss/_mobile.scss */
   #titol-menu-2 a:before {
-    content: '^';
+    content: "";
+    position: absolute;
+    background-color: #007bc0;
+    margin-left: 5px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    left: -4px;
+    bottom: 3px;
+    background-image: url(++genweb++static/images/gh-w.png?1485760075);
+    background-position: -286.5px -119px;
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 17px;
+  }
+  /* line 32, ../scss/_mobile.scss */
+  #titol-menu-2 a.collapsed:before {
+    background-position: -311.5px -117px !important;
+  }
+
+  /* line 38, ../scss/_mobile.scss */
+  #portlet-navigation-tree {
+    border-width: 1px 0 0 0;
+  }
+  /* line 40, ../scss/_mobile.scss */
+  #portlet-navigation-tree.in {
+    border-width: 2px 1px 3px 1px;
   }
 }
 @media only screen and (max-width: 640px) {
-  /* line 22, ../scss/_mobile.scss */
+  /* line 47, ../scss/_mobile.scss */
   .span6 .portlet-ampliat li > img, .w1\3a 2 .portlet-ampliat li > img, .w2\3a 4 .portlet-ampliat li > img,
   .span7 .portlet-ampliat li > img,
   .span8 .portlet-ampliat li > img,
@@ -16784,107 +16817,107 @@ html {
     float: none;
   }
 
-  /* line 36, ../scss/_mobile.scss */
+  /* line 61, ../scss/_mobile.scss */
   .xafa {
     margin: 0 1.25em;
   }
 
-  /* line 37, ../scss/_mobile.scss */
+  /* line 62, ../scss/_mobile.scss */
   .xafa2 {
     margin: 0 2.5em;
   }
 
-  /* line 38, ../scss/_mobile.scss */
+  /* line 63, ../scss/_mobile.scss */
   .xafa3 {
     margin: 0 3.75em;
   }
 
-  /* line 39, ../scss/_mobile.scss */
+  /* line 64, ../scss/_mobile.scss */
   .xafa4 {
     margin: 0 5em;
   }
 
-  /* line 40, ../scss/_mobile.scss */
+  /* line 65, ../scss/_mobile.scss */
   .pad {
     padding: 1.25em;
   }
 
-  /* line 41, ../scss/_mobile.scss */
+  /* line 66, ../scss/_mobile.scss */
   .pad2 {
     padding: 2.5em;
   }
 
-  /* line 42, ../scss/_mobile.scss */
+  /* line 67, ../scss/_mobile.scss */
   .pad3 {
     padding: 3.75em;
   }
 
-  /* line 43, ../scss/_mobile.scss */
+  /* line 68, ../scss/_mobile.scss */
   .pad4 {
     padding: 5em;
   }
 
-  /* line 45, ../scss/_mobile.scss */
+  /* line 70, ../scss/_mobile.scss */
   .no-image .header-image {
     display: none !important;
   }
 
-  /* line 47, ../scss/_mobile.scss */
+  /* line 72, ../scss/_mobile.scss */
   #portal-sitemap ul {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
   }
 
-  /* line 51, ../scss/_mobile.scss */
+  /* line 76, ../scss/_mobile.scss */
   #eines button {
     width: 34%;
     line-height: 20px;
   }
 
-  /* line 53, ../scss/_mobile.scss */
+  /* line 78, ../scss/_mobile.scss */
   .portlet-baners {
     text-align: center;
   }
 
-  /* line 55, ../scss/_mobile.scss */
+  /* line 80, ../scss/_mobile.scss */
   #dashboard > div {
     float: none;
     width: 100%;
   }
 
-  /* line 57, ../scss/_mobile.scss */
+  /* line 82, ../scss/_mobile.scss */
   .btn-toolbar .btn-group {
     clear: both;
     display: block;
   }
-  /* line 60, ../scss/_mobile.scss */
+  /* line 85, ../scss/_mobile.scss */
   .btn-toolbar .btn-group input {
     float: left !important;
     margin-bottom: 1em;
   }
 
-  /* line 62, ../scss/_mobile.scss */
+  /* line 87, ../scss/_mobile.scss */
   .btn-group + .btn-group {
     margin-left: 0;
   }
 
-  /* line 65, ../scss/_mobile.scss */
+  /* line 90, ../scss/_mobile.scss */
   .portaltype-packet .estudis td:first-child, .portaltype-packet .estudis th:first-child {
     min-width: auto !important;
   }
 
-  /* line 66, ../scss/_mobile.scss */
+  /* line 91, ../scss/_mobile.scss */
   .discussion .commentDate {
     float: none;
   }
 
-  /* line 68, ../scss/_mobile.scss */
+  /* line 93, ../scss/_mobile.scss */
   .carousel-control.right {
     top: 62px;
   }
 
-  /* line 69, ../scss/_mobile.scss */
+  /* line 94, ../scss/_mobile.scss */
   .carousel-control.left {
     top: 62px;
   }

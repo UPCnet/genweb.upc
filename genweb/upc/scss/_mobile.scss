@@ -7,15 +7,40 @@
 
   // menú secundari
   #titol-menu-2 {
+    position: relative;
     a {
-      color: red;
+      margin-left: 22px;
       &:before {
-        content: '^';
+        content: "";
+        position: absolute;
+        background-color: #007bc0;
+        margin-left: 5px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        left: -4px;
+        bottom: 3px;
+        background-image: url(++genweb++static/images/gh-w.png?1485760075);
+        background-position: -286.5px -119px;
+        background-repeat: no-repeat;
+        width: 17px;
+        height: 17px;      
+      }
+      &.collapsed:before {
+        background-position: -311.5px -117px !important;
       }
     }
   }
 
-  
+  #portlet-navigation-tree {
+    border-width: 1px 0 0 0;
+    &.in{
+      border-width: 2px 1px 3px 1px;
+    }
+  }
 }
 
 @media only screen and (max-width: 640px) { 
