@@ -1,7 +1,21 @@
 @media only screen and (max-width: 979px) { 
- #eines > li > a:before {
-   content: '' !important;
- }
+  #eines > li > a:before {
+     content: '' !important;
+   }
+  #portal-breadcrumbs {display: block;}
+  #portal-header .logoPropi { display: none;}
+
+  // menú secundari
+  #titol-menu-2 {
+    a {
+      color: red;
+      &:before {
+        content: '^';
+      }
+    }
+  }
+
+  
 }
 
 @media only screen and (max-width: 640px) { 

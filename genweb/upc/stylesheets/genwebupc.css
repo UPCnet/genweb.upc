@@ -14314,7 +14314,7 @@ NOTEBOOK
   border-top: 3px double #ffb68d !important;
 }
 
-/*
+/* 
 .table
 .table-striped
 .table-bordered
@@ -16749,9 +16749,28 @@ html {
   #eines > li > a:before {
     content: '' !important;
   }
+
+  /* line 5, ../scss/_mobile.scss */
+  #portal-breadcrumbs {
+    display: block;
+  }
+
+  /* line 6, ../scss/_mobile.scss */
+  #portal-header .logoPropi {
+    display: none;
+  }
+
+  /* line 10, ../scss/_mobile.scss */
+  #titol-menu-2 a {
+    color: red;
+  }
+  /* line 12, ../scss/_mobile.scss */
+  #titol-menu-2 a:before {
+    content: '^';
+  }
 }
 @media only screen and (max-width: 640px) {
-  /* line 8, ../scss/_mobile.scss */
+  /* line 22, ../scss/_mobile.scss */
   .span6 .portlet-ampliat li > img, .w1\3a 2 .portlet-ampliat li > img, .w2\3a 4 .portlet-ampliat li > img,
   .span7 .portlet-ampliat li > img,
   .span8 .portlet-ampliat li > img,
@@ -16765,107 +16784,107 @@ html {
     float: none;
   }
 
-  /* line 22, ../scss/_mobile.scss */
+  /* line 36, ../scss/_mobile.scss */
   .xafa {
     margin: 0 1.25em;
   }
 
-  /* line 23, ../scss/_mobile.scss */
+  /* line 37, ../scss/_mobile.scss */
   .xafa2 {
     margin: 0 2.5em;
   }
 
-  /* line 24, ../scss/_mobile.scss */
+  /* line 38, ../scss/_mobile.scss */
   .xafa3 {
     margin: 0 3.75em;
   }
 
-  /* line 25, ../scss/_mobile.scss */
+  /* line 39, ../scss/_mobile.scss */
   .xafa4 {
     margin: 0 5em;
   }
 
-  /* line 26, ../scss/_mobile.scss */
+  /* line 40, ../scss/_mobile.scss */
   .pad {
     padding: 1.25em;
   }
 
-  /* line 27, ../scss/_mobile.scss */
+  /* line 41, ../scss/_mobile.scss */
   .pad2 {
     padding: 2.5em;
   }
 
-  /* line 28, ../scss/_mobile.scss */
+  /* line 42, ../scss/_mobile.scss */
   .pad3 {
     padding: 3.75em;
   }
 
-  /* line 29, ../scss/_mobile.scss */
+  /* line 43, ../scss/_mobile.scss */
   .pad4 {
     padding: 5em;
   }
 
-  /* line 31, ../scss/_mobile.scss */
+  /* line 45, ../scss/_mobile.scss */
   .no-image .header-image {
     display: none !important;
   }
 
-  /* line 33, ../scss/_mobile.scss */
+  /* line 47, ../scss/_mobile.scss */
   #portal-sitemap ul {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
   }
 
-  /* line 37, ../scss/_mobile.scss */
+  /* line 51, ../scss/_mobile.scss */
   #eines button {
     width: 34%;
     line-height: 20px;
   }
 
-  /* line 39, ../scss/_mobile.scss */
+  /* line 53, ../scss/_mobile.scss */
   .portlet-baners {
     text-align: center;
   }
 
-  /* line 41, ../scss/_mobile.scss */
+  /* line 55, ../scss/_mobile.scss */
   #dashboard > div {
     float: none;
     width: 100%;
   }
 
-  /* line 43, ../scss/_mobile.scss */
+  /* line 57, ../scss/_mobile.scss */
   .btn-toolbar .btn-group {
     clear: both;
     display: block;
   }
-  /* line 46, ../scss/_mobile.scss */
+  /* line 60, ../scss/_mobile.scss */
   .btn-toolbar .btn-group input {
     float: left !important;
     margin-bottom: 1em;
   }
 
-  /* line 48, ../scss/_mobile.scss */
+  /* line 62, ../scss/_mobile.scss */
   .btn-group + .btn-group {
     margin-left: 0;
   }
 
-  /* line 51, ../scss/_mobile.scss */
+  /* line 65, ../scss/_mobile.scss */
   .portaltype-packet .estudis td:first-child, .portaltype-packet .estudis th:first-child {
     min-width: auto !important;
   }
 
-  /* line 52, ../scss/_mobile.scss */
+  /* line 66, ../scss/_mobile.scss */
   .discussion .commentDate {
     float: none;
   }
 
-  /* line 54, ../scss/_mobile.scss */
+  /* line 68, ../scss/_mobile.scss */
   .carousel-control.right {
     top: 62px;
   }
 
-  /* line 55, ../scss/_mobile.scss */
+  /* line 69, ../scss/_mobile.scss */
   .carousel-control.left {
     top: 62px;
   }
@@ -19464,8 +19483,4 @@ div.legend div {
 /* line 364, ../scss/genwebupc.scss */
 div.legend table div {
   display: block !important;
-}
-
-#formfield-form-own_content > div.widget.formlibInlineValidation {
-  margin-left: 50px;
 }
