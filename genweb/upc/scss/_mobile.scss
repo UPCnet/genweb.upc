@@ -1,38 +1,85 @@
 @media only screen and (max-width: 979px) { 
-  #eines > li > a:before {
-     content: '' !important;
-   }
-  #portal-breadcrumbs {display: block;}
-  #portal-header .logoPropi { display: none;}
-
-  // menú secundari
-  #titol-menu-2 {
-    position: relative;
-    a {
-      margin-left: 22px;
+  #eines {
+    > li > a {
+      font-weight: normal;
+      padding-bottom: 0px;
+      padding-top: 0px;
       &:before {
-        content: "";
-        position: absolute;
-        background-color: #007bc0;
-        margin-left: 5px;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-        left: -4px;
-        bottom: 3px;
-        background-image: url(++genweb++static/images/gh-w.png?1485760075);
-        background-position: -286.5px -119px;
-        background-repeat: no-repeat;
-        width: 17px;
-        height: 17px;      
-      }
-      &.collapsed:before {
-        background-position: -311.5px -117px !important;
+        content: '' !important;
       }
     }
+  }
+  #eina-menu-1 {
+    padding-top: 0 !important;
+    ul.nav {
+      border-width: 1px 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin-top: 0;
+    }
+  }
+  #eina-cerca {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #portal-languageselector {
+    a {
+      font-weight: normal;
+    }
+  }
+
+  #portal-breadcrumbs {display: block;}
+  #portal-header {
+    padding-bottom: 0;
+    .logoPropi { 
+      display: none;
+    }
+  }
+
+  // menú secundari
+  #eines-menu {
+    position: absolute;
+    top: 43px;
+    right: 5px;
+  }
+  #titol-menu-2 {
+    position: relative;
+  }
+  #titol-menu-2, #eines-menu {
+    a {
+       -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      position: relative;
+      margin-left: 34px;
+      bottom: 0;
+      &:before {
+        content: "×";
+        position: absolute;
+        background-color: #007bc0;
+        @include border-radius(5px);
+        @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
+        left: -36px;
+        bottom: 0px;
+        color: #fff;
+        font-size: 34px;
+        padding: 6px 6px 1px 6px;
+        width: 20px;
+        height: 26px;   
+      }
+      &.collapsed:before {
+        content: '≡' !important;
+        background-image: none;
+
+      }
+      &.clau-anglesa.collapsed:before {
+        content: '🔧' !important;
+        font-size: 18px;
+      }
+    }
+  }
+  #eines-menu a:before {
+    background-color: #5a5a5a;
   }
 
   #portlet-navigation-tree {
@@ -40,6 +87,20 @@
     &.in{
       border-width: 2px 1px 3px 1px;
     }
+  }
+
+  #viewlet-above-content-title, 
+  .documentFirstHeading,
+  #viewlet-below-content-title,
+  #viewlet-above-content-body {
+    display: none;
+  }
+
+  .titol-espai h1 {
+    margin-top: 0 !important;
+  }
+  #content-area {
+    margin-top: 0.5em;
   }
 }
 
