@@ -13,7 +13,7 @@
       </a>
     </h1>
     <div id='eines-menu' class='hidden-desktop hidden-tablet' >
-      <a class="collapsed clau-anglesa" data-toggle="collapse" data-target=".nav-collapse-eines"></a>
+      <a id='eines-menu-boto' class="collapsed clau-anglesa btn boto" data-toggle="collapse" data-target=".nav-collapse-eines">≡</a>
     </div>
 
     <tal:comment replace="nothing">  Menu para tamaño escritorio</tal:comment>
@@ -93,22 +93,44 @@
       </ul>
     </div>
 
-    <tal:comment replace="nothing">  Menu para phone y tablet </tal:comment>
+    <tal:comment replace="nothing"> Menu para phone y tablet </tal:comment>
     <script>
       $(document).ready(function () {
-        if ($(window).width() < 640 ) {
-          // canvia el titol de la pagina pel breadcrumb actiu
-          var actiu = $('ol.breadcrumb li.active').text();
-          $('#titol-menu-2 a.titol-menu').text(actiu);
-          var menu1 = $('#menu-1 ul.nav');
-          if (menu1.length > 0) {
-            // mou en menu principal dins el d'eines
-            $('#eina-menu-1').append(menu1);
-            $('nav#portal-globalnav').hide();
-            // treu icona menu a clau anglesa
-            $('#eines-menu > a').removeClass('clau-anglesa')
+        function ajustaMenus() {
+          if ($(window).width() <= 979) {
+             // oculta el menu secundari inicialment
+            $('#portlet-navigation-tree').css('height', '0px').css('overflow-y', 'hidden');
+
+            // mostra x quan el menu esta obert
+            $('.boto').click(function(){
+              if ($(this).hasClass('collapsed')) {
+                $(this).text('×');
+              } else {
+                $(this).text('≡');
+              }
+            });
+            
+            if ($(window).width() <= 768) {
+              // ajustos extra per a viewport petit
+              $('nav#portal-globalnav').hide();  
+              // canvia el titol de la pagina pel breadcrumb actiu
+              var actiu = $('ol.breadcrumb li.active').text();
+              $('#titol-menu-2-text').text(actiu);
+
+              // mou en menu principal dins el d'eines
+              var menu1 = $('#menu-1 ul.nav');
+              if (menu1.length > 0) {
+                $('#eina-menu-1').append(menu1);
+              }
+
+          }          
           }
+          
         }
+        $( window ).on( "orientationchange", function( event ) {
+          ajustaMenus();
+        });
+        ajustaMenus();
       });
 
     </script>
