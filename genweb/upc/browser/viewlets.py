@@ -33,6 +33,24 @@ from AccessControl import getSecurityManager
 
 import re
 
+from genweb.logosfooter.browser.viewlet import logosFooterViewlet as lfv
+
+class logosFooterViewlet(lfv):
+    grok.layer(IGenwebUPC)
+    grok.template('logosfooter')
+
+    def getFooterPages(self):
+        #busca pagines etiquetades #footer-xx amb xx idioma corresponent
+        results = api.portal.get_tool(name='portal_catalog').searchResults(
+            portal_type='Document',
+            Subject=('#footer-' + pref_lang()),
+            review_state=['published', 'private', 'intranet'],
+            sort_on='effective',
+            sort_order='descending')
+        if results:
+            return results
+        else:
+            return False
 
 class notConfigured(grok.Viewlet):
     grok.baseclass()
@@ -234,3 +252,6 @@ class gwManagePortletsFallbackViewletForIHomePage(gwManagePortletsFallbackViewle
     grok.name('plone.manage_portlets_fallback')
     grok.viewletmanager(IBelowContent)
     grok.layer(IGenwebUPC)
+
+
+
