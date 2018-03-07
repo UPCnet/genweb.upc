@@ -1,11 +1,19 @@
 Changelog
 =========
 
-2.51 (unreleased)
+2.51 (2018-03-07)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/accessibility' [Roberto Diaz]
+* Merge remote-tracking branch 'origin/develop' [Roberto Diaz]
+* Add encode to recipient name in contact form [Corina Riba]
+* Deprecate monkeypatche for captcha widget [Corina Riba]
+* Add edit locking behavior [Corina Riba]
+* WCAG: Más contraste para los enlaces del footer [iago.lopez]
+* added default user/pass TEST_USER_NAME and PEP8 [Roberto Diaz]
+* WCAG: Etiquetas <i> y <b> utilizadas para iconos a <span> [iago.lopez]
+* Add title to Add new genweb option [Corina Riba]
+* WCAG: Portlet multiviewcollection - Etiquetas <i> a <span> + Solucionar enlace RSS [iago.lopez]
 
 2.50 (2018-01-12)
 -----------------
