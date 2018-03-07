@@ -5,12 +5,12 @@
 
     <include package="collective.monkeypatcher" />
 
-    <monkey:patch
+<!--     <monkey:patch
         description="Patch recaptcha view with UPC settings"
         class="plone.formwidget.recaptcha.view.RecaptchaView"
         original="image_tag"
         replacement=".patches.custom_recaptcha.image_tag"
-        />
+        /> -->
 
     <monkey:patch
         description="If there are results, make the query and return the results"

@@ -13,8 +13,6 @@ from plone.directives import form
 
 from plone.formwidget.recaptcha.widget import ReCaptchaFieldWidget
 
-from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget 
-
 from Products.CMFPlone.utils import safe_unicode
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.CMFCore.utils import getToolByName
@@ -72,11 +70,13 @@ class getEmailsContactNames(object):
                         item['name'],))
         return SimpleVocabulary(items)
 
+
 grok.global_utility(getEmailsContactNames, name="availableContacts")
 
 
 class NotAnEmailAddress(ValidationError):
     __doc__ = _(u"Invalid email address")
+
 
 check_email = re.compile(r"[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}").match
 
@@ -86,12 +86,14 @@ def validate_email(value):
         raise NotAnEmailAddress(value)
     return True
 
+
 def is_checked(value):
     if not value:
         raise Invalid(u"Acepta el uso y privacidad")
         return False
     else:
         return True
+
 
 class IContactForm(form.Schema):
     """Define the fields of our form
@@ -173,14 +175,12 @@ class ContactForm(form.SchemaForm):
             self.widgets['captcha'].error = self.get_captcha_error_instace()
         return True
 
-
     @button.buttonAndHandler(_(u"Send"))
     def action_send(self, action):
         """Send the email to the configured mail address in properties and redirect to the
         front page, showing a status message to say the message was sent.
         """
         data, errors = self.extractData()
-
 
         if self.captcha_is_invalid():
             return
@@ -202,12 +202,12 @@ class ContactForm(form.SchemaForm):
         if api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
             contact_data = self.getDataContact()
             if contact_data != []:
-                to_name = data['recipient']
+                to_name = data['recipient'].encode("utf-8")
                 for item in contact_data:
-                    if to_name in item['name']:
+                    if to_name in item['name'].encode("utf-8"):
                         if item['email']:
                             to_address = item['email']
-                            to_name = to_name.encode('utf-8')
+                            to_name = to_name
                             continue
                         else:
                             to_address += ', scp.admin@upc.edu'
