@@ -104,9 +104,9 @@
             // mostra x quan el menu esta obert
             $('.boto').click(function(){
               if ($(this).hasClass('collapsed')) {
-                $(this).text('×');
+                $(this).text('\u00D7');
               } else {
-                $(this).text('≡');
+                $(this).text('\u2261');
               }
             });
             
