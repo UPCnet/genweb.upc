@@ -1,0 +1,8 @@
+menu esquerra:
+	upc/templates/genweb.theme.portlets.templates.navigation.pt
+
+menu principal:
+	theme/browser/viewlets_templates/sections.pt
+
+menu eines:
+	upc/browser/viewlets_templates/header.pt

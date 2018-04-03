@@ -33,6 +33,12 @@ from AccessControl import getSecurityManager
 
 import re
 
+from genweb.theme.browser.viewlets import gwHeader as gwh
+
+class gwHeader(gwh):
+    grok.layer(IGenwebUPC)
+    grok.template('header')
+
 
 class notConfigured(grok.Viewlet):
     grok.baseclass()
