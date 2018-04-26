@@ -8154,7 +8154,7 @@ button.pfg-draft-save .caret,
 }
 
 /* line 282, ../bootstrap/scss/compass_twitter_bootstrap/_navbar.scss */
-.navbar .btn-navbar .icon-bar {
+.navbar .btn-navbar .icon-bar, #eines-menu .icon-bar, #titol-menu-2 .icon-bar {
   display: block;
   width: 18px;
   height: 2px;
@@ -8823,24 +8823,27 @@ button.pfg-draft-save .caret,
   margin-top: 1px;
 }
 /* line 65, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
-.modal-header h3, .modal-header h2, .pb-ajax .documentFirstHeading h3, .pb-ajax > div > h2 h3 {
+.modal-header h2, .pb-ajax .documentFirstHeading h2, .pb-ajax > div > h2 h2,
+.modal-header h3,
+.pb-ajax .documentFirstHeading h3,
+.pb-ajax > div > h2 h3 {
   margin: 0;
   line-height: 24px;
 }
 
-/* line 72, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
+/* line 73, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
 .modal-body, .pb-ajax #content-core, .pb-ajax .documentDescription, .pb-ajax #content-history {
   overflow-y: auto;
   max-height: 400px;
   padding: 12px;
 }
 
-/* line 79, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
+/* line 80, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
 .modal-form {
   margin-bottom: 0;
 }
 
-/* line 84, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
+/* line 85, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
 .modal-footer {
   padding: 14px 12px 15px;
   margin-bottom: 0;
@@ -8865,12 +8868,12 @@ button.pfg-draft-save .caret,
 .modal-footer:after {
   clear: both;
 }
-/* line 95, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
+/* line 96, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
 .modal-footer .btn + .btn, .modal-footer .standalone + .btn, .modal-footer input[value^="Cancel"] + .btn, .modal-footer [type="submit"] + .btn, .modal-footer .context + .btn, .modal-footer .searchButton + .btn, .modal-footer button.pfg-draft-save + .btn, .modal-footer .link-parent + .btn, .modal-footer .btn + .standalone, .modal-footer .standalone + .standalone, .modal-footer input[value^="Cancel"] + .standalone, .modal-footer [type="submit"] + .standalone, .modal-footer .context + .standalone, .modal-footer .searchButton + .standalone, .modal-footer button.pfg-draft-save + .standalone, .modal-footer .link-parent + .standalone, .modal-footer .btn + input[value^="Cancel"], .modal-footer .standalone + input[value^="Cancel"], .modal-footer input[value^="Cancel"] + input[value^="Cancel"], .modal-footer [type="submit"] + input[value^="Cancel"], .modal-footer .context + input[value^="Cancel"], .modal-footer .searchButton + input[value^="Cancel"], .modal-footer button.pfg-draft-save + input[value^="Cancel"], .modal-footer .link-parent + input[value^="Cancel"], .modal-footer .btn + [type="submit"], .modal-footer .standalone + [type="submit"], .modal-footer input[value^="Cancel"] + [type="submit"], .modal-footer [type="submit"] + [type="submit"], .modal-footer .context + [type="submit"], .modal-footer .searchButton + [type="submit"], .modal-footer button.pfg-draft-save + [type="submit"], .modal-footer .link-parent + [type="submit"], .modal-footer .btn + .context, .modal-footer .standalone + .context, .modal-footer input[value^="Cancel"] + .context, .modal-footer [type="submit"] + .context, .modal-footer .context + .context, .modal-footer .searchButton + .context, .modal-footer button.pfg-draft-save + .context, .modal-footer .link-parent + .context, .modal-footer .btn + .searchButton, .modal-footer .standalone + .searchButton, .modal-footer input[value^="Cancel"] + .searchButton, .modal-footer [type="submit"] + .searchButton, .modal-footer .context + .searchButton, .modal-footer .searchButton + .searchButton, .modal-footer button.pfg-draft-save + .searchButton, .modal-footer .link-parent + .searchButton, .modal-footer .btn + button.pfg-draft-save, .modal-footer .standalone + button.pfg-draft-save, .modal-footer input[value^="Cancel"] + button.pfg-draft-save, .modal-footer [type="submit"] + button.pfg-draft-save, .modal-footer .context + button.pfg-draft-save, .modal-footer .searchButton + button.pfg-draft-save, .modal-footer button.pfg-draft-save + button.pfg-draft-save, .modal-footer .link-parent + button.pfg-draft-save, .modal-footer .btn + .link-parent, .modal-footer .standalone + .link-parent, .modal-footer input[value^="Cancel"] + .link-parent, .modal-footer [type="submit"] + .link-parent, .modal-footer .context + .link-parent, .modal-footer .searchButton + .link-parent, .modal-footer button.pfg-draft-save + .link-parent, .modal-footer .link-parent + .link-parent {
   margin-left: 5px;
   margin-bottom: 0;
 }
-/* line 100, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
+/* line 101, ../bootstrap/scss/compass_twitter_bootstrap/_modals.scss */
 .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .standalone + .btn, .modal-footer .btn-group input[value^="Cancel"] + .btn, .modal-footer .btn-group [type="submit"] + .btn, .modal-footer .btn-group .context + .btn, .modal-footer .btn-group .searchButton + .btn, .modal-footer .btn-group button.pfg-draft-save + .btn, .modal-footer .btn-group .link-parent + .btn, .modal-footer .btn-group .btn + .standalone, .modal-footer .btn-group .standalone + .standalone, .modal-footer .btn-group input[value^="Cancel"] + .standalone, .modal-footer .btn-group [type="submit"] + .standalone, .modal-footer .btn-group .context + .standalone, .modal-footer .btn-group .searchButton + .standalone, .modal-footer .btn-group button.pfg-draft-save + .standalone, .modal-footer .btn-group .link-parent + .standalone, .modal-footer .btn-group .btn + input[value^="Cancel"], .modal-footer .btn-group .standalone + input[value^="Cancel"], .modal-footer .btn-group input[value^="Cancel"] + input[value^="Cancel"], .modal-footer .btn-group [type="submit"] + input[value^="Cancel"], .modal-footer .btn-group .context + input[value^="Cancel"], .modal-footer .btn-group .searchButton + input[value^="Cancel"], .modal-footer .btn-group button.pfg-draft-save + input[value^="Cancel"], .modal-footer .btn-group .link-parent + input[value^="Cancel"], .modal-footer .btn-group .btn + [type="submit"], .modal-footer .btn-group .standalone + [type="submit"], .modal-footer .btn-group input[value^="Cancel"] + [type="submit"], .modal-footer .btn-group [type="submit"] + [type="submit"], .modal-footer .btn-group .context + [type="submit"], .modal-footer .btn-group .searchButton + [type="submit"], .modal-footer .btn-group button.pfg-draft-save + [type="submit"], .modal-footer .btn-group .link-parent + [type="submit"], .modal-footer .btn-group .btn + .context, .modal-footer .btn-group .standalone + .context, .modal-footer .btn-group input[value^="Cancel"] + .context, .modal-footer .btn-group [type="submit"] + .context, .modal-footer .btn-group .context + .context, .modal-footer .btn-group .searchButton + .context, .modal-footer .btn-group button.pfg-draft-save + .context, .modal-footer .btn-group .link-parent + .context, .modal-footer .btn-group .btn + .searchButton, .modal-footer .btn-group .standalone + .searchButton, .modal-footer .btn-group input[value^="Cancel"] + .searchButton, .modal-footer .btn-group [type="submit"] + .searchButton, .modal-footer .btn-group .context + .searchButton, .modal-footer .btn-group .searchButton + .searchButton, .modal-footer .btn-group button.pfg-draft-save + .searchButton, .modal-footer .btn-group .link-parent + .searchButton, .modal-footer .btn-group .btn + button.pfg-draft-save, .modal-footer .btn-group .standalone + button.pfg-draft-save, .modal-footer .btn-group input[value^="Cancel"] + button.pfg-draft-save, .modal-footer .btn-group [type="submit"] + button.pfg-draft-save, .modal-footer .btn-group .context + button.pfg-draft-save, .modal-footer .btn-group .searchButton + button.pfg-draft-save, .modal-footer .btn-group button.pfg-draft-save + button.pfg-draft-save, .modal-footer .btn-group .link-parent + button.pfg-draft-save, .modal-footer .btn-group .btn + .link-parent, .modal-footer .btn-group .standalone + .link-parent, .modal-footer .btn-group input[value^="Cancel"] + .link-parent, .modal-footer .btn-group [type="submit"] + .link-parent, .modal-footer .btn-group .context + .link-parent, .modal-footer .btn-group .searchButton + .link-parent, .modal-footer .btn-group button.pfg-draft-save + .link-parent, .modal-footer .btn-group .link-parent + .link-parent {
   margin-left: -1px;
 }
@@ -13216,6 +13219,32 @@ a.primary, .primary a, a .primary {
     border-width: 0;
   }
 }
+/* line 212, ../scss/_plantilles.scss */
+.text-over-image {
+  position: relative;
+  margin: 0 auto;
+}
+/* line 215, ../scss/_plantilles.scss */
+.text-over-image .content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* line 219, ../scss/_plantilles.scss */
+.text-over-image .content.light-background {
+  background: rgba(255, 255, 255, 0.65);
+  color: #333 !important;
+}
+/* line 223, ../scss/_plantilles.scss */
+.text-over-image .content.dark-background {
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff !important;
+}
+/* line 229, ../scss/_plantilles.scss */
+.text-over-image .caption, .text-over-image .photoAlbumEntry a .photoAlbumEntryTitle, .photoAlbumEntry a .text-over-image .photoAlbumEntryTitle {
+  padding: 20px;
+}
+
 /* line 4, ../scss/_leads.scss */
 .lead, .lead-small, .destacatQuadres, .portaltype-packet .estudis .note, .lead-large, .sheet, div.fitxa, .destacatBandejat, .textDestacat {
   margin-bottom: 18px;
@@ -14314,7 +14343,7 @@ NOTEBOOK
   border-top: 3px double #ffb68d !important;
 }
 
-/*
+/* 
 .table
 .table-striped
 .table-bordered
@@ -14976,7 +15005,7 @@ input[type="file"] {
   font-size: 92.3076923%;
 }
 /* line 89, ../scss/_portlets.scss */
-.portlet-footer i {
+.portlet-footer span {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
   position: absolute;
@@ -16745,13 +16774,119 @@ html {
 }
 
 @media only screen and (max-width: 979px) {
-  /* line 2, ../scss/_mobile.scss */
+  /* line 4, ../scss/_mobile.scss */
+  #eines > li > a {
+    font-weight: normal;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  /* line 8, ../scss/_mobile.scss */
   #eines > li > a:before {
     content: '' !important;
   }
+
+  /* line 19, ../scss/_mobile.scss */
+  #eina-menu-1 {
+    padding-top: 0 !important;
+  }
+  /* line 21, ../scss/_mobile.scss */
+  #eina-menu-1 ul.nav, #eina-menu-1 ul.contentViews, #eina-menu-1 ul.configlets, #eina-menu-1 ul.formTabs {
+    border-width: 1px 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 0;
+  }
+
+  /* line 30, ../scss/_mobile.scss */
+  #eina-cerca {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* line 36, ../scss/_mobile.scss */
+  #portal-languageselector a {
+    font-weight: normal;
+  }
+
+  /* line 42, ../scss/_mobile.scss */
+  #portal-breadcrumbs {
+    display: block;
+  }
+
+  /* line 45, ../scss/_mobile.scss */
+  #portal-header {
+    padding-bottom: 0;
+  }
+  /* line 47, ../scss/_mobile.scss */
+  #portal-header .logoPropi {
+    display: none;
+  }
+
+  /* line 53, ../scss/_mobile.scss */
+  #titol-menu-2 {
+    position: relative;
+  }
+
+  /* line 57, ../scss/_mobile.scss */
+  #titol-menu-2-text {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* line 63, ../scss/_mobile.scss */
+  .boto {
+    background-image: none;
+    font-size: 30px;
+    padding: 10px;
+    color: #fff;
+  }
+  /* line 68, ../scss/_mobile.scss */
+  .boto:hover {
+    color: #fff;
+  }
+
+  /* line 74, ../scss/_mobile.scss */
+  #eines-menu-boto {
+    background-color: #5a5a5a;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+
+  /* line 82, ../scss/_mobile.scss */
+  #titol-menu-2-boto {
+    background-color: #007bc0;
+  }
+
+  /* line 89, ../scss/_mobile.scss */
+  #portlet-navigation-tree {
+    border-width: 1px 0 0 0;
+  }
+  /* line 91, ../scss/_mobile.scss */
+  #portlet-navigation-tree.in {
+    border-width: 2px 1px 3px 1px;
+  }
+
+  /* line 96, ../scss/_mobile.scss */
+  #viewlet-above-content-title,
+  .documentFirstHeading,
+  #viewlet-below-content-title,
+  #viewlet-above-content-body {
+    display: none;
+  }
+
+  /* line 103, ../scss/_mobile.scss */
+  .titol-espai h1 {
+    margin-top: 0 !important;
+  }
+
+  /* line 106, ../scss/_mobile.scss */
+  #content-area {
+    margin-top: 0.5em;
+  }
 }
 @media only screen and (max-width: 640px) {
-  /* line 8, ../scss/_mobile.scss */
+  /* line 112, ../scss/_mobile.scss */
   .span6 .portlet-ampliat li > img, .w1\3a 2 .portlet-ampliat li > img, .w2\3a 4 .portlet-ampliat li > img,
   .span7 .portlet-ampliat li > img,
   .span8 .portlet-ampliat li > img,
@@ -16765,107 +16900,107 @@ html {
     float: none;
   }
 
-  /* line 22, ../scss/_mobile.scss */
+  /* line 126, ../scss/_mobile.scss */
   .xafa {
     margin: 0 1.25em;
   }
 
-  /* line 23, ../scss/_mobile.scss */
+  /* line 127, ../scss/_mobile.scss */
   .xafa2 {
     margin: 0 2.5em;
   }
 
-  /* line 24, ../scss/_mobile.scss */
+  /* line 128, ../scss/_mobile.scss */
   .xafa3 {
     margin: 0 3.75em;
   }
 
-  /* line 25, ../scss/_mobile.scss */
+  /* line 129, ../scss/_mobile.scss */
   .xafa4 {
     margin: 0 5em;
   }
 
-  /* line 26, ../scss/_mobile.scss */
+  /* line 130, ../scss/_mobile.scss */
   .pad {
     padding: 1.25em;
   }
 
-  /* line 27, ../scss/_mobile.scss */
+  /* line 131, ../scss/_mobile.scss */
   .pad2 {
     padding: 2.5em;
   }
 
-  /* line 28, ../scss/_mobile.scss */
+  /* line 132, ../scss/_mobile.scss */
   .pad3 {
     padding: 3.75em;
   }
 
-  /* line 29, ../scss/_mobile.scss */
+  /* line 133, ../scss/_mobile.scss */
   .pad4 {
     padding: 5em;
   }
 
-  /* line 31, ../scss/_mobile.scss */
+  /* line 135, ../scss/_mobile.scss */
   .no-image .header-image {
     display: none !important;
   }
 
-  /* line 33, ../scss/_mobile.scss */
+  /* line 137, ../scss/_mobile.scss */
   #portal-sitemap ul {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
   }
 
-  /* line 37, ../scss/_mobile.scss */
+  /* line 141, ../scss/_mobile.scss */
   #eines button {
     width: 34%;
     line-height: 20px;
   }
 
-  /* line 39, ../scss/_mobile.scss */
+  /* line 143, ../scss/_mobile.scss */
   .portlet-baners {
     text-align: center;
   }
 
-  /* line 41, ../scss/_mobile.scss */
+  /* line 145, ../scss/_mobile.scss */
   #dashboard > div {
     float: none;
     width: 100%;
   }
 
-  /* line 43, ../scss/_mobile.scss */
+  /* line 147, ../scss/_mobile.scss */
   .btn-toolbar .btn-group {
     clear: both;
     display: block;
   }
-  /* line 46, ../scss/_mobile.scss */
+  /* line 150, ../scss/_mobile.scss */
   .btn-toolbar .btn-group input {
     float: left !important;
     margin-bottom: 1em;
   }
 
-  /* line 48, ../scss/_mobile.scss */
+  /* line 152, ../scss/_mobile.scss */
   .btn-group + .btn-group {
     margin-left: 0;
   }
 
-  /* line 51, ../scss/_mobile.scss */
+  /* line 155, ../scss/_mobile.scss */
   .portaltype-packet .estudis td:first-child, .portaltype-packet .estudis th:first-child {
     min-width: auto !important;
   }
 
-  /* line 52, ../scss/_mobile.scss */
+  /* line 156, ../scss/_mobile.scss */
   .discussion .commentDate {
     float: none;
   }
 
-  /* line 54, ../scss/_mobile.scss */
+  /* line 158, ../scss/_mobile.scss */
   .carousel-control.right {
     top: 62px;
   }
 
-  /* line 55, ../scss/_mobile.scss */
+  /* line 159, ../scss/_mobile.scss */
   .carousel-control.left {
     top: 62px;
   }
@@ -19469,8 +19604,4 @@ div.legend table div {
 /* line 367, ../scss/genwebupc.scss */
 #peu .container a {
   color: #0074B5;
-}
-
-#formfield-form-own_content > div.widget.formlibInlineValidation {
-  margin-left: 50px;
 }

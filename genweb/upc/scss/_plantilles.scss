@@ -206,3 +206,28 @@ $beautytabcolor: #b2b2b2;
 }
 
 // fi plantilla pestanyes amb ombra
+
+// text over image
+
+.text-over-image {
+	position: relative;
+    margin: 0 auto;
+    .content {
+    	position: absolute;
+	    bottom: 0;
+	    width: 100%;
+	    &.light-background {
+	    	background: rgba(255, 255, 255, 0.65);
+	    	color: #333 !important;
+	    }
+		&.dark-background {
+	    	background: rgba(0, 0, 0, 0.65);
+	    	color: #fff !important;
+	    }
+    }
+
+    .caption {
+    	padding: 20px;
+    }
+}
+// fi text over image
