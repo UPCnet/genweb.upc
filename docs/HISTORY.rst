@@ -1,11 +1,13 @@
 Changelog
 =========
 
-2.52 (unreleased)
+2.52 (2018-05-04)
 -----------------
 
-- Nothing changed yet.
-
+* Afegeix estils per a plantilla text over image [oscar.albareda]
+* Merge branch 'mobile-v2' of github.com:UPCnet/genweb.upc into develop [Francesc Gordillo Cortinez]
+* Fix hamburger button icon. [Francesc Gordillo Cortinez]
+* removed unused  chineselanguagebar [Roberto Diaz]
 
 2.51 (2018-03-07)
 -----------------
