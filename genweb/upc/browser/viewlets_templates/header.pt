@@ -116,7 +116,8 @@
               // canvia el titol de la pagina pel breadcrumb actiu
               var actiu = $('ol.breadcrumb li.active').text();
               $('#titol-menu-2-text').text(actiu);
-
+              // afegeix el sharing
+              $('#viewlet-above-content-title div.pull-right').appendTo('#titol-menu-2-text');
               // mou en menu principal dins el d'eines
               var menu1 = $('#menu-1 ul.nav');
               if (menu1.length > 0) {
