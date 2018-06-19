@@ -202,17 +202,23 @@ class ContactForm(form.SchemaForm):
         if api.portal.get_registry_record(name='genweb.controlpanel.interface.IGenwebControlPanelSettings.contacte_multi_email'):
             contact_data = self.getDataContact()
             if contact_data != []:
-                to_name = data['recipient'].encode("utf-8")
-                for item in contact_data:
-                    if to_name in item['name'].encode("utf-8"):
-                        if item['email']:
-                            to_address = item['email']
-                            to_name = to_name
-                            continue
-                        else:
-                            to_address += ', scp.admin@upc.edu'
-                            to_name = 'Genweb amb error al contacte'
-                            continue
+                if data['recipient']:
+                    to_name = data['recipient'].encode("utf-8")
+                    for item in contact_data:
+                        if to_name in item['name'].encode("utf-8"):
+                            if item['email']:
+                                to_address = item['email']
+                                to_name = to_name
+                                continue
+                            else:
+                                to_address += ', scp.admin@upc.edu'
+                                to_name = 'Genweb amb error al contacte'
+                                continue
+                else:
+                    to_address += ', scp.admin@upc.edu'
+                    to_name = 'Genweb amb error al contacte'
+                    error = _core(u"The contact has not been selected. It was sent to the site administrator.")
+                    IStatusMessage(self.request).addStatusMessage(error, type='warning')
             else:
                 to_address += ', scp.admin@upc.edu'
                 to_name = 'Genweb amb error al contacte'

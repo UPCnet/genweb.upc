@@ -114,9 +114,14 @@
               // ajustos extra per a viewport petit
               $('nav#portal-globalnav').hide();  
               // canvia el titol de la pagina pel breadcrumb actiu
+              // si la pagina esta fora dels menus cal crear titol-menu-2-text
+              if ($('#portal-column-one').has('#titol-menu-2-text').length == 0) {
+                $('#portal-column-one').append('<h2><span id="titol-menu-2-text">p</span></h2>');
+              } 
               var actiu = $('ol.breadcrumb li.active').text();
               $('#titol-menu-2-text').text(actiu);
-
+              // afegeix el sharing
+              $('#viewlet-above-content-title div.pull-right').appendTo('#titol-menu-2-text');
               // mou en menu principal dins el d'eines
               var menu1 = $('#menu-1 ul.nav');
               if (menu1.length > 0) {

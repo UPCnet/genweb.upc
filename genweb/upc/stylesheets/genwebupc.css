@@ -4975,7 +4975,7 @@ legend + .control-group {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1525789437');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -5039,12 +5039,12 @@ legend + .control-group {
 .dropdown-menu > .selected > a > .tileFooter:before,
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-menu > .selected > a > [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-w.png?1525789437');
 }
 
 /* line 44, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .icon-color {
-  background-image: url('++genweb++static/images/gh-c.png?1485760075');
+  background-image: url('++genweb++static/images/gh-c.png?1525789437');
 }
 
 /* line 48, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
@@ -5986,7 +5986,7 @@ legend + .control-group {
 
 /* line 267, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon {
-  background-image: url('++genweb++static/images/gh-150.png?1485760075');
+  background-image: url('++genweb++static/images/gh-150.png?1525789437');
   width: 21px;
   height: 21px;
   margin-top: -1px;
@@ -6019,7 +6019,7 @@ legend + .control-group {
 
 /* line 283, ../bootstrap/scss/compass_twitter_bootstrap/_sprites.scss */
 .large-icon.icon-white {
-  background-image: url('++genweb++static/images/gh-150-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-150-w.png?1525789437');
 }
 
 /*extends icones*/
@@ -9967,7 +9967,7 @@ button.pfg-draft-save .badge,
   }
   /* line 28, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   .navbar .btn-navbar i {
-    background-image: url('++genweb++static/images/gh-w.png?1485760075');
+    background-image: url('++genweb++static/images/gh-w.png?1525789437');
   }
 
   /* line 31, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
@@ -10288,7 +10288,7 @@ button.pfg-draft-save .badge,
   }
   /* line 260, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   #portal-personaltools-wrapper .nav i, #portal-personaltools-wrapper .contentViews i, #portal-personaltools-wrapper .configlets i, #portal-personaltools-wrapper .formTabs i {
-    background-image: url('++genweb++static/images/gh-w.png?1485760075');
+    background-image: url('++genweb++static/images/gh-w.png?1525789437');
   }
   /* line 261, ../bootstrap/scss/compass_twitter_bootstrap/_responsive-767px-max.scss */
   #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus {
@@ -11673,7 +11673,7 @@ button.pfg-draft-save .badge,
 
 /* line 39, ../scss/_base.scss */
 .userScreen, .userTablet, .userMobile, .userGenweb {
-  background: url('++genweb++static/images/sprite_usuari.png?1485760075') transparent no-repeat center top;
+  background: url('++genweb++static/images/sprite_usuari.png?1525789437') transparent no-repeat center top;
   height: 1.5em;
   width: 1.5em;
 }
@@ -11777,7 +11777,7 @@ button.pfg-draft-save .badge,
 /*ajusta imatges icos en menús per a hovers */
 /* line 66, ../scss/_base.scss */
 .dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover #relatedItemBox:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1485760075') !important;
+  background-image: url('++genweb++static/images/gh-w.png?1525789437') !important;
 }
 
 /* line 73, ../scss/_base.scss */
@@ -12101,7 +12101,7 @@ button.pfg-draft-save .badge,
 }
 /* line 222, ../scss/_base.scss */
 #canvia-vista a {
-  background: url('++genweb++static/images/vistabg.png?1485760075') #666;
+  background: url('++genweb++static/images/vistabg.png?1525789437') #666;
   text-align: center;
   -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
@@ -12267,7 +12267,7 @@ button.pfg-draft-save .badge,
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   right: 7px;
   top: 8px;
-  background-image: url('++genweb++static/images/gh-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-w.png?1525789437');
   background-position: -455px -71px;
   background-repeat: no-repeat;
   width: 17px;
@@ -12386,7 +12386,7 @@ button.pfg-draft-save .badge,
 }
 /* line 138, ../scss/_nav.scss */
 .subnavbar .nav-list .active ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .active ul a[class*=" contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class*=" contenttype-"] span:after {
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1525789437');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -12516,7 +12516,7 @@ ul#portlet-navigation-tree .navTreeLevel3 a span {
 
 /* line 226, ../scss/_nav.scss */
 html * .dropdown-menu a:hover .img_blank {
-  content: url('++genweb++static/images/blank_blanc.png?1485760075');
+  content: url('++genweb++static/images/blank_blanc.png?1525789437');
   width: 10px;
   height: 10px;
 }
@@ -12568,7 +12568,7 @@ html * .dropdown-menu a:hover .img_blank {
 }
 /* line 264, ../scss/_nav.scss */
 #listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, #listing-table span[class^="contenttype-"]:before, #listing-table span[class*=" contenttype-"]:before, .template-tabular_view .listing a[class^="contenttype-"]:before, .template-tabular_view .listing a[class*=" contenttype-"]:before, .template-tabular_view .listing span[class^="contenttype-"]:before, .template-tabular_view .listing span[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree span[class^="contenttype-"]:before, .contenttreeWidget > .navTree span[class*=" contenttype-"]:before, .collage-content-menu a[class^="contenttype-"]:before, .collage-content-menu a[class*=" contenttype-"]:before, .collage-content-menu span[class^="contenttype-"]:before, .collage-content-menu span[class*=" contenttype-"]:before {
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1525789437');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -12676,7 +12676,7 @@ dt[class*="contenttype"] + dd {
 
 /* line 316, ../scss/_nav.scss */
 dt[class*="contenttype"]:before {
-  background-image: url('++genweb++static/images/gh.png?1485760075');
+  background-image: url('++genweb++static/images/gh.png?1525789437');
   background-repeat: no-repeat;
   display: block;
   width: 15px;
@@ -13670,7 +13670,7 @@ ul {
 
 /* line 128, ../scss/_lists.scss */
 .list-links > li:before, .portaltype-packet .estudis .llistatEnllacos > li:before {
-  content: url('++genweb++static/images/arrow.png?1485760075');
+  content: url('++genweb++static/images/arrow.png?1525789437');
   margin-left: -15px;
   margin-top: -13px;
 }
@@ -13682,7 +13682,7 @@ ul {
 
 /* line 138, ../scss/_lists.scss */
 .list-highlighted li:before {
-  content: url('++genweb++static/images/arrow_hl.png?1485760075');
+  content: url('++genweb++static/images/arrow_hl.png?1525789437');
   margin-left: -22px;
   margin-top: -11px;
 }
@@ -14558,7 +14558,7 @@ hr.liniaDalt, hr.tileHeadline {
   display: block;
   width: 14px;
   height: 14px;
-  background: url('++genweb++static/images/gh.png?1485760075');
+  background: url('++genweb++static/images/gh.png?1525789437');
 }
 
 /* line 93, ../scss/_texts.scss */
@@ -14606,7 +14606,7 @@ a {
 
 /* line 113, ../scss/_texts.scss */
 .pdf:after, .ppt:after, .xls:after, .doc:after, .down:after, .https:after, .vid:after, .img:after, .txt:after {
-  background: url('++genweb++static/images/gh-c.png?1485760075') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1525789437') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -14834,7 +14834,7 @@ input[type="file"] {
 }
 /* line 18, ../scss/_inputs.scss */
 .customfile-feedback-populated:before {
-  background: url('++genweb++static/images/gh-c.png?1485760075') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1525789437') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -15240,7 +15240,7 @@ h2.title-inverse {
 }
 /* line 256, ../scss/_portlets.scss */
 h2.title-inverse i {
-  background-image: url('++genweb++static/images/gh-w.png?1485760075');
+  background-image: url('++genweb++static/images/gh-w.png?1525789437');
 }
 
 /* line 263, ../scss/_portlets.scss */
@@ -15565,7 +15565,7 @@ iframe {
   width: 14px;
   height: 14px;
   display: inline-block;
-  background: url('++genweb++static/images/gh.png?1485760075') -239px -143px no-repeat;
+  background: url('++genweb++static/images/gh.png?1525789437') -239px -143px no-repeat;
   margin-left: 5px;
 }
 /* line 266, ../scss/_plone.scss */
@@ -17015,7 +17015,7 @@ html {
   #portal-header h1.pull-left {
     height: 46px;
     width: 207px;
-    background: url('++genweb++static/images/logoUPC@2x.png?1485760075') no-repeat;
+    background: url('++genweb++static/images/logoUPC@2x.png?1525789437') no-repeat;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     -webkit-background-size: 100%;
@@ -17039,22 +17039,22 @@ html {
 
   /* line 18, ../scss/_retina.scss */
   .img_blank[src*="blank_blau"] {
-    content: url('++genweb++static/images/blank_blau@2x.png?1485760075');
+    content: url('++genweb++static/images/blank_blau@2x.png?1525789437');
   }
 
   /* line 19, ../scss/_retina.scss */
   .img_blank[src*="blank_gris"] {
-    content: url('++genweb++static/images/blank_gris@2x.png?1485760075');
+    content: url('++genweb++static/images/blank_gris@2x.png?1525789437');
   }
 
   /* line 20, ../scss/_retina.scss */
   .img_blank[src*="blank_blanc"] {
-    content: url('++genweb++static/images/blank_blanc@2x.png?1485760075');
+    content: url('++genweb++static/images/blank_blanc@2x.png?1525789437');
   }
 
   /* line 22, ../scss/_retina.scss */
   .userScreen, .userTablet, .userMobile, .userGenweb {
-    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1485760075');
+    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1525789437');
     -moz-background-size: 20px 400px;
     -o-background-size: 20px 400px;
     -webkit-background-size: 20px 400px;
@@ -17566,7 +17566,7 @@ html.lt-ie8 .list-portlet li  {
 }
 /* line 34, ../scss/_upcnet.scss */
 .link-parent:before {
-  background: url('++genweb++static/images/gh-w.png?1485760075') no-repeat -290px -95px;
+  background: url('++genweb++static/images/gh-w.png?1525789437') no-repeat -290px -95px;
   content: " ";
   display: inline-block;
   height: 14px;
@@ -19345,23 +19345,28 @@ div.content-noticies {
   #pair-news hr {
     display: block;
   }
+
+  /* line 148, ../scss/genwebupc.scss */
+  .share_popover {
+    line-height: 33px;
+  }
 }
-/* line 152, ../scss/genwebupc.scss */
+/* line 155, ../scss/genwebupc.scss */
 div#gwsearch {
   margin-top: -3px;
   margin-left: 3px;
 }
 
-/* line 156, ../scss/genwebupc.scss */
+/* line 159, ../scss/genwebupc.scss */
 li#portal-languageselector {
   margin-top: -1px;
 }
 
-/* line 164, ../scss/genwebupc.scss */
+/* line 167, ../scss/genwebupc.scss */
 .event_listing {
   margin-top: 22px;
 }
-/* line 166, ../scss/genwebupc.scss */
+/* line 169, ../scss/genwebupc.scss */
 .event_listing header {
   border: 1px solid #CCCCCC !important;
   -moz-border-radius: 4px;
@@ -19377,31 +19382,31 @@ li#portal-languageselector {
   padding: 10px 15px 10px 5px;
   width: 9%;
 }
-/* line 176, ../scss/genwebupc.scss */
+/* line 179, ../scss/genwebupc.scss */
 .event_listing header .selected {
   font-weight: bold;
 }
-/* line 181, ../scss/genwebupc.scss */
+/* line 184, ../scss/genwebupc.scss */
 .event_listing section {
   float: left;
   width: 80%;
 }
-/* line 186, ../scss/genwebupc.scss */
+/* line 189, ../scss/genwebupc.scss */
 .event_listing .cal_date {
   display: none;
 }
-/* line 190, ../scss/genwebupc.scss */
+/* line 193, ../scss/genwebupc.scss */
 .event_listing .documentByLine {
   padding-bottom: 10px;
 }
 
-/* line 198, ../scss/genwebupc.scss */
+/* line 201, ../scss/genwebupc.scss */
 .portaltype-bannercontainer #upload-files,
 .portaltype-logos_container #upload-files {
   display: none;
 }
 
-/* line 204, ../scss/genwebupc.scss */
+/* line 207, ../scss/genwebupc.scss */
 .existing_content_portlet {
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -19412,7 +19417,7 @@ li#portal-languageselector {
   margin-bottom: 20px;
   border: 1px solid #b2b2b2;
 }
-/* line 209, ../scss/genwebupc.scss */
+/* line 212, ../scss/genwebupc.scss */
 .existing_content_portlet h2.portlet-title {
   margin: 0;
   font-size: 107%;
@@ -19421,7 +19426,7 @@ li#portal-languageselector {
   line-height: 18px;
   position: relative;
 }
-/* line 217, ../scss/genwebupc.scss */
+/* line 220, ../scss/genwebupc.scss */
 .existing_content_portlet h2.portlet-title i {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=7500);
   opacity: 75;
@@ -19429,28 +19434,28 @@ li#portal-languageselector {
   *top: 10px;
   *right: 15px;
 }
-/* line 224, ../scss/genwebupc.scss */
+/* line 227, ../scss/genwebupc.scss */
 .existing_content_portlet ul:last-child {
   border-bottom: 0 !important;
 }
 
-/* line 230, ../scss/genwebupc.scss */
+/* line 233, ../scss/genwebupc.scss */
 .existing_content_portlet_no_border > .portlet-content {
   padding: 0;
 }
 
-/* line 236, ../scss/genwebupc.scss */
+/* line 239, ../scss/genwebupc.scss */
 .portlet-content .share_popover {
   display: none;
 }
 
-/* line 243, ../scss/genwebupc.scss */
+/* line 246, ../scss/genwebupc.scss */
 .section-noticies #plone-contentmenu-display, .section-noticias #plone-contentmenu-display, .section-news #plone-contentmenu-display,
 .section-esdeveniments #plone-contentmenu-display, .section-eventos #plone-contentmenu-display, .section-events #plone-contentmenu-display {
   display: none;
 }
 
-/* line 249, ../scss/genwebupc.scss */
+/* line 252, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax h1.documentFirstHeading {
   margin-bottom: 15px;
   margin-left: -15px;
@@ -19458,55 +19463,55 @@ li#portal-languageselector {
   margin-right: -15px;
 }
 
-/* line 256, ../scss/genwebupc.scss */
+/* line 259, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax div#content {
   padding: 15px;
 }
 
-/* line 260, ../scss/genwebupc.scss */
+/* line 263, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax {
   height: 420px;
 }
 
-/* line 264, ../scss/genwebupc.scss */
+/* line 267, ../scss/genwebupc.scss */
 .template-quickedit .pb-ajax input {
   width: auto !important;
 }
 
-/* line 268, ../scss/genwebupc.scss */
+/* line 271, ../scss/genwebupc.scss */
 .icon-genweb-upc-subhome, a.state-visible.contenttype-genweb-upc-subhome::before {
   background-position: -216px -169px;
 }
 
-/* line 271, ../scss/genwebupc.scss */
+/* line 274, ../scss/genwebupc.scss */
 i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   background-image: url("/++resource++genweb_kbtic_images/notes-gris.png") !important;
   background-position: 0px;
 }
 
-/* line 276, ../scss/genwebupc.scss */
+/* line 279, ../scss/genwebupc.scss */
 .dropdown-menu > li > a:hover > [class="icon-kbticdocument"] {
   background-image: url("/++resource++genweb_kbtic_images/notes-icon.png") !important;
   background-position: 0px;
 }
 
-/* line 282, ../scss/genwebupc.scss */
+/* line 285, ../scss/genwebupc.scss */
 .userrole-authenticated .amaga-autenticat,
 .userrole-anonymous .amaga-no-autenticat {
   display: none;
 }
 
-/* line 288, ../scss/genwebupc.scss */
+/* line 291, ../scss/genwebupc.scss */
 #amagat {
   display: none;
 }
 
-/* line 291, ../scss/genwebupc.scss */
+/* line 294, ../scss/genwebupc.scss */
 .textDestacat, .destacatBandejat {
   background: #f3f3f3;
 }
 
-/* line 294, ../scss/genwebupc.scss */
+/* line 297, ../scss/genwebupc.scss */
 .textDestacat {
   font-size: 1.1em;
   line-height: 1.5em;
@@ -19516,7 +19521,7 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   border-radius: 5px;
 }
 
-/* line 305, ../scss/genwebupc.scss */
+/* line 308, ../scss/genwebupc.scss */
 #article_firstimage {
   background: #FFFFFF none repeat scroll 0 0;
   display: block;
@@ -19526,18 +19531,18 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   padding-top: 0px;
 }
 
-/* line 314, ../scss/genwebupc.scss */
+/* line 317, ../scss/genwebupc.scss */
 #article_title {
   margin-top: -9px;
 }
 
-/* line 318, ../scss/genwebupc.scss */
+/* line 321, ../scss/genwebupc.scss */
 .article_thumbs {
   list-style: none;
   width: 100%;
 }
 
-/* line 323, ../scss/genwebupc.scss */
+/* line 326, ../scss/genwebupc.scss */
 .article_thumbs li {
   width: 112px;
   margin: 10px;
@@ -19545,7 +19550,7 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   /* float: left; */
 }
 
-/* line 330, ../scss/genwebupc.scss */
+/* line 333, ../scss/genwebupc.scss */
 .article_thumbs img {
   width: 112px;
   padding: 6px;
@@ -19553,7 +19558,7 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.32);
 }
 
-/* line 337, ../scss/genwebupc.scss */
+/* line 340, ../scss/genwebupc.scss */
 #article_relateditems .relatedItems {
   border: 1px solid #d9d9d9;
   padding: 9px;
@@ -19574,34 +19579,34 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   color: #aaa;
 }
 
-/* line 357, ../scss/genwebupc.scss */
+/* line 360, ../scss/genwebupc.scss */
 tr.item-important td {
   background-color: #ffff80 !important;
 }
 
-/* line 361, ../scss/genwebupc.scss */
+/* line 364, ../scss/genwebupc.scss */
 div.poll-data.pie-poll > div > div {
   position: relative;
   margin-top: 20px;
 }
 
-/* line 362, ../scss/genwebupc.scss */
+/* line 365, ../scss/genwebupc.scss */
 div.legend {
   right: -250px;
   top: -180px;
 }
 
-/* line 363, ../scss/genwebupc.scss */
+/* line 366, ../scss/genwebupc.scss */
 div.legend div {
   display: none;
 }
 
-/* line 364, ../scss/genwebupc.scss */
+/* line 367, ../scss/genwebupc.scss */
 div.legend table div {
   display: block !important;
 }
 
-/* line 367, ../scss/genwebupc.scss */
+/* line 370, ../scss/genwebupc.scss */
 #peu .container a {
   color: #0074B5;
 }
