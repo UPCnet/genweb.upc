@@ -2,7 +2,6 @@
 
 import itertools
 import json
-import magic
 import requests
 import transaction
 
@@ -310,13 +309,14 @@ class migrateEPSEVG(grok.View):
                 copyNum += 1
                 copyStr = '-' + str(copyNum)
             results = self.portalCatalog.unrestrictedSearchResults(
-                           path=''.join(itertools.chain(preNameList, [copyStr], postNameList)),
-                           **kwargs)
+                path=''.join(itertools.chain(preNameList, [copyStr], postNameList)),
+                **kwargs)
         return copyStr
 
     def downloadFile(self, link, innerDest):
         try:
             fileData = requests.get(link, stream=True, timeout=15).raw.read()
+            ctype = requests.get(link).headers['Content-type']
         except Exception as e:
             self.info['err'].append('  file not downloaded! (maybe link is broken?)')
             self.info['err'].append('    -> ' + str(e))
@@ -326,12 +326,10 @@ class migrateEPSEVG(grok.View):
         fileId = innerDest.split('/')[-1]
         fileName = link.split('/')[-1]
         innerPortal = self.portal['annexos-de-noticies'][filePathType]
-
-
         namedBlob = {
             'data': fileData,
-            'contentType': magic.Magic(mime=True).from_buffer(fileData),
-            'filename': unicode(fileName)
+            'filename': unicode(fileName),
+            'contentType': ctype
         }
 
         if filePathType == 'imatges':
@@ -361,13 +359,12 @@ class migrateEPSEVG(grok.View):
                     postNameList = ['.', filePathInfo[2]]
                     innerDest = self.getFirstNonOccupiedPath(preNameList, postNameList)
                     linkDest = self.downloadFile(link, ''.join(
-                                       itertools.chain(preNameList, [innerDest], postNameList)))
+                        itertools.chain(preNameList, [innerDest], postNameList)))
                 else:
                     self.info['inf'].append('  not a file, will not attempt to download')
 
                 self.treatedLinks.update({link: linkDest})
             link = self.treatedLinks[link]
-
 
             if not self.newsPath in self.linksInSpecNews:
                 self.linksInSpecNews.update({self.newsPath: {}})
@@ -399,11 +396,10 @@ class migrateEPSEVG(grok.View):
 
     def logPrint(self, txt):
         self.logFileHandler.write(txt + '\n')
-        print(txt) # unica llamada a print en todo el codigo
+        print(txt)  # unica llamada a print en todo el codigo
 
     def logInfo(self):
         self.logPrint('\n')
-
         self.logPrint('%d of %d' % (self.info['cnt'], self.info['tot']))
 
         self.info['sec'] = {
@@ -457,7 +453,10 @@ class migrateEPSEVG(grok.View):
 
         jsonPath = '/tmp/migration.json'
         with open(jsonPath, 'r') as newsFile:
-            newsList = json.loads(newsFile.read())['RECORDS']
+            try:
+                newsList = json.loads(newsFile.read())['RECORDS']
+            except:
+                return "The json file is not valid. Check it."
         if self.newsLimit != -1:
             newsList = newsList[:self.newsLimit]
 
@@ -490,7 +489,6 @@ class migrateEPSEVG(grok.View):
             except Exception as e:
                 self.info['err'].append('fatal error parsing the content')
                 self.info['err'].append('   reason: ' + str(e))
-
 
             creationDate = DateTime(news['created'])
             try:
