@@ -407,7 +407,7 @@ class migrateEPSEVG(grok.View):
             'curs-actual': 'Curs Actual'
         }.get(self.info['sec'], '---unknown---')
 
-        self.logPrint('title    : %s' % self.info['ttl'])
+        self.logPrint('title    : %s' % self.info['ttl'].encode('utf-8'))
         self.logPrint('alias    : %s' % self.info['ali'])
         self.logPrint('section  : %s' % self.info['sec'])
         self.logPrint('creation : %s' % self.info['cre'].strftime('%Y-%m-%d %H:%M:%S'))
@@ -429,10 +429,10 @@ class migrateEPSEVG(grok.View):
         self.logPrint('\n')
 
     def cleanUp(self):
-        for obj in self.portalCatalog.unrestrictedSearchResults(path=self.basePath+self.newsBasePath+'/principal/', portal_type='News Item') + \
-                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath+self.newsBasePath+'/curs-actual/', portal_type='News Item') + \
-                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath+self.newsBasePath+self.newsFilePath+'/imatges/', portal_type='Image') + \
-                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath+self.newsBasePath+self.newsFilePath+'/documents/', portal_type='File'):
+        for obj in self.portalCatalog.unrestrictedSearchResults(path=self.basePath + self.newsBasePath + '/principal/', portal_type='News Item') + \
+                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath + self.newsBasePath + '/curs-actual/', portal_type='News Item') + \
+                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath + self.newsBasePath + self.newsFilePath + '/imatges/', portal_type='Image') + \
+                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath + self.newsBasePath + self.newsFilePath + '/documents/', portal_type='File'):
             api.content.delete(obj=obj.getObject())
         return 'cleanup done!'
 
@@ -479,8 +479,8 @@ class migrateEPSEVG(grok.View):
 
             self.newsAlias = self.normalizer.normalize(news['alias'])
             self.newsAlias += self.getFirstNonOccupiedPath(
-                                   [self.basePath, self.newsPath, '/', self.newsAlias],
-                                   [], portal_type='News Item')
+                [self.basePath, self.newsPath, '/', self.newsAlias],
+                [], portal_type='News Item')
 
             sourceCode = BeautifulSoup(news['contingut'].replace('\/', '/'), 'html.parser')
 
@@ -492,26 +492,37 @@ class migrateEPSEVG(grok.View):
 
             creationDate = DateTime(news['created'])
             try:
-                portalNoticies[self.newsPath].invokeFactory(
-                    type_name='News Item',
-                    id=self.newsAlias,
+                # portalNoticies[self.newsPath].invokeFactory(
+                #     type_name='News Item',
+                #     id=self.newsAlias,
+                #     title=news['title'],
+                #     text=IRichText['text'].fromUnicode(sourceCode).raw
+                # )
+                obj = api.content.create(
+                    container=portalNoticies[self.newsPath],
+                    type='News Item',
                     title=news['title'],
-                    text=IRichText['text'].fromUnicode(sourceCode)
-                )
-                portalNoticies[self.newsPath][self.newsAlias].creation_date = creationDate
-                portalNoticies[self.newsPath][self.newsAlias].setModificationDate(creationDate)
-                portalNoticies[self.newsPath][self.newsAlias].reindexObject(idxs=['created', 'modified'])
+                    id=self.newsAlias,
+                    safe_id=True)
+                obj.text = IRichText['text'].fromUnicode(sourceCode).raw
+                obj.creation_date = creationDate
+                obj.setModificationDate(creationDate)
+                obj.reindexObject(idxs=['created', 'modified'])
             except Exception as e:
                 self.info['err'].append('fatal error creating the news object')
                 self.info['err'].append('   reason: ' + str(e))
+
+            try:
+                transaction.get().commit()
+            except:
+                self.info['err'].append('fatal error recursion')
+                self.info['err'].append('   reason: ' + str(e))
+                continue
 
             self.info['cre'] = creationDate
             self.info['ali'] = self.newsAlias
             self.info['sec'] = self.newsPath
             self.logInfo()
-
-            transaction.get().commit()
-
         self.logPrint('\n')
 
         self.logPrint('\n')
@@ -546,4 +557,4 @@ class migrateEPSEVG(grok.View):
         if 'runMigration' in self.request.form:
             return self.runMigration()
 
-        return 'usage: /migrateEPSEVG?[<b><a href="?cleanUp">cleanUp</a></b>|<b><a href="?checkLog">checkLog</a></b>|<b><a href="?runMigration">runMigration</a></b>]'
+        return 'usage: /migrateEPSEVG?[<b><a href="?cleanUp">cleanUp</a></b> | <b><a href="?checkLog">checkLog</a></b> | <b><a href="?runMigration">runMigration</a></b>]'
