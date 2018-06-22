@@ -1,11 +1,20 @@
 Changelog
 =========
 
-2.53 (unreleased)
+2.53 (2018-06-22)
 -----------------
 
-- Nothing changed yet.
-
+* Error in multicontact recipient [Corina Riba]
+* solved problems with id generation and richtext field [Roberto Diaz]
+* testing error recursion [Roberto Diaz]
+* removed python-magic dependency [Roberto Diaz]
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [Roberto Diaz]
+* EPSEVG migration [alaa.moucharrafie]
+* Afegeix el titol de la pagina quan estan fora de navegacio en mobile [oscar.albareda]
+* Ajusta posicio boto compartir xarxes socials en mobile [oscar.albareda]
+* Recupera el boto compartir xarxes socials en mobile [oscar.albareda]
+* Contacto: Avisar al usuario que no ha seleccionado ningun receptor [iago.lopez]
+* Merge remote-tracking branch 'remotes/origin/develop' into develop [Roberto Diaz]
 
 2.52 (2018-05-04)
 -----------------
