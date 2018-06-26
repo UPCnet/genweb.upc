@@ -83,7 +83,7 @@ from zope.component import getUtility
 #       http://{base}/migrateEPSEVG
 #     donde {base} puede ser, por ejemplo, www.epsevg.upc.edu
 #
-#  4. De las tres opciones que aparecen (cleanUp, runMigration,
+#  4. De las dos opciones que aparecen (runMigration,
 #     checkLog), clicad en runMigration y esperad entre hora y media
 #     y dos horas.
 #
@@ -160,9 +160,6 @@ from zope.component import getUtility
 #     título ERROR, de la misma manera que los no errores aparecen
 #     bajo el título INFO.
 #
-#  8. En caso de querer eliminar todo lo generado para volver a
-#     iniciar el proceso, clicad en cleanUp.
-
 #
 # PREVIO AL FUNCIONAMIENTO
 #####################################################################
@@ -207,6 +204,27 @@ from zope.component import getUtility
 #     y decisiones tomadas e informando en caso de error.
 
 
+class showNewsDates(grok.View):
+    grok.context(IPloneSiteRoot)
+    grok.name('showNewsDates')
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+        news = api.content.find(portal_type='News Item')
+        dades = []
+        for item in news:
+            new_item = item.getObject()
+            dades.append(dict(
+                created=new_item.created().strftime('%Y/%m/%d %H:%M'),
+                modified=new_item.modified().strftime('%Y/%m/%d %H:%M'),
+                effective=new_item.effective().strftime('%Y/%m/%d %H:%M'),
+                title=new_item.Title(),
+                path=new_item.absolute_url(),
+                id=new_item.id))
+
+        return json.dumps(dades)
+
+
 class migrateEPSEVG(grok.View):
     grok.context(IPloneSiteRoot)
     grok.name('migrateEPSEVG')
@@ -226,7 +244,7 @@ class migrateEPSEVG(grok.View):
     docTypes = ['doc', 'docx', 'pdf']
 
     newsLimit = -1
-    basePath = '/EPSEVG/ca/noticies/'
+    basePath = '/Plone/ca/noticies/'
     newsFilePath = '/annexos-de-noticies'
 
     def isInternal(self, link):
@@ -428,14 +446,6 @@ class migrateEPSEVG(grok.View):
 
         self.logPrint('\n')
 
-    def cleanUp(self):
-        for obj in self.portalCatalog.unrestrictedSearchResults(path=self.basePath + '/principal/', portal_type='News Item') + \
-                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath + '/curs-actual/', portal_type='News Item') + \
-                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath + self.newsFilePath + '/imatges/', portal_type='Image') + \
-                   self.portalCatalog.unrestrictedSearchResults(path=self.basePath + self.newsFilePath + '/documents/', portal_type='File'):
-            api.content.delete(obj=obj.getObject())
-        return 'cleanup done!'
-
     def checkLog(self):
         with open(self.logPath, 'r') as self.logFileHandler:
             return '<pre>' + self.logFileHandler.read() + '</pre>'
@@ -459,7 +469,8 @@ class migrateEPSEVG(grok.View):
                 return "The json file is not valid. Check it."
         if self.newsLimit != -1:
             newsList = newsList[:self.newsLimit]
-
+        # import ipdb; ipdb.set_trace()
+        # newsList = newsList[417:420]
         self.logPrint('%d news need to be migrated' % len(newsList))
 
         for counter, news in enumerate(newsList):
@@ -480,7 +491,6 @@ class migrateEPSEVG(grok.View):
             self.newsAlias += self.getFirstNonOccupiedPath(
                 [self.basePath, self.newsPath, '/', self.newsAlias],
                 [], portal_type='News Item')
-
             sourceCode = BeautifulSoup(news['contingut'].replace('\/', '/'), 'html.parser')
 
             try:
@@ -495,8 +505,12 @@ class migrateEPSEVG(grok.View):
             transaction.commit()
 
             item = api.content.find(container=portalNoticies[self.newsPath], type='News Item', id=newitem.id)[0].getObject()
-            item.text = RichTextValue(unicode(sourceCode), 'text/html', 'text/html')
+            try:
+                item.text = RichTextValue(unicode(sourceCode), 'text/html', 'text/html')
+            except:
+                self.info['err'].append('  RICHTEXT PROBLEMS')
             item.creation_date = creationDate
+            item.effective_date = creationDate
             item.setModificationDate(creationDate)
             item.reindexObject(idxs=['created', 'modified', 'text'])
 
@@ -529,13 +543,10 @@ class migrateEPSEVG(grok.View):
         self.portal = api.portal.get()['ca']['noticies']
         self.logPath = '/tmp/migration.log'
 
-        if 'cleanUp' in self.request.form:
-            return self.cleanUp()
-
         if 'checkLog' in self.request.form:
             return self.checkLog()
 
         if 'runMigration' in self.request.form:
             return self.runMigration()
 
-        return 'usage: /migrateEPSEVG?[<b><a href="?cleanUp">cleanUp</a></b> | <b><a href="?checkLog">checkLog</a></b> | <b><a href="?runMigration">runMigration</a></b>]'
+        return 'usage: /migrateEPSEVG?[<b><a href="?checkLog">checkLog</a></b> | <b><a href="?runMigration">runMigration</a></b>]'
