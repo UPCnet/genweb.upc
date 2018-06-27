@@ -214,11 +214,17 @@ class showNewsDates(grok.View):
         dades = []
         for item in news:
             new_item = item.getObject()
+            if new_item.text is None:
+                text = 'ERROR - RICHTEXT IS EMPTY '
+            else:
+                text = 'OK'
+
             dades.append(dict(
-                created=new_item.created().strftime('%Y/%m/%d %H:%M'),
-                modified=new_item.modified().strftime('%Y/%m/%d %H:%M'),
+                created=new_item.creation_date.strftime('%Y/%m/%d %H:%M'),
+                modified=new_item.modification_date.strftime('%Y/%m/%d %H:%M'),
                 effective=new_item.effective().strftime('%Y/%m/%d %H:%M'),
                 title=new_item.Title(),
+                richtext=text,
                 path=new_item.absolute_url(),
                 id=new_item.id))
 
@@ -244,7 +250,7 @@ class migrateEPSEVG(grok.View):
     docTypes = ['doc', 'docx', 'pdf']
 
     newsLimit = -1
-    basePath = '/Plone/ca/noticies/'
+    basePath = '/EPSEVG/ca/noticies/'
     newsFilePath = '/annexos-de-noticies'
 
     def isInternal(self, link):
