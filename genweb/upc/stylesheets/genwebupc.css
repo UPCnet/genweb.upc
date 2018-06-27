@@ -14343,7 +14343,7 @@ NOTEBOOK
   border-top: 3px double #ffb68d !important;
 }
 
-/* 
+/*
 .table
 .table-striped
 .table-bordered
@@ -19609,4 +19609,8 @@ div.legend table div {
 /* line 370, ../scss/genwebupc.scss */
 #peu .container a {
   color: #0074B5;
+}
+
+body.template-event_view #content-history {
+  display:none;
 }
