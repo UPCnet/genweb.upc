@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.54 (unreleased)
+2.54 (2018-06-27)
 -----------------
 
-- Nothing changed yet.
-
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [Corina Riba]
+* Hide history link from events [Corina Riba]
+* added richtext log info [Roberto Diaz]
+* updated bootstrap [Roberto Diaz]
+* updated epsevg migrator [Roberto Diaz]
 
 2.53 (2018-06-22)
 -----------------
