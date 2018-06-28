@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.55 (unreleased)
+2.55 (2018-06-28)
 -----------------
 
-- Nothing changed yet.
-
+* remove bs4 from code [Roberto Diaz]
 
 2.54 (2018-06-27)
 -----------------
