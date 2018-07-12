@@ -19,6 +19,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from plone.app.layout.navigation.interfaces import INavigationRoot
 
+
+from z3c.form import widget
+
 from genweb.theme.browser.interfaces import IGenwebTheme
 
 from genweb.core import utils
@@ -98,6 +101,7 @@ def is_checked(value):
 class IContactForm(form.Schema):
     """Define the fields of our form
     """
+
     recipient = Choice(title=_('to_address',
                        default=u"Recipient"),
                        vocabulary="availableContacts",
@@ -126,6 +130,11 @@ class IContactForm(form.Schema):
     captcha = TextLine(title=_('genweb_type_the_code', default="Type the code"),
                        description=_('genweb_help_type_the_code', default="Type the code from the picture shown below"),
                        required=True)
+
+
+noValueMessage = widget.StaticWidgetAttribute(_core(u'custom message'),
+                                              field=IContactForm['recipient'])
+grok.global_adapter(noValueMessage, name=u"noValueMessage")
 
 
 class ContactForm(form.SchemaForm):
