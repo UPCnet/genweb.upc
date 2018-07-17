@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.56 (unreleased)
+2.56 (2018-07-17)
 -----------------
 
-- Nothing changed yet.
-
+* Override "no value" option for select list [Corina Riba]
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [Roberto Diaz]
+* fixed urllib in travis cfg [Roberto Diaz]
 
 2.55 (2018-06-28)
 -----------------
