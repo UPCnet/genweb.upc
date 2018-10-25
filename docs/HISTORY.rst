@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.57 (unreleased)
+2.57 (2018-10-25)
 -----------------
 
-- Nothing changed yet.
-
+* Redo contingut existent from packages [Corina Riba]
 
 2.56 (2018-07-17)
 -----------------
