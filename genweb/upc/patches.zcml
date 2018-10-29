@@ -40,4 +40,11 @@
         replacement=".patches.custom_folder.results"
         />
 
+    <monkey:patch
+        description="Ban caches from varnish"
+        class="plone.cachepurging.purger.DefaultPurger"
+        original="_purgeSync"
+        replacement=".patches.custom_cachepurge._purgeSync"
+        />
+
 </configure>
