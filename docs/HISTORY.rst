@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.58 (unreleased)
+2.57 (2018-10-30)
 -----------------
 
 - Nothing changed yet.
