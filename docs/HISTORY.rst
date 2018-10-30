@@ -1,11 +1,18 @@
 Changelog
 =========
 
-2.57 (unreleased)
+2.57 (2018-10-30)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* Revert "Redo contingut existent from packages" [Corina Riba]
+*  [Corina Riba]
+* This reverts commit 0f05e5b82419aaf90b38d820a3b42ec3244f3694. [Corina Riba]
+* Revert "Preparing release 2.57" [Corina Riba]
+*  [Corina Riba]
+* This reverts commit 2d6392afad0d445352538868a4c52fed089fb617. [Corina Riba]
+*  [Corina Riba]
+* This reverts commit 6f797213d47a730ce4063cfc9046835c871098f6. [Corina Riba]
 
 2.56 (2018-07-17)
 -----------------
