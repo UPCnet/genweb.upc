@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
+from persistent.dict import PersistentDict
 from zope.interface import implements
 from zope.component import adapts
+from zope.annotation.interfaces import IAnnotations
 
 from genweb.packets.interfaces import Ipacket, IpacketDefinition
 from genweb.packets.base import BasePacket
+from genweb.packets import PACKETS_KEY
 from genweb.packets import packetsMessageFactory as _
 
-from zope import schema
+
 
 
 class FitxaGrau(BasePacket):
@@ -23,7 +26,6 @@ class FitxaGrau(BasePacket):
         self.fields = [_(u'codi_grau')]
         self.default = dict([(field, '') for field in self.fields])
         self.mapui = dict(codi=u'codi_grau')
-
 
 class PlaEstudisGrau(BasePacket):
     implements(IpacketDefinition)
@@ -109,22 +111,21 @@ class InvestigadorsGrupRecercaDepartament(BasePacket):
         self.mapui = dict(codi=u'acronim')
 
 
+
+
 class ContingutGenweb(BasePacket):
     implements(IpacketDefinition)
     adapts(Ipacket)
 
     order = 8
 
-    urltype = schema.Text(
-        title=_(u'Type of URL'),
-        description=_(u'Extern or intern link'),
-    )
-
     def __init__(self, context):
         self.context = context
         self.title = _(u"Contingut existent")
         self.description = _(u"Contingut d'una pàgina externa")
         self.URL_schema = '%(url_contingut)s'
-        self.fields = [_(u'url_type'), _(u'url_contingut'), _(u'element')]
+        #dos parametres, url_contingut i element
+        self.fields = [_(u'url_contingut'), _(u'element')]
         self.default = dict([(field, '') for field in self.fields])
-        self.mapui = dict(type=u'url_type', codi=u'url_contingut', element=u'element')
+        self.mapui = dict(codi=u'url_contingut', element=u'element')
+
