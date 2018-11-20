@@ -1,5 +1,5 @@
 *.py[cod]
-
+package-lock.json
 # C extensions
 *.so
 
