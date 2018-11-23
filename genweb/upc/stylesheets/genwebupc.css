@@ -13554,9 +13554,19 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   background-image: url("/++resource++genweb_kbtic_images/notes-icon.png") !important;
   background-position: 0px; }
 
-.userrole-authenticated .amaga-autenticat,
-.userrole-anonymous .amaga-no-autenticat {
+.userrole-basic .no-autenticat,
+.userrole-anonymous .no-autenticat {
+  display: block; }
+
+.userrole-premium .no-autenticat {
   display: none; }
+
+.userrole-basic .autenticat,
+.userrole-anonymous .autenticat {
+  display: none; }
+
+.userrole-premium .autenticat {
+  display: block; }
 
 #amagat {
   display: none; }

@@ -281,10 +281,22 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   background-position: 0px;
 }
 
-// oculta text si usuari autenticat o no
-.userrole-authenticated .amaga-autenticat,
-.userrole-anonymous .amaga-no-autenticat {
+// Missatge per preguntar si ets Premium
+.userrole-basic .no-autenticat,
+.userrole-anonymous .no-autenticat {
+  display:block;
+}
+.userrole-premium .no-autenticat {
+  display: none;
+}
+
+// Missatge per accedir a la borsa com a Premium
+.userrole-basic .autenticat,
+.userrole-anonymous .autenticat {
   display:none;
+}
+.userrole-premium .autenticat {
+  display:block;
 }
 
 // boto seu electronica
