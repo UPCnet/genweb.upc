@@ -9,7 +9,7 @@ from genweb.packets.base import BasePacket
 from genweb.packets import PACKETS_KEY
 from genweb.packets import packetsMessageFactory as _
 
-
+from zope import schema
 
 
 class FitxaGrau(BasePacket):
@@ -119,13 +119,18 @@ class ContingutGenweb(BasePacket):
 
     order = 8
 
+    urltype = schema.Text(
+        title=_(u'Type of URL'),
+        description=_(u'Extern or intern link'),
+    )
+
     def __init__(self, context):
         self.context = context
         self.title = _(u"Contingut existent")
         self.description = _(u"Contingut d'una pàgina externa")
         self.URL_schema = '%(url_contingut)s'
-        #dos parametres, url_contingut i element
-        self.fields = [_(u'url_contingut'), _(u'element')]
+        #tres parametres, url_type, url_contingut i element
+        self.fields = [_(u'url_type'), _(u'url_contingut'), _(u'element')]
         self.default = dict([(field, '') for field in self.fields])
-        self.mapui = dict(codi=u'url_contingut', element=u'element')
+        self.mapui = dict(type=u'url_type', codi=u'url_contingut', element=u'element')
 
