@@ -7,22 +7,23 @@
       i18n:domain="plone.app.event">
     <body>
       <metal:content-title fill-slot="content-title">
-        <h1 class="documentFirstHeading"> 
+        <h1 class="documentFirstHeading">
           <span tal:content="context/title" tal:omit-tag="">Directory Id</span>
-          <tal:block tal:condition="view/tags" tal:omit-tag="">- 
+          <tal:block tal:condition="view/tags" tal:omit-tag="">-
             <tal:block tal:content="view/tags" tal:omit-tag="">url</tal:block>
           </tal:block>
-          
-        </h1>        
+
+        </h1>
       </metal:content-title>
-         
+
         <metal:content-core fill-slot="content-core">
                 <tal:def define="batch view/news;
                                  mode request/mode|string:all;
                                  toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
                     <div role="complementary">
                         <ul class="list-portlet">
-                            <li tal:repeat="data batch">
+                            <tal:rep repeat="data batch">
+                              <li tal:condition="data/is_important">
                                 <a href="" tal:attributes="href data/getURL">
                                     <img tal:condition="data/news_image_filename|nothing"
                                          tal:attributes="src string:${data/getURL}/@@images/image/tile"
@@ -46,6 +47,34 @@
                                         </p>
                                     </div>
                              </li>
+                            </tal:rep>
+                            <tal:rep repeat="data batch">
+                              <li tal:define="is_important data/is_important" tal:condition="python: not is_important">
+                                <a href="" tal:attributes="href data/getURL">
+                                    <img tal:condition="data/news_image_filename|nothing"
+                                         tal:attributes="src string:${data/getURL}/@@images/image/tile"
+                                         alt=""
+                                         class="image-noticies" >  <!-- large, preview, mini, thumb, tile, icon -->
+                                </a>
+                                    <strong>
+                                        <a href="" itemprop="url" class="url" tal:attributes="href data/getURL">
+                                            <span itemprop="summary" class="summary" tal:content="data/pretty_title_or_id">Title</span>
+                                        </a>
+                                    </strong>
+                                    <p class="smaller data-noticies">
+                                        <time class="smaller data-noticies"
+                                              tal:content="python:toLocalizedTime(data.EffectiveDate)">
+                                              May 5
+                                        </time>
+                                    </p>
+                                    <div class="content-noticies">
+                                        <p tal:content="data/Description">
+                                            New description
+                                        </p>
+                                    </div>
+                             </li>
+                            </tal:rep>
+                        </ul>
                     </div>
                     <div metal:use-macro="context/batch_macros/macros/navigation" />
                 </tal:def>

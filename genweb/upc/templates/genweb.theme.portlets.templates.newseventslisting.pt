@@ -55,7 +55,7 @@
       <ul id="portlet-navigation-tree" class="mode_selector nav nav-list">
         <li tal:attributes="class python: 'active' if not view.tags else '';">
           <div>
-            <a href="" i18n:translate="all_news" tal:attributes="href python: view._news_nav_url(); class python: 'active' if not view.tags else 'kk';">
+            <a href="" i18n:translate="all_news" tal:attributes="href python: view._news_nav_url(); class python: 'active' if not view.tags else 'noactive';">
               All news
             </a>
           </div>
