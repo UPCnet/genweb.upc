@@ -1,11 +1,16 @@
 Changelog
 =========
 
-2.59 (unreleased)
+2.59 (2018-11-30)
 -----------------
 
-- Nothing changed yet.
-
+* News view idem news portlet [Corina Riba]
+* template and fields contingut upc [r.ventura]
+* album ya pagina (cada 20 img) [r.ventura]
+* Afegir clases per mostrar missatges a la Borsa de Treball Alumni [alberto.duran]
+* ignore package-lock.json [alberto.duran]
+* grunt done [alberto.duran]
+* Estilos centrar imagen del tiny (falta grunt) [Iago López Fernández]
 
 2.58 (2018-10-30)
 -----------------
