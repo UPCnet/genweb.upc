@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.60 (unreleased)
+2.60 (2018-12-13)
 -----------------
 
-- Nothing changed yet.
-
+* Revert "template and fields contingut upc" [Corina Riba]
+*  [Corina Riba]
+* This reverts commit 3ba35f2e7c7f9f822500da5fb3d41ae50dc86bc6. [Corina Riba]
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [Corina Riba]
+* Fix RSS icon position in portlets [Corina Riba]
 
 2.59 (2018-11-30)
 -----------------
