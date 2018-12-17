@@ -11,10 +11,15 @@
 <metal:main_macro define-macro="content-core"
     tal:define="images view/album_images;
                 albums view/album_folders;
+                object_type context/portal_type;
                 Batch python:modules['Products.CMFPlone'].Batch;
                 number_of_images view/album_number_images;
                 b_start python:request.get('b_start', 0);
                 batch python:Batch(images, 20, int(b_start), orphan=1)">
+
+                <!--  Col : Batch(images, 20, 0, orphan=1)
+                      Fold: Batch(images, 20, int(b_start), orphan=1)-->
+
 
   <div metal:define-macro="text-field-view"
       id="parent-fieldname-text" class="stx"
@@ -23,25 +28,51 @@
       tal:attributes="class view/text_class">
     <div metal:define-slot="inside" tal:replace="structure text">The body</div>
   </div>
-  
-  <tal:images tal:condition="batch" tal:repeat="image batch" >
-    <div tal:define="imageObj image/getObject; object_type context/portal_type; item_exclude_from_nav imageObj/exclude_from_nav;">
-      <div class="photoAlbumEntry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
-        <a tal:attributes="href string:${image/getURL}/view;
-                           title image/Description">
-          <span class="photoAlbumEntryWrapper">
-            <img tal:define="ob image/getObject;
-                             scale ob/@@images;
-                             img_tag python:scale.scale('image', scale='thumb').tag()"
-                tal:replace="structure img_tag" />
-          </span>
-          <span class="photoAlbumEntryTitle" tal:content="image/Title">
-              Title
-          </span>
-        </a>
+
+  <!--For folders-->
+  <div tal:condition="python:object_type == 'Folder'">
+    <tal:images tal:condition="batch" tal:repeat="image batch" >
+      <div tal:define="imageObj image/getObject; object_type context/portal_type; item_exclude_from_nav imageObj/exclude_from_nav">
+        <div class="photoAlbumEntry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
+          <a tal:attributes="href string:${image/getURL}/view;
+                             title image/Description">
+            <span class="photoAlbumEntryWrapper">
+              <img tal:define="ob image/getObject;
+                               scale ob/@@images;
+                               img_tag python:scale.scale('image', scale='thumb').tag()"
+                  tal:replace="structure img_tag" />
+            </span>
+            <span class="photoAlbumEntryTitle" tal:content="image/Title">
+                Title
+            </span>
+          </a>
+        </div>
       </div>
-    </div>
-  </tal:images>
+    </tal:images>
+  </div>
+
+  <!--For colections-->
+  <div tal:condition="python:object_type == 'Collection'" tal:define="batch python:Batch(images, 20, 0, orphan=1)"">
+    <tal:images tal:condition="batch" tal:repeat="image batch">
+      <div tal:define="imageObj image/getObject; object_type context/portal_type; item_exclude_from_nav imageObj/exclude_from_nav">
+        <div class="photoAlbumEntry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
+          <a tal:attributes="href string:${image/getURL}/view;
+                             title image/Description">
+            <span class="photoAlbumEntryWrapper">
+              <img tal:define="ob image/getObject;
+                               scale ob/@@images;
+                               img_tag python:scale.scale('image', scale='thumb').tag()"
+                  tal:replace="structure img_tag" />
+            </span>
+            <span class="photoAlbumEntryTitle" tal:content="image/Title">
+                Title
+            </span>
+          </a>
+        </div>
+      </div>
+    </tal:images>
+  </div>
+
 
   <div class="visualClear"><!-- --></div>
 
