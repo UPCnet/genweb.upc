@@ -10054,7 +10054,7 @@ NOTEBOOK
   .table-notebook tr:first-child td {
     border-top: 3px double #ffb68d !important; }
 
-/* 
+/*
 .table
 .table-striped
 .table-bordered
@@ -13656,5 +13656,8 @@ div.legend table div {
 .image-center {
   display: block;
   margin: auto; }
+
+ .template-folder_contents.portaltype-lrf a.link-parent {
+  display: none; }
 
 /*# sourceMappingURL=genwebupc.css.map */
