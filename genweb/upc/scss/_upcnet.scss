@@ -392,3 +392,14 @@ select {
 .icon-serveitic {
   background-position: -432px -144px;
 }
+
+
+// Avoid duplicate description in collection of events
+
+body.template-full_view .event {
+    margin-top: 18px;
+
+    & > .documentDescription {
+        display: none;
+    }
+}
