@@ -1,11 +1,15 @@
 Changelog
 =========
 
-2.61 (unreleased)
+2.61 (2019-02-14)
 -----------------
 
-- Nothing changed yet.
-
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [r.ventura]
+* vista album pagina para carpetas, pero no para collections [r.ventura]
+* Show parent-link in LRF [Corina Riba]
+* Hide parent-link in LRF [Corina Riba]
+* Estilos: Evitar la descripción duplicada de los eventos en las colecciones [Iago López Fernández]
+* Colección ya pagina [r.ventura]
 
 2.60 (2018-12-13)
 -----------------
