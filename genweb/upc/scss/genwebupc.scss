@@ -281,21 +281,27 @@ i.icon-kbticdocument, a.state-visible.contenttype-kbticdocument::before {
   background-position: 0px;
 }
 
+// oculta text si usuari autenticat o no
+.userrole-authenticated .amaga-autenticat,
+.userrole-anonymous .amaga-no-autenticat {
+  display:none;
+}
+
 // Missatge per preguntar si ets Premium
-.userrole-basic .no-autenticat,
-.userrole-anonymous .no-autenticat {
+.userrole-basic .alumni-no-autenticat,
+.userrole-anonymous .alumni-no-autenticat {
   display:block;
 }
-.userrole-premium .no-autenticat {
+.userrole-premium .alumni-no-autenticat {
   display: none;
 }
 
 // Missatge per accedir a la borsa com a Premium
-.userrole-basic .autenticat,
-.userrole-anonymous .autenticat {
+.userrole-basic .alumni-autenticat,
+.userrole-anonymous .alumni-autenticat {
   display:none;
 }
-.userrole-premium .autenticat {
+.userrole-premium .alumni-autenticat {
   display:block;
 }
 
