@@ -130,7 +130,7 @@
 
           }          
           }
-          
+
         }
         $( window ).on( "orientationchange", function( event ) {
           ajustaMenus();
@@ -142,7 +142,7 @@
     <div class="nav-collapse nav-collapse-eines hidden-desktop"
          tal:define="dades context/@@genweb.utils/getDadesUnitat">
          
-      <ul id="eines" class="nav nav-pills pull-right">
+      <ul id="eines-mov" class="nav nav-pills pull-right">
         
         <tal:genwebpamls condition="viewlet/is_pam_installed">
           <tal:block replace="structure provider:genweb.pamls" />
@@ -257,7 +257,7 @@
      i18n:domain="genweb">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="loginModalLabel" i18n:translate="label_start_session">Inicia la sessió</h3>
+    <h2 id="loginModalLabel" i18n:translate="label_start_session">Inicia la sessió</h2>
   </div>
   <div class="modal-body">
     The popup login form
