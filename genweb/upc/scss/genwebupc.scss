@@ -394,3 +394,15 @@ div.legend table div {display: block !important;}
     display: block;
     margin: auto;
 }
+
+body.template-event_view #content-history {
+  display:none;
+}
+
+#eines-mov {
+    text-align: right;
+  }
+  #eines-mov ul {
+      margin: 0; }
+  #eines-mov li {
+      padding: 8px; }

@@ -93,7 +93,7 @@ background-image: image-url("gh-w.png") !important;
 }
 .logoPropi {height:49px;display:table-cell; vertical-align:middle;min-width: 49px; padding:5px 0;}
 
-#eines {
+#eines #eines-mov {
 	margin:15px 0 0 0;
 	& > li:not(:first-child) > a:before {
   		content: '·';
@@ -116,12 +116,12 @@ background-image: image-url("gh-w.png") !important;
 	& .adjust-langs {min-width:87px !important;}
 }
 
-#eines input.cercaupc {
+#eines #eines-mov input.cercaupc {
   width: 124px !important;
   @include transition(all 0.5s ease-in-out !important);
 }
 
-#eines input.cercaupc:focus {
+#eines #eines-mov input.cercaupc:focus {
   width: 200px !important;
   @include transition(all 0.5s in-out !important);
 }
