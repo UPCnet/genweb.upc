@@ -1,11 +1,17 @@
 Changelog
 =========
 
-2.63 (unreleased)
+2.63 (2019-03-18)
 -----------------
 
-- Nothing changed yet.
-
+* add and grunt new styles [Corina Riba]
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [r.ventura]
+* show link-parent back [r.ventura]
+* Evitar Redraw y aplicar estilos al inicio [alberto.duran]
+* Hide parent-link in LRF again [r.ventura]
+* Merge branch 'develop' of github.com:UPCnet/genweb.upc into develop [r.ventura]
+* id eines duplicated fixed + css [r.ventura]
+* Restaurar classes .amaga-autenticat i .amaga-no-autenticat [alberto.duran]
 
 2.62 (2019-02-28)
 -----------------
