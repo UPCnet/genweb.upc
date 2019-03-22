@@ -136,9 +136,9 @@
 
   #portal-sitemap ul {-webkit-column-count: 1;-moz-column-count: 1;column-count: 1;}
 
-  //#eines #eines-mov input, #eines #eines-mov input:focus {min-width: 65%; max-width:65% !important;}
+  // #eines input, #eines-mov input, #eines input:focus, #eines-mov input:focus {min-width: 65%; max-width:65% !important;}
 
-  #eines #eines-mov button {width: 34%;line-height: 20px;}
+  #eines button, #eines-mov button {width: 34%;line-height: 20px;}
 
   .portlet-baners {text-align: center;}
 

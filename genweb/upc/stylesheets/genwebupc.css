@@ -8273,33 +8273,33 @@ button.pfg-draft-save .badge,
   min-width: 49px;
   padding: 5px 0; }
 
-#eines #eines-mov {
+#eines, #eines-mov {
   margin: 15px 0 0 0; }
-  #eines #eines-mov > li:not(:first-child) > a:before {
+  #eines > li:not(:first-child) > a:before, #eines-mov > li:not(:first-child) > a:before {
     content: '·';
     margin-right: 3px; }
-  #eines #eines-mov > li > a {
+  #eines > li > a, #eines-mov > li > a {
     border-radius: 4px;
     margin-top: 0px;
     padding-bottom: 7px;
     padding-top: 6px;
     padding-left: 0px;
     padding-right: 2px; }
-  #eines #eines-mov .input-append {
+  #eines .input-append, #eines-mov .input-append {
     border-left: 1px dotted #b2b2b2;
     margin-left: 2px;
     padding-left: 5px; }
-  #eines #eines-mov .adjust-langs {
+  #eines .adjust-langs, #eines-mov .adjust-langs {
     min-width: 87px !important; }
 
-#eines #eines-mov input.cercaupc {
+#eines input.cercaupc, #eines-mov input.cercaupc {
   width: 124px !important;
   -moz-transition: all 0.5s !important;
   -o-transition: all 0.5s !important;
   -webkit-transition: all 0.5s !important;
   transition: all 0.5s !important; }
 
-#eines #eines-mov input.cercaupc:focus {
+#eines input.cercaupc:focus, #eines-mov input.cercaupc:focus {
   width: 200px !important;
   -moz-transition: all 0.5s !important;
   -o-transition: all 0.5s !important;
@@ -11814,7 +11814,7 @@ html {
     -moz-column-count: 1;
     column-count: 1; }
 
-  #eines #eines-mov button {
+  #eines button, #eines-mov button {
     width: 34%;
     line-height: 20px; }
 
@@ -12315,7 +12315,7 @@ input[type="radio"].required:after {
 .fieldTextFormat {
   display: none; }
 
-#eines #eines-mov .typeahead.dropdown-menu a {
+#eines .typeahead.dropdown-menu a, #eines-mov .typeahead.dropdown-menu a {
   font-size: 12px; }
 
 .QueryWidget {
