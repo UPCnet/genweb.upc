@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.64 (unreleased)
+2.64 (2019-03-22)
 -----------------
 
-- Nothing changed yet.
-
+* Add eines padding [Corina Riba]
 
 2.63 (2019-03-18)
 -----------------
