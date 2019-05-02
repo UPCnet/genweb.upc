@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.65 (unreleased)
+2.65 (2019-05-02)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [r.ventura]
+* [Collection] previsualizar solamente los items del lenguaje actual [r.ventura]
+* Copy Tiny settings from genweb.core to genweb.upc, adding the upc stylesheet to avoid reinstalling settings twice when UPCchanges have to be done [Corina Riba]
 
 2.64 (2019-03-22)
 -----------------
