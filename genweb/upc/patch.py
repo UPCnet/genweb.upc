@@ -12,6 +12,8 @@ from Products.CMFCore.utils import getToolByName
 from plone.batching import Batch
 from plone.memoize.instance import memoize
 
+from genweb.core.utils import pref_lang
+
 
 logger = logging.getLogger('plone.app.querystring')
 _ = MessageFactory('plone')
@@ -106,8 +108,15 @@ def _makequery(self, query=None, batch=False, b_start=0, b_size=30,
             and results.actual_result_count > limit:
         results.actual_result_count = limit
 
+    # get just the context language
+    results_by_lang = []
+    for res in results:
+        obj = res.getObject()
+        if obj.language == pref_lang():
+            results_by_lang.append(res)
+
     if not brains:
-        results = IContentListing(results)
+        results = IContentListing(results_by_lang)
     if batch:
         results = Batch(results, b_size, start=b_start)
     return results
