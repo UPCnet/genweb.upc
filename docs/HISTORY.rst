@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.66 (unreleased)
+2.66 (2019-05-02)
 -----------------
 
 - Nothing changed yet.
