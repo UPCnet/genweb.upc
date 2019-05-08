@@ -1,11 +1,29 @@
 Changelog
 =========
 
-2.64 (unreleased)
+2.67 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.66 (2019-05-02)
+-----------------
+
+- Nothing changed yet.
+
+
+2.65 (2019-05-02)
+-----------------
+
+* Merge remote-tracking branch 'origin/develop' [r.ventura]
+* [Collection] previsualizar solamente los items del lenguaje actual [r.ventura]
+* Copy Tiny settings from genweb.core to genweb.upc, adding the upc stylesheet to avoid reinstalling settings twice when UPCchanges have to be done [Corina Riba]
+
+2.64 (2019-03-22)
+-----------------
+
+* Add eines padding [Corina Riba]
 
 2.63 (2019-03-18)
 -----------------
