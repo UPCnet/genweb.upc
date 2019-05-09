@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.68 (unreleased)
+2.68 (2019-05-09)
 -----------------
 
-- Nothing changed yet.
-
+* limit previsualization collection changed [r.ventura]
 
 2.67 (2019-05-08)
 -----------------
