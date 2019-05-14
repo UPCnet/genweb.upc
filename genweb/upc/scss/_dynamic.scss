@@ -36,7 +36,7 @@ div.fitxa {border-right:20px solid lighten($genwebPrimary,35%);}
 #document-toc ol.TOC1Digit li:before 	// index contingut pagina
 {
 	color: $genwebPrimary;
-} 
+}
 
 //MOBILE res de res
 //NAV res de res
@@ -57,7 +57,7 @@ div.label, label *.label { color: $genwebTitles;}
 
 //TABLES
 .table tr:first-child td {border-top:5px solid lighten($genwebPrimary, 10%);}
-.table tbody tr th:first-child {
+.table-no-heading-border tbody tr th:first-child {
     border-right: 5px solid lighten($genwebPrimary, 10%);;
 }
 //TEXTS
@@ -70,6 +70,6 @@ h1, h2, h3 {color:$genwebTitles; }
 .sheet { border-right:20px solid lighten($genwebPrimary,35%); }
 
 // portlet existing_content
-.existing_content_portlet h2.portlet-title { border-bottom: 5px solid $genwebPrimary; } 
+.existing_content_portlet h2.portlet-title { border-bottom: 5px solid $genwebPrimary; }
 
 // ...
