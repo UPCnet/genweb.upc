@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.69 (unreleased)
+2.69 (2019-05-27)
 -----------------
 
-- Nothing changed yet.
-
+* Change ADAS to SSO toucher [r.ventura]
+* Modificar estilo tablas [Iago López Fernández]
 
 2.68 (2019-05-09)
 -----------------
