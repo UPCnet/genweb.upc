@@ -72,4 +72,9 @@ h1, h2, h3 {color:$genwebTitles; }
 // portlet existing_content
 .existing_content_portlet h2.portlet-title { border-bottom: 5px solid $genwebPrimary; }
 
+// PORTLET Grid Events
+.list-agenda.row .card .event-time {
+    background-image: linear-gradient(89deg, lighten($genwebPrimary, 20%) 0%, $genwebPrimary 100%);
+}
+
 // ...
