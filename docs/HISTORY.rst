@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.70 (unreleased)
+2.70 (2019-07-03)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos portlet Grid events [Iago López Fernández]
 
 2.69 (2019-05-27)
 -----------------
