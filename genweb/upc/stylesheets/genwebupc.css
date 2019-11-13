@@ -9226,6 +9226,11 @@ a.primary, .primary a, a .primary {
   .text-over-image .caption, .text-over-image .photoAlbumEntry a .photoAlbumEntryTitle, .photoAlbumEntry a .text-over-image .photoAlbumEntryTitle {
     padding: 20px; }
 
+body.forceColors select#tpath option[disabled] {
+  color: #007ac1;
+  font-weight: 600;
+  text-transform: uppercase; }
+
 .lead, .lead-small, .destacatQuadres, .portaltype-packet .estudis .note, .lead-large, .sheet, div.fitxa, .destacatBandejat, .textDestacat {
   margin-bottom: 18px;
   font-size: 100%;

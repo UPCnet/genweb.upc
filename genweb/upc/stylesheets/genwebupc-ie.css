@@ -4850,6 +4850,12 @@ a .primary {
   padding: 20px;
 }
 
+body.forceColors select#tpath option[disabled] {
+  color: #007ac1;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .lead,
 .lead-small,
 .destacatQuadres,

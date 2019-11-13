@@ -230,4 +230,12 @@ $beautytabcolor: #b2b2b2;
     	padding: 20px;
     }
 }
+
+// Tiny
+body.forceColors select#tpath option[disabled] {
+	color: #007ac1;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
 // fi text over image
