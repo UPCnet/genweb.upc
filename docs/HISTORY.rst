@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.71 (unreleased)
+2.71 (2019-11-14)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos Tiny [Iago López Fernández]
 
 2.70 (2019-07-03)
 -----------------
