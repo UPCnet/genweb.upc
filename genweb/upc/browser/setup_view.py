@@ -1,39 +1,39 @@
 # -*- coding: utf-8 -*-
-from five import grok
-from plone import api
-from cgi import parse_qs
-from zope.interface import alsoProvides
-from zope.component import getMultiAdapter
-from zope.component import queryUtility
-
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import normalizeString
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from Products.CMFPlone.utils import normalizeString
 
+from cgi import parse_qs
+from datetime import timedelta
+from five import grok
+from plone import api
 from plone.app.contenttypes.behaviors.richtext import IRichText
-from plone.dexterity.utils import createContentInContainer
-from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.constants import CONTEXT_CATEGORY
-from plone.portlets.interfaces import ILocalPortletAssignmentManager
 from plone.app.controlpanel.mail import IMailSchema
+from plone.app.event.base import localized_now
 from plone.app.multilingual.browser.setup import SetupMultilingualSite
 from plone.app.multilingual.interfaces import ITranslationManager
-
+from plone.dexterity.utils import createContentInContainer
 from plone.namedfile.file import NamedBlobImage
+from plone.portlets.constants import CONTEXT_CATEGORY
+from plone.portlets.interfaces import ILocalPortletAssignmentManager
+from plone.portlets.interfaces import IPortletAssignmentMapping
+from plone.portlets.interfaces import IPortletManager
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.component import queryUtility
+from zope.interface import alsoProvides
 
+from genweb.core import utils
+from genweb.core.browser.plantilles import get_plantilles
+from genweb.core.interfaces import IEventFolder
 from genweb.core.interfaces import IHomePage
 from genweb.core.interfaces import INewsFolder
-from genweb.core.interfaces import IEventFolder
 from genweb.core.interfaces import IProtectedContent
-from genweb.core.browser.plantilles import get_plantilles
-from genweb.core import utils
+from genweb.portlets.browser.manager import ISpanStorage
 
-from plone.app.event.base import localized_now
-from datetime import timedelta
-import pkg_resources
 import logging
+import pkg_resources
 
 
 grok.templatedir('views_templates')
@@ -90,6 +90,12 @@ class setup(grok.View):
                 logger = logging.getLogger('Genweb: Executing setup-view Examples on site -')
                 logger.info('%s' % self.context.id)
                 self.createExampleContent()
+                self.request.response.redirect(base_url)
+
+            if 'createexamplesrobtheme' in query:
+                logger = logging.getLogger('Genweb: Executing setup-view Examples robtheme on site -')
+                logger.info('%s' % self.context.id)
+                self.createExampleRobThemeContent()
                 self.request.response.redirect(base_url)
 
     def contentStatus(self):
@@ -687,6 +693,91 @@ class setup(grok.View):
 
         self.link_translations([(noticia_mostra_ca, 'ca'), (noticia_mostra_es, 'es'), (noticia_mostra_en, 'en')])
 
+    def createExampleRobThemeContent(self):
+        portal = api.portal.get()
+
+        folder_ca = portal['ca']
+        pagina_mostra_ca = self.create_content(folder_ca, 'Document', 'pagina-principal-mostra', title='Pàgina principal mostra', exclude_from_nav=True)
+
+        pagebody_sample = """
+<div>
+<div class="box">
+<h2 class="align-center"><span class="fa fa-quote-left"></span> <strong>Rob Theme</strong>, el nou disseny per al teu genweb <span class="fa fa-quote-right"></span></h2>
+</div>
+</div>
+<p> </p>
+<p> </p>
+<div class="row-fluid">
+<div class="span6"><a class="link-bannerblau external-link" href="https://genweb.upc.edu/ca/documentacio/manual-per-a-editors/lestructura-i-els-tipus-de-contingut/opcions-de-configuracio/clean-vs-standard" target="_self"><span class="btntitolblau">Coneix els tres dissenys de Genweb</span><br /><span class="btnsubtitolblau">Standard, Clean Theme i Rob Theme</span></a>
+<p> </p>
+<a class="link-bannerdanger external-link" href="https://genweb.upc.edu/ca" target="_self"><span class="btntitoldanger">Exemple de pàgina principal amb estil Rob Theme</span> <br /><span class="btnsubtitoldanger">Per inspirar-vos</span></a></div>
+<div class="span6"><a class="link-bannersuccess external-link" href="https://genweb.upc.edu/ca/documentacio/manual-per-a-editors/treballant-continguts/plantilles/les-plantilles" target="_self"> <span class="btntitolsuccess">Totes les plantilles de Genweb</span><br /><span class="btnsubtitolsuccess">Incloses  les noves de Rob Theme</span></a>
+<p> </p>
+<a class="link-bannerwarning external-link" href="https://genweb.upc.edu/ca/documentacio/manual-per-a-editors/recursos-grafics/llistat-estils-CSS" target="_self"><span class="btntitolwarning">Llistat de tots els estils de Genweb</span><br /><span class="btnsubtitolwarning">Us ajudarà a fer pàgines més atractives</span></a></div>
+</div>"""
+
+        pagina_mostra_ca.text = IRichText['text'].fromUnicode(pagebody_sample)
+        pagina_mostra_ca.reindexObject()
+
+        egglocation = pkg_resources.get_distribution('genweb.upc').location
+        newsimg_sample = open('{}/genweb/upc/browser/sample_images/news_sample_2.jpg'.format(egglocation)).read()
+
+        noticies = portal['ca']['noticies']
+        for i in range(1, 4):
+            noticia_mostra_ca = self.create_content(noticies,
+                                                    'News Item',
+                                                    'noticia-de-mostra-' + str(i),
+                                                    title='Notícia de mostra ' + str(i),
+                                                    image=NamedBlobImage(data=newsimg_sample,
+                                                                         filename=u'news_sample.jpg',
+                                                                         contentType=u'image/jpeg'),
+                                                    description='Descripció notícia')
+
+            noticia_mostra_ca.text = IRichText['text'].fromUnicode("Contingut notícia")
+            noticia_mostra_ca.reindexObject()
+
+        esdeveniments = portal['ca']['esdeveniments']
+        now = localized_now().replace(minute=0, second=0, microsecond=0)
+        far = now + timedelta(hours=1)
+        for i in range(1, 5):
+            event_sample_ca = self.create_content(esdeveniments,
+                                                  'Event',
+                                                  'esdeveniment-de-mostra-' + str(i),
+                                                  title='Esdeveniment de mostra ' + str(i))
+
+            event_sample_ca.text = IRichText['text'].fromUnicode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.")
+            event_sample_ca.location = "Lloc de l'esdeveniment"
+            event_sample_ca.start = now
+            event_sample_ca.end = far
+            event_sample_ca.timezone = 'Europe/Madrid'
+            event_sample_ca.contact_email = 'adreca@noreply.com'
+            event_sample_ca.contact_name = 'Responsable esdeveniment'
+            event_sample_ca.reindexObject()
+
+            portletManager = getUtility(IPortletManager, 'genweb.portlets.HomePortletManager3')
+            spanstorage = getMultiAdapter((portal['ca']['benvingut'], portletManager), ISpanStorage)
+            spanstorage.span = '12'
+
+            managerAssignments = getMultiAdapter((portal['ca']['benvingut'], portletManager), IPortletAssignmentMapping)
+            from genweb.upc.portlets.new_existing_content import Assignment as newExistingContentAssignment
+            if 'pagina_principal' not in managerAssignments:
+                managerAssignments['pagina_principal'] = newExistingContentAssignment(
+                    ptitle='Pàgina principal',
+                    show_title=False,
+                    hide_footer=True,
+                    content_or_url='INTERN',
+                    external_url='',
+                    own_content='/ca/pagina-principal-mostra')
+
+            from genweb.theme.portlets.fullnews import Assignment as fullnewsAssignment
+            if 'noticies' not in managerAssignments:
+                managerAssignments['noticies'] = fullnewsAssignment(
+                    view_type='id_full_3cols')
+
+            from genweb.theme.portlets.grid_events import Assignment as gridEventsAssignment
+            if 'esdeveniments' not in managerAssignments:
+                managerAssignments['esdeveniments'] = gridEventsAssignment()
+
     def create_content(self, container, portal_type, id, publish=True, **kwargs):
         if not getattr(container, id, False):
             obj = createContentInContainer(container, portal_type, checkConstraints=False, **kwargs)
@@ -758,3 +849,12 @@ class setup(grok.View):
         site_props.exposeDCMetaTags = True
         navtree_props = portal.portal_properties.navtree_properties
         navtree_props.sitemapDepth = 4
+
+
+def get_portlet_assignments(context, name):
+    portlet_manager = queryUtility(
+        IPortletManager,
+        name=name,
+        context=context)
+    return getMultiAdapter(
+        (context, portlet_manager), IPortletAssignmentMapping)
