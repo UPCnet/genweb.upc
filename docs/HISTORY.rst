@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.72 (unreleased)
+2.72 (2020-02-13)
 -----------------
 
-- Nothing changed yet.
-
+* Crear contingut de mostra robtheme [Iago López Fernández]
 
 2.71 (2019-11-14)
 -----------------
