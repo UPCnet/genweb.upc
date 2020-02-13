@@ -738,7 +738,7 @@ class setup(grok.View):
 
         esdeveniments = portal['ca']['esdeveniments']
         now = localized_now().replace(minute=0, second=0, microsecond=0)
-        far = now + timedelta(hours=1)
+        far = now + timedelta(days=14600)
         for i in range(1, 5):
             event_sample_ca = self.create_content(esdeveniments,
                                                   'Event',
