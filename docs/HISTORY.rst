@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.73 (unreleased)
+2.73 (2020-02-13)
 -----------------
 
-- Nothing changed yet.
-
+* Aumentar tiempo en la que caducan los eventos que se crean en el setup de demo [Iago López Fernández]
 
 2.72 (2020-02-13)
 -----------------
