@@ -50,9 +50,9 @@
                 </table>
             </div>
             <form method="get" action="@@setup-view">
-                <input id="createn2" class="context" type="submit" value="Crear GW n2" name="createn2"/>
+                <!-- <input id="createn2" class="context" type="submit" value="Crear GW n2" name="createn2"/> -->
                 <input id="createn3" class="context" type="submit" value="Crear GW n3" name="createn3"/>
-                <input id="createexamples" class="context" type="submit" value="Crear contingut de mostra" name="createexamples" />
+                <!-- <input id="createexamples" class="context" type="submit" value="Crear contingut de mostra" name="createexamples" /> -->
                 <input id="createexamplesrobtheme" class="context" type="submit" value="Crear contingut de mostra robtheme" name="createexamplesrobtheme" />
             </form>
             <form method="get" action="configuraSiteCache" target="_blank">
