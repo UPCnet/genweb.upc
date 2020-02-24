@@ -92,7 +92,7 @@ def validate_email(value):
 
 def is_checked(value):
     if not value:
-        raise Invalid(u"Acepta el uso y privacidad")
+        raise Invalid(u"")
         return False
     else:
         return True
