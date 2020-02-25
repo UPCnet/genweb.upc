@@ -127,8 +127,8 @@ class IContactForm(form.Schema):
                       constraint=is_checked)
 
     form.widget(captcha=ReCaptchaFieldWidget)
-    captcha = TextLine(title=_('genweb_type_the_code', default="Type the code"),
-                       description=_('genweb_help_type_the_code', default="Type the code from the picture shown below"),
+    captcha = TextLine(title=_(''),
+                       description=_(''),
                        required=True)
 
 
