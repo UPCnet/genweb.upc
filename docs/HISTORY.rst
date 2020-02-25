@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.74 (unreleased)
+2.74 (2020-02-25)
 -----------------
 
-- Nothing changed yet.
-
+* Contact: quitar literales recaptcha [Iago López Fernández]
+* Cambiar error privacidad contacto [Iago López Fernández]
+* Comentar botones Crear GW n2 y Crear contingut de mostra [Iago López Fernández]
 
 2.73 (2020-02-13)
 -----------------
