@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
-from zope.interface import implements, invariant, Invalid
-from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.portlets.portlets import base
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
+from plone.app.portlets.portlets import base
+from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+from plone.memoize.instance import memoize
+from plone.portlets.interfaces import IPortletDataProvider
+from pyquery import PyQuery as pq
+from requests.exceptions import ReadTimeout
+from requests.exceptions import RequestException
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.formlib import form
+from zope.interface import Invalid
+from zope.interface import implements
+from zope.interface import invariant
+from zope.site import hooks
 
 from genweb.core import GenwebMessageFactory as _
 
-from zope import schema
-from zope.formlib import form
-
-from pyquery import PyQuery as pq
+import DateTime
 import re
 import requests
-from requests.exceptions import RequestException, ReadTimeout
-
-
-from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-
-from zope.component import getMultiAdapter
-from plone.memoize.instance import memoize
-from zope.site import hooks
 
 
 class NotAnExternalLink(schema.ValidationError):
@@ -157,6 +157,11 @@ class Renderer(base.Renderer):
         else:
             content = self.owncontent()
         return content
+
+    def checkContentIsPublic(self):
+        now = DateTime.DateTime()
+        content = self.get_catalog_content()
+        return now >= content.effective_date and now <= content.expiration_date
 
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
