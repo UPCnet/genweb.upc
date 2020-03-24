@@ -5400,6 +5400,12 @@ legend + .control-group {
   background-position: -240px -192px;
 }
 
+.icon-plone-contentmenu-display-filtered_contents_search_pretty_view,
+.icon-folder-filtered_contents_search_pretty_view {
+  background-position: -311px -167px;
+  transform: scaleX(-1);
+}
+
 .icon-genweb {
   background-position: -264px -192px;
 }
