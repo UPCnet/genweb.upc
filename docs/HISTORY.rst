@@ -1,11 +1,16 @@
 Changelog
 =========
 
-2.75 (unreleased)
+2.75 (2020-03-26)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Iago López Fernández]
+* Estilos blank-template [Iago López Fernández]
+* Estilos Vista Filtre Etiquetes [Iago López Fernández]
+* Icono nueva vista filtered_contents_search_pretty_view [Iago López Fernández]
+* Añadir vista filtered_contents_search_pretty_view en las carpetas [Iago López Fernández]
+* Estilos Contenido existente [Iago López Fernández]
+* Portlet de contenido existente: Comprobar fechas si és un elemento interno [Iago López Fernández]
 
 2.74 (2020-02-25)
 -----------------
