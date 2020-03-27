@@ -159,8 +159,11 @@ class Renderer(base.Renderer):
         return content
 
     def checkContentIsPublic(self):
-        now = DateTime.DateTime()
         content = self.get_catalog_content()
+        if not content.expiration_date:
+            return True
+
+        now = DateTime.DateTime()
         return now >= content.effective_date and now <= content.expiration_date
 
     def getHTML(self):
