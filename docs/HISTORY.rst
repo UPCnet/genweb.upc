@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.76 (unreleased)
+2.76 (2020-03-27)
 -----------------
 
-- Nothing changed yet.
-
+* Portlet de contenido existente: Comprobar si no caduca si es un elemento interno [Iago López Fernández]
 
 2.75 (2020-03-26)
 -----------------
