@@ -159,12 +159,15 @@ class Renderer(base.Renderer):
         return content
 
     def checkContentIsPublic(self):
-        content = self.get_catalog_content()
-        if not content.expiration_date:
-            return True
+        if self.data.content_or_url == 'INTERN':
+            content = self.get_catalog_content()
+            if not content.expiration_date:
+                return True
 
-        now = DateTime.DateTime()
-        return now >= content.effective_date and now <= content.expiration_date
+            now = DateTime.DateTime()
+            return now >= content.effective_date and now <= content.expiration_date
+        else:
+            return True
 
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
