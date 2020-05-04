@@ -2,21 +2,26 @@
 
 import random
 
+from five import grok
 from zope.interface import implements
 from zope.component import getMultiAdapter, getUtility
 from zope import schema
 from zope.formlib import form
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
+from plone import api
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.i18n.normalizer.interfaces import IIDNormalizer
+from plone.portlets.interfaces import IPortletManager
+from plone.portlets.interfaces import IPortletRetriever
 
 from AccessControl import getSecurityManager
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFPlone.interfaces import IPloneSiteRoot
 
 from genweb.core import GenwebMessageFactory as _
 
@@ -354,3 +359,76 @@ class EditForm(base.EditForm):
     label = _(u"Edit Multi-view Collection Portlet")
     description = _(u"This portlet displays a listing of items from a "
                     u"Collection.")
+
+
+class addNewAttributeMultiviewCollection(grok.View):
+    grok.context(IPloneSiteRoot)
+    grok.name('add_new_attribute_multiview_collection')
+    grok.require('cmf.ManagePortal')
+
+    def update_portlet_schema(self, assignment, attribute, value):
+        """
+        Helper function to update a schema of an already registered portlet.
+        @param assignment: The portlet assignment.
+        @param attribute: The name of the attribute to be added as string.
+        @param value: The value, the attribute should be initialized with.
+
+        """
+        if IMultiviewCollectionPortlet.providedBy(assignment):
+            try:
+                getattr(assignment, attribute)
+            except AttributeError:
+                setattr(assignment, attribute, value)
+
+    def render(self):
+        portal = api.portal.get()
+        portal_ca = portal['ca']
+        portal_en = portal['en']
+        portal_es = portal['es']
+        portlets_contingut = []
+        portlets = ()
+        for portal_xx in (portal_ca['benvingut'], portal_en['welcome'], portal_es['bienvenido']):
+            for column in ["genweb.portlets.HomePortletManager1",
+                           "genweb.portlets.HomePortletManager2",
+                           "genweb.portlets.HomePortletManager3",
+                           "genweb.portlets.HomePortletManager4",
+                           "genweb.portlets.HomePortletManager5",
+                           "genweb.portlets.HomePortletManager6",
+                           "genweb.portlets.HomePortletManager7",
+                           "genweb.portlets.HomePortletManager8",
+                           "genweb.portlets.HomePortletManager9",
+                           "genweb.portlets.HomePortletManager10"
+                           ]:
+
+                manager = getUtility(IPortletManager, name=column, context=portal_xx)
+                retriever = getMultiAdapter((portal_xx, manager), IPortletRetriever)
+                portlets = retriever.getPortlets()
+                if portlets:
+                    for portlet in portlets:
+                        for portlet in portlets:
+                            self.update_portlet_schema(portlet["assignment"], 'show_title', True)
+                            portlets_contingut.append('{}'.format(
+                                dict(where=portal_xx.title,
+                                     column=column,
+                                     portlet=portlet["name"],)))
+
+        for item in api.content.find(portal_type='genweb.upc.subhome'):
+            item_obj = item.getObject()
+            for column in ["genweb.portlets.HomePortletManager1",
+                           "genweb.portlets.HomePortletManager2",
+                           "genweb.portlets.HomePortletManager3",
+                           "genweb.portlets.HomePortletManager4",
+                           "genweb.portlets.HomePortletManager5",
+                           "genweb.portlets.HomePortletManager6",
+                           "genweb.portlets.HomePortletManager7",
+                           "genweb.portlets.HomePortletManager8",
+                           "genweb.portlets.HomePortletManager9",
+                           "genweb.portlets.HomePortletManager10"
+                           ]:
+
+                manager = getUtility(IPortletManager, name=column, context=item_obj)
+                retriever = getMultiAdapter((item_obj, manager), IPortletRetriever)
+                portlets = retriever.getPortlets()
+                if portlets:
+                    for portlet in portlets:
+                        self.update_portlet_schema(portlet["assignment"], 'show_title', True)

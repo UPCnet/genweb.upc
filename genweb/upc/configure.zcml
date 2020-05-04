@@ -12,10 +12,11 @@
 
   <grok:grok package=".browser" />
   <grok:grok package=".content" />
+  <grok:grok package=".portlets" />
 
   <include file="patches.zcml" />
   <include file="overrides.zcml" />
-  
+
   <include package=".browser" />
   <include package=".portlets" />
 
