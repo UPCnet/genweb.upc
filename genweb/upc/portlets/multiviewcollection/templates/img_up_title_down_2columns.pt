@@ -3,7 +3,7 @@
          tal:condition="result_columns"
          i18n:domain="genweb">
   <div class="portlet portlet-noticies portlet-ampliat" role="complementary">
-    <h2 tal:content="view/data/header">Collection title</h2>
+    <h2 tal:content="view/data/header" tal:condition="view/showTitle">Collection title</h2>
 
       <div class="row-fluid">
         <div tal:repeat="result_column result_columns" class='span6 noticies-full-2cols'

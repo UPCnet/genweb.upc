@@ -7,7 +7,7 @@
                 getIcon nocall:plone_view/getIcon;"
     tal:attributes="class string:portlet portletCollection ${view/css_class}">
 
-    <h2 tal:content="view/data/header">
+    <h2 tal:content="view/data/header" tal:condition="view/showTitle">
         Colleccio
     </h2>
 

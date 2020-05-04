@@ -50,6 +50,13 @@ class IMultiviewCollectionPortlet(IPortletDataProvider):
         description=_(u"Title of the rendered portlet"),
         required=True)
 
+    show_title = schema.Bool(
+        title=_(u"Mostra el títol?"),
+        description=_(u"Marqueu aquesta casella si voleu que es mostri el títol del portlet"),
+        required=False,
+        default=True,
+    )
+
     target_collection = schema.Choice(
         title=_(u"Target collection"),
         description=_(u"Find the collection which provides the items to list"),
@@ -120,10 +127,11 @@ class Assignment(base.Assignment):
     exclude_context = False
     view_type = VIEW_TYPE_LIST
 
-    def __init__(self, header=u"", target_collection=None, limit=None,
-                 random=False, show_more=True, show_dates=False,
+    def __init__(self, header=u"", show_title=True, target_collection=None,
+                 limit=None, random=False, show_more=True, show_dates=False,
                  exclude_context=True, view_type=VIEW_TYPE_LIST):
         self.header = header
+        self.show_title = show_title
         self.target_collection = target_collection
         self.limit = limit
         self.random = random
@@ -163,6 +171,9 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         return len(self.results())
+
+    def showTitle(self):
+        return self.data.show_title
 
     def show_time(self):
         return self.data.show_dates
