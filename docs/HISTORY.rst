@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.77 (unreleased)
+2.77 (2020-05-05)
 -----------------
 
-- Nothing changed yet.
-
+* Vista para actualizar todos los portlets de MultiviewCollection [Iago López Fernández]
+* Portlet multivista, títol configurable [alberto.duran]
+* Solucionar error contenido externo tras cambio -> Portlet de contenido existente: Comprobar fechas si és un elemento interno [Iago López Fernández]
 
 2.76 (2020-03-27)
 -----------------
