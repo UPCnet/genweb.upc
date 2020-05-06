@@ -11295,6 +11295,15 @@ body.portaltype-packet fieldset {
   display: contents !important;
 }
 
+.tileItem:first-child h2.tileHeadline {
+  border-top: 0px;
+  margin-top: 0px;
+}
+
+.filtered_contents_search_pretty .searchInputPretty {
+  width: auto !important;
+}
+
 .filtered_contents_search_pretty .span3 h2,
 .filtered_contents_search_pretty #dashboard-portlets1 h2,
 .filtered_contents_search_pretty #dashboard-portlets2 h2,
@@ -11310,11 +11319,6 @@ body.portaltype-packet fieldset {
   border-bottom: 1px solid #b2b2b2;
   margin: 0 0 18px 0;
   padding: 12px 0;
-}
-
-.filtered_contents_search_pretty .tileItem:first-child h2.tileHeadline {
-  border-top: 0px;
-  margin-top: 0px;
 }
 
 .filtered_contents_search_pretty #tagslist .tileHeadline {
