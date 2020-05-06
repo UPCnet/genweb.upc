@@ -410,3 +410,31 @@ body.template-event_view #content-history {
 body.portaltype-packet fieldset {
   display: contents !important;
 }
+
+.filtered_contents_search_pretty {
+
+  .span3 h2 {
+    color: #636363!important;
+    font-weight: 600;
+  }
+
+  .caixessearch h3 {
+    border-bottom: 1px solid #b2b2b2;
+    margin: 0 0 18px 0;
+    padding: 12px 0;
+  }
+
+  .tileItem:first-child h2.tileHeadline {
+    border-top: 0px;
+    margin-top: 0px;
+  }
+
+  #tagslist .tileHeadline {
+    font-size: 1.2em !important;
+    line-height: 1.5em;
+  }
+
+  .searchbytagcontainer input {
+    margin: 0 !important;
+  }
+}
