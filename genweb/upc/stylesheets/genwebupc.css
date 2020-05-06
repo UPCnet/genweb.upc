@@ -13823,7 +13823,8 @@ body.portaltype-packet fieldset {
   width: auto !important; }
 .filtered_contents_search_pretty .span3 h2, .filtered_contents_search_pretty #dashboard-portlets1 h2, .filtered_contents_search_pretty #dashboard-portlets2 h2, .filtered_contents_search_pretty #dashboard-portlets3 h2, .filtered_contents_search_pretty #dashboard-portlets4 h2, .filtered_contents_search_pretty .w1\3a 4 h2, .filtered_contents_search_pretty .photoAlbumEntry h2 {
   color: #636363 !important;
-  font-weight: 600; }
+  font-weight: 600;
+  margin-bottom: 12px; }
 .filtered_contents_search_pretty .caixessearch h3 {
   border-bottom: 1px solid #b2b2b2;
   margin: 0 0 18px 0;
