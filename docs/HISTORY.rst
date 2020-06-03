@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.78 (unreleased)
+2.78 (2020-06-03)
 -----------------
 
-- Nothing changed yet.
-
+* Modificar template portlet colección multivista [Iago López Fernández]
+* Estilos filtered_contents_search_pretty_view [Iago López Fernández]
 
 2.77 (2020-05-05)
 -----------------
