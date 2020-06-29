@@ -11331,7 +11331,7 @@ body.portaltype-packet fieldset {
   margin: 0 !important;
 }
 
-.captchaImage .g-recaptcha iframe:not([src]) {
+.g-recaptcha iframe:not([src]) {
   height: 0 !important;
 }
 

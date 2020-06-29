@@ -13835,7 +13835,7 @@ body.portaltype-packet fieldset {
 .filtered_contents_search_pretty .searchbytagcontainer input {
   margin: 0 !important; }
 
-.captchaImage .g-recaptcha iframe:not([src]) {
+.g-recaptcha iframe:not([src]) {
   height: 0 !important; }
 
 /*# sourceMappingURL=genwebupc.css.map */

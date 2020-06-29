@@ -444,6 +444,6 @@ body.portaltype-packet fieldset {
   }
 }
 
-.captchaImage .g-recaptcha iframe:not([src]) {
+.g-recaptcha iframe:not([src]) {
   height: 0 !important;
 }
