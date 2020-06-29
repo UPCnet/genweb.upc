@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.80 (unreleased)
+2.80 (2020-06-29)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos recaptcha [Iago López Fernández]
 
 2.79 (2020-06-29)
 -----------------
