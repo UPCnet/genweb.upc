@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.81 (unreleased)
+2.81 (2020-07-28)
 -----------------
 
-- Nothing changed yet.
-
+* Estilo menu etiquetas vista con filtros [Iago López Fernández]
 
 2.80 (2020-06-29)
 -----------------
