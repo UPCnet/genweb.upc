@@ -442,6 +442,10 @@ body.portaltype-packet fieldset {
   .searchbytagcontainer input {
     margin: 0 !important;
   }
+
+  .searchbytagcontainer input + span {
+    font-size: 13px !important;
+  }
 }
 
 .g-recaptcha iframe:not([src]) {

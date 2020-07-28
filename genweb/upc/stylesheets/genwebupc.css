@@ -13834,6 +13834,8 @@ body.portaltype-packet fieldset {
   line-height: 1.5em; }
 .filtered_contents_search_pretty .searchbytagcontainer input {
   margin: 0 !important; }
+.filtered_contents_search_pretty .searchbytagcontainer input + span {
+  font-size: 13px !important; }
 
 .g-recaptcha iframe:not([src]) {
   height: 0 !important; }
