@@ -1079,8 +1079,8 @@ button.pfg-draft-save .badge,
   .unit-picture .template-personal-information [for="form.portrait"] ~ img,
   .template-personal-information .unit-picture [for="form.portrait"] ~ img,
   .unit-picture .newsImageContainer,
-  .unit-picture .tileItem img,
-  .tileItem .unit-picture img {
+  .unit-picture .tileItem img:not(.img_blank),
+  .tileItem .unit-picture img:not(.img_blank) {
     float: none;
     clear: both;
   }
@@ -9434,7 +9434,7 @@ html.lt-ie8 .list-portlet li  {
 
 /* aixo no serveix per res pero mira...*/
 
-.tileItem img {
+.tileItem img:not(.img_blank) {
   float: right;
   margin-top: 1em;
 }

@@ -14,7 +14,7 @@
     <metal:block use-macro="context/@@listing_view/macros/entries">
       <metal:entry fill-slot="entry">
 
-        <article class="tileItem visualIEFloatFix" 
+        <article class="tileItem visualIEFloatFix"
                   tal:define="obj item/getObject;
                               item_exclude_from_nav item/exclude_from_nav;
                               object_type context/portal_type;">
@@ -29,11 +29,33 @@
 
             <h2 class="tileHeadline" metal:define-macro="listitem">
               <a class="summary url"
+                  tal:condition="python:item_type != 'Link'"
                   tal:attributes="href item_link;
                                   title item_type"
                   tal:content="item_title">
                 Item Title
               </a>
+              <tal:block tal:condition="python:item_type == 'Link'" tal:define="gwutils context/@@genweb.utils">
+                <a href="#" target="_blink"
+                   tal:condition="python:gwutils.link_redirect_blink(item)"
+                   class="summary url link-plain"
+                   tal:attributes="href item_link; title item_type">
+
+                  <span tal:content="item_title">Item Title</span>
+                  <img class="img_blank" src="++genweb++static/images/blank_blau.png"
+                       i18n:domain="genweb"
+                       i18n:attributes="alt obrir_link_finestra_nova">
+                </a>
+
+
+                <a href="#"
+                   tal:condition="python:not gwutils.link_redirect_blink(item)"
+                   class="summary url link-plain"
+                   tal:attributes="href item_link; title item_type"
+                   tal:content="item_title">
+                  Item Title
+                </a>
+              </tal:block>
             </h2>
 
             <div metal:use-macro="context/@@listing_view/macros/document_byline"></div>

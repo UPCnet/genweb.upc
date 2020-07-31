@@ -15,7 +15,7 @@
     <div metal:define-macro="text-field-view"
          id="parent-fieldname-text" class="stx"
          tal:define="has_text exists:context/aq_explicit/text/output;
-                     text python:has_text and here.text.output or ''"
+                     text python:has_text and here.text.output or '';"
          tal:condition="python: text and context.portal_type != 'Folder'"
          tal:attributes="class python: context.Format() in ('text/structured',
                                                'text/x-rst', ) and  'stx' or 'plain'">
@@ -56,12 +56,11 @@
                                    item_has_image python:view.has_image(item);
                                    item_sametime python: item_start == item_end;
                                    item_samedate python: (item_end - item_start &lt; 1) if item_type == 'Event' else False;
-                                   item_is_event python:view.is_event(item)">
+                                   item_is_event python:view.is_event(item);">
                 <metal:block define-slot="entry" tal:condition="python: object_type == 'Collection' or not item_exclude_from_nav">
                 <dt metal:define-macro="listitem"
                     tal:attributes="class python: item_type == 'Event' and 'vevent' or ''">
-
-                    <span class="summary">
+                    <span class="summary" tal:condition="python:item_type != 'Link'">
                         <a href="#"
                            tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url;
                                            class string:$item_type_class $item_wf_state_class url"
@@ -69,6 +68,29 @@
                             Item Title
                         </a>
                     </span>
+
+                    <tal:block tal:condition="python:item_type == 'Link'" tal:define="gwutils context/@@genweb.utils">
+                        <span class="summary" tal:condition="python:gwutils.link_redirect_blink(item)">
+                            <a href="#" target="_blink"
+                               class="link-plain"
+                               tal:attributes="href python:item_type in use_view_action and item_url+'/view' or item_url;
+                                               class string:${item_wf_state_class} link-plain">
+                               <span tal:content="item_title">Item Title</span>
+                            <img class="img_blank" src="++genweb++static/images/blank_blau.png"
+                                 i18n:domain="genweb"
+                                 i18n:attributes="alt obrir_link_finestra_nova"></a>
+                        </span>
+
+                        <span class="summary" tal:condition="python:not gwutils.link_redirect_blink(item)">
+                            <a href="#"
+                               tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url;
+                                               class string:$item_type_class $item_wf_state_class url link-plain"
+                               tal:content="item_title">
+                                Item Title
+                            </a>
+                        </span>
+                    </tal:block>
+
                     <metal:block metal:define-macro="document_byline">
                       <span class="documentByLine">
                         <span tal:condition="python: item_type == 'Event' and item_sametime"

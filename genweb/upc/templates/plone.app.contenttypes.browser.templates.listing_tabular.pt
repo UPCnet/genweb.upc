@@ -69,12 +69,34 @@
                     </td>
                     <td tal:condition="python:field == 'Title'">
                       <a href="#"
-                          tal:attributes="href item_link;
-                          class string:$item_wf_state_class $item_type_class;
-                          title item_description;"
-                          tal:content="item_title">
+                         tal:condition="python:item_type != 'Link'"
+                         tal:attributes="href item_link;
+                                         class string:$item_wf_state_class $item_type_class;
+                                         title item_description;"
+                         tal:content="item_title">
                         Item Title
                       </a>
+
+                      <tal:block tal:condition="python:item_type == 'Link'" tal:define="gwutils context/@@genweb.utils">
+                        <a tal:condition="python:gwutils.link_redirect_blink(item)"
+                           target="_blink"
+                           tal:attributes="href item_link;
+                                           class string:$item_wf_state_class $item_type_class;
+                                           title item_description;">
+                          <span tal:content="item_title">External Link</span>
+                          <img class="img_blank" src="++genweb++static/images/blank_blau.png"
+                               i18n:domain="genweb"
+                               i18n:attributes="alt obrir_link_finestra_nova">
+                        </a>
+                        <a href="#"
+                           tal:condition="python:not gwutils.link_redirect_blink(item)"
+                           tal:attributes="href item_link;
+                                           class string:$item_wf_state_class $item_type_class;
+                                           title item_description;"
+                           tal:content="item_title">
+                          Item Title
+                        </a>
+                      </tal:block>
                     </td>
                     <td tal:condition="python:field == 'Creator'"
                         tal:define="author python:view.pas_member.info(item_creator);

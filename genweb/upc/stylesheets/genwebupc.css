@@ -1921,7 +1921,7 @@ a:hover {
   -moz-border-radius: 6px;
   border-radius: 6px; }
 
-.img-polaroid, .template-personal-information [for="form.portrait"] ~ img, .newsImageContainer, .tileItem img {
+.img-polaroid, .template-personal-information [for="form.portrait"] ~ img, .newsImageContainer, .tileItem img:not(.img_blank) {
   padding: 4px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -7150,7 +7150,7 @@ button.pfg-draft-save .badge,
   .subnavbar .nav-list a:hover:after, .subnavbar .nav-list .active a:after, .subnavbar .nav-list .selected a:after {
     background-position: -311.5px -117px !important; }
 
-  .unit-picture .img-polaroid, .unit-picture .template-personal-information [for="form.portrait"] ~ img, .template-personal-information .unit-picture [for="form.portrait"] ~ img, .unit-picture .newsImageContainer, .unit-picture .tileItem img, .tileItem .unit-picture img {
+  .unit-picture .img-polaroid, .unit-picture .template-personal-information [for="form.portrait"] ~ img, .template-personal-information .unit-picture [for="form.portrait"] ~ img, .unit-picture .newsImageContainer, .unit-picture .tileItem img:not(.img_blank), .tileItem .unit-picture img:not(.img_blank) {
     float: none;
     clear: both; }
 
@@ -12414,7 +12414,7 @@ html.lt-ie8 .list-portlet li  {
     margin-top: 5px; }
 
 /* aixo no serveix per res pero mira...*/
-.tileItem img {
+.tileItem img:not(.img_blank) {
   float: right;
   margin-top: 1em; }
 

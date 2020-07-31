@@ -129,7 +129,7 @@
 
 
 // VISTES
-.tileItem img {@extend .img-polaroid; float:right; margin-top: 1em;}
+.tileItem img:not(.img_blank) {@extend .img-polaroid; float:right; margin-top: 1em;}
 
 .tileHeadline { @extend .xxl; @extend .liniaDalt;}
 .tileFooter:before { content:"";  @extend [class^="icon-"]; @extend .icon-plus-sign;}

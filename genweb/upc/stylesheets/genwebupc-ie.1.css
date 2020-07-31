@@ -2520,7 +2520,7 @@ a:hover {
 .img-polaroid,
 .template-personal-information [for="form.portrait"] ~ img,
 .newsImageContainer,
-.tileItem img {
+.tileItem img:not(.img_blank) {
   padding: 4px;
   background-color: #fff;
   border: 1px solid #ccc;
