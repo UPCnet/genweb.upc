@@ -22,15 +22,15 @@
            Title or id
         </a>
         <tal:block tal:condition="python:item_type == 'Link'" tal:define="gwutils context/@@genweb.utils">
-            <a tal:condition="python:gwutils.link_redirect_blink(context, True)"
-               target="_blink"
+            <a tal:condition="python:gwutils.link_redirect_blank(context, True)"
+               target="_blank"
                class="summary url" tal:attributes="href item_url;">
                 <span tal:content="context/Title">Title or id</span>
                 <img class="img_blank" src="++genweb++static/images/blank_blau.png"
                      i18n:domain="genweb"
                      i18n:attributes="alt obrir_link_finestra_nova">
             </a>
-            <a tal:condition="python:not gwutils.link_redirect_blink(context, True)"
+            <a tal:condition="python:not gwutils.link_redirect_blank(context, True)"
                class="summary url" tal:content="context/Title"
                tal:attributes="href item_url;">
                Title or id

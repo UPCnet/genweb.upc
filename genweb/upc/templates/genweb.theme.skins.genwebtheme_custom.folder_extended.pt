@@ -81,27 +81,42 @@
                         </a>
                     </tal:span>
 
-                    <tal:span condition="python:item_type == 'Link' and item_finestranova">
-                        <a href="#" target="_newwindow"
-                           class="link-plain"
-                           tal:attributes="href item/getRemoteUrl;
-                                           class string:${item_wf_state_class} link-plain">
-                           <span tal:content="item_title_or_id">
-                            External Link</span>
-                        <img class="img_blank" src="++genweb++static/images/blank_blau.png"
-                             i18n:domain="genweb"
-                             i18n:attributes="alt obrir_link_finestra_nova"></a>
-                    </tal:span>
+                    <tal:block tal:define="gwutils context/@@genweb.utils">
+                      <tal:block tal:condition="gwutils/isEditor">
+                        <span class="summary"
+                              tal:condition="python:item_type == 'Link' and not item_finestranova">
+                            <a href="#"
+                               tal:attributes="href item/getRemoteUrl;
+                                               class string:$item_type_class $item_wf_state_class url link-plain"
+                               tal:content="item_title_or_id">
+                                External Link
+                            </a>
+                        </span>
+                      </tal:block>
+                      <tal:block tal:condition="not: gwutils/isEditor">
+                        <tal:span condition="python:item_type == 'Link' and item_finestranova">
+                            <a href="#" target="_newwindow"
+                               class="link-plain"
+                               tal:attributes="href item/getRemoteUrl;
+                                               class string:${item_wf_state_class} link-plain">
+                               <span tal:content="item_title_or_id">
+                                External Link</span>
+                            <img class="img_blank" src="++genweb++static/images/blank_blau.png"
+                                 i18n:domain="genweb"
+                                 i18n:attributes="alt obrir_link_finestra_nova"></a>
+                        </tal:span>
 
-                    <span class="summary"
-                          tal:condition="python:item_type == 'Link' and not item_finestranova">
-                        <a href="#"
-                           tal:attributes="href item/getRemoteUrl;
-                                           class string:$item_type_class $item_wf_state_class url link-plain"
-                           tal:content="item_title_or_id">
-                            External Link
-                        </a>
-                    </span>
+                        <span class="summary"
+                              tal:condition="python:item_type == 'Link' and not item_finestranova">
+                            <a href="#"
+                               tal:attributes="href string:${item_url}/view;
+                                               class string:$item_type_class $item_wf_state_class url link-plain"
+                               tal:content="item_title_or_id">
+                                External Link
+                            </a>
+                        </span>
+                      </tal:block>
+                    </tal:block>
 
                     <p class="muted margin0">
                         <span tal:condition="python: item_type == 'Event' and item_sametime"

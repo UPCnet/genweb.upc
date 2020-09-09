@@ -70,8 +70,8 @@
                     </span>
 
                     <tal:block tal:condition="python:item_type == 'Link'" tal:define="gwutils context/@@genweb.utils">
-                        <span class="summary" tal:condition="python:gwutils.link_redirect_blink(item)">
-                            <a href="#" target="_blink"
+                        <span class="summary" tal:condition="python:gwutils.link_redirect_blank(item)">
+                            <a href="#" target="_blank"
                                class="link-plain"
                                tal:attributes="href python:item_type in use_view_action and item_url+'/view' or item_url;
                                                class string:${item_wf_state_class} link-plain">
@@ -81,7 +81,7 @@
                                  i18n:attributes="alt obrir_link_finestra_nova"></a>
                         </span>
 
-                        <span class="summary" tal:condition="python:not gwutils.link_redirect_blink(item)">
+                        <span class="summary" tal:condition="python:not gwutils.link_redirect_blank(item)">
                             <a href="#"
                                tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url;
                                                class string:$item_type_class $item_wf_state_class url link-plain"

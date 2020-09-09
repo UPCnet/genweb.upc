@@ -36,8 +36,8 @@
                 Item Title
               </a>
               <tal:block tal:condition="python:item_type == 'Link'" tal:define="gwutils context/@@genweb.utils">
-                <a href="#" target="_blink"
-                   tal:condition="python:gwutils.link_redirect_blink(item)"
+                <a href="#" target="_blank"
+                   tal:condition="python:gwutils.link_redirect_blank(item)"
                    class="summary url link-plain"
                    tal:attributes="href item_link; title item_type">
 
@@ -49,7 +49,7 @@
 
 
                 <a href="#"
-                   tal:condition="python:not gwutils.link_redirect_blink(item)"
+                   tal:condition="python:not gwutils.link_redirect_blank(item)"
                    class="summary url link-plain"
                    tal:attributes="href item_link; title item_type"
                    tal:content="item_title">
