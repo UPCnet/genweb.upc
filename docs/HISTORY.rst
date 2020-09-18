@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.82 (unreleased)
+2.82 (2020-09-18)
 -----------------
 
-- Nothing changed yet.
-
+* Tratar enlaces con _blink en las vistas de las carpetas [Iago López Fernández]
+* Tratar enlaces con _blink en las vistas de las carpetas [Iago López Fernández]
 
 2.81 (2020-07-28)
 -----------------
