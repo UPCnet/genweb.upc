@@ -11339,4 +11339,16 @@ body.portaltype-packet fieldset {
   height: 0 !important;
 }
 
+#portal-header h1.pull-left img {
+  width: 100% !important;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), not all, not all, not all, only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #portal-header h1.pull-left {
+    background: url(++genweb++static/images/logoUPC.png) no-repeat !important;
+    height: 90px !important;
+    width: 306px !important;
+  }
+}
+
 /*# sourceMappingURL=genwebupc.css.map */
