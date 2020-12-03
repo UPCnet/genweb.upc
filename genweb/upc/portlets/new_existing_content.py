@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from plone import api
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
@@ -169,6 +170,15 @@ class Renderer(base.Renderer):
         else:
             return True
 
+    def checkContentIsIntranet(self):
+        if self.data.content_or_url == 'INTERN':
+            content = self.get_catalog_content()
+            pw = api.portal.get_tool(name='portal_workflow')
+            state = pw.getInfoFor(content, 'review_state')
+            return state == 'intranet'
+        else:
+            return False
+
     def getHTML(self):
         """ Agafa contingut de 'Element' de la 'URL', paràmetres definits per l'usuari
             Avisa si hi ha problemes en la URL o si no troba Element.
@@ -218,7 +228,10 @@ class Renderer(base.Renderer):
         except RequestException:
             content = _(u"ERROR. This URL does not exist")
         except:
-            content = _(u"ERROR. Unexpected exception")
+            if not self.checkContentIsIntranet():
+                content = _(u"ERROR. Charset undefined")
+            else:
+                content = _(u"")
         return content
 
     def getTitle(self):
