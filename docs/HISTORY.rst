@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.85 (unreleased)
+2.85 (2020-12-09)
 -----------------
 
-- Nothing changed yet.
-
+* Portlet contenido exitente: no mostrar error cuando el contenido interno esta en intranet y se visualiza sin permisos [Iago López Fernández]
 
 2.84 (2020-09-28)
 -----------------
