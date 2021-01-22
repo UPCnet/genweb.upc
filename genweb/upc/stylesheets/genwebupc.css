@@ -13849,5 +13849,7 @@ body.portaltype-packet fieldset {
     background-size: 100% !important;
     height: 90px !important;
     width: 306px !important; } }
+#portal-breadcrumbs h2 {
+  color: #4A4A4A !important; }
 
 /*# sourceMappingURL=genwebupc.css.map */

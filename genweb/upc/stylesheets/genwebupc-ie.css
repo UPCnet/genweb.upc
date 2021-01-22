@@ -11352,4 +11352,8 @@ body.portaltype-packet fieldset {
   }
 }
 
+#portal-breadcrumbs h2 {
+  color: #4A4A4A !important;
+}
+
 /*# sourceMappingURL=genwebupc.css.map */
