@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.86 (unreleased)
+2.86 (2021-02-02)
 -----------------
 
-- Nothing changed yet.
-
+* time zone removed [avanger9]
+* Estilos, contraste breadcrumb [Iago López Fernández]
 
 2.85 (2020-12-09)
 -----------------
