@@ -8843,6 +8843,82 @@ html {
   }
 }
 
+@media only screen and (max-width: 979px) and (orientation: portrait), only screen and (max-width: 979px) and (orientation: landscape) {
+  body.userrole-authenticated #eines-menu-boto {
+    margin-top: 40px;
+  }
+
+  #eines > li {
+    padding: 8px 8px 0px 8px !important;
+  }
+
+  #eines > li.divider {
+    padding: 0px !important;
+  }
+
+  #eines > li a {
+    padding: 5px !important;
+    margin: 0px !important;
+  }
+
+  #eines > li a:focus,
+  #eines > li a:hover,
+  #eines > li a:active {
+    background-color: #e0e0e0;
+    color: #4a4a4a !important;
+  }
+
+  #eines > li a:before {
+    content: '' !important;
+  }
+
+  #eines > li #cercador {
+    background-color: white !important;
+  }
+
+  #portal-languageselector {
+    min-height: 28px;
+  }
+
+  #portal-languageselector .adjust-langs {
+    margin-bottom: 0px !important;
+  }
+
+  #portal-languageselector li {
+    padding-top: 0px !important;
+  }
+
+  #portal-languageselector li a {
+    font-weight: bold !important;
+  }
+
+  #portal-globalnav .navbar .btn-navbar {
+    float: right;
+    margin-right: 5px !important;
+    background-color: #5a5a5a;
+    background-image: none;
+  }
+
+  #portal-globalnav .navbar h2#titol-menu-1 {
+    float: right;
+  }
+
+  #portal-globalnav .navbar h2#titol-menu-1 > a {
+    float: right;
+  }
+
+  #portal-globalnav .navbar li {
+    float: right;
+  }
+
+  #portal-globalnav .navbar li > a {
+    float: right;
+    border-right: 0px solid transparent !important;
+    border-left: 1px solid #b2b2b2 !important;
+    border-bottom: 1px solid #b2b2b2 !important;
+  }
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   #portal-header h1.pull-left img {
     opacity: 0;

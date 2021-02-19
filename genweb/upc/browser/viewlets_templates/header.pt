@@ -109,15 +109,15 @@
                 $(this).text('\u2261');
               }
             });
-            
+
             if ($(window).width() <= 768) {
               // ajustos extra per a viewport petit
-              $('nav#portal-globalnav').hide();  
+              $('nav#portal-globalnav').hide();
               // canvia el titol de la pagina pel breadcrumb actiu
               // si la pagina esta fora dels menus cal crear titol-menu-2-text
               if ($('#portal-column-one').has('#titol-menu-2-text').length == 0) {
                 $('#portal-column-one').append('<h2><span id="titol-menu-2-text">p</span></h2>');
-              } 
+              }
               var actiu = $('ol.breadcrumb li.active').text();
               $('#titol-menu-2-text').text(actiu);
               // afegeix el sharing
@@ -128,7 +128,7 @@
                 $('#eina-menu-1').append(menu1);
               }
 
-          }          
+          }
           }
 
         }
@@ -141,18 +141,18 @@
     </script>
     <div class="nav-collapse nav-collapse-eines hidden-desktop"
          tal:define="dades context/@@genweb.utils/getDadesUnitat">
-         
+
       <ul id="eines-mov" class="nav nav-pills pull-right">
-        
+
         <tal:genwebpamls condition="viewlet/is_pam_installed">
           <tal:block replace="structure provider:genweb.pamls" />
         </tal:genwebpamls>
         <li id='eina-cerca'>
             <tal:block replace="structure provider:genweb.search_manager" />
         </li>
-        
+
         <li id="eina-menu-1"></li>
-        
+
         <li id='eina-custom'
             tal:condition="custom_link/enable"
             tal:define="oinw custom_link/oinw">
@@ -166,7 +166,7 @@
             </a>
           </div>
         </li>
-        
+
         <li id='eina-sitemap'>
           <a
             i18n:domain="plone"
@@ -175,16 +175,16 @@
             Site Map
           </a>
         </li>
-        
+
         <li id='eina-contacte'>
-          <a 
+          <a
             i18n:domain="plone"
             i18n:translate="Contact"
             tal:attributes="href string:${portal_url}/${viewlet/pref_lang}/contact">
             Contact
           </a>
         </li>
-        
+
         <li id='eina-directori'
             tal:condition="viewlet/show_directory"
             tal:define="filtered viewlet/show_directory_filtered">
