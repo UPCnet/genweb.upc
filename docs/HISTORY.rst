@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.87 (unreleased)
+2.87 (2021-02-22)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos movil nabvar [Iago López Fernández]
+* ticket problems solved [avanger9]
 
 2.86 (2021-02-02)
 -----------------
