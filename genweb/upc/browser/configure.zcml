@@ -19,4 +19,13 @@
         template="templates/add_genweb.pt"
         />
 
+    <!-- Render the twitter media metadata -->
+    <browser:viewlet
+        name="plone.htmlhead.socialtagstwitter"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class=".social.SocialTagsTwitterViewlet"
+        template="viewlets_templates/social_tags_twitter.pt"
+        permission="zope2.View"
+        />
+
 </configure>

@@ -1,0 +1,7 @@
+<tal:block tal:define="tags view/get_tags">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" tal:attributes="content tags/title" />
+    <meta name="twitter:url" tal:attributes="content tags/url" />
+    <meta tal:condition="tags/description" name="twitter:description" tal:attributes="content tags/description" />
+    <meta tal:condition="tags/image" name="twitter:image" tal:attributes="content tags/image" />
+</tal:block>
