@@ -9,6 +9,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
 from genweb.core import GenwebMessageFactory as _
+from genweb.core.utils import pref_lang
 
 from zope import schema
 from zope.formlib import form
@@ -132,7 +133,8 @@ class Renderer(base.Renderer):
                         content = _(u"ERROR. Charset undefined")
                 else:
                     # link extern, pyreq
-                    raw_html = requests.get(link, timeout=5)
+                    headers = {'Accept-Language': pref_lang()}
+                    raw_html = requests.get(link, headers=headers, verify=False, timeout=5)
                     charset = re.findall('charset=(.*)"', raw_html.content)
                     if len(charset) > 0:
                         clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))

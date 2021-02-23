@@ -19,6 +19,7 @@ from zope.interface import invariant
 from zope.site import hooks
 
 from genweb.core import GenwebMessageFactory as _
+from genweb.core.utils import pref_lang
 
 import DateTime
 import re
@@ -206,7 +207,8 @@ class Renderer(base.Renderer):
             elif self.data.content_or_url == 'EXTERN':
                 # link extern, pyreq
                 link_extern = self.data.external_url
-                raw_html = requests.get(link_extern, timeout=5)
+                headers = {'Accept-Language': pref_lang()}
+                raw_html = requests.get(link_extern, headers=headers, verify=False, timeout=5)
                 charset = re.findall('charset=(.*)"', raw_html.content)
                 if len(charset) > 0:
                     clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
