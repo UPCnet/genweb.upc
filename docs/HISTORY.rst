@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.88 (unreleased)
+2.88 (2021-02-23)
 -----------------
 
-- Nothing changed yet.
-
+* Meta tags twitter [Iago López Fernández]
 
 2.87 (2021-02-22)
 -----------------
