@@ -2559,7 +2559,7 @@ button.pfg-draft-save .badge,
 
   #portal-globalnav .nav-collapse,
   #portal-globalnav .nav-collapse.collapse {
-    overflow: hidden;
+    overflow: visible;
     height: 0;
   }
 

@@ -13,7 +13,7 @@
              only screen and (max-width: 768px) and (orientation: landscape) {
 
     #titol-menu-1 {display:block !important;}
-    #eines-menu {display:block !important;} 
+    #eines-menu {display:block !important;}
 
     // UNFIX THE TOPBAR
     // ----------------
@@ -100,7 +100,7 @@
     }
     // Nav and dropdown links in navbar
     #portal-globalnav .nav-collapse .nav > li > a,
-    #portal-globalnav .nav-collapse .dropdown-menu a, 
+    #portal-globalnav .nav-collapse .dropdown-menu a,
     .nav-collapse-eines.nav-collapse .nav > li > a,
     .nav-collapse-eines.nav-collapse .dropdown-menu a,
     #custom-link {
@@ -180,7 +180,7 @@
     // Hide everything in the navbar save .brand and toggle button */
     #portal-globalnav .nav-collapse,
     #portal-globalnav .nav-collapse.collapse {
-        overflow: hidden;
+        overflow: visible;
         height: 0;
     }
     // Navbar button
