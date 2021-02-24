@@ -7910,7 +7910,7 @@ button.pfg-draft-save .badge,
 
   #portal-globalnav .nav-collapse,
   #portal-globalnav .nav-collapse.collapse {
-    overflow: visible;
+    overflow: hidden;
     height: 0; }
 
   #portal-globalnav .navbar .btn-navbar {
@@ -7922,6 +7922,9 @@ button.pfg-draft-save .badge,
   .nav-collapse-eines.nav-collapse {
     overflow: hidden;
     height: 0; }
+
+  .nav-collapse-eines.nav-collapse.in {
+    overflow: visible !important; }
 
   .nav-collapse-eines.nav-collapse .nav, .nav-collapse-eines.nav-collapse .contentViews, .nav-collapse-eines.nav-collapse .configlets, .nav-collapse-eines.nav-collapse .formTabs {
     -webkit-border-radius: 6px;

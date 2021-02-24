@@ -180,7 +180,7 @@
     // Hide everything in the navbar save .brand and toggle button */
     #portal-globalnav .nav-collapse,
     #portal-globalnav .nav-collapse.collapse {
-        overflow: visible;
+        overflow: hidden;
         height: 0;
     }
     // Navbar button
@@ -190,6 +190,7 @@
 
     #portal-header .btn-navbar.pull-right {margin-top:18px;}
     .nav-collapse-eines.nav-collapse {overflow: hidden; height: 0;}
+    .nav-collapse-eines.nav-collapse.in {overflow: visible !important;}
     .nav-collapse-eines.nav-collapse .nav {@include border-radius(6px); background: $grayLighter; margin:9px 0 0 !important; border:1px solid $tableBorder; @include box-shadow(inset 0 2px 5px 2px rgba(0,0,0,.15));}
     .nav-collapse-eines.nav-collapse .nav .dropdown-toggle {display: block;}
     .nav-collapse-eines.nav-collapse a {color:$blue !important;}
