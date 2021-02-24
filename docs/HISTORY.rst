@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.90 (unreleased)
+2.90 (2021-02-24)
 -----------------
 
-- Nothing changed yet.
-
+* Estilo buscador [Iago López Fernández]
 
 2.89 (2021-02-24)
 -----------------
