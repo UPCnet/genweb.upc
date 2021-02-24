@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.89 (unreleased)
+2.89 (2021-02-24)
 -----------------
 
-- Nothing changed yet.
-
+* Estilo buscador [Iago López Fernández]
+* Meta tags [Iago López Fernández]
+* Accept-Language header added to python requests in external existing content [alberto.duran]
 
 2.88 (2021-02-23)
 -----------------
