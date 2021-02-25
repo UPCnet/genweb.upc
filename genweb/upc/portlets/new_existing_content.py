@@ -207,7 +207,7 @@ class Renderer(base.Renderer):
             elif self.data.content_or_url == 'EXTERN':
                 # link extern, pyreq
                 link_extern = self.data.external_url
-                headers = {'Accept-Language': pref_lang()}
+                headers = {'Accept-Language': self.context.language}
                 raw_html = requests.get(link_extern, headers=headers, verify=False, timeout=5)
                 charset = re.findall('charset=(.*)"', raw_html.content)
                 if len(charset) > 0:
