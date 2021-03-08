@@ -12016,22 +12016,16 @@ html {
       #portal-languageselector li a {
         font-weight: bold !important; }
 
-  #portal-globalnav .navbar .btn-navbar {
-    float: right;
-    margin-right: 5px !important;
-    background-color: #5a5a5a;
-    background-image: none; }
-  #portal-globalnav .navbar h2#titol-menu-1 {
-    float: right; }
-    #portal-globalnav .navbar h2#titol-menu-1 > a {
-      float: right; }
+  #portal-globalnav .navbar #menu-1 {
+    height: auto !important; }
   #portal-globalnav .navbar li {
-    float: right; }
+    float: left !important; }
     #portal-globalnav .navbar li > a {
-      float: right;
-      border-right: 0px solid transparent !important;
-      border-left: 1px solid #b2b2b2 !important;
-      border-bottom: 1px solid #b2b2b2 !important; } }
+      border-right: 1px solid  #b2b2b2 !important;
+      border-left: 0px solid #b2b2b2 !important;
+      border-bottom: 1px solid #b2b2b2 !important;
+      border-top: 0px solid #b2b2b2 !important;
+      padding: 10px !important; } }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   #portal-header h1.pull-left img {
     opacity: 0; }

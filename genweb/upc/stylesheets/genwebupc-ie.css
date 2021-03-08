@@ -8896,30 +8896,20 @@ html {
     font-weight: bold !important;
   }
 
-  #portal-globalnav .navbar .btn-navbar {
-    float: right;
-    margin-right: 5px !important;
-    background-color: #5a5a5a;
-    background-image: none;
-  }
-
-  #portal-globalnav .navbar h2#titol-menu-1 {
-    float: right;
-  }
-
-  #portal-globalnav .navbar h2#titol-menu-1 > a {
-    float: right;
+  #portal-globalnav .navbar #menu-1 {
+    height: auto !important;
   }
 
   #portal-globalnav .navbar li {
-    float: right;
+    float: left !important;
   }
 
   #portal-globalnav .navbar li > a {
-    float: right;
-    border-right: 0px solid transparent !important;
-    border-left: 1px solid #b2b2b2 !important;
+    border-right: 1px solid  #b2b2b2 !important;
+    border-left: 0px solid #b2b2b2 !important;
     border-bottom: 1px solid #b2b2b2 !important;
+    border-top: 0px solid #b2b2b2 !important;
+    padding: 10px !important;
   }
 }
 
