@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.91 (unreleased)
+2.91 (2021-03-08)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos Navbar desplegado en móviles [Iago López Fernández]
+* Select correct language [alberto.duran]
 
 2.90 (2021-02-24)
 -----------------
