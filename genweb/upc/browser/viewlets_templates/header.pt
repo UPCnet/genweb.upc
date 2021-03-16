@@ -13,7 +13,7 @@
       </a>
     </h1>
     <div id='eines-menu' class='hidden-desktop hidden-tablet' >
-      <a id='eines-menu-boto' class="collapsed clau-anglesa btn boto" data-toggle="collapse" data-target=".nav-collapse-eines">≡</a>
+      <a id='eines-menu-boto' class="collapsed clau-anglesa btn boto" data-toggle="collapse" data-target=".nav-collapse-eines"><span>≡</span></a>
     </div>
 
     <tal:comment replace="nothing">  Menu para tamaño escritorio</tal:comment>

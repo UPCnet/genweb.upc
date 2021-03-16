@@ -11989,6 +11989,14 @@ html {
   .carousel-control.left {
     top: 62px; } }
 @media only screen and (max-width: 979px) and (orientation: portrait), only screen and (max-width: 979px) and (orientation: landscape) {
+  #eines-menu-boto:not(.collapsed) span,
+  #titol-menu-2-boto:not(.collapsed) span {
+    display: none; }
+
+  #eines-menu-boto:not(.collapsed)::after,
+  #titol-menu-2-boto:not(.collapsed)::after {
+    content: "×"; }
+
   body.userrole-authenticated #eines-menu-boto {
     margin-top: 40px; }
 

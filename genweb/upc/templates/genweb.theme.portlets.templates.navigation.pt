@@ -4,7 +4,7 @@
 
 
   <h2 id='titol-menu-2' class='hidden-desktop' >
-    <a id='titol-menu-2-boto' class='collapsed btn boto' data-toggle='collapse' data-target='#portlet-navigation-tree'>≡</a>
+    <a id='titol-menu-2-boto' class='collapsed btn boto' data-toggle='collapse' data-target='#portlet-navigation-tree'><span>≡</span></a>
     <span id='titol-menu-2-text' tal:content="root/Title">titol</span>
   </h2>
 
