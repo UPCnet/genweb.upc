@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.92 (unreleased)
+2.92 (2021-03-16)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos menú móvil [Iago López Fernández]
 
 2.91 (2021-03-08)
 -----------------
