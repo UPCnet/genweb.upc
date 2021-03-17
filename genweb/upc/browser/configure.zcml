@@ -18,6 +18,13 @@
         permission="zope2.ViewManagementScreens"
         template="templates/add_genweb.pt"
         />
+    
+    <browser:page
+        name="download_files"
+        for="plone.app.contenttypes.interfaces.IFolder"
+        permission="zope2.ViewManagementScreens"
+        class=".folders.DownloadFiles"
+        />
 
     <!-- Render the twitter media metadata -->
     <browser:viewlet
