@@ -3,6 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="genweb">
 
+    <include package="z3c.jbot" file="meta.zcml" />
+
     <browser:page
         for="OFS.interfaces.IApplication"
         name="addGenweb"

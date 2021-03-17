@@ -469,3 +469,28 @@ body.portaltype-packet fieldset {
 #portal-breadcrumbs h2 {
   color: #4A4A4A !important;
 }
+
+#cookies-id {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 88%;
+  right: 0;
+  border-bottom: 4px solid #dedede;
+  font-size: 16px;
+  text-align: justify;
+  color: #FFFFFF;
+  margin: auto;
+  padding: 3px 8px;
+  background-color: #000000;
+}
+
+#cookies-buttons {
+  // display: inline-block;
+  margin: 7px 0px 10px 10px;
+}
+
+#cookies-button1 {
+  //border-top: 4px solid;
+  margin: auto;
+}

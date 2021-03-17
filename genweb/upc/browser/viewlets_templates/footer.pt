@@ -1,0 +1,103 @@
+<footer id="peu" role="contentinfo"
+        tal:define="portal_url context/@@plone_portal_state/portal_url;
+                    plone_view context/@@plone;
+                    view nocall:view | nocall: plone_view;
+                    dades context/@@genweb.utils/getDadesUnitat;
+                    cookies viewlet/idioma_cookies;
+                    home_link viewlet/getHomeLink"
+        i18n:domain="genweb">
+
+  <div class="container">
+
+    <div id="cookies-id" role="alert">
+        <tal:msg i18n:translate="cookie_policy_this_site">
+        Aquest web utilitza cookies pròpies per oferir-li una millor experiència i servei. En continuar amb la navegació entenem que accepta la nostra
+        </tal:msg>
+        <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">
+          política de cookies
+        </a>
+        <tal:msg i18n:translate="cookie_policy_this_site_2">.</tal:msg>
+        <ul id="cookies-buttons">
+          <button type="button" id="cookies-button1">
+            <tal:msg i18n:translate="cookie_policy_button1">Acceptar</tal:msg>
+          </button>
+            <button type="button" id="cookies-button">
+              <a tal:attributes="href cookies" i18n:translate="cookie_policy_button2">
+                política de cookies
+              </a>
+            </button>
+        </ul>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span8">
+        <p>
+          <a tal:attributes="href home_link" target="_blank">
+            <abbr rel="tooltip" data-placement="top" title="Universitat Politècnica de Catalunya · BarcelonaTech">UPC</abbr>
+          </a>.
+          <tal:signatura content="python:getattr(viewlet.genweb_config(), 'signatura_unitat_%s' % viewlet.pref_lang(), '')">
+                Servei de Comunicació i Promoció
+          </tal:signatura>
+        </p>
+        <address tal:condition="python:getattr(viewlet.genweb_config(), 'contacte_al_peu', False)">
+          <p tal:condition="python:dades and not dades.get('error', False)">
+            <tal:adreca content="dades/adreca | nothing">
+              Edifici Til·lers. Jordi Girona, 31.
+            </tal:adreca>.
+            <tal:codi content="dades/codi_postal | nothing">
+                08034
+            </tal:codi>
+            <tal:localitat content="dades/localitat | nothing">
+              Barcelona
+            </tal:localitat> -
+            <abbr rel="tooltip" data-placement="top" title="Telèfon">
+              Tel.</abbr>:
+            <tal:tel content="dades/telefon | nothing">
+              +34 93 401 63 12
+            </tal:tel>
+          </p>
+        </address>
+      </div>
+      <div class="span4" role="complementary" aria-labelledby="titol-sobre-el-web">
+        <h2 class="goout" id="titol-sobre-el-web"
+          i18n:translate="label_about"> Sobre el web </h2>
+        <ul class="pull-right sobreElWeb" role="menu"
+            tal:define="link viewlet/getLinksPeu" >
+          <li role="menuitem">
+            <a href="#" accesskey="0"
+               tal:attributes="href string:${portal_url}/${link/accessibility}"
+               i18n:translate="genweb-accessibility">
+                Accessibilitat
+            </a>
+          </li>
+          <li role="menuitem">
+            <a href="#" target="_blank"
+               tal:attributes="href link/disclaimer"
+               i18n:translate="genweb-disclaimer">
+                Disclaimer
+            </a>
+          </li>
+          <li role="menuitem" class="amunt">
+            <a rel="tooltip" data-placement="top"
+               tal:attributes="href python:viewlet.get_go_to_top_link(template, view)"
+               i18n:attributes="title inici_page;">
+               <img tal:attributes="src string:${portal_url}/++genweb++static/images/amunt.png"
+                    i18n:attributes="alt inici_page;" height="16px" width="16px">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!--[if !IE]> -->
+<footer id="canvia-vista" role="complementary">
+  <p>
+    <a class="reView" data-defaultText="Versió móbil" data-coreText="Versió d'escriptori" href="javascript:void(0)">
+      Versió d'escriptori
+    </a>
+  </p>
+</footer>
+<!-- <![endif]-->
