@@ -15,7 +15,7 @@ class DownloadFiles(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-    
+
     def __call__(self):
         form = self.request.form
         if not form or 'file_type' not in form:
@@ -25,7 +25,7 @@ class DownloadFiles(BrowserView):
         if not items:
             IStatusMessage(self.request).addStatusMessage(u"No files found!", "info")
             return self.template()
-        
+
         today = datetime.today().strftime("%Y-%m-%d")
         plone_id = 'export-{0}'.format(self.context.id)
         exp_path = 'export-{0}-{1}'.format(self.context.id, today)
@@ -84,6 +84,7 @@ class DownloadFiles(BrowserView):
         )
         zip_file.reindexObject()
         transaction.commit()
+        print("Finished")
         self.request.response.redirect(zip_file.absolute_url() + '/view')
 
 
@@ -111,7 +112,7 @@ def query_items_in_natural_sort_order(root, query):
 
     # Apply caller's filters
     applied_query.update(query)
-    
+
     # Set the navigation tree build strategy
     # - use navigation portlet strategy as base
     strategy = DefaultNavtreeStrategy(root)

@@ -5,7 +5,7 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
     <object name="object_buttons" meta_type="CMF Action Category">
-        <object name="download_files" meta_type="CMF Action" i18n:domain="genweb.upc">
+        <object name="download_files" meta_type="CMF Action" i18n:domain="genweb">
             <property name="title" i18n:translate="dw_files">Download Files</property>
             <property name="url_expr">string:${object_url}/download_files</property>
             <property name="icon_expr"></property>
