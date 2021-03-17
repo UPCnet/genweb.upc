@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.93 (unreleased)
+2.93 (2021-03-17)
 -----------------
 
-- Nothing changed yet.
-
+* New feature for download files and images as folder structure in zip file [alberto.duran]
 
 2.92 (2021-03-16)
 -----------------
