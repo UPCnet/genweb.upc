@@ -8467,6 +8467,16 @@ button.pfg-draft-save .badge,
 .review {
   display: none; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
 .dropdown-menu a.state-intranet, .dropdown-menu a#workflow-transition-publishtointranet, .dropdown-menu a#workflow-transition-publicaalaintranet, .dropdown-menu a#workflow-transition-retracttointranet, .dropdown-menu a#workflow-transition-retiraalaintranet {
   color: #8952ab; }
 .dropdown-menu a.state-pending, .dropdown-menu a#workflow-transition-submit {
