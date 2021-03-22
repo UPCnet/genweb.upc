@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.94 (unreleased)
+2.94 (2021-03-22)
 -----------------
 
-- Nothing changed yet.
-
+* .sr-only [Iago López Fernández]
 
 2.93 (2021-03-17)
 -----------------
