@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="genweb.upc">
+
+<body>
+
+  <metal:custom_title fill-slot="content-title">
+    <h1 class="documentFirstHeading" tal:content="view/getTitle"></h1>
+  </metal:custom_title>
+
+  <metal:content-core fill-slot="content-core">
+    <h2 tal:content="python: view.the_title()" />
+    <h2 tal:content="python: view.getCookies()" />
+    <div id="cookiesDeclarationDialog">
+      <tal:msg i18n:translate="cookies_policy_web">
+        Aquest web utilitza cookies pròpies
+      </tal:msg>
+    </div>
+  </metal:content-core>
+
+</body>
+</html>

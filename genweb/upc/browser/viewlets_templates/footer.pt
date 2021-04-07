@@ -10,23 +10,30 @@
   <div class="container">
 
     <div id="cookies-id" role="alert">
-        <tal:msg i18n:translate="cookie_policy_this_site">
-        Aquest web utilitza cookies pròpies per oferir-li una millor experiència i servei. En continuar amb la navegació entenem que accepta la nostra
-        </tal:msg>
-        <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">
-          política de cookies
-        </a>
-        <tal:msg i18n:translate="cookie_policy_this_site_2">.</tal:msg>
-        <ul id="cookies-buttons">
-          <button type="button" id="cookies-button1">
-            <tal:msg i18n:translate="cookie_policy_button1">Acceptar</tal:msg>
-          </button>
-            <button type="button" id="cookies-button">
-              <a tal:attributes="href cookies" i18n:translate="cookie_policy_button2">
-                política de cookies
-              </a>
-            </button>
-        </ul>
+      <div id="cookies-bodyContent">
+        <div id="cookies-bodyTitle">
+          <tal:msg i18n:translate="cookie_policy_title">cookies</tal:msg>
+        </div>
+        <div id="cookies-bodyText">
+          <tal:msg i18n:translate="cookie_policy_this_site">
+          Aquest web utilitza cookies pròpies per oferir-li una millor experiència i servei. En continuar amb la navegació entenem que accepta la nostra
+          </tal:msg>
+          <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">
+            política de cookies
+          </a>
+          <tal:msg i18n:translate="cookie_policy_this_site_2">.</tal:msg>
+        </div>
+      </div>
+      <ul id="cookies-buttons">
+        <button type="button">
+          <tal:msg i18n:translate="cookie_policy_button1">Acceptar</tal:msg>
+        </button>
+        <button type="button">
+          <a tal:attributes="href cookies" i18n:translate="cookie_policy_button2">
+            política de cookies
+          </a>
+        </button>
+      </ul>
     </div>
 
     <div class="row-fluid">

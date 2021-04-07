@@ -11438,25 +11438,39 @@ body.portaltype-packet fieldset {
 
 #cookies-id {
   position: fixed;
+  top: 83%;
   left: 0;
   bottom: 0;
-  top: 88%;
   right: 0;
-  border-bottom: 4px solid #dedede;
-  font-size: 16px;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  box-shadow: #121212 2px 2px 14px 2px;
+}
+
+#cookies-bodyContent {
   text-align: justify;
-  color: #FFFFFF;
-  margin: auto;
-  padding: 3px 8px;
-  background-color: #000000;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#cookies-bodyTitle {
+  color: #2a2a2a;
+  margin: 2px 0 6px;
+}
+
+#cookies-bodyText {
+  font-size: 14px;
 }
 
 #cookies-buttons {
-  margin: 7px 0px 10px 10px;
+  padding-left: 30px;
+  margin: 7px 0px 10px 0px;
 }
 
-#cookies-button1 {
-  margin: auto;
+#cookiesDeclarationDialog {
+  padding-left: 10px;
+  padding-top: 30px;
 }
 
 /*# sourceMappingURL=genwebupc.css.map */
