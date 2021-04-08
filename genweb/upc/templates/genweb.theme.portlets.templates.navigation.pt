@@ -1,11 +1,12 @@
 <tal:block i18n:domain='plone'
-           define='root view/navigation_root'><!-- menú 2on nivell -->
-
-
+           define='root view/navigation_root;
+                   context_id context/id;
+                   is_lrf_type python:context_id in ["ca", "es", "en", "benvingut", "bienvenido", "welcome"];'><!-- menú 2on nivell -->
 
   <h2 id='titol-menu-2' class='hidden-desktop' >
     <a id='titol-menu-2-boto' class='collapsed btn boto' data-toggle='collapse' data-target='#portlet-navigation-tree'><span>≡</span></a>
-    <span id='titol-menu-2-text' tal:content="root/Title">titol</span>
+    <span id='titol-menu-2-text' tal:condition="not:is_lrf_type" tal:content="context/title">titol</span>
+    <span id='titol-menu-2-text' tal:condition="is_lrf_type" i18n:domain='genweb' i18n:translate="menu">Menú</span>
   </h2>
 
   <nav class='subnavbar'>
