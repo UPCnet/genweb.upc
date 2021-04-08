@@ -2225,7 +2225,7 @@ em {
 cite {
   font-style: normal; }
 
-.muted, .box-example:after, .formHelp, .discreet, .discussion .documentByLine, .discussion .commentDate, .portaltype-packet .estudis *.gris, #category.documentByLine, #relatedItemBox {
+.muted, .box-example:after, .formHelp, .discreet, .discussion .documentByLine, .discussion .commentDate, .portaltype-packet .estudis .gris, #category.documentByLine, #relatedItemBox {
   color: #aaa; }
 
 .text-warning {
@@ -3329,7 +3329,7 @@ legend + .control-group {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('++genweb++static/images/gh.png?1611574994');
+  background-image: url('++genweb++static/images/gh.png?1584353871');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px; }
@@ -3391,10 +3391,10 @@ legend + .control-group {
 .dropdown-menu > .selected > a > .tileFooter:before,
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-menu > .selected > a > [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1611574994'); }
+  background-image: url('++genweb++static/images/gh-w.png?1584353871'); }
 
 .icon-color {
-  background-image: url('++genweb++static/images/gh-c.png?1611574994'); }
+  background-image: url('++genweb++static/images/gh-c.png?1584353871'); }
 
 .icon-glass {
   background-position: 0      0; }
@@ -3975,7 +3975,7 @@ legend + .control-group {
   background-position: -456px -192px; }
 
 .large-icon {
-  background-image: url('++genweb++static/images/gh-150.png?1611574994');
+  background-image: url('++genweb++static/images/gh-150.png?1584353871');
   width: 21px;
   height: 21px;
   margin-top: -1px;
@@ -3994,7 +3994,7 @@ legend + .control-group {
     background-position: -504px -252px; }
 
 .large-icon.icon-white {
-  background-image: url('++genweb++static/images/gh-150-w.png?1611574994'); }
+  background-image: url('++genweb++static/images/gh-150-w.png?1584353871'); }
 
 /*extends icones*/
 .dropup,
@@ -7017,7 +7017,7 @@ button.pfg-draft-save .badge,
   .navbar .btn-navbar {
     margin-right: 10px !important; }
     .navbar .btn-navbar i {
-      background-image: url('++genweb++static/images/gh-w.png?1611574994'); }
+      background-image: url('++genweb++static/images/gh-w.png?1584353871'); }
 
   .navbar-fixed-top {
     margin-bottom: 0 !important; }
@@ -7225,7 +7225,7 @@ button.pfg-draft-save .badge,
   #portal-personaltools-wrapper .nav ul, #portal-personaltools-wrapper .contentViews ul, #portal-personaltools-wrapper .configlets ul, #portal-personaltools-wrapper .formTabs ul {
     margin: 0 !important; }
   #portal-personaltools-wrapper .nav i, #portal-personaltools-wrapper .contentViews i, #portal-personaltools-wrapper .configlets i, #portal-personaltools-wrapper .formTabs i {
-    background-image: url('++genweb++static/images/gh-w.png?1611574994'); }
+    background-image: url('++genweb++static/images/gh-w.png?1584353871'); }
   #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):hover, #portal-personaltools-wrapper .nav a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .contentViews a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .configlets a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus, #portal-personaltools-wrapper .formTabs a:not(.btn):not(.standalone):not(input[value^="Cancel"]):not([type="submit"]):not(.context):not(.searchButton):not(button.pfg-draft-save):not(.link-parent):focus {
     background: #000; }
   #portal-personaltools-wrapper .nav a.btn, #portal-personaltools-wrapper .contentViews a.btn, #portal-personaltools-wrapper .configlets a.btn, #portal-personaltools-wrapper .formTabs a.btn, #portal-personaltools-wrapper .nav a.standalone, #portal-personaltools-wrapper .contentViews a.standalone, #portal-personaltools-wrapper .configlets a.standalone, #portal-personaltools-wrapper .formTabs a.standalone, #portal-personaltools-wrapper .nav a[type="submit"], #portal-personaltools-wrapper .contentViews a[type="submit"], #portal-personaltools-wrapper .configlets a[type="submit"], #portal-personaltools-wrapper .formTabs a[type="submit"], #portal-personaltools-wrapper .nav a.context, #portal-personaltools-wrapper .contentViews a.context, #portal-personaltools-wrapper .configlets a.context, #portal-personaltools-wrapper .formTabs a.context, #portal-personaltools-wrapper .nav a.searchButton, #portal-personaltools-wrapper .contentViews a.searchButton, #portal-personaltools-wrapper .configlets a.searchButton, #portal-personaltools-wrapper .formTabs a.searchButton, #portal-personaltools-wrapper .nav a.link-parent, #portal-personaltools-wrapper .contentViews a.link-parent, #portal-personaltools-wrapper .configlets a.link-parent, #portal-personaltools-wrapper .formTabs a.link-parent, #portal-personaltools-wrapper .nav a.btn:focus, #portal-personaltools-wrapper .contentViews a.btn:focus, #portal-personaltools-wrapper .configlets a.btn:focus, #portal-personaltools-wrapper .formTabs a.btn:focus, #portal-personaltools-wrapper .nav a.standalone:focus, #portal-personaltools-wrapper .contentViews a.standalone:focus, #portal-personaltools-wrapper .configlets a.standalone:focus, #portal-personaltools-wrapper .formTabs a.standalone:focus, #portal-personaltools-wrapper .nav a[type="submit"]:focus, #portal-personaltools-wrapper .contentViews a[type="submit"]:focus, #portal-personaltools-wrapper .configlets a[type="submit"]:focus, #portal-personaltools-wrapper .formTabs a[type="submit"]:focus, #portal-personaltools-wrapper .nav a.context:focus, #portal-personaltools-wrapper .contentViews a.context:focus, #portal-personaltools-wrapper .configlets a.context:focus, #portal-personaltools-wrapper .formTabs a.context:focus, #portal-personaltools-wrapper .nav a.searchButton:focus, #portal-personaltools-wrapper .contentViews a.searchButton:focus, #portal-personaltools-wrapper .configlets a.searchButton:focus, #portal-personaltools-wrapper .formTabs a.searchButton:focus, #portal-personaltools-wrapper .nav a.link-parent:focus, #portal-personaltools-wrapper .contentViews a.link-parent:focus, #portal-personaltools-wrapper .configlets a.link-parent:focus, #portal-personaltools-wrapper .formTabs a.link-parent:focus {
@@ -8158,7 +8158,7 @@ button.pfg-draft-save .badge,
   background-color: #BD362F; }
 
 .userScreen, .userTablet, .userMobile, .userGenweb {
-  background: url('++genweb++static/images/sprite_usuari.png?1611574994') transparent no-repeat center top;
+  background: url('++genweb++static/images/sprite_usuari.png?1584353871') transparent no-repeat center top;
   height: 1.5em;
   width: 1.5em; }
 
@@ -8228,7 +8228,7 @@ button.pfg-draft-save .badge,
 
 /*ajusta imatges icos en menús per a hovers */
 .dropdown-menu a:hover [class^="icon-"], .dropdown-menu a:hover #category.documentByLine:before, .dropdown-menu a:hover #relatedItemBox:before, .dropdown-menu a:hover .tileFooter:before, .dropdown-menu a:hover [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1611574994') !important; }
+  background-image: url('++genweb++static/images/gh-w.png?1584353871') !important; }
 
 #portal-header {
   border-bottom: 1px solid #d7d5d2;
@@ -8452,7 +8452,7 @@ button.pfg-draft-save .badge,
   #canvia-vista p {
     margin: 0 !important; }
   #canvia-vista a {
-    background: url('++genweb++static/images/vistabg.png?1611574994') #666;
+    background: url('++genweb++static/images/vistabg.png?1584353871') #666;
     text-align: center;
     -moz-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: inset 0 10px 10px -5px rgba(0, 0, 0, 0.5);
@@ -8572,7 +8572,7 @@ button.pfg-draft-save .badge,
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     right: 7px;
     top: 8px;
-    background-image: url('++genweb++static/images/gh-w.png?1611574994');
+    background-image: url('++genweb++static/images/gh-w.png?1584353871');
     background-position: -455px -71px;
     background-repeat: no-repeat;
     width: 17px;
@@ -8651,7 +8651,7 @@ button.pfg-draft-save .badge,
         font-size: 44px;
         line-height: 0 !important; }
       .subnavbar .nav-list .active ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class^="contenttype-"] span:after, .subnavbar .nav-list .active ul a[class*=" contenttype-"] span:after, .subnavbar .nav-list .selected ul a[class*=" contenttype-"] span:after {
-        background-image: url('++genweb++static/images/gh.png?1611574994');
+        background-image: url('++genweb++static/images/gh.png?1584353871');
         background-repeat: no-repeat;
         content: " ";
         display: block;
@@ -8727,7 +8727,7 @@ ul#portlet-navigation-tree .navTreeLevel3 {
   background-color: #000; }
 
 html * .dropdown-menu a:hover .img_blank {
-  content: url('++genweb++static/images/blank_blanc.png?1611574994');
+  content: url('++genweb++static/images/blank_blanc.png?1584353871');
   width: 10px;
   height: 10px; }
 
@@ -8765,7 +8765,7 @@ html * .dropdown-menu a:hover .img_blank {
   padding-left: 8px;
   position: relative; }
 #listing-table a[class^="contenttype-"]:before, #listing-table a[class*=" contenttype-"]:before, #listing-table span[class^="contenttype-"]:before, #listing-table span[class*=" contenttype-"]:before, .template-tabular_view .listing a[class^="contenttype-"]:before, .template-tabular_view .listing a[class*=" contenttype-"]:before, .template-tabular_view .listing span[class^="contenttype-"]:before, .template-tabular_view .listing span[class*=" contenttype-"]:before, .contenttreeWidget > .navTree a[class^="contenttype-"]:before, .contenttreeWidget > .navTree a[class*=" contenttype-"]:before, .contenttreeWidget > .navTree span[class^="contenttype-"]:before, .contenttreeWidget > .navTree span[class*=" contenttype-"]:before, .collage-content-menu a[class^="contenttype-"]:before, .collage-content-menu a[class*=" contenttype-"]:before, .collage-content-menu span[class^="contenttype-"]:before, .collage-content-menu span[class*=" contenttype-"]:before {
-  background-image: url('++genweb++static/images/gh.png?1611574994');
+  background-image: url('++genweb++static/images/gh.png?1584353871');
   background-repeat: no-repeat;
   content: " ";
   display: block;
@@ -8827,7 +8827,7 @@ dt[class*="contenttype"] + dd {
   margin-left: 20px; }
 
 dt[class*="contenttype"]:before {
-  background-image: url('++genweb++static/images/gh.png?1611574994');
+  background-image: url('++genweb++static/images/gh.png?1584353871');
   background-repeat: no-repeat;
   display: block;
   width: 15px;
@@ -9559,7 +9559,7 @@ ul {
     margin-top: -15px; }
 
 .list-links > li:before, .portaltype-packet .estudis .llistatEnllacos > li:before {
-  content: url('++genweb++static/images/arrow.png?1611574994');
+  content: url('++genweb++static/images/arrow.png?1584353871');
   margin-left: -15px;
   margin-top: -13px; }
 
@@ -9567,7 +9567,7 @@ ul {
   margin-left: -29px; }
 
 .list-highlighted li:before {
-  content: url('++genweb++static/images/arrow_hl.png?1611574994');
+  content: url('++genweb++static/images/arrow_hl.png?1584353871');
   margin-left: -22px;
   margin-top: -11px; }
 
@@ -10100,7 +10100,7 @@ h1:first-child, h2:first-child, h3:first-child {
   font-size: 153.846154% !important;
   line-height: 27px; }
 
-*.xxl, legend, *.tileHeadline {
+*.xxl, legend, .tileHeadline {
   font-size: 130.769231% !important;
   line-height: 18px; }
 
@@ -10116,7 +10116,7 @@ h1:first-child, h2:first-child, h3:first-child {
   font-size: 100% !important;
   line-height: 18px; }
 
-*.s, *.formHelp, .discussion *.commentDate {
+*.s, .formHelp, .discussion .commentDate {
   font-size: 92.3076923% !important;
   line-height: 18px; }
 
@@ -10132,7 +10132,7 @@ h1:first-child, h2:first-child, h3:first-child {
   font-size: 69.2307692% !important;
   line-height: 18px; }
 
-*.liniaBaix, *.documentFirstHeading {
+*.liniaBaix, .documentFirstHeading {
   border-bottom: 1px solid #b2b2b2;
   -moz-box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.1);
@@ -10140,7 +10140,7 @@ h1:first-child, h2:first-child, h3:first-child {
   margin: 0 0 18px 0;
   padding: 0 0 12px; }
 
-*.liniaDalt, *.tileHeadline {
+*.liniaDalt, .tileHeadline {
   border-top: 1px solid #b2b2b2;
   -moz-box-shadow: 0 -6px 4px -4px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 -6px 4px -4px rgba(0, 0, 0, 0.1);
@@ -10217,7 +10217,7 @@ hr.liniaDalt, hr.tileHeadline {
   display: block;
   width: 14px;
   height: 14px;
-  background: url('++genweb++static/images/gh.png?1611574994'); }
+  background: url('++genweb++static/images/gh.png?1584353871'); }
 
 .mayus {
   text-transform: uppercase; }
@@ -10247,7 +10247,7 @@ a {
   box-shadow: 0 1px 3px #666; }
 
 .pdf:after, .ppt:after, .xls:after, .doc:after, .down:after, .https:after, .vid:after, .img:after, .txt:after {
-  background: url('++genweb++static/images/gh-c.png?1611574994') no-repeat;
+  background: url('++genweb++static/images/gh-c.png?1584353871') no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -10403,7 +10403,7 @@ input[type="file"] {
   font-style: normal;
   font-weight: bold; }
   .customfile-feedback-populated:before {
-    background: url('++genweb++static/images/gh-c.png?1611574994') no-repeat;
+    background: url('++genweb++static/images/gh-c.png?1584353871') no-repeat;
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -10683,7 +10683,7 @@ h2.title-inverse {
   color: #fff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3); }
   h2.title-inverse i {
-    background-image: url('++genweb++static/images/gh-w.png?1611574994'); }
+    background-image: url('++genweb++static/images/gh-w.png?1584353871'); }
 
 .portletCalendar .ploneCalendar {
   text-align: center;
@@ -10897,7 +10897,7 @@ label {
   #search-term:after {
     content: " \""; }
 
-div.label, #listing-table tr td:nth-child(6) div.state-restricted-to-managers, #listing-table tr td:nth-child(6) div.state-visible, #listing-table tr td:nth-child(6) div.state-intranet, #listing-table tr td:nth-child(6) div#workflow-transition-publishtointranet, #listing-table tr td:nth-child(6) div#workflow-transition-publicaalaintranet, #listing-table tr td:nth-child(6) div#workflow-transition-retracttointranet, #listing-table tr td:nth-child(6) div#workflow-transition-retiraalaintranet, #listing-table tr td:nth-child(6) div.state-private, #listing-table tr td:nth-child(6) div#workflow-transition-hide, label *.label, label #listing-table tr td:nth-child(6) *.state-restricted-to-managers, #listing-table tr td:nth-child(6) label *.state-restricted-to-managers, label #listing-table tr td:nth-child(6) *.state-visible, #listing-table tr td:nth-child(6) label *.state-visible, label #listing-table tr td:nth-child(6) *.state-intranet, #listing-table tr td:nth-child(6) label *.state-intranet, label #listing-table tr td:nth-child(6) *#workflow-transition-publishtointranet, #listing-table tr td:nth-child(6) label *#workflow-transition-publishtointranet, label #listing-table tr td:nth-child(6) *#workflow-transition-publicaalaintranet, #listing-table tr td:nth-child(6) label *#workflow-transition-publicaalaintranet, label #listing-table tr td:nth-child(6) *#workflow-transition-retracttointranet, #listing-table tr td:nth-child(6) label *#workflow-transition-retracttointranet, label #listing-table tr td:nth-child(6) *#workflow-transition-retiraalaintranet, #listing-table tr td:nth-child(6) label *#workflow-transition-retiraalaintranet, label #listing-table tr td:nth-child(6) *.state-private, #listing-table tr td:nth-child(6) label *.state-private, label #listing-table tr td:nth-child(6) *#workflow-transition-hide, #listing-table tr td:nth-child(6) label *#workflow-transition-hide {
+div.label, #listing-table tr td:nth-child(6) div.state-restricted-to-managers, #listing-table tr td:nth-child(6) div.state-visible, #listing-table tr td:nth-child(6) div.state-intranet, #listing-table tr td:nth-child(6) div#workflow-transition-publishtointranet, #listing-table tr td:nth-child(6) div#workflow-transition-publicaalaintranet, #listing-table tr td:nth-child(6) div#workflow-transition-retracttointranet, #listing-table tr td:nth-child(6) div#workflow-transition-retiraalaintranet, #listing-table tr td:nth-child(6) div.state-private, #listing-table tr td:nth-child(6) div#workflow-transition-hide, label *.label, label #listing-table tr td:nth-child(6) .state-restricted-to-managers, #listing-table tr td:nth-child(6) label .state-restricted-to-managers, label #listing-table tr td:nth-child(6) .state-visible, #listing-table tr td:nth-child(6) label .state-visible, label #listing-table tr td:nth-child(6) .state-intranet, #listing-table tr td:nth-child(6) label .state-intranet, label #listing-table tr td:nth-child(6) #workflow-transition-publishtointranet, #listing-table tr td:nth-child(6) label #workflow-transition-publishtointranet, label #listing-table tr td:nth-child(6) #workflow-transition-publicaalaintranet, #listing-table tr td:nth-child(6) label #workflow-transition-publicaalaintranet, label #listing-table tr td:nth-child(6) #workflow-transition-retracttointranet, #listing-table tr td:nth-child(6) label #workflow-transition-retracttointranet, label #listing-table tr td:nth-child(6) #workflow-transition-retiraalaintranet, #listing-table tr td:nth-child(6) label #workflow-transition-retiraalaintranet, label #listing-table tr td:nth-child(6) .state-private, #listing-table tr td:nth-child(6) label .state-private, label #listing-table tr td:nth-child(6) #workflow-transition-hide, #listing-table tr td:nth-child(6) label #workflow-transition-hide {
   background: #fff;
   text-shadow: none;
   font-size: 100%;
@@ -11019,7 +11019,7 @@ iframe {
       width: 14px;
       height: 14px;
       display: inline-block;
-      background: url('++genweb++static/images/gh.png?1611574994') -239px -143px no-repeat;
+      background: url('++genweb++static/images/gh.png?1584353871') -239px -143px no-repeat;
       margin-left: 5px; }
 #portal-sitemap ul {
   -webkit-column-count: 3;
@@ -12039,7 +12039,7 @@ html {
   #portal-header h1.pull-left {
     height: 46px;
     width: 207px;
-    background: url('++genweb++static/images/logoUPC@2x.png?1611574994') no-repeat;
+    background: url('++genweb++static/images/logoUPC@2x.png?1584353871') no-repeat;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     -webkit-background-size: 100%;
@@ -12057,16 +12057,16 @@ html {
     height: 10px; }
 
   .img_blank[src*="blank_blau"] {
-    content: url('++genweb++static/images/blank_blau@2x.png?1611574994'); }
+    content: url('++genweb++static/images/blank_blau@2x.png?1584353871'); }
 
   .img_blank[src*="blank_gris"] {
-    content: url('++genweb++static/images/blank_gris@2x.png?1611574994'); }
+    content: url('++genweb++static/images/blank_gris@2x.png?1584353871'); }
 
   .img_blank[src*="blank_blanc"] {
-    content: url('++genweb++static/images/blank_blanc@2x.png?1611574994'); }
+    content: url('++genweb++static/images/blank_blanc@2x.png?1584353871'); }
 
   .userScreen, .userTablet, .userMobile, .userGenweb {
-    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1611574994');
+    background-image: url('++genweb++static/images/sprite_usuari@2x.png?1584353871');
     -moz-background-size: 20px 400px;
     -o-background-size: 20px 400px;
     -webkit-background-size: 20px 400px;
@@ -12437,7 +12437,7 @@ html.lt-ie8 .list-portlet li  {
   font-weight: bold;
   margin-bottom: 1em; }
   .link-parent:before {
-    background: url('++genweb++static/images/gh-w.png?1611574994') no-repeat -290px -95px;
+    background: url('++genweb++static/images/gh-w.png?1584353871') no-repeat -290px -95px;
     content: " ";
     display: inline-block;
     height: 14px;
@@ -13901,30 +13901,36 @@ body.portaltype-packet fieldset {
 
 #cookies-id {
   position: fixed;
-  top: 83%;
-  left: 0;
   bottom: 0;
-  right: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  background-color: #ffffff;
-  box-shadow: #121212 2px 2px 14px 2px; }
+  font-size: 16px;
+  text-align: justify;
+  margin: auto;
+  color: #4a4a4a;
+  background: #fffffff2;
+  box-shadow: 0 0 1px 1px #0000000d !important;
+  transition: opacity 0.15s linear;
+  opacity: 1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  z-index: 10; }
 
 #cookies-bodyContent {
   text-align: justify;
-  padding-left: 30px;
-  padding-right: 30px; }
-
-#cookies-bodyTitle {
-  color: #2a2a2a;
-  margin: 2px 0 6px; }
-
-#cookies-bodyText {
-  font-size: 14px; }
+  padding-left: 15px;
+  padding-right: 15px; }
 
 #cookies-buttons {
-  padding-left: 30px;
-  margin: 7px 0px 10px 0px; }
+  padding-left: 15px;
+  margin: 10px 0px 0px 0px !important; }
+
+#cookies-button1 {
+  color: #ffffff;
+  background-color: #007bc1;
+  border: 1px solid #ffffff !important;
+  padding: 8px; }
 
 #cookiesDeclarationDialog {
   padding-left: 10px;

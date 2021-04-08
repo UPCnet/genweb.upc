@@ -472,35 +472,39 @@ body.portaltype-packet fieldset {
 
 #cookies-id {
   position: fixed;
-  top: 83%;
-  left: 0;
   bottom: 0;
-  right: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  //border-bottom: 4px solid #dedede;
-  background-color: #ffffff;
-  box-shadow: #121212 2px 2px 14px 2px;
+  font-size: 16px;
+  text-align: justify;
+  margin: auto;
+  color: #4a4a4a;
+  background: #fffffff2;
+  box-shadow: 0 0 1px 1px #0000000d !important;
+  transition: opacity 0.15s linear;
+  opacity: 1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  z-index: 10;
 }
 
 #cookies-bodyContent {
   text-align: justify;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-#cookies-bodyTitle {
-  color: #2a2a2a;
-  margin: 2px 0 6px;
-}
-
-#cookies-bodyText {
-  font-size: 14px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #cookies-buttons {
-  padding-left: 30px;
-  margin: 7px 0px 10px 0px;
+  padding-left: 15px;
+  margin: 10px 0px 0px 0px !important;
+}
+
+#cookies-button1 {
+  color: #ffffff;
+  background-color: #007bc1;
+  border: 1px solid #ffffff !important;
+  padding: 8px;
 }
 
 #cookiesDeclarationDialog {

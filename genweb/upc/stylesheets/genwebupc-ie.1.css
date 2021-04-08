@@ -3154,7 +3154,7 @@ cite {
 .discreet,
 .discussion .documentByLine,
 .discussion .commentDate,
-.portaltype-packet .estudis *.gris,
+.portaltype-packet .estudis .gris,
 #category.documentByLine,
 #relatedItemBox {
   color: #aaa;
@@ -4528,7 +4528,7 @@ legend + .control-group {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('++genweb++static/images/gh.png?1611574994');
+  background-image: url('++genweb++static/images/gh.png?1584353871');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -4592,11 +4592,11 @@ legend + .control-group {
 .dropdown-menu > .selected > a > .tileFooter:before,
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-menu > .selected > a > [class*=" icon-"] {
-  background-image: url('++genweb++static/images/gh-w.png?1611574994');
+  background-image: url('++genweb++static/images/gh-w.png?1584353871');
 }
 
 .icon-color {
-  background-image: url('++genweb++static/images/gh-c.png?1611574994');
+  background-image: url('++genweb++static/images/gh-c.png?1584353871');
 }
 
 .icon-glass {
@@ -5444,7 +5444,7 @@ legend + .control-group {
 }
 
 .large-icon {
-  background-image: url('++genweb++static/images/gh-150.png?1611574994');
+  background-image: url('++genweb++static/images/gh-150.png?1584353871');
   width: 21px;
   height: 21px;
   margin-top: -1px;
@@ -5479,7 +5479,7 @@ legend + .control-group {
 }
 
 .large-icon.icon-white {
-  background-image: url('++genweb++static/images/gh-150-w.png?1611574994');
+  background-image: url('++genweb++static/images/gh-150-w.png?1584353871');
 }
 
 /*extends icones*/

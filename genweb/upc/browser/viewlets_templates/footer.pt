@@ -11,27 +11,15 @@
 
     <div id="cookies-id" role="alert">
       <div id="cookies-bodyContent">
-        <div id="cookies-bodyTitle">
-          <tal:msg i18n:translate="cookie_policy_title">cookies</tal:msg>
-        </div>
         <div id="cookies-bodyText">
           <tal:msg i18n:translate="cookie_policy_this_site">
-          Aquest web utilitza cookies pròpies per oferir-li una millor experiència i servei. En continuar amb la navegació entenem que accepta la nostra
+            El lloc web de la Universitat Politècnica de Catalunya utilitza cookies pròpies i de tercers per millorar l’experiència de navegació i amb finalitats estadístiques. No recull ni cedeix dades de caràcter personal dels usuaris sense el seu coneixement. Per obtenir més informació sobre l'ús de les cookies podeu consultar la <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">Política de cookies</a>.
           </tal:msg>
-          <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">
-            política de cookies
-          </a>
-          <tal:msg i18n:translate="cookie_policy_this_site_2">.</tal:msg>
         </div>
       </div>
       <ul id="cookies-buttons">
-        <button type="button">
+        <button type="button" id="cookies-button1">
           <tal:msg i18n:translate="cookie_policy_button1">Acceptar</tal:msg>
-        </button>
-        <button type="button">
-          <a tal:attributes="href cookies" i18n:translate="cookie_policy_button2">
-            política de cookies
-          </a>
         </button>
       </ul>
     </div>
