@@ -10,6 +10,7 @@
  <object meta_type="Dexterity FTI" name="Link" />
  <object meta_type="Dexterity FTI" name="News Item" />
  <object meta_type="Dexterity FTI" name="genweb.upc.subhome" />
+ <object meta_type="Dexterity FTI" name="genweb.upc.documentimage" />
 
  <object name="Window" meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Plone Site" meta_type="Factory-based Type Information with dynamic views"/>

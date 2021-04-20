@@ -3465,7 +3465,7 @@ legend + .control-group {
 .icon-home {
   background-position: 0      -24px; }
 
-.icon-page, .icon-document {
+.icon-page, .icon-document, .icon-genweb-upc-documentimage {
   background-position: -24px  -24px; }
 
 .icon-time, .icon-surveydatequestion, .icon-formdatefield {

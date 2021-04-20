@@ -4698,7 +4698,8 @@ legend + .control-group {
 }
 
 .icon-page,
-.icon-document {
+.icon-document,
+.icon-genweb-upc-documentimage {
   background-position: -24px  -24px;
 }
 
