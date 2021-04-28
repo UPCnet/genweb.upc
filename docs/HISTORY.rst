@@ -1,11 +1,16 @@
 Changelog
 =========
 
-2.95 (unreleased)
+2.95 (2021-04-28)
 -----------------
 
-- Nothing changed yet.
-
+* Política de cookies [Iago López Fernández]
+* Política de cookies [Iago López Fernández]
+* Nou contingut: Document amb imatge [Iago López Fernández]
+* Estilo banner cookies [Iago López Fernández]
+* Modificación banner cookies [Iago López Fernández]
+* Modificar portlet menú de navegación [Iago López Fernández]
+* creats fitxers pt i py per fer la vista mde la politica de cookies [avanger9]
 
 2.94 (2021-03-22)
 -----------------
