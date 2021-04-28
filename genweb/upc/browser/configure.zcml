@@ -29,14 +29,5 @@
         template="viewlets_templates/social_tags_twitter.pt"
         permission="zope2.View"
         />
-    
-    <browser:page
-        name="cookies"
-        for="*"
-        class=".cookies.CookiesManagement"
-        template="templates/cookies.pt"
-        layer=".interfaces.IGenwebUPC"
-        permission="zope2.View"
-        />
 
 </configure>

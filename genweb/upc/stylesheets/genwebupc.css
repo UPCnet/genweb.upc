@@ -13914,7 +13914,9 @@ body.portaltype-packet fieldset {
   padding: 15px;
   border: 1px solid transparent;
   border-radius: 2px;
-  z-index: 10; }
+  z-index: 10;
+  width: calc(100% - 34px);
+  border: 2px solid #007bc1; }
 
 #cookies-bodyContent {
   text-align: justify;
@@ -13934,5 +13936,8 @@ body.portaltype-packet fieldset {
 #cookiesDeclarationDialog {
   padding-left: 10px;
   padding-top: 30px; }
+
+.sobreElWeb {
+  margin-top: 5px; }
 
 /*# sourceMappingURL=genwebupc.css.map */

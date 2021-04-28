@@ -13,8 +13,9 @@
       <div id="cookies-bodyContent">
         <div id="cookies-bodyText">
           <tal:msg i18n:translate="cookie_policy_this_site">
-            El lloc web de la Universitat Politècnica de Catalunya utilitza cookies pròpies i de tercers per millorar l’experiència de navegació i amb finalitats estadístiques. No recull ni cedeix dades de caràcter personal dels usuaris sense el seu coneixement. Per obtenir més informació sobre l'ús de les cookies podeu consultar la <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">Política de cookies</a>.
+            El lloc web de la Universitat Politècnica de Catalunya utilitza cookies pròpies i de tercers per millorar l’experiència de navegació i amb finalitats estadístiques. Per obtenir més informació sobre l'ús de les cookies podeu consultar la
           </tal:msg>
+          <a tal:attributes="href cookies" i18n:translate="cookie_policy" target="_blank">Política de cookies</a>.
         </div>
       </div>
       <ul id="cookies-buttons">
@@ -25,7 +26,7 @@
     </div>
 
     <div class="row-fluid">
-      <div class="span8">
+      <div class="span6">
         <p>
           <a tal:attributes="href home_link" target="_blank">
             <abbr rel="tooltip" data-placement="top" title="Universitat Politècnica de Catalunya · BarcelonaTech">UPC</abbr>
@@ -53,7 +54,7 @@
           </p>
         </address>
       </div>
-      <div class="span4" role="complementary" aria-labelledby="titol-sobre-el-web">
+      <div class="span6" role="complementary" aria-labelledby="titol-sobre-el-web">
         <h2 class="goout" id="titol-sobre-el-web"
           i18n:translate="label_about"> Sobre el web </h2>
         <ul class="pull-right sobreElWeb" role="menu"
@@ -70,6 +71,13 @@
                tal:attributes="href link/disclaimer"
                i18n:translate="genweb-disclaimer">
                 Disclaimer
+            </a>
+          </li>
+          <li role="menuitem">
+            <a href="#" target="_blank"
+               tal:attributes="href link/cookies"
+               i18n:translate="cookie_policy">
+                Cookie Policy
             </a>
           </li>
           <li role="menuitem" class="amunt">

@@ -486,6 +486,8 @@ body.portaltype-packet fieldset {
   border: 1px solid transparent;
   border-radius: 2px;
   z-index: 10;
+  width: calc(100% - 34px);
+  border: 2px solid #007bc1;
 }
 
 #cookies-bodyContent {
@@ -509,4 +511,8 @@ body.portaltype-packet fieldset {
 #cookiesDeclarationDialog {
   padding-left: 10px;
   padding-top: 30px;
+}
+
+.sobreElWeb {
+  margin-top: 5px;
 }
