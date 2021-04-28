@@ -34,10 +34,17 @@ from AccessControl import getSecurityManager
 import re
 
 from genweb.theme.browser.viewlets import gwHeader as gwh
+from genweb.theme.browser.viewlets import gwFooter as gwf
+
 
 class gwHeader(gwh):
     grok.layer(IGenwebUPC)
     grok.template('header')
+
+
+class gwFooter(gwf):
+    grok.layer(IGenwebUPC)
+    grok.template('footer')
 
 
 class notConfigured(grok.Viewlet):

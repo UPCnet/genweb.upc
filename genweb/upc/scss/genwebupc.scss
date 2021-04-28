@@ -469,3 +469,50 @@ body.portaltype-packet fieldset {
 #portal-breadcrumbs h2 {
   color: #4A4A4A !important;
 }
+
+#cookies-id {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  text-align: justify;
+  margin: auto;
+  color: #4a4a4a;
+  background: #fffffff2;
+  box-shadow: 0 0 1px 1px #0000000d !important;
+  transition: opacity 0.15s linear;
+  opacity: 1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  z-index: 10;
+  width: calc(100% - 34px);
+  border: 2px solid #007bc1;
+}
+
+#cookies-bodyContent {
+  text-align: justify;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#cookies-buttons {
+  padding-left: 15px;
+  margin: 10px 0px 0px 0px !important;
+}
+
+#cookies-button1 {
+  color: #ffffff;
+  background-color: #007bc1;
+  border: 1px solid #ffffff !important;
+  padding: 8px;
+}
+
+#cookiesDeclarationDialog {
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+.sobreElWeb {
+  margin-top: 5px;
+}
