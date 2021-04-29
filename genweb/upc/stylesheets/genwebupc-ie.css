@@ -11464,7 +11464,7 @@ body.portaltype-packet fieldset {
   border-radius: 2px;
   z-index: 10;
   width: calc(100% - 34px);
-  border: 2px solid #B7B7B7;
+  border-top: 1px solid #cccccc;
 }
 
 #cookies-bodyContent {
