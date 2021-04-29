@@ -74,7 +74,7 @@
             </a>
           </li>
           <li role="menuitem">
-            <a href="#" target="_blank"
+            <a href="#"
                tal:attributes="href link/cookies"
                i18n:translate="cookie_policy">
                 Cookie Policy
