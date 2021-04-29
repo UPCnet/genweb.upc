@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.97 (unreleased)
+2.97 (2021-04-29)
 -----------------
 
-- Nothing changed yet.
-
+* Estilo popup Cookies [Iago López Fernández]
 
 2.96 (2021-04-29)
 -----------------
