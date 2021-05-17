@@ -30,6 +30,8 @@ VIEW_TYPE_LIST = 'list'
 VIEW_TYPE_IMG_LEFT_TITLE_RIGHT = 'img_left_title_right'
 VIEW_TYPE_IMG_UP_TITLE_DOWN = 'img_up_title_down'
 VIEW_TYPE_IMG_UP_TITLE_DOWN_2COLUMNS = 'img_up_title_down_2columns'
+VIEW_TYPE_IMG_UP_TITLE_DOWN_3COLUMNS = 'img_up_title_down_3columns'
+VIEW_TYPE_IMG_UP_TITLE_DOWN_4COLUMNS = 'img_up_title_down_4columns'
 
 vocabulary_view_type = SimpleVocabulary([
     SimpleTerm(
@@ -43,7 +45,14 @@ vocabulary_view_type = SimpleVocabulary([
         title=_(u'Full view')),
     SimpleTerm(
         value=VIEW_TYPE_IMG_UP_TITLE_DOWN_2COLUMNS,
-        title=_(u'Full2cols view'))])
+        title=_(u'Full2cols view')),
+    SimpleTerm(
+        value=VIEW_TYPE_IMG_UP_TITLE_DOWN_3COLUMNS,
+        title=_(u'Full3cols view')),
+    SimpleTerm(
+        value=VIEW_TYPE_IMG_UP_TITLE_DOWN_4COLUMNS,
+        title=_(u'Full4cols view')),
+    ])
 
 
 class IMultiviewCollectionPortlet(IPortletDataProvider):
@@ -161,6 +170,8 @@ class Renderer(base.Renderer):
         VIEW_TYPE_IMG_LEFT_TITLE_RIGHT: 'img_left_title_right.pt',
         VIEW_TYPE_IMG_UP_TITLE_DOWN: 'img_up_title_down.pt',
         VIEW_TYPE_IMG_UP_TITLE_DOWN_2COLUMNS: 'img_up_title_down_2columns.pt',
+        VIEW_TYPE_IMG_UP_TITLE_DOWN_3COLUMNS: 'img_up_title_down_3columns.pt',
+        VIEW_TYPE_IMG_UP_TITLE_DOWN_4COLUMNS: 'img_up_title_down_4columns.pt',
     }
     SUMMARY_LENGTH_MAX = 200
 
@@ -205,14 +216,25 @@ class Renderer(base.Renderer):
         normalizer = getUtility(IIDNormalizer)
         return "portlet-collection-%s" % normalizer.normalize(header)
 
-    def result_dicts_columns(self):
-        """
-        Return a tuple with (even, odd) dictionaries of results.
-        """
-        result_dicts = self.result_dicts()
-        return (
-            dict(div_id="pair-news", results=result_dicts[0::2]),
-            dict(div_id="odd-news", results=result_dicts[1::2]))
+    def published_news_items_group_by_x(self, num):
+        result = []
+        for count in range(num):
+            result.append([])
+
+        pos = 0
+        for new in self.result_dicts():
+            result[pos].append(new)
+            pos = 0 if pos == (num - 1) else pos + 1
+        return result
+
+    def published_news_items_group_by_two(self):
+        return self.published_news_items_group_by_x(2)
+
+    def published_news_items_group_by_three(self):
+        return self.published_news_items_group_by_x(3)
+
+    def published_news_items_group_by_four(self):
+        return self.published_news_items_group_by_x(4)
 
     def result_dicts(self):
         """

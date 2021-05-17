@@ -1,14 +1,13 @@
 <tal:def tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-                     result_columns view/result_dicts_columns;"
+                     result_columns view/published_news_items_group_by_two;"
          tal:condition="result_columns"
          i18n:domain="genweb">
   <div class="portlet portlet-noticies portlet-ampliat" role="complementary">
     <h2 tal:content="view/data/header" tal:condition="view/showTitle">Collection title</h2>
 
       <div class="row-fluid">
-        <div tal:repeat="result_column result_columns" class='span6 noticies-full-2cols'
-             tal:attributes="id result_column/div_id">
-          <div tal:repeat="result result_column/results" class='noticia-full-2cols'>
+        <div tal:repeat="result_column result_columns" class='span6 noticies-full-2cols'>
+          <div tal:repeat="result result_column" class='noticia-full-2cols'>
             <a tal:attributes="href result/url">
               <div class='noticies-full'>
                 <img tal:condition="result/image"
