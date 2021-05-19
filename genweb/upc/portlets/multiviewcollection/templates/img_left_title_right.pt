@@ -15,7 +15,7 @@
         <img tal:condition="result/image" class="span6"
              tal:attributes="src result/image_src;
                              title python: result['image_caption'] if result['image_caption'] else nothing;
-                             alt python: result['image_caption'] if result['image_caption'] else '';"/>
+                             alt python: result['image_caption'] if result['image_caption'] else ' ';"/>
         <div class="content-noticies" class="span6">
           <p tal:content="result/description">Description summary</p>
           <time tal:condition="view/show_time" class="smaller" tal:content="python:toLocalizedTime(result['date'])">Date</time>
