@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.98 (unreleased)
+2.98 (2021-05-19)
 -----------------
 
-- Nothing changed yet.
-
+* Mostrar alt vacio, coleccion multivista [Iago López Fernández]
+* Marcar por defecto las opciones de muchos usuarios y grupos [Iago López Fernández]
+* Añadir opciones portlet colección multivista [Iago López Fernández]
+* Popup banner no mostrarlo por defecto [Iago López Fernández]
+* Añadir check para quitar imagen de /view en el contenido Página con imagen [Iago López Fernández]
 
 2.97 (2021-04-29)
 -----------------
