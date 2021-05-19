@@ -2,7 +2,7 @@
 <object name="portal_properties" meta_type="Plone Properties Tool">
 
  <object name="collage_properties" meta_type="Plone Property Sheet">
-  <property name="ref_browser_types" type="boolean">True</property> 
+  <property name="ref_browser_types" type="boolean">True</property>
   <property name="use_whitelist" type="boolean">True</property>
   <property name="alias_whitelist" type="lines">
    <element value="Document"/>
@@ -15,13 +15,13 @@
    <element value="Topic"/>
   </property>
   <property name="types_whitelist" type="lines">
-   <element value="Document" /> 
-   <element value="Event" /> 
-   <element value="File" /> 
-   <element value="Folder" /> 
-   <element value="Image" /> 
-   <element value="Link" /> 
-   <element value="News Item" /> 
+   <element value="Document" />
+   <element value="Event" />
+   <element value="File" />
+   <element value="Folder" />
+   <element value="Image" />
+   <element value="Link" />
+   <element value="News Item" />
   </property>
  </object>
 
@@ -74,6 +74,11 @@
     <element value="Plone Site" />
     <element value="TempFolder" />
   </property>
+ </object>
+
+ <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="many_users" type="boolean">True</property>
+  <property name="many_groups" type="boolean">True</property>
  </object>
 
 </object>
