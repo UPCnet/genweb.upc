@@ -1,15 +1,16 @@
 <footer id="peu" role="contentinfo"
         tal:define="portal_url context/@@plone_portal_state/portal_url;
                     plone_view context/@@plone;
+                    gwutils context/@@genweb.utils;
                     view nocall:view | nocall: plone_view;
                     dades context/@@genweb.utils/getDadesUnitat;
                     cookies viewlet/idioma_cookies;
                     home_link viewlet/getHomeLink"
         i18n:domain="genweb">
 
-  <div class="container">
+  <div class="container" tal:define="isEnableCookiebot gwutils/isEnableCookiebot">
 
-    <div id="cookies-id" role="alert" style="display: none">
+    <div id="cookies-id" role="alert" style="display: none" tal:condition="not:isEnableCookiebot">
       <div id="cookies-bodyContent">
         <div id="cookies-bodyText">
           <tal:msg i18n:translate="cookie_policy_this_site">
@@ -75,7 +76,14 @@
           </li>
           <li role="menuitem">
             <a href="#"
+               tal:condition="not:isEnableCookiebot"
                tal:attributes="href link/cookies"
+               i18n:translate="cookie_policy">
+                Cookie Policy
+            </a>
+            <a href="#"
+               tal:condition="isEnableCookiebot"
+               tal:attributes="href link/cookiebot"
                i18n:translate="cookie_policy">
                 Cookie Policy
             </a>

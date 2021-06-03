@@ -44,6 +44,7 @@ i que podreu trobar al següent enllaç:
 Per a la seva publicació a l'Agenda general de la UPC.
 """
 
+
 class gwSendEventView(grok.View):
     grok.context(IEvent)
     grok.name('send-event')
