@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.99 (unreleased)
+2.99 (2021-06-07)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos boostrap embed [Iago López Fernández]
+* No poner limite al buscar elementos con el portlet de new_existing_content [Iago López Fernández]
 
 2.98 (2021-05-19)
 -----------------
