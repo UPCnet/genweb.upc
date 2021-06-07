@@ -2,7 +2,6 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone import api
-from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.memoize.instance import memoize
@@ -19,7 +18,7 @@ from zope.interface import invariant
 from zope.site import hooks
 
 from genweb.core import GenwebMessageFactory as _
-from genweb.core.utils import pref_lang
+from genweb.upc.widgets.uberselectiongwwidget import UberSelectionGwWidget
 
 import DateTime
 import re
@@ -253,7 +252,7 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(INewContentPortlet)
     label = _(u"Afegeix portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica")
-    form_fields['own_content'].custom_widget = UberSelectionWidget
+    form_fields['own_content'].custom_widget = UberSelectionGwWidget
 
     def create(self, data):
         # s'invoca despres de __init__ en clicar Desa
@@ -265,4 +264,4 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(INewContentPortlet)
     label = _(u"Edita portlet de contingut existent")
     description = _(u"Aquest portlet mostra contingut ja existent en URL específica.")
-    form_fields['own_content'].custom_widget = UberSelectionWidget
+    form_fields['own_content'].custom_widget = UberSelectionGwWidget
