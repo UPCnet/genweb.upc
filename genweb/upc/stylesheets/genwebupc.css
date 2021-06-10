@@ -8675,7 +8675,7 @@ button.pfg-draft-save .badge,
         position: absolute; }
       .subnavbar .nav-list .active ul a.contenttype-folder span:after, .subnavbar .nav-list .selected ul a.contenttype-folder span:after {
         background-position: -384px 	-120px; }
-      .subnavbar .nav-list .active ul a.contenttype-page span:after, .subnavbar .nav-list .selected ul a.contenttype-page span:after, .subnavbar .nav-list .active ul a.contenttype-document span:after, .subnavbar .nav-list .selected ul a.contenttype-document span:after {
+      .subnavbar .nav-list .active ul a.contenttype-page span:after, .subnavbar .nav-list .selected ul a.contenttype-page span:after, .subnavbar .nav-list .active ul a.contenttype-genweb-upc-documentimage span:after, .subnavbar .nav-list .selected ul a.contenttype-genweb-upc-documentimage span:after, .subnavbar .nav-list .active ul a.contenttype-document span:after, .subnavbar .nav-list .selected ul a.contenttype-document span:after {
         background-position: -24px 	-24px; }
       .subnavbar .nav-list .active ul a.contenttype-link span:after, .subnavbar .nav-list .selected ul a.contenttype-link span:after {
         background-position: -72px 	-168px; }
@@ -8788,7 +8788,7 @@ html * .dropdown-menu a:hover .img_blank {
   float: left; }
 #listing-table a.contenttype-folder:before, #listing-table span.contenttype-folder:before, .template-tabular_view .listing a.contenttype-folder:before, .template-tabular_view .listing span.contenttype-folder:before, .contenttreeWidget > .navTree a.contenttype-folder:before, .contenttreeWidget > .navTree span.contenttype-folder:before, .collage-content-menu a.contenttype-folder:before, .collage-content-menu span.contenttype-folder:before {
   background-position: -384px 	-120px; }
-#listing-table a.contenttype-page:before, #listing-table a.contenttype-document:before, #listing-table span.contenttype-page:before, #listing-table span.contenttype-document:before, .template-tabular_view .listing a.contenttype-page:before, .template-tabular_view .listing a.contenttype-document:before, .template-tabular_view .listing span.contenttype-page:before, .template-tabular_view .listing span.contenttype-document:before, .contenttreeWidget > .navTree a.contenttype-page:before, .contenttreeWidget > .navTree a.contenttype-document:before, .contenttreeWidget > .navTree span.contenttype-page:before, .contenttreeWidget > .navTree span.contenttype-document:before, .collage-content-menu a.contenttype-page:before, .collage-content-menu a.contenttype-document:before, .collage-content-menu span.contenttype-page:before, .collage-content-menu span.contenttype-document:before {
+#listing-table a.contenttype-page:before, #listing-table a.contenttype-genweb-upc-documentimage:before, #listing-table a.contenttype-document:before, #listing-table span.contenttype-page:before, #listing-table span.contenttype-genweb-upc-documentimage:before, #listing-table span.contenttype-document:before, .template-tabular_view .listing a.contenttype-page:before, .template-tabular_view .listing a.contenttype-genweb-upc-documentimage:before, .template-tabular_view .listing a.contenttype-document:before, .template-tabular_view .listing span.contenttype-page:before, .template-tabular_view .listing span.contenttype-genweb-upc-documentimage:before, .template-tabular_view .listing span.contenttype-document:before, .contenttreeWidget > .navTree a.contenttype-page:before, .contenttreeWidget > .navTree a.contenttype-genweb-upc-documentimage:before, .contenttreeWidget > .navTree a.contenttype-document:before, .contenttreeWidget > .navTree span.contenttype-page:before, .contenttreeWidget > .navTree span.contenttype-genweb-upc-documentimage:before, .contenttreeWidget > .navTree span.contenttype-document:before, .collage-content-menu a.contenttype-page:before, .collage-content-menu a.contenttype-genweb-upc-documentimage:before, .collage-content-menu a.contenttype-document:before, .collage-content-menu span.contenttype-page:before, .collage-content-menu span.contenttype-genweb-upc-documentimage:before, .collage-content-menu span.contenttype-document:before {
   background-position: -24px 	-24px; }
 #listing-table a.contenttype-link:before, #listing-table span.contenttype-link:before, .template-tabular_view .listing a.contenttype-link:before, .template-tabular_view .listing span.contenttype-link:before, .contenttreeWidget > .navTree a.contenttype-link:before, .contenttreeWidget > .navTree span.contenttype-link:before, .collage-content-menu a.contenttype-link:before, .collage-content-menu span.contenttype-link:before {
   background-position: -72px 	-168px; }
@@ -8851,6 +8851,7 @@ dt[class*="contenttype"]:before {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=7500); }
 
 dt.contenttype-page:before,
+dt.contenttype-genweb-upc-documentimage:before,
 dt.contenttype-document:before {
   background-position: -24px   -24px; }
 

@@ -3810,6 +3810,8 @@ button.pfg-draft-save .badge,
 
 .subnavbar .nav-list .active ul a.contenttype-page span:after,
 .subnavbar .nav-list .selected ul a.contenttype-page span:after,
+.subnavbar .nav-list .active ul a.contenttype-genweb-upc-documentimage span:after,
+.subnavbar .nav-list .selected ul a.contenttype-genweb-upc-documentimage span:after,
 .subnavbar .nav-list .active ul a.contenttype-document span:after,
 .subnavbar .nav-list .selected ul a.contenttype-document span:after {
   background-position: -24px 	-24px;
@@ -4069,20 +4071,28 @@ html * .dropdown-menu a:hover .img_blank {
 }
 
 #listing-table a.contenttype-page:before,
+#listing-table a.contenttype-genweb-upc-documentimage:before,
 #listing-table a.contenttype-document:before,
 #listing-table span.contenttype-page:before,
+#listing-table span.contenttype-genweb-upc-documentimage:before,
 #listing-table span.contenttype-document:before,
 .template-tabular_view .listing a.contenttype-page:before,
+.template-tabular_view .listing a.contenttype-genweb-upc-documentimage:before,
 .template-tabular_view .listing a.contenttype-document:before,
 .template-tabular_view .listing span.contenttype-page:before,
+.template-tabular_view .listing span.contenttype-genweb-upc-documentimage:before,
 .template-tabular_view .listing span.contenttype-document:before,
 .contenttreeWidget > .navTree a.contenttype-page:before,
+.contenttreeWidget > .navTree a.contenttype-genweb-upc-documentimage:before,
 .contenttreeWidget > .navTree a.contenttype-document:before,
 .contenttreeWidget > .navTree span.contenttype-page:before,
+.contenttreeWidget > .navTree span.contenttype-genweb-upc-documentimage:before,
 .contenttreeWidget > .navTree span.contenttype-document:before,
 .collage-content-menu a.contenttype-page:before,
+.collage-content-menu a.contenttype-genweb-upc-documentimage:before,
 .collage-content-menu a.contenttype-document:before,
 .collage-content-menu span.contenttype-page:before,
+.collage-content-menu span.contenttype-genweb-upc-documentimage:before,
 .collage-content-menu span.contenttype-document:before {
   background-position: -24px 	-24px;
 }
@@ -4346,6 +4356,7 @@ dt[class*="contenttype"]:before {
 }
 
 dt.contenttype-page:before,
+dt.contenttype-genweb-upc-documentimage:before,
 dt.contenttype-document:before {
   background-position: -24px   -24px;
 }
