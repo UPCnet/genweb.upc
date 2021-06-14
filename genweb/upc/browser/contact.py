@@ -261,15 +261,15 @@ class ContactForm(form.SchemaForm):
         return ''
 
     def getURLDirectori(self, codi):
-        return "http://directori.upc.edu/directori/dadesUE.jsp?id=%s" % codi
+        return "https://directori.upc.edu/directori/dadesUE.jsp?id=%s" % codi
 
     def getURLMaps(self, codi):
         lang = utils.pref_lang()
-        return "//maps.upc.edu/embed/?lang=%s&iu=%s" % (lang, codi)
+        return "https://maps.upc.edu/embed/?lang=%s&iu=%s" % (lang, codi)
 
     def getURLUPCmaps(self, codi):
         lang = self.context.Language()
-        return "//maps.upc.edu/?iu=%s&lang=%s" % (codi, lang)
+        return "https://maps.upc.edu/?iu=%s&lang=%s" % (codi, lang)
 
     def getContactPersonalized(self):
         return utils.genweb_config().contacte_BBDD_or_page
