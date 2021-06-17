@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.100 (unreleased)
+2.100 (2021-06-17)
 ------------------
 
-- Nothing changed yet.
-
+* http -> https [Iago López Fernández]
+* Iconos contenido documentimage [Iago López Fernández]
 
 2.99 (2021-06-07)
 -----------------
