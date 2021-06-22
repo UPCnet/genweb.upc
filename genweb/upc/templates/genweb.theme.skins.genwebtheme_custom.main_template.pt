@@ -91,7 +91,9 @@
                 gtag("set", "ads_data_redaction", false);
             </script>
 
-            <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5a89d4e3-8b4b-458c-a9dc-7cdc9072bbf3" data-blockingmode="auto" type="text/javascript"></script>
+            <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5a89d4e3-8b4b-458c-a9dc-7cdc9072bbf3"
+                    data-blockingmode="auto" type="text/javascript"
+                    tal:attributes="data-culture gwutils/pref_lang"></script>
         </tal:cookiebot>
     </tal:notajax>
 </head>
