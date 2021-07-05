@@ -16,6 +16,7 @@
 
   <include file="patches.zcml" />
   <include file="overrides.zcml" />
+  <include file="indexers.zcml" />
 
   <include package=".browser" />
   <include package=".portlets" />
