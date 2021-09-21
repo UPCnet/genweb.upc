@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.102 (unreleased)
+2.102 (2021-09-21)
 ------------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Iago López Fernández]
+* No mostrar en PDF (adobe) el banner de cookies [Iago López Fernández]
+* No mostrar popup cookies en modo print [Iago López Fernández]
+* Añadir texto al searchable text de las paginas con imagen [Iago López Fernández]
+* Document amb imatge - afegir subjects en el SearchableText [Iago López Fernández]
 
 2.101 (2021-06-30)
 ------------------
