@@ -13538,6 +13538,9 @@ tr.mceLast > td {
   #peu .w1\3a 3, #peu .span8 > p, #bandaLogos, div.popover, div.expandable-content, #menusup, #cookies, a.share_popover {
     display: none !important; }
 
+  footer#peu #cookies-id {
+    display: none !important; }
+
   #portal-column-content {
     margin: 0 !important;
     width: 100% !important; }

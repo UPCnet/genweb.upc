@@ -10946,6 +10946,10 @@ tr.mceLast > td {
     display: none !important;
   }
 
+  footer#peu #cookies-id {
+    display: none !important;
+  }
+
   #portal-column-content {
     margin: 0 !important;
     width: 100% !important;

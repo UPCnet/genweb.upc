@@ -9,7 +9,7 @@
 
   <div class="container">
 
-    <div id="cookies-id" role="alert" style="display: none">
+    <div id="cookies-id" role="alert" style="display: none" tal:condition="viewlet/notViewPDF">
       <div id="cookies-bodyContent">
         <div id="cookies-bodyText">
           <tal:msg i18n:translate="cookie_policy_this_site">
