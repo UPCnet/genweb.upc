@@ -37,11 +37,9 @@ class SocialTagsTwitterViewlet(TitleViewlet):
                 "image": None}
 
         try:
-            obj = api.content.find(context=self.context)[0]
-            item = obj.getObject()
-            has_image = getattr(item, 'image', None)
+            has_image = getattr(self.context, 'image', None)
             if has_image is not None:
-                tags["image"] = item.absolute_url() + '/@@images/image'
+                tags["image"] = self.context.absolute_url() + '/@@images/image'
         except:
             pass
 
