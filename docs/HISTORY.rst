@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.103 (unreleased)
+2.103 (2021-11-04)
 ------------------
 
-- Nothing changed yet.
-
+* Fix social tag image [Iago López Fernández]
 
 2.102 (2021-09-21)
 ------------------
