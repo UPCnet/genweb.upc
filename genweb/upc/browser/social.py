@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.browser.syndication.adapters import FolderFeed, BaseItem
-from Products.CMFPlone.interfaces.syndication import IFeedItem
 
 from plone import api
 from plone.app.layout.viewlets.common import TitleViewlet
 from plone.registry.interfaces import IRegistry
-
 from zope.component import getUtility
-from zope.component import queryMultiAdapter
-from zope.component.hooks import getSite
 
 from genweb.controlpanel.interface import IGenwebControlPanelSettings
 
@@ -17,12 +12,6 @@ from genweb.controlpanel.interface import IGenwebControlPanelSettings
 class SocialTagsTwitterViewlet(TitleViewlet):
 
     def get_tags(self):
-        site = getSite()
-        feed = FolderFeed(site)
-        item = queryMultiAdapter((self.context, feed), IFeedItem, default=None)
-        if item is None:
-            item = BaseItem(self.context, feed)
-
         registry = getUtility(IRegistry)
         gwsettings = registry.forInterface(IGenwebControlPanelSettings)
 
@@ -31,9 +20,9 @@ class SocialTagsTwitterViewlet(TitleViewlet):
             lang = 'ca'
 
         tags = {"site": getattr(gwsettings, 'html_title_{}'.format(lang)),
-                "title": item.title,
-                "description": item.description,
-                "url": item.link,
+                "title": self.context.title,
+                "description": self.context.description,
+                "url": self.context.absolute_url(),
                 "image": None}
 
         try:
