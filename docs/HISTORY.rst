@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.104 (unreleased)
+2.104 (2021-11-19)
 ------------------
 
-- Nothing changed yet.
-
+* Fix SocialTagsTwitterViewlet [Iago López Fernández]
 
 2.103 (2021-11-04)
 ------------------
