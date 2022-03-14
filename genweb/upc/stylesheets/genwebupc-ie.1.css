@@ -5401,6 +5401,8 @@ legend + .control-group {
   background-position: -240px -192px;
 }
 
+.icon-plone-contentmenu-display-filtered_contents_search_complete_pretty_view,
+.icon-folder-filtered_contents_search_complete_pretty_view,
 .icon-plone-contentmenu-display-filtered_contents_search_pretty_view,
 .icon-folder-filtered_contents_search_pretty_view {
   background-position: -311px -167px;
