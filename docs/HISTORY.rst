@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.107 (unreleased)
+2.107 (2022-03-14)
 ------------------
 
-- Nothing changed yet.
-
+* Estilos filtered_contents_search_complete_pretty_view [ilopezsmx]
 
 2.106 (2022-03-14)
 ------------------
