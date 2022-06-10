@@ -5,7 +5,7 @@
     <meta tal:condition="tags/title" property="og:title" tal:attributes="content tags/title" />
     <meta property="og:url" tal:attributes="content tags/url" />
     <meta tal:condition="tags/description" property="og:description" tal:attributes="content tags/description" />
-    <meta tal:condition="tags/image" property="og:image" tal:attributes="content tags/image" />
+    <meta tal:condition="tags/image" property="og:image" tal:attributes="content string:${tags/image}/thumb" />
     <meta tal:condition="tags/image" property="og:image:type" content="image/png" />
 
     <meta name="twitter:card" content="summary" />
