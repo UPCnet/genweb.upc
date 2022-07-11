@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.108 (unreleased)
+2.108 (2022-07-11)
 ------------------
 
-- Nothing changed yet.
-
+* Added thumb for sharing image [Ruben Padilla Mateu]
 
 2.107 (2022-03-14)
 ------------------
