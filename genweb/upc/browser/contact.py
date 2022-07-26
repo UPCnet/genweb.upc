@@ -248,7 +248,7 @@ class ContactForm(form.SchemaForm):
 
         mailhost.send(escape(safe_unicode(message)),
                       mto=to_address,
-                      mfrom=portal.getProperty('email_from_address'),
+                      mfrom=data['from_address'],
                       subject=subject,
                       charset=email_charset,
                       msg_type='text/plain')
