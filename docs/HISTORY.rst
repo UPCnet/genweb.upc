@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.109 (unreleased)
+2.109 (2022-07-28)
 ------------------
 
-- Nothing changed yet.
-
+* Modificar from formulario de contacto [Iago López]
+* Resolver error ortografico. [alberto.duran]
 
 2.108 (2022-07-11)
 ------------------
