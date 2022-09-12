@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.110 (unreleased)
+2.110 (2022-09-12)
 ------------------
 
-- Nothing changed yet.
-
+* Revertir cambio: Modificar from formulario de contacto [Iago López]
 
 2.109 (2022-07-28)
 ------------------
