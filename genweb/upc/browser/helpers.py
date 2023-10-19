@@ -7,6 +7,7 @@ from plone import api
 from five import grok
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 
+import json
 
 class findPacketbyType(grok.View):
     """ Return all contents of a content type """
@@ -101,3 +102,51 @@ class findExistingContentPortlets(grok.View):
             return portlets_contingut
         else:
             return 'No hi ha portlets'
+
+
+class replaceElementExistingContentPortlets(grok.View):
+    grok.context(IPloneSiteRoot)
+    grok.name('replace_element_existingcontent_portlet')
+    grok.require('cmf.ManagePortal')
+
+    def render(self):
+        portlets_error = []
+        portlets_found = []
+        portlets_not_content = []
+        portlets = ()
+
+        pc = api.portal.get_tool('portal_catalog')
+        for item in pc.searchResults():
+            item_obj = item.getObject()
+            for column in ["genweb.portlets.HomePortletManager1",
+                           "genweb.portlets.HomePortletManager2",
+                           "genweb.portlets.HomePortletManager3",
+                           "genweb.portlets.HomePortletManager4",
+                           "genweb.portlets.HomePortletManager5",
+                           "genweb.portlets.HomePortletManager6",
+                           "genweb.portlets.HomePortletManager7",
+                           "genweb.portlets.HomePortletManager8",
+                           "genweb.portlets.HomePortletManager9",
+                           "genweb.portlets.HomePortletManager10",
+                           "plone.leftcolumn",
+                           "plone.rightcolumn"
+                           ]:
+                manager = getUtility(IPortletManager, name=column, context=item_obj)
+                retriever = getMultiAdapter((item_obj, manager), IPortletRetriever)
+                portlets = retriever.getPortlets()
+                if portlets:
+                    for portlet in portlets:
+                        if IContentPortlet.providedBy(portlet["assignment"]):
+                            try:
+                                if 'element' in self.request.form and portlet['assignment'].element.replace('#', '') == self.request.form['element']:
+                                    portlets_found.append(item_obj.absolute_url())
+
+                                    if 'replace' in self.request.form:
+                                        portlet['assignment'].element = '#' + self.request.form['replace']
+
+                                if portlet['assignment'].element not in ['#content-core', '#content']:
+                                    portlets_not_content.append([portlet['assignment'].element, item_obj.absolute_url()])
+                            except:
+                                portlets_error.append(item_obj.absolute_url())
+
+        return json.dumps({'changes': portlets_found, 'not_content': portlets_not_content, 'error': portlets_error})
